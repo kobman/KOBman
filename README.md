@@ -1,2 +1,3 @@
 # KOBman
-KOBman , A command line utility inspired from sdkman used to automate setup various KOB development environments for KOB projects  
+**KOBman** , is A command line utility inspired from sdkman !! 
+KOBMan gives you a *kob* command on your shell , you can use it to automate the setup of various development environments required for KOB projects  
