@@ -1,5 +1,7 @@
 # KOBman
-KOBman , is a command line utility inspired from sdkman !! 
+**KOBman** , is A command line utility inspired from sdkman !! 
+KOBMan gives you a *kob* command on your shell , you can use it to automate the setup of various development environments required for KOB projects  
+
 
 
 
@@ -10,22 +12,22 @@ KOBman , is a command line utility inspired from sdkman !!
 <!--Text-->
 
 <!--
-<!--[![Build Status](https://travis-ci.org/sdkman/sdkman-cli.svg?branch=master)](https://travis-ci.org/sdkman/sdkman-cli)
-[![Latest Version](https://api.bintray.com/packages/sdkman/generic/sdkman-cli/images/download.svg) ](https://bintray.com/sdkman/generic/sdkman-cli/_latestVersion)
-[![Backers on Open Collective](https://opencollective.com/sdkman/backers/badge.svg)](#backers) 
-[![Sponsors on Open Collective](https://opencollective.com/sdkman/sponsors/badge.svg)](#sponsors)
-[![Slack](https://slack.sdkman.io/badge.svg)](https://slack.sdkman.io)
+<!--[![Build Status](https://travis-ci.org/kobman/kobman-cli.svg?branch=master)](https://travis-ci.org/kobman/kobman-cli)
+[![Latest Version](https://api.bintray.com/packages/kobman/generic/kobman-cli/images/download.svg) ](https://bintray.com/kobman/generic/kobman-cli/_latestVersion)
+[![Backers on Open Collective](https://opencollective.com/kobman/backers/badge.svg)](#backers) 
+[![Sponsors on Open Collective](https://opencollective.com/kobman/sponsors/badge.svg)](#sponsors)
+[![Slack](https://slack.kobman.io/badge.svg)](https://slack.kobman.io)
 -->
 
 KOBMAN is a tool for managing parallel Versions of multiple KochiOrgBook projects on any Unix based system. It provides a convenient command line interface for installing, removing and listing Environments.
 
-See documentation on the [KOBMAN! website](https://sdkman.io).
+See documentation on the [KOBMAN! website](https://kobman.io).
 
 ## Installation
 
 Open your favourite terminal and enter the following:
 
-    $ curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash
+    $ curl -L https://raw.githubusercontent.com/TrinityGroup/KOBDevOps/master/get.kobman.io | bash
 
 If the environment needs tweaking for KOBMAN to be installed, the installer will prompt you accordingly and ask you to restart.
 
@@ -101,5 +103,6 @@ For new features creation , you have to edit (add file 'kobman-*' ) extention sc
 ## Contributors
 
 This project exists thanks to all the people who contribute. 
-<a href="https://github.com/hyperledgerkochi/KOBman/graphs/contributors"><img src="https://i.stack.imgur.com/kk4j4.jpg" /></a>
+<a href="https://github.com/hyperledgerkochi/KOBDevOps/graphs/contributors"><img src="https://i.stack.imgur.com/kk4j4.jpg" /></a>
+
 
