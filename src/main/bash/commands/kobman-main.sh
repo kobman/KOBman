@@ -4,8 +4,8 @@
 function kob {
 
 	COMMAND="$1"
-	QUALIFIER="$2"
-	THREE="$3"
+	DEPLOYMENT_TYPE="$2"
+	ENVIRONMENT_TYPE="$3"
 	NAME_SPACE=${4:-hyperledgerkochi}
 	case "$COMMAND" in
 		l)
@@ -87,27 +87,27 @@ function kob {
 
 #if [ "$COMMAND" = "install" ]
 #then
-#	case $QUALIFIER in
+#	case $DEPLOYMENT_TYPE in
 #		--dev)
-#			if [ "$THREE" = "all" ]
+#			if [ "$ENVIRONMENT_TYPE" = "all" ]
 #			then
 #				echo "working all parameter"
-#			elif [ "$THREE" = "kobvon" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "kobvon" ]
 #			then	
 #				echo "Building kobvon..."	
-#			elif [ "$THREE" = "kob" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "kob" ]
 #			then	
 #				echo "Building kob..."	
-#			elif [ "$THREE" = "kobdflow" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "kobdflow" ]
 #			then	
 #				echo "Building kobdflow..."	
-#			elif [ "$THREE" = "kobconnect" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "kobconnect" ]
 #			then	
 #				echo "Building kobconnect..."	
-#			elif [ "$THREE" = "kobregistory" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "kobregistory" ]
 #			then	
 #				echo "Building kobregistory..."	
-#			elif [ "$THREE" = "tobvon" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "tobvon" ]
 #			then	
 #				echo "Building tobvon..."	
 #				if [[ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]]; then
@@ -121,7 +121,7 @@ function kob {
 #                		         __kobman_visual_studio_install
 #				fi
 #				__kobman_tobvon_build "$NAME_SPACE"
-#			elif [ "$THREE" = "tob" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "tob" ]
 #			then	
 #				echo "Building tob..."	
 #				__kobman_check_proxy
@@ -132,7 +132,7 @@ function kob {
 #	     			__kobman_npm_install
 #				__kobman_visual_studio_install
 #				__kobman_tob_build "$NAME_SPACE"
-#			elif [ "$THREE" = "greenlight" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "greenlight" ]
 #			then	
 #				echo "Building greenlight ..."	
 #				__kobman_check_proxy
@@ -148,22 +148,22 @@ function kob {
 #			fi		
 #		;;
 #		--deploy)
-#                        if [ "$THREE" = "kobvon" ]
+#                        if [ "$ENVIRONMENT_TYPE" = "kobvon" ]
 #                        then
 #                                echo "Starting kobvon..."
-#			elif [ "$THREE" = "kob" ]
+#			elif [ "$ENVIRONMENT_TYPE" = "kob" ]
 #                        then
 #                                echo "starting kob..."
-#                        elif [ "$THREE" = "kobdflow" ]
+#                        elif [ "$ENVIRONMENT_TYPE" = "kobdflow" ]
 #                        then
 #                                echo "Starting kobdflow..."
-#                        elif [ "$THREE" = "kobconnect" ]
+#                        elif [ "$ENVIRONMENT_TYPE" = "kobconnect" ]
 #                        then
 #                                echo "Starting kobconnect..."
-#                        elif [ "$THREE" = "kobregistory" ]
+#                        elif [ "$ENVIRONMENT_TYPE" = "kobregistory" ]
 #                        then
 #                                echo "Starting kobregistory..."
-#                        elif [ "$THREE" = "tobvon" ]
+#                        elif [ "$ENVIRONMENT_TYPE" = "tobvon" ]
 #                        then
 #                                echo "Starting tobvon..."
 #	                        __kobman_check_proxy
@@ -175,12 +175,12 @@ function kob {
 #       		       		__kobman_visual_studio_install        
 #				__kobman_tobvon_build "$NAME_SPACE"
 #				__kobman_tobvon_start
-#                        elif [ "$THREE" = "tob" ]
+#                        elif [ "$ENVIRONMENT_TYPE" = "tob" ]
 #                      	then
 #                               echo "Starting tob..."
 #                         	__kobman_tob_build "$NAME_SPACE"
 #				__kobman_tob_start
-#                         elif [ "$THREE" = "greenlight" ]
+#                         elif [ "$ENVIRONMENT_TYPE" = "greenlight" ]
 #                         then
 #                                 echo "Building greenlight ..."
 #                         	 __kobman_greenlight_build "$NAME_SPACE"
@@ -228,7 +228,7 @@ function kob {
 #				__kobman_greenlight_start
 #		;;
 #		*)
-#			if [ -z $QUALIFIER ]
+#			if [ -z $DEPLOYMENT_TYPE ]
 #			then
 #				echo "Default Projects are tobvon,tob,greenlight"	
 #			fi			
@@ -239,15 +239,15 @@ function kob {
 #elif [ "$COMMAND" = "uninstall" ]
 #then	
 #
-#	if [ "$QUALIFIER" = "tobvon" ]
+#	if [ "$DEPLOYMENT_TYPE" = "tobvon" ]
 #	then
 #		echo "uninstalling tobvon"	
 #		__kobman_tobvon_uninstall
-#	elif [ "$QUALIFIER" = "tob" ]
+#	elif [ "$DEPLOYMENT_TYPE" = "tob" ]
 #	then
 #		echo "uninstalling tob"	
 #		__kobman_tob_uninstall
-#	elif [ "$QUALIFIER" = "greenlight" ]
+#	elif [ "$DEPLOYMENT_TYPE" = "greenlight" ]
 #	then
 #		echo "uninstalling greenlight"	
 #		__kobman_greenlight_uninstall
@@ -266,17 +266,17 @@ function kob {
 #
 
 	#	# Check whether the candidate exists
-#	local kobman_valid_candidate=$(echo ${KOBMAN_CANDIDATES[@]} | grep -w "$QUALIFIER")
-#	if [[ -n "$QUALIFIER" && "$COMMAND" != "offline" && "$COMMAND" != "flush" && "$COMMAND" != "selfupdate" && -z "$kobman_valid_candidate" ]]; then
+#	local kobman_valid_candidate=$(echo ${KOBMAN_CANDIDATES[@]} | grep -w "$DEPLOYMENT_TYPE")
+#	if [[ -n "$DEPLOYMENT_TYPE" && "$COMMAND" != "offline" && "$COMMAND" != "flush" && "$COMMAND" != "selfupdate" && -z "$kobman_valid_candidate" ]]; then
 #		echo ""
-#		__kobman_echo_red "Stop! $QUALIFIER is not a valid candidate."
+#		__kobman_echo_red "Stop! $DEPLOYMENT_TYPE is not a valid candidate."
 #		return 1
 #	fi
 #
-#	# Validate offline qualifier
-#	if [[ "$COMMAND" == "offline" && -n "$QUALIFIER" && -z $(echo "enable disable" | grep -w "$QUALIFIER") ]]; then
+#	# Validate offline deployment_type
+#	if [[ "$COMMAND" == "offline" && -n "$DEPLOYMENT_TYPE" && -z $(echo "enable disable" | grep -w "$DEPLOYMENT_TYPE") ]]; then
 #		echo ""
-#		__kobman_echo_red "Stop! $QUALIFIER is not a valid offline mode."
+#		__kobman_echo_red "Stop! $DEPLOYMENT_TYPE is not a valid offline mode."
 #	fi
 
 	# Check whether the command exists as an internal function...
@@ -291,7 +291,7 @@ function kob {
 	# Execute the requested command
 	if [ -n "$CMD_FOUND" ]; then
 		# It's available as a shell function
-		__kob_"$CONVERTED_CMD_NAME" "$QUALIFIER" "$3" "$4"
+		__kob_"$CONVERTED_CMD_NAME" "$DEPLOYMENT_TYPE" "$3" "$4"
 		final_rc=$?
 	fi
 
