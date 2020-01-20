@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-
-function __kob_uninstall {
+function __kobman_tobvon_uninstall
+{
 	
 local command deployment_type environment_type name_space
      	command=$COMMAND

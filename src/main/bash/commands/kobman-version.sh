@@ -13,6 +13,5 @@ echo " /_/ |_\____/_____/              |___/\___/_/  /____/_/\____/_/ /_/  "
 
 
 
-	echo ""
-	__kobman_echo_yellow "KOBMAN ${KOBMAN_VERSION}"
+	__kobman_echo_yellow ${KOBMAN_VERSION_0.01}
 }
