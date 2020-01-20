@@ -1,8 +1,6 @@
 #!/bin/bash 
 
 
-sudo figlet KOB-Registery -f small 
-sudo figlet Memory upload -f small 
 
 function __kobman_install_kobregistery
 {

@@ -3,8 +3,6 @@
  
                                                           
 
-sudo figlet KochiOrgBook -f small
-sudo figlet Memory upload -f small
 
 function __kobman_install_kob
 {

@@ -1,7 +1,5 @@
 #!/bin/bash 
 
-sudo figlet KOB-VON -f small
-sudo figlet Memory upload -f small
 
 function __kobman_install_kobvon
 {

@@ -1,8 +1,6 @@
 #!/bin/bash 
                                                               
                                                               
-sudo figlet TOB-TheOrgBook -f small
-sudo figlet Memory upload -f small
 
 function __kobman_install_tob
 {

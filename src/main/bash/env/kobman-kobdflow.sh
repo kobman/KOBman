@@ -1,7 +1,5 @@
 #!/bin/bash 
 
-sudo figlet KOB-Dflow -f small
-sudo figlet Memory upload
 
 function __kobman_install_kobdflow
 {
