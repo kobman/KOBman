@@ -1,10 +1,9 @@
 #!/bin/bash
 
 
-# sudo figlet KOB-Connect -f small
-# sudo figlet Memory upload -f small
-
-Function_KOBConnect()
+sudo figlet KOB-Connect -f small
+sudo figlet Memory upload -f small
+function __kobman_install_kobconnect
 {
 
 		kobman_namespace="$1"
@@ -16,7 +15,7 @@ Function_KOBConnect()
 		sudo git clone https://github.com/${kobman_namespace}/KOBConnect.git
 }
 
-fun_uninstall_KOBConnect()
+function __kobman_uninstall_kobconnect
 {
 
 	sudo figlet KOB-Connect -f small

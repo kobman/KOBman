@@ -1,9 +1,8 @@
 #!/bin/bash
                                                                                                                                    
-# sudo figlet TOB-VON -f small
-# sudo figlet Memory upload -f small
-
-function __kobman_tobvon_build
+sudo figlet TOB-VON -f small
+sudo figlet Memory upload -f small
+function __kobman_install_tobvon
 {
 
 		
@@ -18,7 +17,8 @@ function __kobman_tobvon_build
 
 }
 
-function __kobman_tobvon_start
+
+function __kobman_start_tobvon
 {
 
 
@@ -29,7 +29,7 @@ function __kobman_tobvon_start
 }
 
 
-function __kobman_tobvon_uninstall
+function __kobman_uninstall_tobvon
 {
 	sudo figlet TOB-VON -f small
 	sudo figlet Removing -f small

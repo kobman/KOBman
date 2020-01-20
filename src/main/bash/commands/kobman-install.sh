@@ -3,36 +3,36 @@
 
 function __kob_install {
 
-	local command qualifier three name_space 
+	local command deployment_type environment_type name_space 
 
 	command=$COMMAND
-	qualifier=$QUALIFIER
-	three=$THREE
+	deployment_type=$DEPLOYMENT_TYPE
+	environment_type=$ENVIRONMENT_TYPE
 	name_space=$NAME_SPACE 
 	
 	if [ "$command" = "install" ]
 	then
-        	case $qualifier in
+        	case $deployment_type in
                 --dev)
-                        if [ "$three" = "all" ]
+                        if [ "$environment_type" = "all" ]
                         then
                                 echo "working all parameter"
-                        elif [ "$three" = "kobvon" ]
+                        elif [ "$environment_type" = "kobvon" ]
                         then
                                 echo "Building kobvon..."
-                        elif [ "$three" = "kob" ]
+                        elif [ "$environment_type" = "kob" ]
                         then
                                 echo "Building kob..."
-                        elif [ "$three" = "kobdflow" ]
+                        elif [ "$environment_type" = "kobdflow" ]
                         then
                                 echo "Building kobdflow..."
-                        elif [ "$three" = "kobconnect" ]
+                        elif [ "$environment_type" = "kobconnect" ]
                         then
                                 echo "Building kobconnect..."
-                        elif [ "$three" = "kobregistory" ]
+                        elif [ "$environment_type" = "kobregistory" ]
                         then
                                 echo "Building kobregistory..."
-                        elif [ "$three" = "tobvon" ]
+                        elif [ "$environment_type" = "tobvon" ]
                         then
                                 echo "Building tobvon..."
                                 __kobman_check_proxy
@@ -42,8 +42,8 @@ function __kob_install {
                                 __kobman_docker_install
                                 __kobman_npm_install
                                 __kobman_visual_studio_install
-                                __kobman_tobvon_build "$name_space"
- 			elif [ "$three" = "tob" ]
+ 				__kobman_install_tobvon "$name_space"
+			elif [ "$environment_type" = "tob" ]
                         then
                                 echo "Building tob..."
                                 if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
@@ -56,8 +56,8 @@ function __kob_install {
                                          __kobman_npm_install
                                          __kobman_visual_studio_install
                                 fi
-                                __kobman_tob_build "$name_space"
-                        elif [ "$three" = "greenlight" ]
+ 				__kobman_install_tob "$name_space"
+                        elif [ "$environment_type" = "greenlight" ]
                         then
                                 echo "Building greenlight ..."
                                 if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
@@ -70,28 +70,28 @@ function __kob_install {
                                          __kobman_npm_install
                                          __kobman_visual_studio_install
                                 fi
-                                __kobman_greenlight_build "$name_space"
+ 				__kobman_install_greenlight "$name_space"
                         else
                                 echo "verifiy your command and try again"
                         fi
                 ;;
                 --deploy)
-                        if [ "$three" = "kobvon" ]
+                        if [ "$environment_type" = "kobvon" ]
                         then
                                 echo "Starting kobvon..."
-                        elif [ "$three" = "kob" ]
+                        elif [ "$environment_type" = "kob" ]
                         then
                                 echo "starting kob..."
-                        elif [ "$three" = "kobdflow" ]
+                        elif [ "$environment_type" = "kobdflow" ]
                         then
                                 echo "Starting kobdflow..."
-                        elif [ "$three" = "kobconnect" ]
+                        elif [ "$environment_type" = "kobconnect" ]
                         then
                                 echo "Starting kobconnect..."
-                        elif [ "$three" = "kobregistory" ]
+                        elif [ "$environment_type" = "kobregistory" ]
                         then
                                 echo "Starting kobregistory..."
- 			elif [ "$three" = "tobvon" ]
+ 			elif [ "$environment_type" = "tobvon" ]
                         then
                                 echo "Starting tobvon..."
                                 if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
@@ -104,9 +104,9 @@ function __kob_install {
                                          __kobman_npm_install
                                          __kobman_visual_studio_install
                                 fi
-                                __kobman_tobvon_build "$name_space"
-                                __kobman_tobvon_start
-                        elif [ "$three" = "tob" ]
+                        	__kobman_install_tobvon "$name_space"
+                                __kobman_start_tobvon
+			elif [ "$environment_type" = "tob" ]
                         then
                                echo "Starting tob..."
                                 if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
@@ -119,9 +119,9 @@ function __kob_install {
                                          __kobman_npm_install
                                          __kobman_visual_studio_install
                                 fi
-                                __kobman_tob_build "$name_space"
-                                __kobman_tob_start
-                         elif [ "$three" = "greenlight" ]
+                                __kobman_install_tob "$name_space"
+                                __kobman_start_tob
+                         elif [ "$environment_type" = "greenlight" ]
                          then
                                  echo "Building greenlight ..."
                                 if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
@@ -134,52 +134,15 @@ function __kob_install {
                                          __kobman_npm_install
                                          __kobman_visual_studio_install
                                 fi
-                                 __kobman_greenlight_build "$name_space"
-                                 __kobman_greenlight_start
+                                 __kobman_install_greenlight "$name_space"
+                                 __kobman_start_greenlight
                          else
                                  echo "verifiy your command and try again"
                          fi
                  ;;
 
-                kobvon)
-                                echo "starting kobvon..."
-                ;;
-                kob)
-                                echo "starting kob..."
-                ;;
-
-                kobdflow)
-                                echo "starting kobdflow..."
-                ;;
-                kobconnect)
-                                echo "starting kobconnect..."
-                ;;
-                kobregistory)
-                                echo "starting kobregistory..."
-                ;;
- tobvon)
-                                echo "starting tobvon..."
-                                __kobman_check_proxy
-                                __kobman_ubuntu_update_upgrade
-                                __kobman_git_install
-                                __kobman_python_install
-                                __kobman_docker_install
-                                __kobman_npm_install
-                                __kobman_tobvon_build
-                                __kobman_tobvon_start
-                ;;
-                tob)
-                                echo "starting tob..."
-                                __kobman_tob_build
-                                __kobman_tob_start
-                ;;
-                greenlight)
-                                echo "starting greenlight ..."
-                                __kobman_greenlight_build
-                                __kobman_greenlight_start
-                ;;
                 *)
-                        if [ -z $qualifier ]
+                        if [ -z $deployment_type ]
                         then
                                 echo "Default Projects are tobvon,tob,greenlight"
                         fi

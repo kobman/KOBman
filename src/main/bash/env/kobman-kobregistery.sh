@@ -1,10 +1,10 @@
 #!/bin/bash 
 
 
-# sudo figlet KOB-Registery -f small 
-# sudo figlet Memory upload -f small 
+sudo figlet KOB-Registery -f small 
+sudo figlet Memory upload -f small 
 
-Function_KOBRegistery()
+function __kobman_install_kobregistery
 {
 
 
@@ -17,7 +17,7 @@ Function_KOBRegistery()
 		sudo git clone https://github.com/${kobman_namespace}/KOBRegistry.git
 }
 
-fun_uninstall_KOBRegistery()
+function __kobman_uninstall_kobregistery
 {
 	sudo figlet KOB-Registery -f small
 	sudo figlet Removing.. -f small

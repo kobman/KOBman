@@ -1,10 +1,11 @@
 #!/bin/bash 
 
-# sudo figlet TOB-Greenlight -f small
-# sudo figlet Memory upload -f small
+sudo figlet TOB-Greenlight -f small
+sudo figlet Memory upload -f small
 
 # sudo chmod 755 ${KOBMAN_CANDIDATES_DIR} 
-function __kobman_greenlight_build
+
+function __kobman_install_greenlight
 {
 		kobman_namespace="$1"
 	
@@ -24,7 +25,7 @@ function __kobman_greenlight_build
 
 }
 
-function __kobman_greenlight_start
+function __kobman_start_greenlight
 {
 
 	sudo figlet TOB-Greenlight -f small
@@ -34,7 +35,7 @@ function __kobman_greenlight_start
         sudo greenlight/docker/manage start
 }
 
-function __kobman_greenlight_uninstall
+function __kobman_uninstall_greenlight
 {
 	
 	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}

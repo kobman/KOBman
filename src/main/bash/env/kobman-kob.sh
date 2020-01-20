@@ -3,12 +3,10 @@
  
                                                           
 
-# sudo figlet KochiOrgBook -f small
-# sudo figlet Memory upload -f small
+sudo figlet KochiOrgBook -f small
+sudo figlet Memory upload -f small
 
-
-
-Function_KobBuild()
+function __kobman_install_kob
 {
 
 		
@@ -29,7 +27,7 @@ Function_KobBuild()
 
 }
 
-Function_KobStart()
+function __kobman_start_kob
 {
 	
 	sudo figlet KochiOrgBook -f small
@@ -38,7 +36,7 @@ Function_KobStart()
         sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
 }
 
-fun_uninstall_KOB()
+function __kobman_uninstall_kob
 {
 	
 	sudo figlet KochiOrgBook -f small

@@ -1,9 +1,9 @@
 #!/bin/bash 
 
-# sudo figlet KOB-Dflow -f small
-# sudo figlet Memory upload
+sudo figlet KOB-Dflow -f small
+sudo figlet Memory upload
 
-Function_DflowBuild()
+function __kobman_install_kobdflow
 {
 		kobman_namespace="$1"
 
@@ -20,7 +20,7 @@ Function_DflowBuild()
 
 }
 
-fun_Dflow_start()
+function __kobman_start_kobdflow
 {
 
 	sudo figlet KOB-Dflow -f small
@@ -33,7 +33,7 @@ fun_Dflow_start()
         fi
 }
 
-fun_uninstall_KOBDflow()
+function __kobman_uninstall_kobdflow
 {
 	sudo figlet KOB-Dflow -f small
 	sudo figlet Removing -f small

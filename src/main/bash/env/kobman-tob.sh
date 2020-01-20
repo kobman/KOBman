@@ -1,11 +1,10 @@
 #!/bin/bash 
                                                               
                                                               
-# sudo figlet TOB-TheOrgBook -f small
-# sudo figlet Memory upload -f small
+sudo figlet TOB-TheOrgBook -f small
+sudo figlet Memory upload -f small
 
-
-function __kobman_tob_build
+function __kobman_install_tob
 {
 	        kobman_namespace="$1"
 		sudo figlet TOB-TheOrgBook -f small
@@ -23,7 +22,7 @@ function __kobman_tob_build
 
 }
 
-function __kobman_tob_start
+function __kobman_start_tob
 {
 
 
@@ -34,7 +33,7 @@ function __kobman_tob_start
         sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
 }
 
-function __kobman_tob_uninstall
+function __kobman_uninstall_tob
 {
 	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
 	sudo figlet TOB-TheOrgBook -f small

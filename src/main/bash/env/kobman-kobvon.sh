@@ -1,11 +1,9 @@
 #!/bin/bash 
 
-# sudo figlet KOB-VON -f small
-# sudo figlet Memory upload -f small
+sudo figlet KOB-VON -f small
+sudo figlet Memory upload -f small
 
-
-
-Function_VonBuild()
+function __kobman_install_kobvon
 {
 
 		kobman_namespace="$1"
@@ -20,7 +18,7 @@ Function_VonBuild()
 
 }
 
-Function_VonStart()
+function __kobman_start_kobvon
 {
 
 
@@ -30,7 +28,7 @@ Function_VonStart()
         sudo von-network/manage start
 }
 
-fun_uninstall_KOBVON()
+function __kobman_uninstall_kobvon
 {
  	sudo figlet KOB-VON -f small
 	sudo figlet Removing -f small
