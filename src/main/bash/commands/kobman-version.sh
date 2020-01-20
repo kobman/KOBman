@@ -3,15 +3,9 @@
 
 function __kob_version {
 
-
-echo "     __ ______  ____              _    __               _          " 
-echo "    / //_/ __ \/ __ )            | |  / /__  __________(_)___  ____  " 
-echo "   / ,< / / / / __  |  ______    | | / / _ \/ ___/ ___/ / __ \/ __ \ " 
-echo "  / /| / /_/ / /_/ /  /_____/    | |/ /  __/ /  (__  ) / /_/ / / / / " 
-echo " /_/ |_\____/_____/              |___/\___/_/  /____/_/\____/_/ /_/  " 
                                                                    
+sudo figlet KOB - Version -f small
 
 
-
-	__kobman_echo_yellow ${KOBMAN_VERSION_0.01}
+#	__kobman_echo_yellow ${KOBMAN_VERSION_0.01}
 }
