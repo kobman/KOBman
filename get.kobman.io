@@ -185,7 +185,7 @@ echo "kobman_colour_enable=true" >> "$kobman_config_file"
 
 echo "Download script archive..."
 
-curl --location --progress-bar "${KOBMAN_SERVICE}/EtricKombat/KOBDevOps/master/kobman_zip_file.zip" > "$kobman_zip_file"
+curl --location --progress-bar "${KOBMAN_SERVICE}/EtricKombat/KOBman/master/release/kobman-latest.zip" > "$kobman_zip_file"
 
 ARCHIVE_OK=$(unzip -qt "$kobman_zip_file" | grep 'No errors detected in compressed data')
 if [[ -z "$ARCHIVE_OK" ]]; then
@@ -193,7 +193,7 @@ if [[ -z "$ARCHIVE_OK" ]]; then
 	echo ""
 	echo "If problems persist, please ask for help on our Github:"
 	echo "* easy sign up: https://github.com/"
-	echo "https://github.com/EtricKombat/KOBDevOps/issues"
+	echo "https://github.com/EtricKombat/KOBman/issues"
 	rm -rf "$KOBMAN_DIR"
 	exit 2
 fi
