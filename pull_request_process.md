@@ -1,5 +1,7 @@
 Pull Request Process
 ===============================
+Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
+The following are the steps for initiating a Pull request:-
 
 1.After performing the modifications to the respective forked repository,generate a pull request to the original repository by using the 
   option "New Pull request" to get feedback on your proposed changes.
