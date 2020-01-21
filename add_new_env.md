@@ -5,3 +5,7 @@
 2)Open your terminal and install git using the below command 
   
        $ sudo apt install git
+
+3)Clone your local repository 
+
+       $ git clone http://github.com/<user name>/KOBman
