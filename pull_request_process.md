@@ -12,4 +12,4 @@ The following are the steps for initiating a Pull request:-
 
 4.if not identical,it will initiate the pull request for the respective modification and thus forward it to the Original repository.
 
-5.To create a pull request that is ready for review, click Create Pull Request. To create a draft pull request, use the drop-down and select Create Draft Pull Request, then click Draft Pull Request. For more information about draft pull requests, see "About pull requests."
+5.To create a pull request that is ready for review, click Create Pull Request. To create a draft pull request, use the drop-down and select Create Draft Pull Request, then click Draft Pull Request.
