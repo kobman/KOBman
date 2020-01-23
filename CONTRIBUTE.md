@@ -15,6 +15,6 @@ After accepting a new feature or confirming that a bug was found, an Issue may b
 
 ### Pull Requests
 
-Pull Requests are _always_ very welcome, but require the initial discussion on Slack followed by a Github Issue as described above. The PR template is to be filled in before submission, ensuring that it is _linked back_ to the Github Issue number by replacing `#XXX` with the appropriate Issue reference.
+Pull Requests are _always_ very welcome, but require the initial discussion on Whatsapp Group followed by a Github Issue as described above. The PR template is to be filled in before submission, ensuring that it is _linked back_ to the Github Issue number by replacing `#XXX` with the appropriate Issue reference.
 
 Each PR should also be accompanied by a passing test(s) proving it's validity (where feasible). The feasibility of the test will emerge in the initial discussions on Slack and in the Github Issue.
