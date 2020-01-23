@@ -4,7 +4,7 @@ We greatly value the feedback and contributions of our users. We have a simple p
 
 ### Bugs and New Features
 
-We keep a distinction between New Features and Bugs/Issues. We try to minimise the noise in our Github Issues stream by first having a conversation on [KOBMAN! Whatsapp Group](https://chat.whatsapp.com/El6d3aAc6pYLEDEdQPVABY).
+We keep a distinction between New Features and Bugs/Issues. We try to minimise the noise in our Github Issues stream by first having a conversation on [KOB! Whatsapp Group](https://chat.whatsapp.com/El6d3aAc6pYLEDEdQPVABY).
 
 - User Issues can be raised in our issue section.
 - New Features or Enhancements can be discussed in our issue section.
