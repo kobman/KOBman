@@ -209,8 +209,9 @@ unzip -qo "$kobman_zip_file" -d "$kobman_stage_folder"
 echo "Install scripts..."
 
 mv "${kobman_stage_folder}/kobman-init.sh" "$kobman_bin_folder"
-mv "$kobman_stage_folder"/kobman-kob* "$kobman_env_folder"
-mv "$kobman_stage_folder"/kobman-tob* "$kobman_env_folder"
+sudo chmod +x "${kobman_stage_folder}/kobman-test.sh"
+mv "${kobman_stage_folder}/kobman-test.sh" "$kobman_bin_folder"
+mv "$kobman_stage_folder"/kobman-[kt]* "$kobman_env_folder"
 mv "$kobman_stage_folder"/kobman-* "$kobman_src_folder"
 
 echo "Set version to $KOBMAN_VERSION ..."
