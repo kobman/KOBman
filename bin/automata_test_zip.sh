@@ -4,7 +4,9 @@ echo "Before..."
 ls -latr ../releases/kobman-test.zip
 
 
-sudo zip -rj ../releases/kobman-test.zip ../tests/envs/test-kob-[gkt]* ../tests/commands/test-kob-[hilsuv]*
+sudo zip -rj ../releases/kobman-test.zip ../tests/
+
+# sudo zip -rj ../releases/kobman-test.zip ../tests/envs/test-kob-[gkt]* ../tests/commands/test-kob-[hilsuv]*
 
 
 
