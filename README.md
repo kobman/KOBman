@@ -1,6 +1,6 @@
 # KOBman
-**KOBman** , is A command line utility inspired from sdkman !! 
-KOBMan gives you a *kob* command on your shell , you can use it to automate the setup of various development environments required for KOB projects  
+**KOBman** , is a command line utility inspired from sdkman !! 
+KOBMan gives you a **kob** command on your shell , you can use it to automate the setup of various development environments required for KOB projects  
 
 
 
@@ -19,7 +19,7 @@ KOBMan gives you a *kob* command on your shell , you can use it to automate the 
 [![Slack](https://slack.kobman.io/badge.svg)](https://slack.kobman.io)
 -->
 
-KOBMAN is a tool for managing parallel Versions of multiple KochiOrgBook projects on any Unix based system. It provides a convenient command line interface for installing, removing and listing Environments.
+KOBMAN is a tool for managing parallel versions of multiple KochiOrgBook projects on any Unix based system. It provides a convenient command line interface for installing, removing and listing environments.
 
 See documentation on the [KOBMAN! website](https://kobman.io).
 
@@ -29,12 +29,12 @@ Open your favourite terminal and enter the following:
 
     $ curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash
 
-If the environment needs tweaking for KOBMAN to be installed, the installer will prompt you accordingly and ask you to restart.
+If the environment needs tweaking for KOBman to be installed, the installer will prompt you accordingly and ask you to restart.
 
 
 ### Local Installation
 
-To install KOBMAN locally running against your local server, run the following commands:
+To install KOBman locally running against your local server, run the following commands:
 
 	
 	$ source ~/.kobman/bin/kobman-init.sh
