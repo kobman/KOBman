@@ -19,7 +19,7 @@ KOBman gives you a **kob** command on your shell , you can use it to automate th
 [![Slack](https://slack.kobman.io/badge.svg)](https://slack.kobman.io)
 -->
 
-KOBman is a tool for managing parallel versions of multiple KochiOrgBook projects on any Unix based system. It provides a convenient command line interface for installing, removing and listing environments.
+KOBman is a tool for managing parallel versions of multiple KochiOrgBook projects on any unix based system. It provides a convenient command line interface for installing, removing and listing environments.
 
 See documentation on the [KOBman! website](https://kobman.io).
 
@@ -96,7 +96,7 @@ Other useful commands:
 
 ## Adding new features
 
-For new features creation , you have to edit (add file 'kobman-*' ) extention script in the below listed directory,test it & publish
+For new features creation , you have to edit (add file 'kobman-\*' ) extention script in the below listed directory,test it & publish
 
         ./kobman/env/
 
