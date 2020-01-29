@@ -6,7 +6,7 @@ KOBman gives you a **kob** command on your shell , you can use it to automate th
 
 
 
-# KOBMAN! CLI
+# KOBman! CLI
 ### The KochiOrgBook Manager Command Line Interface<!--Text-->
 
 <!--Text-->
@@ -19,9 +19,9 @@ KOBman gives you a **kob** command on your shell , you can use it to automate th
 [![Slack](https://slack.kobman.io/badge.svg)](https://slack.kobman.io)
 -->
 
-KOBMAN is a tool for managing parallel versions of multiple KochiOrgBook projects on any Unix based system. It provides a convenient command line interface for installing, removing and listing environments.
+KOBman is a tool for managing parallel versions of multiple KochiOrgBook projects on any Unix based system. It provides a convenient command line interface for installing, removing and listing environments.
 
-See documentation on the [KOBMAN! website](https://kobman.io).
+See documentation on the [KOBman! website](https://kobman.io).
 
 ## Installation
 
