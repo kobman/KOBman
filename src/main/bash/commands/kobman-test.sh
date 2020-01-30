@@ -3,7 +3,7 @@
 
 cd ${KOBMAN_DIR}/tmp
 wget https://github.com/EtricKombat/KOBman/raw/master/releases/kobman-test.zip
-
+kobman_tests_folder="${KOBMAN_DIR}/tests"
 mkdir -p "$kobman_tests_folder"
 cd ${kobman_tests_folder}
 unzip "${KOBMAN_DIR}/tmp/kobman-test.zip"
