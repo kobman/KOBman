@@ -21,22 +21,22 @@ function __kobman_environment_version {
 			__kobman_version_tob
 		;;	
 		greenlight)
-			__kobman_verson_greenlight
+			__kobman_version_greenlight
 		;;	
 		kobvon)
-			__kobman_verson_kobvon
+			__kobman_version_kobvon
 		;;	
 		kob)
-			__kobman_verson_kob
+			__kobman_version_kob
 		;;	
 		kobdflow)
-			__kobman_verson_kobdflow
+			__kobman_version_kobdflow
 		;;	
 		kobconnect)
-			__kobman_verson_kobconnect
+			__kobman_version_kobconnect
 		;;	
 		kobregistery)
-			__kobman_verson_kobregistery
+			__kobman_version_kobregistery
 		;;	
 	esac
 }
