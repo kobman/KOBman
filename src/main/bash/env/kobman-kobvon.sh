@@ -34,4 +34,11 @@ function __kobman_uninstall_kobvon
         sudo von-network/manage start
 	sudo von-network/manage rm
 	sudo rm -rf von-network/
+
+}
+
+function __kobman_version_kobvon{
+	figlet kobvon
+	figlet 0.01
+
 }

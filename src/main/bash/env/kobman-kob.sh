@@ -44,4 +44,12 @@ function __kobman_uninstall_kob
 	sudo TheOrgBook/docker/manage rm
         sudo rm -rf TheOrgBook/ /usr/local/bin/sti /usr/local/bin/s2i source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
 
+
+
+}
+
+function __kobman_version_kob{
+	figlet kob
+	figlet 0.01
+
 }

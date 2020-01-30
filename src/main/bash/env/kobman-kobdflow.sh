@@ -39,4 +39,12 @@ function __kobman_uninstall_kobdflow
 	sudo greenlight/docker/manage rm	
 	sudo rm -rf greenlight/ /usr/local/bin/s2i /usr/local/bin/sti source-to-image-v1.1.14-874754de-linux-amd64.tar.gz 
 
+
 }
+
+function __kobman_version_kobdflow{
+	figlet kobdflow
+	figlet 0.01
+
+}
+

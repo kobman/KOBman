@@ -20,4 +20,12 @@ function __kobman_uninstall_kobconnect
 	sudo figlet Removing -f small
 	cd ${KOBMAN_CANDIDATES_DIR}
 	sudo rm -rf KOBConnect/
+
+}
+
+
+function __kobman_version_kobconnect{
+	figlet kobconnect
+	figlet 0.01
+
 }

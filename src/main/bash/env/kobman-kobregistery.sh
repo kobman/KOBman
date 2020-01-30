@@ -24,3 +24,11 @@ function __kobman_uninstall_kobregistery
 	sudo rm -rf KOBRegistry/
 
 }
+
+function __kobman_version_kobregistery{
+	figlet kobregstery
+	figlet 0.01
+
+}
+
+

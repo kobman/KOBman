@@ -33,4 +33,15 @@ function __kobman_uninstall_tobvon
 	sudo figlet Removing -f small
 	cd ${KOBMAN_CANDIDATES_DIR}
 	sudo rm -rf von-network/	
+
 }
+
+
+function __kobman_version_tobvon{
+	figlet tobvon
+	figlet 0.01
+
+}
+
+
+
