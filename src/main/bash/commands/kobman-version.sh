@@ -5,8 +5,8 @@ function __kob_version {
 
                                                                    
 sudo figlet KOB - Version -f small
-echo $DEPLOYMENT _TYPE 
-__kobman_environment_version "$DEPLOYMENT _TYPE" 
+echo $DEPLOYMENT_TYPE 
+__kobman_environment_version "$DEPLOYMENT_TYPE" 
 #	__kobman_echo_yellow ${KOBMAN_VERSION_0.01}
 
 }
@@ -15,7 +15,7 @@ __kobman_environment_version "$DEPLOYMENT _TYPE"
 
 function __kobman_environment_version {
 
-	case "$DEPLOYMENT _TYPE" in
+	case "$DEPLOYMENT_TYPE" in
 		tobvon)
 			echo "tobvon -Version ";;	
 		tob)
