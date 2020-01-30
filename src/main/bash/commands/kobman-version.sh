@@ -15,26 +15,28 @@ function __kobman_environment_version {
 
 	case "$DEPLOYMENT_TYPE" in
 		tobvon)
-			echo "tobvon -Version ";;	
+			__kobman_version_tobvon
+		;;	
 		tob)
-			echo "tob -Version ";;	
+			__kobman_version_tob
+		;;	
 		greenlight)
-			echo "greenlight -Version ";;	
-
+			__kobman_verson_greenlight
+		;;	
 		kobvon)
-			echo "kobvon -Version ";;	
-
+			__kobman_verson_kobvon
+		;;	
 		kob)
-			echo "kob -Version ";;	
-
+			__kobman_verson_kob
+		;;	
 		kobdflow)
-			echo "kobdflow -Version ";;	
-
+			__kobman_verson_kobdflow
+		;;	
 		kobconnect)
-			echo "kobconnect -Version ";;	
-
+			__kobman_verson_kobconnect
+		;;	
 		kobregistery)
-			echo "kobregistery -Version ";;	
-
+			__kobman_verson_kobregistery
+		;;	
 	esac
 }
