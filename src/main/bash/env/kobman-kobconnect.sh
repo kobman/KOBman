@@ -24,7 +24,8 @@ function __kobman_uninstall_kobconnect
 }
 
 
-function __kobman_version_kobconnect{
+function __kobman_version_kobconnect
+{
 	figlet kobconnect
 	figlet 0.01
 

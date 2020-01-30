@@ -37,7 +37,8 @@ function __kobman_uninstall_tobvon
 }
 
 
-function __kobman_version_tobvon{
+function __kobman_version_tobvon
+{
 	figlet tobvon
 	figlet 0.01
 

@@ -42,7 +42,8 @@ function __kobman_uninstall_kobdflow
 
 }
 
-function __kobman_version_kobdflow{
+function __kobman_version_kobdflow
+{
 	figlet kobdflow
 	figlet 0.01
 

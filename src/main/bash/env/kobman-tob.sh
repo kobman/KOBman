@@ -44,7 +44,8 @@ function __kobman_uninstall_tob
 
 }	
 
-function __kobman_version_tob{
+function __kobman_version_tob
+{
 	figlet tob
 	figlet 0.01
 

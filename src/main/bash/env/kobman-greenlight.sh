@@ -44,8 +44,9 @@ function __kobman_uninstall_tob
 
 }	
 
-function __kobman_version_tob{
-	figlet greenligh 
+function __kobman_version_greenlight
+{
+	figlet greenlight 
 	figlet 0.01
 
 }

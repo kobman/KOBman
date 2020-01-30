@@ -25,7 +25,8 @@ function __kobman_uninstall_kobregistery
 
 }
 
-function __kobman_version_kobregistery{
+function __kobman_version_kobregistery
+{
 	figlet kobregstery
 	figlet 0.01
 
