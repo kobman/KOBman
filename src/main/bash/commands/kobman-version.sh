@@ -6,7 +6,7 @@ function __kob_version {
                                                                    
 sudo figlet KOB - Version -f small
 
-__kobman_environment_version 
+__kobman_environment_version "$DEPLOYMENT _TYPE" 
 #	__kobman_echo_yellow ${KOBMAN_VERSION_0.01}
 
 }

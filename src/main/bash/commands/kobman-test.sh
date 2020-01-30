@@ -2,8 +2,11 @@
 
 
 cd ${KOBMAN_DIR}/tmp
-sudo wget https://github.com/EtricKombat/KOBman/blob/master/releases/kobman-test.zip
-unzip kobman-test.zip
+# sudo wget https://github.com/EtricKombat/KOBman/blob/master/releases/kobman-test.zip
+# unzip kobman-test.zip
+
+curl --location --progress-bar "${KOBMAN_SERVICE}/${KOBMAN_NAMESPACE}/KOBman/master/releases/kobman-test.zip" > "$kobman_zip_test"
+unzip -qo "$kobman_zip_test" -d "$kobman_stage_folder"
 
 figlet Upload
 figlet Test Functions  
