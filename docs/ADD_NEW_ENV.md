@@ -12,7 +12,7 @@ Clone your local repository by typing the below command
       
 Save your environment shell script in the path KOBman/src/main/bash/env
 
-Follow the naming convention, for example if the environment name is "abc.sh", then the file name should be "kob-abc.sh"
+Follow the naming convention, for example if the environment name is "abc", then the file name should be "kob-abc.sh"
 
 Save the test script of your environment in the folder KOBman/tests/envs 
 
