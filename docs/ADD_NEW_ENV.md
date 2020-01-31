@@ -1,6 +1,6 @@
 ### Go through the following steps to add a new environment
 
-Fork from the  <a href="https://github.com/EtricKombat/KOBman">Master repository</a>  
+Fork from the  <a href="https://github.com/EtricKombat/KOBman">master repository</a>  
 
 Open your terminal and install git using the below command 
   
@@ -30,5 +30,5 @@ Push the changes into your local repository by using the below command
 
       $ git push
       
-Go to your local repository and make a pull request to reflect the changes in the master repository
+Go to your local repository and make a <a href="https://github.com/EtricKombat/KOBman/blob/master/docs/PULL_REQUEST_TEMPLATE.md">pull request</a> to reflect the changes in the master repository
 
