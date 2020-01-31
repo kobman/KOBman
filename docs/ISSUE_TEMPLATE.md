@@ -3,7 +3,6 @@ Please tick one according to the issue you are facing with:
 - [ ] Issue facing with installation or setup.
 - [ ] Issue facing while running a environment.
 - [ ] Issue facing while adding a new environment or new file.
-- [ ] Issue facing with the proxy or technical issues with the operating system or system requirements.
 - [ ] Other issues: please provide the issue in the comment box
 
 Please explain the Issue / Feature Request here:
