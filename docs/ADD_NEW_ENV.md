@@ -1,6 +1,6 @@
 ### Go through the following steps to add a new environment
 
-Fork from the given link https://github.com/EtricKombat/KOBman
+Fork from the  <a href="https://github.com/EtricKombat/KOBman">Master repository</a>  
 
 Open your terminal and install git using the below command 
   
