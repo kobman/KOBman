@@ -5,8 +5,9 @@
 function __kobman_install_tob
 {
 	        kobman_namespace="$1"
-		sudo figlet TOB-TheOrgBook -f small
 		sudo figlet Building -f small
+		sudo figlet TheOrgBook -f small
+		sudo figlet from -f small
 		sudo figlet ${kobman_namespace} -f small 
                 cd ${KOBMAN_CANDIDATES_DIR}
                 sudo git clone https://github.com/${kobman_namespace}/TheOrgBook.git
@@ -24,8 +25,10 @@ function __kobman_start_tob
 {
 
 
-	sudo figlet TOB-TheOrgBook -f small
 	sudo figlet Starting -f small
+	sudo figlet TheOrgBook -f small
+	sudo figlet from -f small
+	sudo figlet ${kobman_namespace} -f small 
 	sudo chmod a+rwx ${KOBMAN_CANDIDATES_DIR}
 	cd ${KOBMAN_CANDIDATES_DIR}
         sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
