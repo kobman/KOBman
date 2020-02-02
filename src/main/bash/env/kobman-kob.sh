@@ -9,8 +9,9 @@ function __kobman_install_kob
 
 		
 		kobman_namespace="$1"
-		sudo figlet KochiOrgBook -f small
 		sudo figlet Building -f small
+		sudo figlet KochiOrgBook -f small
+		sudo figlet from -f small
 		sudo figlet ${kobman_namespace} -f small  
 
 		cd ${KOBMAN_CANDIDATES_DIR}
@@ -27,9 +28,10 @@ function __kobman_install_kob
 
 function __kobman_start_kob
 {
-	
+	sudo figlet Starting -f small
 	sudo figlet KochiOrgBook -f small
-	sudo figlet Starting.. -f small
+	sudo figlet from -f small
+	sudo figlet ${kobman_namespace} -f small  
 	cd ${KOBMAN_CANDIDATES_DIR}
         sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
 }
