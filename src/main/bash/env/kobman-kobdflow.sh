@@ -5,8 +5,9 @@ function __kobman_install_kobdflow
 {
 		kobman_namespace="$1"
 
-		sudo figlet KOB-Dflow
 		sudo figlet Building -f small
+		sudo figlet KOB-Dflow -f small
+		sudo figlet from -f small
 		sudo figlet ${kobman_namespace} -f small  
 		cd ${KOBMAN_CANDIDATES_DIR}
 		sudo git clone https://github.com/${kobman_namespace}/greenlight.git
@@ -21,10 +22,13 @@ function __kobman_install_kobdflow
 function __kobman_start_kobdflow
 {
 
-	sudo figlet KOB-Dflow -f small
+	
 	sudo figlet Starting -f small
-
-        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
+	sudo figlet KOB-Dflow -f small
+        sudo figlet from -f small
+	sudo figlet ${kobman_namespace} -f small 
+	
+	if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
         then
 		cd ${KOBMAN_CANDIDATES_DIR}
 		sudo greenlight/docker/manage start
