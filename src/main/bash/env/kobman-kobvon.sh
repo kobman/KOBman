@@ -6,8 +6,10 @@ function __kobman_install_kobvon
 
 		kobman_namespace="$1"
  	
-		sudo figlet KOB-VON -f small
+		
 		sudo figlet Building -f small
+		sudo figlet KOBVON -f small
+		sudo figlet from -f small
 		sudo figlet ${kobman_namespace} -f small  
 		cd ${KOBMAN_CANDIDATES_DIR}
                 sudo git clone https://github.com/${kobman_namespace}/von-network.git
@@ -20,8 +22,10 @@ function __kobman_start_kobvon
 {
 
 
- 	sudo figlet KOB-VON -f small
-	sudo figlet Starting -f small
+ 	sudo figlet Starting -f small
+	sudo figlet KOBVON -f small
+	sudo figlet from -f small
+	sudo figlet ${kobman_namespace} -f small  
 	cd ${KOBMAN_CANDIDATES_DIR}
         sudo von-network/manage start
 }
