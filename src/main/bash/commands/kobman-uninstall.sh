@@ -10,20 +10,18 @@ function __kob_uninstall
        	name_space=$NAME_SPACE
   
   
-	if [ "$command" = "uninstall" ]
-	then
         if [ "$DEPLOYMENT_TYPE" = "tobvon" ]
         then
                 echo "uninstalling tobvon"
-                __kobman_tobvon_uninstall
+                __kobman_uninstall_tobvon
         elif [ "$DEPLOYMENT_TYPE" = "tob" ]
         then
                 echo "uninstalling tob"
-                __kobman_tob_uninstall
+                __kobman_uninstall_tob
         elif [ "$DEPLOYMENT_TYPE" = "greenlight" ]
         then
                 echo "uninstalling greenlight"
-                __kobman_greenlight_uninstall
+                __kobman_uninstall_greenlight
         else
                 echo "check uninstall environment"
 	fi
