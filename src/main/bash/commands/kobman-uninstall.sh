@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-function __kobman_tobvon_uninstall
+function __kob_uninstall
 {
 	
-local command deployment_type environment_type name_space
+	local command deployment_type environment_type name_space
      	command=$COMMAND
        	deployment_type=$DEPLOYMENT_TYPE
        	environment_type=$ENVIRONMENT_TYPE
        	name_space=$NAME_SPACE
   
   
-if [ "$command" = "uninstall" ]
-then
+	if [ "$command" = "uninstall" ]
+	then
         if [ "$DEPLOYMENT_TYPE" = "tobvon" ]
         then
                 echo "uninstalling tobvon"
