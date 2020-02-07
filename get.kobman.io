@@ -246,7 +246,7 @@ if [[ -z $(grep 'kobman-init.sh' "$kobman_zshrc") ]]; then
 fi
 
 sudo chmod a+rwx .
-sudo chmod u+xr /home/blockchain/.kobman/candidates
+sudo chmod u+xr ${KOBMAN_DIR}/candidates 
 sudo chmod go+x /
 sudo chmod go+x /root
 echo -e "\n\n\nAll done!\n\n"
