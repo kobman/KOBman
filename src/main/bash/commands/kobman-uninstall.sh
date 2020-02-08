@@ -26,11 +26,11 @@ function __kob_uninstall
                 echo "check uninstall environment"
 	fi
 
-else
-        figlet "verifiy your "
-        figlet " uninstall command "
-        figlet "and try again"
-fi
+#	else
+#      	 figlet "verifiy your "
+#      	 figlet " uninstall command "
+#      	 figlet "and try again"
+#	fi
 
 
 
