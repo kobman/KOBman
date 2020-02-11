@@ -1,96 +1,81 @@
 #!/bin/bash
-
+STATUS="Fail"
 function __test_kob_help
-    {
-        F="False"
-        __kobman_init
-        __kobman_check
-        __kobman_execute_kob_help
-        __kobman_output $F
-        clean="trash.txt test_file.txt"
-        for i in $clean
-            do
-                __kobman_clean $i
-            done
-    }
+{
+    
+    __kobman_init
+    __kobman_execute_kob_help
+    for i in $commands
+        do
+            __kobman_validating_help test_file.txt $i
+        done    
+    __kobman_test_kob_help_output $STATUS
+    clean="test_file.txt"
+    for i in $clean
+        do
+            __kobman_cleanup $i
+        done
+exit
+}
 
 function __kobman_init
-    {
+{
 
-        #KOBMAN_DIR="~/ .kobman"
-        cd ~/
-        CMD="install uninstall help list status"
-
-
-
-    }
-function __kobman_curl
-    {
+    #KOBMAN_DIR="~/ .kobman"
+    cd ~/
+    commands="install uninstall help list status version"
+    namespace=EtricKombat
+    echo "Checking for kobman......."
+    if [ ! -d ${KOBMAN_DIR} ];
+        then
+            echo ".kobman not found"
+            echo "Installing .kobman........"
+            curl -s -L https://raw.githubusercontent.com/${namespace}/KOBman/master/get.kobman.io | bash &> /dev/null
+            echo "Sourcing files to memory......."
+            source "/${KOBMAN_DIR}/bin/kobman-init.sh"
+        else
+            echo ".kobman found"
+            echo "Sourcing files to memory......."
+            source "/${KOBMAN_DIR}/bin/kobman-init.sh"
+    fi
     
-        curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash > trash.txt
-        source "/${KOBMAN_DIR}/bin/kobman-init.sh"
-    }
-function __kobman_check
-    {
-
-
-        if [ -n $KOBMAN_DIR ]
-            then
-                echo "Checking for .kobman"
-                echo ".kobman found"
-                echo "Removing .kobman for reinstalling"
-                sudo rm -rf .kobman
-                __kobman_curl
-            else
-                echo "Checking for .kobman"
-                echo ".kobman not found"
-                echo "Installing .kobman"
-                __kobman_curl
-        fi       
-
-    }
+}
 
 
 function __kobman_execute_kob_help
 
-    {   
-        echo "Executing kob help for testing"
-        kob help > test_file.txt
-        #kob help
-        #echo "after kob help"
-        #$_test_file=tmp.txt
-        for i in $CMD 
-            do
-                #echo $i
-                __kobman_validating_help test_file.txt $i
-            done
-    }   
+{   
+    echo "Executing kob help for testing"
+    kob help > test_file.txt
+}   
 
 function __kobman_validating_help
-    {   
-        
-       #echo "inside __test_kob_help"
-        if cat $1 | grep -i -q $2
-            then
-                F="True"
-            else
-                F="False" 
-        fi
-    }
-function __kobman_output
-    {
-        _flag=$1
-        if [ "$_flag" = "True" ]
-            then
-                echo "test-kob-help Success"
-            else
-                echo "test-kob-help Fail"
-        fi                
+{   
+    if cat $1 | grep -i -q $2
+        then
+            STATUS="Testing"
+        else
+            STATUS="Fail"
+            echo "Command $2 not found" 
+            echo "test-kob-help Fail"
+    fi
 }
-function __kobman_clean
-    {
-        rm $1    
-    
-    }
+
+function __kobman_test_kob_help_output
+{
+    if [ $STATUS = "Testing" ]
+        then
+            echo "test-kob-help Success"
+        else
+            echo "test-kob-help Fail"
+ 
+    fi                
+}
+
+function __kobman_cleanup
+{
+    rm $1    
+
+}
 __test_kob_help
-exit
+

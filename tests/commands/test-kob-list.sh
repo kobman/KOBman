@@ -7,7 +7,7 @@ function __test_kob_list
         __kobman_check
         __kobman_execute_kob_list
         __kobman_output $F
-        clean="trash.txt test_file.txt"
+        clean=""
         for i in $clean
             do
                 __kobman_clean $i
@@ -19,27 +19,31 @@ function __kobman_init
 
         #KOBMAN_DIR="~/ .kobman"
         cd ~/
-        ENVR="Von-Network TheOrgBook greenlight KOBConnect KOBRegistry KochiOrgBook KOBDflow KOBVON"
+        ENVR="Von TheOrgBook greenlight KOBConnect KOBRegistry KochiOrgBook KOBDflow KOBVON"
 
 
 
     }
 function __kobman_curl
     {
-    
-        curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash > trash.txt
-        source "/${KOBMAN_DIR}/bin/kobman-init.sh"
+        if [ ! -d $KOBMAN_DIR ];
+            then
+                curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash > trash.txt
+                source "/${KOBMAN_DIR}/bin/kobman-init.sh"
+            else
+                source "/${KOBMAN_DIR}/bin/kobman-init.sh"
+        fi
     }
 function __kobman_check
     {
 
 
-        if [ -n $KOBMAN_DIR ]
+        if [ -d $KOBMAN_DIR ];
             then
                 echo "Checking for .kobman"
                 echo ".kobman found"
-                echo "Removing .kobman for reinstalling"
-                sudo rm -rf .kobman
+                #echo "Removing .kobman for reinstalling"
+                #sudo rm -rf .kobman
                 __kobman_curl
             else
                 echo "Checking for .kobman"
@@ -55,7 +59,8 @@ function __kobman_execute_kob_list
 
     {   
         echo "Executing kob list for testing"
-        kob list > test_file.txt
+        kob list > /dev/null > test_file.txt
+        cat test_file.txt
         #kob help
         #echo "after kob help"
         #$_test_file=tmp.txt
@@ -70,7 +75,7 @@ function __kobman_validating_list
     {   
         
        #echo "inside __test_kob_help"
-        if cat $1 | grep -i -q $2 
+        if cat $1 | grep -i -E -w -q $2
             then
                 F="True"
             else
