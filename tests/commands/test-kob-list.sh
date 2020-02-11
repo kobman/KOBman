@@ -5,7 +5,7 @@ function __test_kob_list
     
     __kobman_init
     __kobman_execute_kob_list
-    for i in $commands
+    for i in $Environments
         do
             if [ $STATUS = Testing ];
                 then
@@ -32,7 +32,7 @@ function __kobman_init
 
     #KOBMAN_DIR="~/ .kobman"
     cd ~/
-    commands="tobvon tob greenlight kobconnect kobregistry kochiorgbook kobdflow kobvon"
+    Environments="tobvon tob greenlight kobconnect kobregistry kochiorgbook kobdflow kobvon"
     namespace=EtricKombat
     files_to_remove="test_file.txt"
     echo "Checking for kobman......."
