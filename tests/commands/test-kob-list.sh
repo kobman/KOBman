@@ -61,7 +61,7 @@ function __kobman_execute_kob_list
 
 function __kobman_validating_list
 {   
-    if cat $1 | grep -i -E $2 >> trash.txt
+    if cat $1 | grep -i -E $2 
         then
             STATUS="Testing"
         else
