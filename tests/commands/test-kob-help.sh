@@ -1,5 +1,5 @@
 #!/bin/bash
-STATUS="Fail"
+STATUS="Testing"
 function __test_kob_help
 {
     
@@ -7,15 +7,24 @@ function __test_kob_help
     __kobman_execute_kob_help
     for i in $commands
         do
-            __kobman_validating_help test_file.txt $i
-        done    
-    __kobman_test_kob_help_output $STATUS
-    clean="test_file.txt"
-    for i in $clean
+            if [ $STATUS = Testing ];
+                then
+                    __kobman_validating_help test_file.txt $i
+                else
+                    __kobman_cleanup test_file.txt
+                    __kobman_test_kob_help_output $STATUS
+                
+            fi
+        done
+    for i in $files_to_remove
         do
             __kobman_cleanup $i
         done
-exit
+    
+    __kobman_test_kob_help_output $STATUS
+    
+    
+
 }
 
 function __kobman_init
@@ -25,6 +34,7 @@ function __kobman_init
     cd ~/
     commands="install uninstall help list status version"
     namespace=EtricKombat
+    files_to_remove="test_file.txt"
     echo "Checking for kobman......."
     if [ ! -d ${KOBMAN_DIR} ];
         then
@@ -57,7 +67,8 @@ function __kobman_validating_help
         else
             STATUS="Fail"
             echo "Command $2 not found" 
-            echo "test-kob-help Fail"
+            
+            
     fi
 }
 
@@ -68,6 +79,7 @@ function __kobman_test_kob_help_output
             echo "test-kob-help Success"
         else
             echo "test-kob-help Fail"
+            exit
  
     fi                
 }
@@ -78,4 +90,4 @@ function __kobman_cleanup
 
 }
 __test_kob_help
-
+exit
