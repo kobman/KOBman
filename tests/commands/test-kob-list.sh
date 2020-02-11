@@ -32,7 +32,7 @@ function __kobman_init
 
     #KOBMAN_DIR="~/ .kobman"
     cd ~/
-    commands="tobvon tob greenlight kobconnect kobregistrry kochiorgbook kobdflow kobvon"
+    commands="tobvon tob greenlight kobconnect kobregistry kochiorgbook kobdflow kobvon"
     namespace=EtricKombat
     files_to_remove="test_file.txt"
     echo "Checking for kobman......."
