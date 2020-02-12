@@ -49,9 +49,11 @@ function __kobman_uninstall_tob
 
 function __kobman_version_tob
 {
-	figlet tob
-	figlet 0.01
-	git ls-remote --heads https://github.com/EtricKombat/TheOrgBook
+	figlet TheOrgBook
+	figlet Version 
+	git ls-remote --tags https://github.com/${kobman_namespace}/TheOrgBook | grep -o v0.0.*
+
+
 }
 
 

@@ -50,7 +50,7 @@ function __kobman_version_greenlight
 {
         figlet Greenlight 
         figlet version
-	git ls-remote --heads https://github.com/EtricKombat/greenlight     
+	git ls-remote --tags https://github.com/${kobman_namespace}/greenlight | grep -o v0.0.*
 }
 
 

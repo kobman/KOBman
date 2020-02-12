@@ -45,7 +45,7 @@ function __kobman_version_tobvon
 {
 	figlet Von-Network 
 	figlet version 
-	git ls-remote --heads https://github.com/EtricKombat/von-network | grep -o 'v0.*'
+	git ls-remote --tags https://github.com/${kobman_namespace}/von-network | grep -o v0.0.*
 }
 
 
