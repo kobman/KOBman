@@ -51,7 +51,7 @@ function __kobman_version_tob
 {
 	figlet tob
 	figlet 0.01
-
+	git ls-remote --heads https://github.com/EtricKombat/TheOrgBook
 }
 
 

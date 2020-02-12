@@ -45,8 +45,7 @@ function __kobman_version_tobvon
 {
 	figlet Von-Network 
 	figlet version 
-	cd "${KOBMAN_CANDIDATES_DIR}/von-network/"
-	git tag --list v*
+	git ls-remote --heads https://github.com/EtricKombat/von-network
 }
 
 

@@ -45,3 +45,12 @@ function __kobman_uninstall_greenlight
 #	sudo rm ${KOBMAN_CANDIDATES_DIR}/source-*
 	sudo rm -rf greenlight/ /usr/local/bin/sti /usr/local/bin/s2i source-to-image-v1.1.14-874754de-linux-amd64.tar.gz 2> /dev/null	
 }
+
+function __kobman_version_greenlight
+{
+        figlet Greenlight 
+        figlet version
+	git ls-remote --heads https://github.com/EtricKombat/greenlight     
+}
+
+
