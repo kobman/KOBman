@@ -43,9 +43,10 @@ function __kobman_uninstall_tobvon
 
 function __kobman_version_tobvon
 {
-	figlet tobvon
-	figlet 0.01
-
+	figlet Von-Network 
+	figlet version 
+	cd "${KOBMAN_CANDIDATES_DIR}/von-network/"
+	git tag --list v*
 }
 
 
