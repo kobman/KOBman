@@ -1,96 +1,93 @@
 #!/bin/bash
-
+STATUS="Testing"
 function __test_kob_list
-    {
-        F="False"
-        __kobman_init
-        __kobman_check
-        __kobman_execute_kob_list
-        __kobman_output $F
-        clean="trash.txt test_file.txt"
-        for i in $clean
-            do
-                __kobman_clean $i
-            done
-    }
+{
+    
+    __kobman_init
+    __kobman_execute_kob_list
+    for i in $Environments
+        do
+            if [ $STATUS = Testing ];
+                then
+                    __kobman_validating_list test_file.txt $i
+                else
+                    __kobman_cleanup test_file.txt
+                    __kobman_test_kob_list_output $STATUS
+                
+            fi
+        done
+    for i in $files_to_remove
+        do
+             __kobman_cleanup $i
+        done
+    
+    __kobman_test_kob_list_output $STATUS
+    
+    
+
+}
 
 function __kobman_init
-    {
+{
 
-        #KOBMAN_DIR="~/ .kobman"
-        cd ~/
-        ENVR="Von-Network TheOrgBook greenlight KOBConnect KOBRegistry KochiOrgBook KOBDflow KOBVON"
-
-
-
-    }
-function __kobman_curl
-    {
+    #KOBMAN_DIR="~/ .kobman"
+    cd ~/
+    Environments="tobvon tob greenlight kobconnect kobregistry kochiorgbook kobdflow kobvon"
+    namespace=EtricKombat
+    files_to_remove="test_file.txt"
+    echo "Checking for kobman......."
+    if [ ! -d ${KOBMAN_DIR} ];
+        then
+            echo ".kobman not found"
+            echo "Installing .kobman........"
+            curl -s -L https://raw.githubusercontent.com/${namespace}/KOBman/master/get.kobman.io | bash &> /dev/null
+            echo "Sourcing files to memory......."
+            source "/${KOBMAN_DIR}/bin/kobman-init.sh"
+        else
+            echo ".kobman found"
+            echo "Sourcing files to memory......."
+            source "/${KOBMAN_DIR}/bin/kobman-init.sh"
+    fi
     
-        curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash > trash.txt
-        source "/${KOBMAN_DIR}/bin/kobman-init.sh"
-    }
-function __kobman_check
-    {
-
-
-        if [ -n $KOBMAN_DIR ]
-            then
-                echo "Checking for .kobman"
-                echo ".kobman found"
-                echo "Removing .kobman for reinstalling"
-                sudo rm -rf .kobman
-                __kobman_curl
-            else
-                echo "Checking for .kobman"
-                echo ".kobman not found"
-                echo "Installing .kobman"
-                __kobman_curl
-        fi       
-
-    }
+}
 
 
 function __kobman_execute_kob_list
 
-    {   
-        echo "Executing kob list for testing"
-        kob list > test_file.txt
-        #kob help
-        #echo "after kob help"
-        #$_test_file=tmp.txt
-        for i in $ENVR 
-            do
-                #echo $i
-                __kobman_validating_list test_file.txt $i
-            done
-    }   
+{   
+    echo "Executing kob list for testing"
+    kob list &>/dev/null > test_file.txt 
+}   
 
 function __kobman_validating_list
-    {   
-        
-       #echo "inside __test_kob_help"
-        if cat $1 | grep -i -q $2 
-            then
-                F="True"
-            else
-                F="False" 
-        fi
-    }
-function __kobman_output
-    {
-        _flag=$1
-        if [ "$_flag" = "True" ]
-            then
-                echo "test-kob-list Success"
-            else
-                echo "test-kob-list Fail"
-        fi                
+{   
+    if cat $1 | grep -i -E $2 
+        then
+            STATUS="Testing"
+        else
+            STATUS="Fail"
+            echo "Environment $2 not found" 
+            
+            
+    fi
 }
-function __kobman_clean
-    {
-        rm $1    
-    
-    }
+
+function __kobman_test_kob_list_output
+{
+    if [ $STATUS = "Testing" ]
+        then
+            echo "test-kob-list Success"
+        else
+            echo "test-kob-list Fail"
+            exit
+ 
+    fi                
+}
+
+function __kobman_cleanup
+{
+    rm $1    
+
+}
 __test_kob_list
 exit

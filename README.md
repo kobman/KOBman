@@ -74,14 +74,14 @@ Deployment commands:
             kob install --deploy tob bcgov
 Uninstall environement  commands:
        
-        kob uninstall tobvon             
-        kob uninstall tob         
-        kob uninstall greenlight  
-        kob uninstall kobvon       
-        kob uninstall kob          
-        kob uninstall kobdflow     
-        kob uninstall kobconnect           
-        kob uninstall kobregistory 
+        kob uninstall --dev tobvon             
+        kob uninstall --dev tob         
+        kob uninstall --dev greenlight  
+        kob uninstall --dev kobvon       
+        kob uninstall --dev kob          
+        kob uninstall --dev kobdflow     
+        kob uninstall --dev kobconnect           
+        kob uninstall --dev kobregistory 
 
                 
         
