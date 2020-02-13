@@ -76,14 +76,14 @@ if [ -f "${KOBMAN_DIR}/etc/config" ]; then
 	source "${KOBMAN_DIR}/etc/config"
 fi
 
-# Create upgrade delay file if it doesn't exist
-if [[ ! -f "${KOBMAN_DIR}/var/delay_upgrade" ]]; then
-	touch "${KOBMAN_DIR}/var/delay_upgrade"
-fi
-
-# set curl connect-timeout and max-time
-if [[ -z "$kobman_curl_connect_timeout" ]]; then kobman_curl_connect_timeout=7; fi
-if [[ -z "$kobman_curl_max_time" ]]; then kobman_curl_max_time=10; fi
+## Create upgrade delay file if it doesn't exist
+#if [[ ! -f "${KOBMAN_DIR}/var/delay_upgrade" ]]; then
+#	touch "${KOBMAN_DIR}/var/delay_upgrade"
+#fi
+#
+## set curl connect-timeout and max-time
+#if [[ -z "$kobman_curl_connect_timeout" ]]; then kobman_curl_connect_timeout=7; fi
+#if [[ -z "$kobman_curl_max_time" ]]; then kobman_curl_max_time=10; fi
 
 # set curl retry
 if [[ -z "${kobman_curl_retry}" ]]; then kobman_curl_retry=0; fi

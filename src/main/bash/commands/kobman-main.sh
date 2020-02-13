@@ -16,24 +16,12 @@ function kob {
 			COMMAND="help";;
 		v)
 			COMMAND="version";;
-		u)
-			COMMAND="use";;
 		i)
 			COMMAND="install";;
 		rm)
 			COMMAND="uninstall";;
-		c)
-			COMMAND="current";;
-		ug)
-			COMMAND="upgrade";;
-		d)
-			COMMAND="default";;
-		b)
-			COMMAND="broadcast";;
 		s)
 			COMMAND="status";;
-		p)
-			COMMAND="proxy";;
 	esac
 	
 	if [ -f "${KOBMAN_DIR}/etc/config" ]; then

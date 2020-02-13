@@ -188,61 +188,61 @@ function __kob_install {
 # 	fi
 }
 
-function __kobman_install_candidate_version {
-	local candidate version
-
-	candidate="$1"
-	version="$2"
-
-	__kobman_download "$candidate" "$version" || return 1
-	__kobman_echo_green "Installing: ${candidate} ${version}"
-
-	mkdir -p "${KOBMAN_CANDIDATES_DIR}/${candidate}"
-
-	rm -rf "${KOBMAN_DIR}/tmp/out"
-	unzip -oq "${KOBMAN_DIR}/archives/${candidate}-${version}.zip" -d "${KOBMAN_DIR}/tmp/out"
-	mv "$KOBMAN_DIR"/tmp/out/* "${KOBMAN_CANDIDATES_DIR}/${candidate}/${version}"
-	__kobman_echo_green "Done installing!"
-	echo ""
-}
-
-function __kobman_install_local_version {
-	local candidate version folder version_length version_length_max
-
-	version_length_max=15
-
-	candidate="$1"
-	version="$2"
-	folder="$3"
-
-	#Validate max length of version
-	version_length=${#version}
-	__kobman_echo_debug "Validating that actual version length ($version_length) does not exceed max ($version_length_max)"
-
-	if [[ $version_length -gt $version_length_max ]]; then
-		__kobman_echo_red "Invalid version! ${version} with length ${version_length} exceeds max of ${version_length_max}!"
-		return 1
-	fi
-
-	mkdir -p "${KOBMAN_CANDIDATES_DIR}/${candidate}"
-
-	# handle relative paths
-	if [[ "$folder" != /* ]]; then
-		folder="$(pwd)/$folder"
-	fi
-
-	if [[ -d "$folder" ]]; then
-		__kobman_echo_green "Linking ${candidate} ${version} to ${folder}"
-		ln -s "$folder" "${KOBMAN_CANDIDATES_DIR}/${candidate}/${version}"
-		__kobman_echo_green "Done installing!"
-
-	else
-		__kobman_echo_red "Invalid path! Refusing to link ${candidate} ${version} to ${folder}."
-		return 1
-	fi
-
-	echo ""
-}
+#function __kobman_install_candidate_version {
+#	local candidate version
+#
+#	candidate="$1"
+#	version="$2"
+#
+#	__kobman_download "$candidate" "$version" || return 1
+#	__kobman_echo_green "Installing: ${candidate} ${version}"
+#
+#	mkdir -p "${KOBMAN_CANDIDATES_DIR}/${candidate}"
+#
+#	rm -rf "${KOBMAN_DIR}/tmp/out"
+#	unzip -oq "${KOBMAN_DIR}/archives/${candidate}-${version}.zip" -d "${KOBMAN_DIR}/tmp/out"
+#	mv "$KOBMAN_DIR"/tmp/out/* "${KOBMAN_CANDIDATES_DIR}/${candidate}/${version}"
+#	__kobman_echo_green "Done installing!"
+#	echo ""
+#}
+#
+#function __kobman_install_local_version {
+#	local candidate version folder version_length version_length_max
+#
+#	version_length_max=15
+#
+#	candidate="$1"
+#	version="$2"
+#	folder="$3"
+#
+#	#Validate max length of version
+#	version_length=${#version}
+#	__kobman_echo_debug "Validating that actual version length ($version_length) does not exceed max ($version_length_max)"
+#
+#	if [[ $version_length -gt $version_length_max ]]; then
+#		__kobman_echo_red "Invalid version! ${version} with length ${version_length} exceeds max of ${version_length_max}!"
+#		return 1
+#	fi
+#
+#	mkdir -p "${KOBMAN_CANDIDATES_DIR}/${candidate}"
+#
+#	# handle relative paths
+#	if [[ "$folder" != /* ]]; then
+#		folder="$(pwd)/$folder"
+#	fi
+#
+#	if [[ -d "$folder" ]]; then
+#		__kobman_echo_green "Linking ${candidate} ${version} to ${folder}"
+#		ln -s "$folder" "${KOBMAN_CANDIDATES_DIR}/${candidate}/${version}"
+#		__kobman_echo_green "Done installing!"
+#
+#	else
+#		__kobman_echo_red "Invalid path! Refusing to link ${candidate} ${version} to ${folder}."
+#		return 1
+#	fi
+#
+#	echo ""
+#}
 
 function __kobman_download {
 	local candidate version archives_folder
