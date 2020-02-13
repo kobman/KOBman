@@ -8,6 +8,6 @@
 ## Building Greenlight
 
 Go to your terminal and type the following command
-$ kob install --dev greenlight hyperledgerkochi
+$kob install --dev greenlight hyperledgerkochi
 
 
