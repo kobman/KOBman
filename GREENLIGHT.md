@@ -11,4 +11,23 @@ Go to your terminal and type the following command
 
         $ kob install --dev greenlight hyperledgerkochi
 
+This will build the Greenlight environment in your system.
+
+## Running Greenlight
+
+On your terminal type the following command to change the directory.
+
+        $ cd ~/kobman/greenlight/docker
+        
+In that directory type the command
+
+        $ ./manage start
+
+This will start your greenlight.
+
+After the greenlight is successfully deployed go to the link and check for the output
+ http://localhost:5000
+        
+
+
 
