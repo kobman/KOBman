@@ -376,7 +376,7 @@ function __kobman_check_proxy {
          	sudo echo -e "\n"
          	read -p "Enter proxy user name                       :" uname
          	sudo echo -e "\n"
-         	read  -p "Enter proxy password?[your login password]  : " pword
+         	read  -p "Enter proxy password?[your login password]  :" pword
          	__kobman_echo_red "Configure github username/email"
          	read -p "Enter github user name                      :" git_uname
          	sudo echo -e "\n"
@@ -428,6 +428,7 @@ function __kobman_python_install {
         sudo apt install Python3.7 -y
         sudo apt install python-pip -y
 	pip install --upgrade pip
+	sudo ln -sfn /usr/bin/python3.7 /usr/bin/python
 }
 
 function __kobman_docker_install {
