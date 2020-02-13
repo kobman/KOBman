@@ -71,6 +71,9 @@ function __kob_install {
                                          __kobman_visual_studio_install
                                 fi
  				__kobman_install_greenlight "$name_space"
+                        elif [ "$environment_type" = "kobman" ]
+                        then
+                               	__kobman_echo_green "Installing KOBMAN"
                         else
                                 echo "verifiy your command and try again"
                         fi
