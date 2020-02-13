@@ -46,9 +46,11 @@ function __kobman_version_tobvon
 	kobman_namespace="$1"
         if [ -z "$kobman_namespace" ]; then
                 read -p "Enter namespace for Github :" kobman_namespace
+	fi	
 	figlet Von-Network 
 	figlet version 
 	git ls-remote --tags https://github.com/${kobman_namespace}/von-network | grep -o v0.0.*
+
 }
 
 

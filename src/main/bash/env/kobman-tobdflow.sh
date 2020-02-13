@@ -51,9 +51,11 @@ function __kobman_version_greenlight
 	kobman_namespace="$1"
         if [ -z "$kobman_namespace" ]; then
                 read -p "Enter namespace for Github :" kobman_namespace
-        figlet Greenlight 
+       	fi 
+	figlet Greenlight 
         figlet version
 	git ls-remote --tags https://github.com/${kobman_namespace}/greenlight | grep -o v0.0.*
+
 }
 
 
