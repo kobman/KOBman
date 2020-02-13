@@ -371,22 +371,26 @@ function __kobman_check_proxy {
 	then
 		proxychk=1
 		sudo dpkg --configure -a
-        	read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
+        	
+        	sudo echo -e "Please provide below requested proxy values for bypassing proxy server\n"
+		read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
         	sudo echo -e "\n"
-         	read -p "Enter the port?[eg :8080,443..etc]          :" port
+         	read -p "Enter the port?[eg :8980,443..etc]          :" port
          	sudo echo -e "\n"
-         	read -p "Enter AD ID? [eg :ai318974]                 :" uname
+         	read -p "Enter proxy user name                :" uname
          	sudo echo -e "\n"
-         	read  -p "Enter password?[your login password]        : " pword
+         	read  -p "Enter proxy password?[your login password]        : " pword
+         	sudo echo -e "Please provide github username/email for configuring git in your system\n"
+         	read -p "Enter github user name                :" git_uname
          	sudo echo -e "\n"
-         	read -p "Enter email ID?                             :" emil
+         	read -p "Enter github email ID?                             :" emil
          	sudo echo -e "\n"
          	__kobman_proxy_environment
         for proto in http https ftp socks;
         do
                 if [ "$proto" = "https" ];
                 then
-                  sudo printf 'Acquire::%s::proxy "http://%s:%s@%s:%u/";\n' "$proto" "$uname" "$pword" "$prox" "$port"
+                  	sudo printf 'Acquire::%s::proxy "http://%s:%s@%s:%u/";\n' "$proto" "$uname" "$pword" "$prox" "$port"
                 else
                         sudo printf 'Acquire::%s::proxy "%s://%s:%s@%s:%u/";\n' "$proto" "$proto" "$uname" "$pword" "$prox" "$port"
                 fi
@@ -398,7 +402,7 @@ function __kobman_check_proxy {
         sudo echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.service.d/https-proxy.conf
 
         sudo echo "**********************"
-        sudo git config --global user.name "${uname}"
+        sudo git config --global user.name "${git_uname}"
         sudo git config --global user.email "${emil}"
 	sudo apt install ca-certificates -y
         sudo git config --global http.sslVerify false
