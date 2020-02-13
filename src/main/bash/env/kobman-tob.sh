@@ -5,11 +5,8 @@
 function __kobman_install_tob
 {
 	        kobman_namespace="$1"
-		sudo figlet Building -f small
-		sudo figlet TheOrgBook -f small
-		sudo figlet from -f small
-		sudo figlet ${kobman_namespace} -f small 
-                cd ${KOBMAN_CANDIDATES_DIR}
+                 __kobman_echo_cyan "Building TheOrgBook from $(kobman_namespace)"
+		cd ${KOBMAN_CANDIDATES_DIR}
                 sudo git clone https://github.com/${kobman_namespace}/TheOrgBook.git
                 sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
@@ -25,10 +22,7 @@ function __kobman_start_tob
 {
 
 
-	sudo figlet Starting -f small
-	sudo figlet TheOrgBook -f small
-	sudo figlet from -f small
-	sudo figlet ${kobman_namespace} -f small 
+	 __kobman_echo_cyan "Starting TheOrgBook from $(kobman_namespace)"	
 	sudo chmod a+rwx ${KOBMAN_CANDIDATES_DIR}
 	cd ${KOBMAN_CANDIDATES_DIR}
         sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
@@ -37,8 +31,7 @@ function __kobman_start_tob
 function __kobman_uninstall_tob
 {
 	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
-	sudo figlet TOB-TheOrgBook -f small
-	sudo figlet Removing -f small
+ 	__kobman_echo_cyan "TheOrgBook - Uninstalling..."	
 	cd ${KOBMAN_CANDIDATES_DIR}
 	sudo TheOrgBook/docker/manage rm
 	sudo rm ${KOBMAN_CANDIDATES_DIR}/source-*
@@ -54,8 +47,7 @@ function __kobman_version_tob
 	if [ -z "$kobman_namespace" ]; then
 		read -p "Enter namespace for Github :" kobman_namespace	
 	fi	
-	figlet TheOrgBook
-	figlet Version 
+ 	__kobman_echo_cyan "TheOrgBook - Version"	
 	git ls-remote --tags https://github.com/${kobman_namespace}/TheOrgBook | grep -o v0.0.*
 
 
