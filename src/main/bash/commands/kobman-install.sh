@@ -323,28 +323,22 @@ function __kobman_validate_zip {
 
 
 function __kobman_vim_fix {
-
-	sudo figlet Configuring -f small
-	sudo figlet VIM -f small
+	
+	__kobman_echo_yellow "Configuring VIM" 
 	sudo cd
         sudo echo "set nocompatible" > /root/.vimrc
 
 }
 
 function __kobman_ubuntu_update_upgrade {
-
-	sudo figlet Ubuntu -f small
-	sudo figlet Updation -f small
-	sudo figlet Upgrading -f small
+	__kobman_echo_yellow "Upgrading/Updating Ubuntu"
 	sudo apt-get update -y
         sudo apt-get dist-upgrade -y
 	sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 }
 
 function __kobman_proxy_environment {
-
-	sudo figlet Unsetting -f small
-	sudo figlet proxy -f small
+	__kobman_echo_yellow "Unsetting Proxy"
 	unset http_proxy
         unset ftp_proxy
         unset https_proxy
@@ -382,7 +376,7 @@ function __kobman_check_proxy {
          	sudo echo -e "\n"
          	read -p "Enter proxy user name                       :" uname
          	sudo echo -e "\n"
-         	read  -p "Enter proxy password?[your login password] : " pword
+         	read  -p "Enter proxy password?[your login password]  : " pword
          	__kobman_echo_red "Configure github username/email"
          	read -p "Enter github user name                      :" git_uname
          	sudo echo -e "\n"
@@ -422,15 +416,14 @@ fi
 
 function __kobman_git_install {
 
-sudo figlet Git -f small
-sudo figlet Installing -f small
+__kobman_echo_yellow "Installing Git"
 sudo apt install git -y
 
 }
 
 function __kobman_python_install {
-	sudo figlet Python -f small
-	sudo figlet Installing -f small
+	
+	__kobman_echo_yellow "Installing Python"
 	sudo apt install software-properties-common -y
         sudo apt install Python3.7 -y
         sudo apt install python-pip -y
@@ -440,55 +433,35 @@ function __kobman_python_install {
 function __kobman_docker_install {
 
         sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
-	
-	sudo figlet Docker  -f small
-	sudo figlet Installing -f small
+	__kobman_echo_yellow "Installing Docker"	
 	sudo apt-get update -y
         sudo apt install docker.io -y
-	sudo figlet Package permission : -f small
-	sudo figlet  allowing apt to use -f small
-	sudo figlet repository over HTTPS -f small
-
+	__kobman_echo_yellow "Package permission : Allowing apt to use repository over HTTPS"
 
         sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 
-       	sudo figlet Docker -f small
-	sudo figlet official -f small
-	sudo figlet GPG key -f small
-
+	__kobman_echo_yellow "Adding docker official key"
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-        sudo figlet Verifitying -f small 
-        sudo figlet apt key/fingerprint -f small 
+	__kobman_echo_yellow "Verifying apt key fingerprint"
 	sudo apt-key fingerprint 0EBFCD88
 
-
-        sudo figlet Setting up -f small  
-	sudo figlet lsb_release -cs -f small
-        sudo figlet Docker-stable -f small  
-        sudo figlet Repository -f small 
+	__kobman_echo_yellow "Setting up $(lsb_release -is) $(lsb_release -cs) docker-stable repository"
         sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
-
-	sudo figlet Docker-Engine -f small
-	sudo figlet Installing -f small
+	__kobman_echo_yellow "Installing Docker-Engine"
 	sudo apt-get update -y
         sudo apt-get install docker-ce docker-ce-cli containerd.io -y
         sudo docker run hello-world
-
-	sudo figlet Docker-Compose -f small
-	sudo figlet Installing -f small
+	__kobman_echo_yellow "Installing Docker-Compose"
 	sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
         sudo chmod +x /usr/local/bin/docker-compose
-        sudo echo -e "\n\r**********************************";
-        sudo echo "*     Docker & Docker compose Version     *";
-        sudo echo "**********************************";
         sudo systemctl start docker
         sudo systemctl enable docker
+	__kobman_echo_yellow "Docker Version"
         sudo docker --version
+	__kobman_echo_yellow "Docker-Compose Version"
         sudo docker-compose --version
-	sudo figlet Docker  -f small
-	sudo figlet Login -f small
+	__kobman_echo_red "Docker Login"
 	sudo rm -rf /root/.docker/
         sudo docker login
 
@@ -501,9 +474,8 @@ function __kobman_docker_install {
 }
 
 function __kobman_npm_install {
-
-	sudo figlet Purging existing -f small
-	sudo figlet NPM components -f small
+	
+	__kobman_echo_yellow "Purging existing NPM components"
 	npm config rm proxy
         npm config rm proxy --global
 
@@ -515,8 +487,7 @@ function __kobman_npm_install {
 
         sudo sudo apt-get remove nodejs nodejs-dev node-gyp libssl1.0-dev npm -y
  
-	sudo figlet 'NPM ' -f small
-	sudo figlet Installing.. -f small
+	__kobman_echo_yellow "Installing NPM"
         sudo sudo apt-get install nodejs nodejs-dev node-gyp libssl1.0-dev npm -y
 
         npm config set https-proxy http://${uname}:${pword}@${prox}:${port}--global
@@ -534,14 +505,12 @@ function __kobman_npm_install {
 
 function __kobman_visual_studio_install {
 
-	
-	sudo figlet Visual-Studio -f small
-	sudo figlet Installing.. -f small
-	sudo apt update
+	__kobman_echo_yellow "Installing Visual-Studio"	
+# sudo apt update
 	sudo apt install software-properties-common apt-transport-https wget
 	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 	sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-	sudo apt update
+#	sudo apt update
 	sudo apt install code
 
 }
