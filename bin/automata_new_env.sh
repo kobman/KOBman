@@ -4,6 +4,7 @@ sudo apt install figlet -y
 sudo figlet Fresh -f small 
 sudo figlet Environment -f small
 sudo mkdir -p /usr/home/kobman
+sudo chmod +x /usr/home/kobman
 cd /usr/home/kobman
 sudo git clone https://github.com/EtricKombat/KOBman.git
 sudo git clone https://github.com/EtricKombat/TheOrgBook

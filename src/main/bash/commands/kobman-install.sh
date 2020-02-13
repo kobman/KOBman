@@ -375,18 +375,18 @@ function __kobman_check_proxy {
 		proxychk=1
 		sudo dpkg --configure -a
         	
-        	sudo echo -e "Please provide below requested proxy values for bypassing proxy server\n"
+        	__kobman_echo_red "Bypassing proxy server requires listed values\n"
 		read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
         	sudo echo -e "\n"
          	read -p "Enter the port?[eg :8980,443..etc]          :" port
          	sudo echo -e "\n"
-         	read -p "Enter proxy user name                :" uname
+         	read -p "Enter proxy user name                       :" uname
          	sudo echo -e "\n"
-         	read  -p "Enter proxy password?[your login password]        : " pword
-         	sudo echo -e "Please provide github username/email for configuring git in your system\n"
-         	read -p "Enter github user name                :" git_uname
+         	read  -p "Enter proxy password?[your login password] : " pword
+         	__kobman_echo_red "Configure github username/email"
+         	read -p "Enter github user name                      :" git_uname
          	sudo echo -e "\n"
-         	read -p "Enter github email ID?                             :" emil
+         	read -p "Enter github email ID?                      :" emil
          	sudo echo -e "\n"
          	__kobman_proxy_environment
         for proto in http https ftp socks;
