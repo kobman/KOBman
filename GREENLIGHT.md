@@ -26,14 +26,17 @@ In that directory type the command
 
 This will start the project.
 
-##Stoping project
+## Stoping project
 
 There are two commands to stop the project
+
         $ ./manage stop
+
 and
+
         $ ./manage down
         
-## USsing the Application
+## Using the Application
 
 The GreenLight user interface is exposed at http://localhost:5000/
         
