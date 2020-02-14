@@ -56,7 +56,10 @@ and
         
 ## Using the Application
 
-The GreenLight user interface is exposed at http://localhost:5000/
+* The GreenLight user interface is exposed at http://localhost:5000/
+
+To confirm the application initialization is complete, go to the GreenLight screen and look at the Credentials drop down. It should have all of the Credentials for the Issuer/Verifier Agents listed
+
         
 
 
