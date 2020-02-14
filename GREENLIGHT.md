@@ -3,14 +3,17 @@
 ## The GreenLight Business Scenario
 The business problem addressed in this demo is a business trying to get Business Permits and Licences in their local municipality. Getting such authorizations are complicated processes, often requiring contacting multiple jurisdictions to acquire multiple credentials - licenses, permits, registrations, etc., each of which may require the presentation of previously acquired credentials from other sources. GreenLight simplifies the problem by:
 
-*Asking the user to select the business goal they are trying to achieve. For example, a Business Licence to open a restaurent, or a "Dog and Cat Breeder" permit.
-*Starting from the goal, evaluating the Hyperledger Indy prerequisite proof request to determine the credentials needed to acquire that credential.
-*Repeating that process for each pre-requisite credential until all the necessary licenses are determined
-*Presenting the user with a list of the credentials needed and the order of acquisition necessary to meet the prerequisites - e.g. starting from the credentials that have no prerequisites.
-*Laying over that the list of Credentials the business has already acquired.
-*Allowing the user to click from the list of needed credentials screen to either the application for that credential (if not yet acquired), or to TheOrgBook screen to see the already acquired credential.
-## Steps
-The following instructions provide details on how to build GreenLight using KOBman CLI and how to deploy it using Docker Compose. 
+* Asking the user to select the business goal they are trying to achieve. For example, a Business Licence to open a restaurent, or a "Dog and Cat Breeder" permit.
+
+* Starting from the goal, evaluating the Hyperledger Indy prerequisite proof request to determine the credentials needed to acquire that credential.
+
+* Repeating that process for each pre-requisite credential until all the necessary licenses are determined
+
+* Presenting the user with a list of the credentials needed and the order of acquisition necessary to meet the prerequisites - e.g. starting from the credentials that have no prerequisites.
+
+* Laying over that the list of Credentials the business has already acquired.
+
+* Allowing the user to click from the list of needed credentials screen to either the application for that credential (if not yet acquired), or to TheOrgBook screen to see the already acquired credential.
 
 ## Prerequisites
 * KOBman utility should be installed. Check out <a href="https://github.com/EtricKombat/KOBman/blob/master/README.md">KOBman  readme</a> on how to install KOBman   
@@ -19,6 +22,8 @@ The following instructions provide details on how to build GreenLight using KOBm
 
 ## Building project
 
+The following instructions provide details on how to build GreenLight using KOBman CLI
+
 Go to your terminal and type the following command
 
         $ kob install --dev greenlight hyperledgerkochi
@@ -26,6 +31,8 @@ Go to your terminal and type the following command
 This will build the Greenlight environment in your system.
 
 ## Starting project
+
+The instructions provide the details on how to deploy it using Docker Compose. 
 
 On your terminal type the following command to change the directory.
 
