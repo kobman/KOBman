@@ -6,7 +6,7 @@ The following instructions provide details on how to build GreenLight using KOBm
 * VON should be up and running. Check out the link on how to install and run VON
 * OrgBook should be up and running.Check out the link on how to install and run OrgBook
 
-## Building Greenlight
+## Building project
 
 Go to your terminal and type the following command
 
@@ -14,7 +14,7 @@ Go to your terminal and type the following command
 
 This will build the Greenlight environment in your system.
 
-## Running Greenlight
+## Starting project
 
 On your terminal type the following command to change the directory.
 
@@ -24,10 +24,18 @@ In that directory type the command
 
         $ ./manage start
 
-This will start your greenlight.
+This will start the project.
 
-After the greenlight is successfully deployed go to the link and check for the output
- http://localhost:5000
+##Stoping project
+
+There are two commands to stop the project
+        $ ./manage stop
+and
+        $ ./manage down
+        
+## USsing the Application
+
+The GreenLight user interface is exposed at http://localhost:5000/
         
 
 
