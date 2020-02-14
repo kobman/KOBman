@@ -16,9 +16,9 @@ The business problem addressed in this demo is a business trying to get Business
 * Allowing the user to click from the list of needed credentials screen to either the application for that credential (if not yet acquired), or to TheOrgBook screen to see the already acquired credential.
 
 ## Prerequisites
-* KOBman utility should be installed. Check out <a href="https://github.com/EtricKombat/KOBman/blob/master/README.md">KOBman  readme</a> on how to install KOBman   
-* VON should be up and running. Check out the link on how to install and run VON
-* OrgBook should be up and running.Check out the link on how to install and run OrgBook
+* KOBman utility should be installed. Check out <a href="https://github.com/hyperledgerkochi/KOBman/blob/master/README.md">steps</a> on how to install KOBman   
+* VON should be up and running. Check out <a href="https://github.com/TEJAlions/KOBman/blob/master/docs/von-network.md">steps</a> on how to install and run VON   
+* OrgBook should be up and running.Check out <a href="https://github.com/Akshaydevsv21/KOBman/blob/master/docs/tob_setup_docs.md">steps</a> on how to install and run The Org Book   
 
 ## Building project
 
