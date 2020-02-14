@@ -36,9 +36,9 @@ and
 
         $ ./manage down
         
-stop only stops the containers, but leaves the rest of the docker-compose structure in place - volumes (and the Indy wallets they store) and networking.
+> stop only stops the containers, but leaves the rest of the docker-compose structure in place - volumes (and the Indy wallets they store) and networking.
 
-down is destructive, removing the volumes and network elements.
+> down is destructive, removing the volumes and network elements.
         
 ## Using the Application
 
