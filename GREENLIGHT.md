@@ -22,8 +22,6 @@ The business problem addressed in this demo is a business trying to get Business
 
 ## Building project
 
-The following instructions provide details on how to build GreenLight using KOBman CLI
-
 Go to your terminal and type the following command
 
         $ kob install --dev greenlight hyperledgerkochi
@@ -31,8 +29,6 @@ Go to your terminal and type the following command
 This will build the Greenlight environment in your system.
 
 ## Starting project
-
-The instructions provide the details on how to deploy it using Docker Compose. 
 
 On your terminal type the following command to change the directory.
 
