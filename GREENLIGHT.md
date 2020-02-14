@@ -1,4 +1,5 @@
 # GREENLIGHT
+The following instructions provide details on how to build GreenLight using KOBman CLI and how to deploy it using Docker Compose. 
 
 ## Prerequisites
 * KOBman utility should be installed. Check out <a href="https://github.com/EtricKombat/KOBman/blob/master/README.md">KOBman  readme</a> on how to install KOBman   
