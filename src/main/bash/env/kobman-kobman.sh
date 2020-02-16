@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+__kobman_echo_red "kobman dev script initiating"
 sudo cd ~
 sudo mkdir -p ${Repo_name}
 sudo mkdir -p test/ dependency/
