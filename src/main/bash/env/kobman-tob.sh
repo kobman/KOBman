@@ -5,7 +5,7 @@
 function __kobman_install_tob
 {
 	        kobman_namespace="$1"
-                 __kobman_echo_cyan "Building TheOrgBook from $(kobman_namespace)"
+                 __kobman_echo_cyan "Building TheOrgBook from ${kobman_namespace}"
 		cd ${KOBMAN_CANDIDATES_DIR}
                 sudo git clone https://github.com/${kobman_namespace}/TheOrgBook.git
                 sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
@@ -22,7 +22,7 @@ function __kobman_start_tob
 {
 
 
-	 __kobman_echo_cyan "Starting TheOrgBook from $(kobman_namespace)"	
+	 __kobman_echo_cyan "Starting TheOrgBook from ${kobman_namespace}"	
 	sudo chmod a+rwx ${KOBMAN_CANDIDATES_DIR}
 	cd ${KOBMAN_CANDIDATES_DIR}
         sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
