@@ -3,7 +3,7 @@
 function __kobman_install_greenlight
 {
 		kobman_namespace="$1"
- 		__kobman_echo_green "Building greenlight from $(kobman_namespace)"	
+ 		__kobman_echo_green "Building greenlight from ${kobman_namespace}"	
                	sudo chmod 755 ${KOBMAN_CANDIDATES_DIR} 
 		cd ${KOBMAN_CANDIDATES_DIR}
                 sudo git clone https://github.com/${kobman_namespace}/greenlight.git
@@ -20,7 +20,7 @@ function __kobman_install_greenlight
 function __kobman_start_greenlight
 {
 
- 	__kobman_echo_green "Starting greenlight from $(kobman_namespace)"	
+ 	__kobman_echo_green "Starting greenlight from ${kobman_namespace}"	
 	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
  	cd ${KOBMAN_CANDIDATES_DIR}
         sudo greenlight/docker/manage start

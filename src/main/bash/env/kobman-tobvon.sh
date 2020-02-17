@@ -5,7 +5,7 @@ function __kobman_install_tobvon
 
 		
 		kobman_namespace="$1"	
-		 __kobman_echo_red "Building VON-(TheOrgBook) from $(kobman_namespace)"
+		 __kobman_echo_red "Building VON-(TheOrgBook) from ${kobman_namespace}"
 		cd ${KOBMAN_CANDIDATES_DIR}
                 sudo git clone https://github.com/${kobman_namespace}/von-network.git
                 sudo von-network/manage rm
@@ -17,7 +17,7 @@ function __kobman_install_tobvon
 function __kobman_start_tobvon
 {
 
-	__kobman_echo_red "Starting VON-(TheOrgBook) from $(kobman_namespace)"
+	__kobman_echo_red "Starting VON-(TheOrgBook) from ${kobman_namespace}"
 	cd ${KOBMAN_CANDIDATES_DIR}
         sudo von-network/manage start
 }
