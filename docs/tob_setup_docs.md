@@ -8,6 +8,12 @@
 
 **Local Environment Installation** 
 ----------------------------------
+* Run the *dev* command.
+This will download all the dependencies required for setting up development Environment for OrgBook.
+
+>kob install --dev tob \[namespace]\
+
+  > Example: kob install --dev tob hyperledgerkochi
 
 * Run the *deploy* command.
 
