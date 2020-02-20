@@ -1,8 +1,7 @@
 # KOBman
+
 **KOBman** , is a command line utility inspired from sdkman !! 
 KOBman gives you a **kob** command on your shell , you can use it to automate the setup of various development environments required for KochiOrgBook projects.
-
-
 
 
 
@@ -104,7 +103,7 @@ For new features creation , you have to edit (add file 'kobman-\' ) extention sc
 
 This project exists thanks to all the people who contribute. 
 
-**Contact us via any of the listed media**
+**Contribute with us**
 
-<a href="https://chat.whatsapp.com/El6d3aAc6pYLEDEdQPVABY"><img src="https://www.freepnglogos.com/uploads/whatsapp-logo-image-15.png" height="60" width="110"/></a>      <a href="https://slack.com/signin"><img src="https://www.b2bnn.com/wp-content/uploads/2019/01/Screen-Shot-2019-01-17-at-2.29.34-PM.png" height="60" width="110"/></a>      <a href="https://www.meetup.com/Kochi-Blockchain-Meetup/events/"><img src="https://logodix.com/logo/2173878.png" height="60" width="110"/></a> 
+<a href="https://chat.whatsapp.com/El6d3aAc6pYLEDEdQPVABY"><img src="https://www.freepnglogos.com/uploads/whatsapp-logo-image-15.png" height="30" width="70"/></a><a href="https://slack.com/signin"><img src="https://www.b2bnn.com/wp-content/uploads/2019/01/Screen-Shot-2019-01-17-at-2.29.34-PM.png" height="30" width="70"/></a><a href="https://www.meetup.com/Kochi-Blockchain-Meetup/events/"><img src="https://logodix.com/logo/2173878.png" height="30" width="70"/></a> 
 
