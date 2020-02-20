@@ -21,7 +21,7 @@ KOBman gives you a **kob** command on your shell , you can use it to automate th
 
 KOBman is a utility for managing parallel versions of multiple KochiOrgBook projects on any unix based system. It provides a convenient command line interface for installing, removing and listing environments.
 
-See documentation on the [KOBman! website](https://kobman.io).
+See documentation on the [KOBman! website](https://github.com/kobman/KOBman).
 
 ## Installation
 
