@@ -29,7 +29,7 @@ Open your favourite terminal and enter the following:
 
     $ curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash
 
-If the environment needs tweaking for KOBman to be installed, the installer will prompt you accordingly and ask you to restart.
+If the environment needs tweaking for KOBman to be installed, the installer will prompt you accordingly and ask you to delete '~/.kobman' directory and restart your machine .
 
 
 ### Local Installation
@@ -50,11 +50,11 @@ Run the following commands on the terminal to manage respective environments.
         kob install --dev tobvon       [name_space]       
         kob install --dev tob          [name_space]
         kob install --dev greenlight   [name_space]
-        kob install --dev kobvon       [name_space]
-        kob install --dev kob          [name_space]
-        kob install --dev kobdflow     [name_space]
-        kob install --dev kobconnect   [name_space]        
-        kob install --dev kobregistory [name_space]
+        kob install --dev kobvon       [name_space]   / work in Progress
+        kob install --dev kob          [name_space]   / work in Progress
+        kob install --dev kobdflow     [name_space]   / work in Progress
+        kob install --dev kobconnect   [name_space]   / work in Progress        
+        kob install --dev kobregistory [name_space]   / work in Progress
 
         Example   :
             kob install --dev tob hyperledgerkochi
@@ -64,11 +64,11 @@ Deployment commands:
         kob install --deploy tobvon       [name_space]       
         kob install --deploy tob          [name_space]
         kob install --deploy greenlight   [name_space]
-        kob install --deploy kobvon       [name_space]
-        kob install --deploy kob          [name_space]
-        kob install --deploy kobdflow     [name_space]
-        kob install --deploy kobconnect   [name_space]        
-        kob install --deploy kobregistory [name_space]
+        kob install --deploy kobvon       [name_space]/ work in Progress
+        kob install --deploy kob          [name_space]/ work in Progress
+        kob install --deploy kobdflow     [name_space]/ work in Progress
+        kob install --deploy kobconnect   [name_space]/ work in Progress        
+        kob install --deploy kobregistory [name_space]/ work in Progress
         
 	Example   :
             kob install --deploy tob bcgov
@@ -96,13 +96,13 @@ Other useful commands:
 
 ## Adding new features
 
-For new features creation , you have to edit (add file 'kobman-\*' ) extention script in the below listed directory,test it & publish
+For new features creation , you have to edit (add file 'kobman-\' ) extention script in the below listed directory,test it & publish
 
         ./kobman/env/
 
 ## Contributors
 
 This project exists thanks to all the people who contribute. 
-<a href="https://github.com/hyperledgerkochi/KOBDevOps/graphs/contributors"><img src="https://i.stack.imgur.com/kk4j4.jpg" /></a>
+<a href="https://github.com/hyperledgerkochi/KOBman/graphs/contributors"><img src="https://i.stack.imgur.com/kk4j4.jpg" /></a>
 
 
