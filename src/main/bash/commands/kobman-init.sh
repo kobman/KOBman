@@ -76,14 +76,14 @@ if [ -f "${KOBMAN_DIR}/etc/config" ]; then
 	source "${KOBMAN_DIR}/etc/config"
 fi
 
-## Create upgrade delay file if it doesn't exist
-#if [[ ! -f "${KOBMAN_DIR}/var/delay_upgrade" ]]; then
-#	touch "${KOBMAN_DIR}/var/delay_upgrade"
-#fi
-#
-## set curl connect-timeout and max-time
-#if [[ -z "$kobman_curl_connect_timeout" ]]; then kobman_curl_connect_timeout=7; fi
-#if [[ -z "$kobman_curl_max_time" ]]; then kobman_curl_max_time=10; fi
+# Create upgrade delay file if it doesn't exist
+if [[ ! -f "${KOBMAN_DIR}/var/delay_upgrade" ]]; then
+	touch "${KOBMAN_DIR}/var/delay_upgrade"
+fi
+
+# set curl connect-timeout and max-time
+if [[ -z "$kobman_curl_connect_timeout" ]]; then kobman_curl_connect_timeout=7; fi
+if [[ -z "$kobman_curl_max_time" ]]; then kobman_curl_max_time=10; fi
 
 # set curl retry
 if [[ -z "${kobman_curl_retry}" ]]; then kobman_curl_retry=0; fi
@@ -97,7 +97,7 @@ if [[ -z "${kobman_curl_continue}" ]]; then kobman_curl_continue=true; fi
 # Read list of candidates and set array
 KOBMAN_CANDIDATES_CACHE="${KOBMAN_DIR}/var/candidates"
 KOBMAN_CANDIDATES_CSV=$(<"$KOBMAN_CANDIDATES_CACHE")
-echo "Setting candidates csv: $KOBMAN_CANDIDATES_CSV"
+__kobman_echo_debug "Setting candidates csv: $KOBMAN_CANDIDATES_CSV"
 if [[ "$zsh_shell" == 'true' ]]; then
 	KOBMAN_CANDIDATES=(${(s:,:)KOBMAN_CANDIDATES_CSV})
 else
