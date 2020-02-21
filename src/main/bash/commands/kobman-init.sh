@@ -97,7 +97,7 @@ if [[ -z "${kobman_curl_continue}" ]]; then kobman_curl_continue=true; fi
 # Read list of candidates and set array
 KOBMAN_CANDIDATES_CACHE="${KOBMAN_DIR}/var/candidates"
 KOBMAN_CANDIDATES_CSV=$(<"$KOBMAN_CANDIDATES_CACHE")
-__kobman_echo_debug "Setting candidates csv: $KOBMAN_CANDIDATES_CSV"
+echo "Setting candidates csv: $KOBMAN_CANDIDATES_CSV"
 if [[ "$zsh_shell" == 'true' ]]; then
 	KOBMAN_CANDIDATES=(${(s:,:)KOBMAN_CANDIDATES_CSV})
 else
