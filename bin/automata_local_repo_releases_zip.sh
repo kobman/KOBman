@@ -2,7 +2,7 @@
 
 echo "Before..."
 ls -latr ../releases/kobman-latest.zip
-
+cd ~/KOBman/releases/
 sudo mv -i kobman-0.1.zip kobman-0.2.zip
 sudo mv -i kobman-latest.zip kobman-0.1.zip
 
