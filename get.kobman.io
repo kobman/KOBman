@@ -7,7 +7,7 @@ sudo dpkg --configure -a
 KOBMAN_VERSION="0.01"
 KOBMAN_PLATFORM=$(uname)
 KOBMAN_SERVICE="https://raw.githubusercontent.com"
-KOBMAN_NAMESPACE="hyperledgerkochi"
+KOBMAN_NAMESPACE="EtricKombat"
 
 
 
@@ -63,8 +63,12 @@ esac
 
 sudo apt install figlet -y
 
-figlet KOB-Setup ...
-figlet ${KOBMAN_NAMESPACE} repo 
+# figlet KOB-Setup ...
+# figlet ${KOBMAN_NAMESPACE} repo 
+
+figlet KochiOrgBook -f small
+figlet Setting up -f small
+
 
 # Sanity checks
 
@@ -188,6 +192,7 @@ echo "kobman_colour_enable=true" >> "$kobman_config_file"
 
 echo "Download script archive..."
 
+# once move to kobman namespace needs to update kobman-latest.zip 
 curl --location --progress-bar "${KOBMAN_SERVICE}/${KOBMAN_NAMESPACE}/KOBman/master/releases/kobman-latest.zip" > "$kobman_zip_file"
 
 ARCHIVE_OK=$(unzip -qt "$kobman_zip_file" | grep 'No errors detected in compressed data')
