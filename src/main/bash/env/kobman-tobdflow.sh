@@ -1,16 +1,9 @@
 #!/bin/bash 
 
-# sudo figlet TOB-Greenlight -f small
-# sudo figlet Memory upload -f small
-
-# sudo chmod 755 ${KOBMAN_CANDIDATES_DIR} 
-function __kobman_greenlight_build
+function __kobman_install_greenlight
 {
 		kobman_namespace="$1"
-	
-		sudo figlet TOB-Greenlight -f small
-		sudo figlet Building -f small
-		sudo figlet ${kobman_namespace} -f small  
+ 		__kobman_echo_green "Building greenlight from ${kobman_namespace}"	
                	sudo chmod 755 ${KOBMAN_CANDIDATES_DIR} 
 		cd ${KOBMAN_CANDIDATES_DIR}
                 sudo git clone https://github.com/${kobman_namespace}/greenlight.git
@@ -24,25 +17,36 @@ function __kobman_greenlight_build
 
 }
 
-function __kobman_greenlight_start
+function __kobman_start_greenlight
 {
 
-	sudo figlet TOB-Greenlight -f small
-	sudo figlet Starting -f small
+ 	__kobman_echo_green "Starting greenlight from ${kobman_namespace}"	
 	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
  	cd ${KOBMAN_CANDIDATES_DIR}
         sudo greenlight/docker/manage start
 }
 
-function __kobman_greenlight_uninstall
+function __kobman_uninstall_greenlight
 {
 	
 	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
-	sudo figlet TOB-Greenlight -f small
-	sudo figlet Removing -f small
- 	cd ${KOBMAN_CANDIDATES_DIR}
+ 	__kobman_echo_green "Greenlight - Uninstalling..."
+	cd ${KOBMAN_CANDIDATES_DIR}
 	sudo greenlight/docker/manage rm
 	sudo rm -rf greenlight/ 2> /dev/null	
 #	sudo rm ${KOBMAN_CANDIDATES_DIR}/source-*
 	sudo rm -rf greenlight/ /usr/local/bin/sti /usr/local/bin/s2i source-to-image-v1.1.14-874754de-linux-amd64.tar.gz 2> /dev/null	
 }
+
+function __kobman_version_greenlight
+{
+	kobman_namespace="$1"
+        if [ -z "$kobman_namespace" ]; then
+                read -p "Enter namespace for Github :" kobman_namespace
+       	fi 
+ 	__kobman_echo_green "Greenlight - Version"	
+	git ls-remote --tags https://github.com/${kobman_namespace}/greenlight | grep -o v0.0.*
+
+}
+
+

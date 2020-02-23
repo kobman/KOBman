@@ -3,16 +3,40 @@
 
 function __kob_version {
 
-
-echo "     __ ______  ____              _    __               _          " 
-echo "    / //_/ __ \/ __ )            | |  / /__  __________(_)___  ____  " 
-echo "   / ,< / / / / __  |  ______    | | / / _ \/ ___/ ___/ / __ \/ __ \ " 
-echo "  / /| / /_/ / /_/ /  /_____/    | |/ /  __/ /  (__  ) / /_/ / / / / " 
-echo " /_/ |_\____/_____/              |___/\___/_/  /____/_/\____/_/ /_/  " 
                                                                    
+__kobman_environment_version "$DEPLOYMENT_TYPE" 
+#	__kobman_echo_yellow ${KOBMAN_VERSION_0.01}
+
+}
 
 
 
-	echo ""
-	__kobman_echo_yellow "KOBMAN ${KOBMAN_VERSION}"
+function __kobman_environment_version {
+
+	case "$DEPLOYMENT_TYPE" in
+		tobvon)
+			__kobman_version_tobvon
+		;;	
+		tob)
+			__kobman_version_tob
+		;;	
+		greenlight)
+			__kobman_version_greenlight
+		;;	
+		kobvon)
+			__kobman_version_kobvon
+		;;	
+		kob)
+			__kobman_version_kob
+		;;	
+		kobdflow)
+			__kobman_version_kobdflow
+		;;	
+		kobconnect)
+			__kobman_version_kobconnect
+		;;	
+		kobregistery)
+			__kobman_version_kobregistery
+		;;	
+	esac
 }
