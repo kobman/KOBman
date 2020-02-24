@@ -74,7 +74,8 @@ function __kob_install {
                         elif [ "$environment_type" = "kobman" ]
                         then
                                	__kobman_echo_green "Installing KOBMAN"
-                        else
+                       		__kob_kobman 
+			else
                                 echo "verifiy your command and try again"
                         fi
                 ;;
