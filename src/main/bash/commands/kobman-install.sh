@@ -74,7 +74,8 @@ function __kob_install {
                         elif [ "$environment_type" = "kobman" ]
                         then
                                	__kobman_echo_green "Installing KOBMAN"
-                        else
+                       		__kob_kobman 
+			else
                                 echo "verifiy your command and try again"
                         fi
                 ;;
@@ -274,9 +275,9 @@ function __kobman_download {
 		export local zip_output="${KOBMAN_DIR}/tmp/$base_name.zip"
 
 		echo ""
-		__kobman_echo_no_colour "Downloading: ${candidate} ${version}"
+		echo "Downloading: ${candidate} ${version}"
 		echo ""
-		__kobman_echo_no_colour "In progress..."
+		echo "In progress..."
 		echo ""
 
 		#download binary
@@ -300,7 +301,7 @@ function __kobman_download {
 		__kobman_echo_debug "Moved to archive folder: $zip_archive_target"
 	else
 		echo ""
-		__kobman_echo_no_colour "Found a previously downloaded ${candidate} ${version} archive. Not downloading it again..."
+		echo "Found a previously downloaded ${candidate} ${version} archive. Not downloading it again..."
 	fi
 	__kobman_validate_zip "${archives_folder}/${candidate}-${version}.zip" || return 1
 	echo ""
