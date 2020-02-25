@@ -17,7 +17,7 @@
 #
 
 function __kobman_echo_debug {
-	if [[ "$kobman_debug_mode" == 'true' ]]; then
+	if [[ "${kobman_debug_mode}" == 'true' ]]; then
 		echo "$1"
 	fi
 }

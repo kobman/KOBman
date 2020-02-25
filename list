@@ -16,7 +16,7 @@ with what we are doing and contribute to VON and the Indy community..
 --------------------------------------------------------------------------------
 TheOrgBook                        https://github.com/hyperledgerkochi/TheOrgBook
 
-TheOrgBook is a Credential Registry of verifiable credentials about entities. 
+TheOrgBook is a Credential Registry of v Verifiable credentials about entities. 
 A public instance of TheOrgBook, such as BC's OrgBook contains a verifiable 
 credentials about organizations (incorporations, professionals, etc.) issued 
 by trusted public services such as Corporate Registries, regulatory agencies, 
@@ -32,6 +32,14 @@ registration, claims verification, and credential submission to TheOrgBook.
 It includes Docker tooling for deployment of the application behind a Caddy 
 reverse proxy.
                                                          $ kob install greenlight
+--------------------------------------------------------------------------------
+
+kobman                        https://github.com/hyperledgerkochi/KOBman
+
+Kobman is a developer friendly utility which was created with intention of easing
+up the day-to-day activity related to the KochiOrgBook project.
+
+                                                         $ kob install kobman
 --------------------------------------------------------------------------------
 
 KOBConnect                     https://github.com/hyperledgerkochi/KOBConnect
