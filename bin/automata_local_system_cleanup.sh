@@ -1,12 +1,8 @@
 #!/bin/bash 
 
 cd ~ 
-sudo rm -rf .kobman/ 
-sudo rm -rf KOBman/
-sudo rm -rf dependency/
-sudo rm -rf test/
-
-cd /usr/home/kobman
+sudo rm -rf greenlight/ TheOrgBook/ von-network/ KOBman/ test/ dependency/ ./kobman/
+cd /usr/home/
 sudo rm -rf *_dev_dir/
 #sudo rm -rf TheOrgBook_dev_dir/
 #sudo rm -rf greenlight_dev_dir/
