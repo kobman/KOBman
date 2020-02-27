@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function __kobman_develpment_kobman_dir {
+function __kobman_development_kobman_dir {
 
 
 
