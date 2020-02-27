@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-cd $HOME
+cd ~
 sudo rm -rf .kobman/ 
 
 cd /usr/home/kobman
