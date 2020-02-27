@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-function __kobman_development_von_dir {
+function __kobman_development_tobvon_dir {
 
 
 
