@@ -1,17 +1,16 @@
 #!/bin/bash 
 
-cd ~
+cd ~ 
 sudo rm -rf .kobman/ 
+sudo rm -rf KOBman/
 
 cd /usr/home/kobman
-sudo rm -rf KOBman/
-sudo rm -rf TheOrgBook/
-sudo rm -rf greenlight/
-sudo rm -rf von-network/ 
+sudo rm -rf *_dev_dir/
+#sudo rm -rf TheOrgBook_dev_dir/
+#sudo rm -rf greenlight_dev_dir/
+#sudo rm -rf von-network_dev_dir/ 
 
 
-sudo cd /usr/home
-sudo rm -rf *
 sudo figlet Clean-Up -f small
 sudo reboot
 
