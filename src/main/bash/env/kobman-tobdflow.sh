@@ -1,5 +1,33 @@
 #!/bin/bash 
 
+
+function __kobman_development_greenlight_dir {
+
+
+
+	Repo_name=${3:-greenlight}
+	cd ${KOBMAN_DEV_DIR}
+	echo "greenlight dir path"	
+	echo ${KOBMAN_DEV_DIR}
+
+
+
+	sudo mkdir -p greenlight_dev_dir
+	cd greenlight_dev_dir
+
+	#sudo mkdir -p "${Repo_name}"_dev_dir
+	#cd "${Repo_name}"_dev_dir
+	kobman_greenlight_dev_dir="${PWD}"	
+	__kobman_echo_red "KOBman development environment setting up at $kobman_kobman_dev_dir "
+	sudo mkdir -p test/ dependency/
+	sudo git clone https://github.com/EtricKombat/${Repo_name}
+
+
+
+
+}
+
+
 function __kobman_install_greenlight
 {
 		kobman_namespace="$1"

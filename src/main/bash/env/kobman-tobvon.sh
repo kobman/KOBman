@@ -6,9 +6,18 @@ function __kobman_development_tobvon_dir {
 
 
 	Repo_name=${3:-von-network}
-	cd "${KOBMAN_DEV_DIR}"
-	sudo mkdir -p "${Repo_name}"_dev_dir
-	cd "${Repo_name}"_dev_dir
+	cd ${KOBMAN_DEV_DIR}
+	echo "von dir path"	
+	echo ${KOBMAN_DEV_DIR}
+	
+	sudo mkdir -p von_network_dev_dir
+	cd von_network_dev_dir
+
+
+
+	#sudo mkdir -p "${Repo_name}"_dev_dir
+	#cd "${Repo_name}"_dev_dir
+
 	kobman_tobvon_dev_dir="${PWD}"	
 	
 	__kobman_echo_red "von-network development environment setting up at  $kobman_tobvon_dev_dir "
