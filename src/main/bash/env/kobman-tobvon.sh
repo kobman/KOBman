@@ -1,5 +1,19 @@
 #!/bin/bash
-                                                                                                                                   
+
+
+function __kobman_development_von_dir {
+
+
+
+	Repo_name=${3:-von-network}
+	__kobman_echo_red "von-network development environment setting up at /usr/home/von-network_dev_dir "
+	cd ~
+	sudo mkdir -p /usr/home/${Repo_name}_dev_dir
+	cd ${Repo_name}_dev_dir
+	sudo mkdir -p test/ dependency/
+	sudo git clone https://github.com/EtricKombat/${Repo_name}
+
+}                                                                                                                          
 function __kobman_install_tobvon
 {
 
