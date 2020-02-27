@@ -3,6 +3,8 @@
 cd ~ 
 sudo rm -rf .kobman/ 
 sudo rm -rf KOBman/
+sudo rm -rf dependency/
+sudo rm -rf test/
 
 cd /usr/home/kobman
 sudo rm -rf *_dev_dir/
