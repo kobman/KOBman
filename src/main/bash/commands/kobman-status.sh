@@ -9,5 +9,5 @@ sudo rm ${KOBMAN_CANDIDATES_DIR}/source-to-image-v1.1.14-874754de-linux-amd64.ta
 __kobman_echo_cyan "=========STATUS========="
 
 sudo figlet status -f small
-sudo tree -d DevDir_* ${KOBMAN_CANDIDATES_DIR}
+sudo ls DevDir_* ${KOBMAN_CANDIDATES_DIR}
 }
