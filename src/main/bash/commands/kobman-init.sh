@@ -107,7 +107,7 @@ else
 	IFS="$OLD_IFS"
 fi
 
-export KOBMAN_CANDIDATES_DIR="${KOBMAN_DIR}/candidates"
+export KOBMAN_CANDIDATES_DIR=$HOME
 
 
 sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
