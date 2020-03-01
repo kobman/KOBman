@@ -2,27 +2,13 @@
                                                               
 function __kobman_development_tob_dir {
 
-	Repo_name=${3:-TheOrgBook}
-	
-	cd ${KOBMAN_DEV_DIR}
 	echo "tob dir path"	
-	echo ${KOBMAN_DEV_DIR}
-
-
 	sudo mkdir -p TheOrgBook_dev_dir
 	cd TheOrgBook_dev_dir
+	export KOBMAN_TOB_DEV_DIR=$PWD
 	
-
-#	sudo mkdir -p "${Repo_name}"_dev_dir
-#	cd "${Repo_name}"_dev_dir
-
-	kobman_tob_dev_dir="${PWD}"	
-	
-	__kobman_echo_red "TheOrgBook development environment setting up at $kobman_tob_dev_dir "
-
- 
+	__kobman_echo_red "TheOrgBook development environment setting up at  ${KOBMAN_TOB_DEV_DIR}  "
 	sudo mkdir -p test/ dependency/
-	sudo git clone https://github.com/EtricKombat/${Repo_name}
 
                                                             
 }
@@ -31,7 +17,8 @@ function __kobman_install_tob
 	        kobman_namespace="$1"
                  __kobman_echo_cyan "Building TheOrgBook from ${kobman_namespace}"
 		cd ${KOBMAN_CANDIDATES_DIR}
-                sudo git clone https://github.com/${kobman_namespace}/TheOrgBook.git
+         	__kobman_development_tob_dir 
+		sudo git clone https://github.com/${kobman_namespace}/TheOrgBook.git
                 sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 sudo mv s2i sti /usr/local/bin/
@@ -47,18 +34,19 @@ function __kobman_start_tob
 
 
 	 __kobman_echo_cyan "Starting TheOrgBook from ${kobman_namespace}"	
-	sudo chmod a+rwx ${KOBMAN_CANDIDATES_DIR}
-	cd ${KOBMAN_CANDIDATES_DIR}
-        sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
+	#sudo chmod a+rwx ${KOBMAN_CANDIDATES_DIR}
+	#cd ${KOBMAN_CANDIDATES_DIR}
+	cd ${KOBMAN_TOB_DEV_DIR}
+	sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
 }
 
 function __kobman_uninstall_tob
 {
 	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
  	__kobman_echo_cyan "TheOrgBook - Uninstalling..."	
-	cd ${KOBMAN_CANDIDATES_DIR}
+	cd ${KOBMAN_TOB_DEV_DIR}
 	sudo TheOrgBook/docker/manage rm
-	sudo rm ${KOBMAN_CANDIDATES_DIR}/source-*
+	sudo rm ${KOBMAN_TOB_DEV_DIR}/source-*
 	sudo rm -rf TheOrgBook/ 2> /dev/null 	
 	sudo rm -rf /usr/local/bin/s2i /usr/local/bin/sti TheOrgBook/ 2> /dev/null	
 
