@@ -6,8 +6,8 @@ function __kobman_development_tobvon_dir {
 
 
 	echo "von dir path"	
-	sudo mkdir -p tobvon_dev_dir
-	cd tobvon_dev_dir
+	sudo mkdir -p DevDir_TOBVon
+	cd DevDir_TOBVon
 	export KOBMAN_VON_DEV_DIR=$PWD
 	__kobman_echo_red "von-network development environment setting up at  ${KOBMAN_VON_DEV_DIR} "
 	sudo mkdir -p test/ dependency/

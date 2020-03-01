@@ -3,8 +3,8 @@
 function __kobman_development_tob_dir {
 
 	echo "tob dir path"	
-	sudo mkdir -p TheOrgBook_dev_dir
-	cd TheOrgBook_dev_dir
+	sudo mkdir -p DevDir_TOB
+	cd DevDir_TOB
 	export KOBMAN_TOB_DEV_DIR=$PWD
 	
 	__kobman_echo_red "TheOrgBook development environment setting up at  ${KOBMAN_TOB_DEV_DIR}  "
