@@ -3,13 +3,11 @@
 
 function __kobman_development_greenlight_dir {
 
-
-
-	echo "greenlight dir path"	
 	sudo mkdir -p DevDir_greenlight
 	cd DevDir_greenlight
 	export KOBMAN_GREENLIGHT_DEV_DIR=$PWD
-	__kobman_echo_red "KOBman development environment setting up at  ${KOBMAN_GREENLIGHT_DEV_DIR} "
+	__kobman_echo_red "Greenlight development environment setting up at  "
+	__kobman_echo_red " ${KOBMAN_GREENLIGHT_DEV_DIR} "
 	sudo mkdir -p test/ dependency/
 }
 
@@ -17,7 +15,8 @@ function __kobman_development_greenlight_dir {
 function __kobman_install_greenlight
 {
 		kobman_namespace="$1"
- 		__kobman_echo_green "Building greenlight from ${kobman_namespace}"	
+ 		__kobman_echo_green "Building greenlight from"	
+ 		__kobman_echo_green "${kobman_namespace}"	
                	sudo chmod 755 ${KOBMAN_CANDIDATES_DIR} 
 		cd ${KOBMAN_CANDIDATES_DIR}
          	__kobman_development_greenlight_dir 
@@ -35,7 +34,8 @@ function __kobman_install_greenlight
 function __kobman_start_greenlight
 {
 
- 	__kobman_echo_green "Starting greenlight from ${kobman_namespace}"	
+ 	__kobman_echo_green "Starting greenlight from"	
+ 	__kobman_echo_green "${kobman_namespace}"	
        	cd ${KOBMAN_GREENLIGHT_DEV_DIR} 
 	sudo greenlight/docker/manage start
 }

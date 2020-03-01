@@ -3,13 +3,11 @@
 
 function __kobman_development_tobvon_dir {
 
-
-
-	echo "von dir path"	
 	sudo mkdir -p DevDir_TOBVon
 	cd DevDir_TOBVon
 	export KOBMAN_VON_DEV_DIR=$PWD
-	__kobman_echo_red "von-network development environment setting up at  ${KOBMAN_VON_DEV_DIR} "
+	__kobman_echo_red "von-network development environment setting up at "
+	__kobman_echo_red "${KOBMAN_VON_DEV_DIR} "
 	sudo mkdir -p test/ dependency/
 
 
@@ -20,13 +18,13 @@ function __kobman_install_tobvon
 
 		
 		kobman_namespace="$1"	
-		 __kobman_echo_red "Building VON-(TheOrgBook) from ${kobman_namespace}"
+		__kobman_echo_red "Building VON-(TheOrgBook) from"
+		__kobman_echo_red " ${kobman_namespace}"
 		cd ${KOBMAN_VON_DEV_DIR}
          	__kobman_development_tobvon_dir 
 		sudo git clone https://github.com/${kobman_namespace}/von-network.git
                 sudo von-network/manage rm
                 sudo von-network/manage build
-
 		cd ~
 }
 
@@ -34,7 +32,8 @@ function __kobman_install_tobvon
 function __kobman_start_tobvon
 {
 
-	__kobman_echo_red "Starting VON-(TheOrgBook) from ${kobman_namespace}"
+	__kobman_echo_red "Starting VON-(TheOrgBook) from"
+	__kobman_echo_red "${kobman_namespace}"
         cd ${KOBMAN_VON_DEV_DIR} 
 	sudo von-network/manage start
 }
