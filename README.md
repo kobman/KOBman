@@ -49,7 +49,8 @@ Run the following commands on the terminal to manage respective environments.
         kob install --dev tobvon       [name_space]       
         kob install --dev tob          [name_space]
         kob install --dev greenlight   [name_space]
-        
+        kob install --dev kobman       [name_space]
+	
         Example   :
             kob install --dev tob hyperledgerkochi
         
@@ -58,14 +59,16 @@ Deployment commands:
         kob install --deploy tobvon       [name_space]       
         kob install --deploy tob          [name_space]
         kob install --deploy greenlight   [name_space]
-               
+        kob install --deploy kobman       [name_space]
+	 
 	Example   :
             kob install --deploy tob hyperledgerkochi
 Uninstall environement  commands:
        
         kob uninstall --dev tobvon             
         kob uninstall --dev tob         
-        kob uninstall --dev greenlight  
+        kob uninstall --dev greenlight
+	kob uninstall --dev kobman
        
             
         
