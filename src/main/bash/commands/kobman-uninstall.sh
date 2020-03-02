@@ -42,6 +42,10 @@ local command deployment_type environment_type name_space
                         then
 				echo "uninstalling greenlight..."
                                 __kobman_uninstall_greenlight
+                        elif [ "$environment_type" = "kobman" ]
+                        then
+				echo "uninstalling greenlight..."
+                                __kobman_uninstall_kobman
                         else
                                 echo "verifiy your command and try again"
                         fi
