@@ -9,25 +9,19 @@ function __kobman_development_tobvon_dir {
 	__kobman_echo_red "von-network development environment setting up at "
 	__kobman_echo_red "${KOBMAN_VON_DEV_DIR} "
 	sudo mkdir -p test/ dependency/
-
-
-
 }                                                                                                                          
 function __kobman_install_tobvon
 {
-
-		
 		kobman_namespace="$1"	
 		__kobman_echo_red "Building VON-(TheOrgBook) from"
 		__kobman_echo_red " ${kobman_namespace}"
-		cd ${KOBMAN_VON_DEV_DIR}
-         	__kobman_development_tobvon_dir 
+         	cd ${KOBMAN_CANDIDATES_DIR}
+		__kobman_development_tobvon_dir 
 		sudo git clone https://github.com/${kobman_namespace}/von-network.git
                 sudo von-network/manage rm
                 sudo von-network/manage build
 		cd ~
 }
-
 
 function __kobman_start_tobvon
 {
@@ -38,18 +32,14 @@ function __kobman_start_tobvon
 	sudo von-network/manage start
 }
 
-
 function __kobman_uninstall_tobvon
 {
  	__kobman_echo_red "VON-(TheOrgBook) - Uninstalling..."	
         cd ${KOBMAN_VON_DEV_DIR} 
 	sudo rm -rf von-network/ 2> /dev/null	
-	
 	rm -rf ${KOBMAN_TOB_DEV_DIR} 2> /dev/null	
 	cd ~
-
 }
-
 
 function __kobman_version_tobvon
 {
@@ -61,6 +51,4 @@ function __kobman_version_tobvon
 	git ls-remote --tags https://github.com/${kobman_namespace}/von-network | grep -o v0.0.*
 
 }
-
-
 

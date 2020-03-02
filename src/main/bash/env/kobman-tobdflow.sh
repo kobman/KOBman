@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-
 function __kobman_development_greenlight_dir {
 
 	sudo mkdir -p DevDir_greenlight
