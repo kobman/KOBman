@@ -1,8 +1,5 @@
 #!/bin/bash
-
 function __kobman_development_kobman_dir {
-
-
 
 	sudo mkdir -p DevDir_KOBman
 	cd DevDir_KOBman
@@ -12,34 +9,25 @@ function __kobman_development_kobman_dir {
 	sudo mkdir -p test/ dependency/
 }
 
-
-
-
 function __kobman_install_kobman
 {
 		kobman_namespace="$1"
  		__kobman_echo_green "Building kobman from"	
  		__kobman_echo_green "${kobman_namespace}"	
-               	sudo chmod 755 ${KOBMAN_CANDIDATES_DIR} 
+#              	sudo chmod 755 ${KOBMAN_CANDIDATES_DIR} 
 		cd ${KOBMAN_CANDIDATES_DIR}
          	__kobman_development_kobman_dir 
 		sudo git clone https://github.com/${kobman_namespace}/KOBman.git
-
 		cd ~
-
 }
-
 
 function __kobman_uninstall_kobman
 {
-	
-	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
+#	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
  	__kobman_echo_green "KOBman - Uninstalling..."
        	cd ${KOBMAN_KOBMAN_DEV_DIR} 
 	sudo kobman/docker/manage rm 2> /dev/null	
-
 	sudo rm -rf kobman/ 2> /dev/null	
-
        	rm -rf  ${KOBMAN_KOBMAN_DEV_DIR}
 	cd ~
 }
@@ -52,8 +40,5 @@ function __kobman_version_kobman
        	fi 
  	__kobman_echo_green "KOBman - Version"	
 	git ls-remote --tags https://github.com/${kobman_namespace}/KOBman | grep -o v0.0.*
-
 }
-
-
 
