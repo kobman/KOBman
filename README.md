@@ -60,7 +60,7 @@ Deployment commands:
         kob install --deploy tobvon       [name_space]       
         kob install --deploy tob          [name_space]
         kob install --deploy greenlight   [name_space]
-        kob install --deploy kobman       [name_space]
+      
 	 
 	Example   :
             kob install --deploy tob hyperledgerkochi
