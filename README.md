@@ -68,7 +68,7 @@ Uninstall environement  commands:
         kob uninstall --dev tobvon             
         kob uninstall --dev tob         
         kob uninstall --dev greenlight
-	kob uninstall --dev kobman
+        kob uninstall --dev kobman
        
             
         
