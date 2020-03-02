@@ -125,7 +125,7 @@ For new features creation , you have to edit (add file 'kobman-\' ) extention sc
         │   ├── test-kob-uninstall.sh
         │   └── test-kob-version.sh
         ├── tmp
-            ├── kobm        an-0.01.zip
+            ├── kobman-0.01.zip
             ├── kobman-test.zip
             └── stage
 
