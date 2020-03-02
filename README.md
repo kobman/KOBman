@@ -21,7 +21,7 @@ KOBman gives you a **kob** command on your shell , you can use it to automate th
 
 KOBman is a utility for managing parallel versions of multiple KochiOrgBook projects ([tobvon](https://github.com/EtricKombat/KOBman/blob/master/docs/Environment%20Installation.md),[tob](https://github.com/EtricKombat/KOBman/blob/master/docs/Environment%20Installation.md),[greenlight](https://github.com/EtricKombat/KOBman/blob/master/docs/Environment%20Installation.md)..etc) on any unix based system. It provides a convenient command line interface for installing, removing and listing environments.
 
-See documentation on the [KOBman! website](https://github.com/EtricKombat/KOBman/blob/master/docs/Environment%20Installation.md).
+See more examples on the [KOBman! Environment Installation](https://github.com/EtricKombat/KOBman/blob/master/docs/Environment%20Installation.md).
 
 ## Step 1:Installation
 
