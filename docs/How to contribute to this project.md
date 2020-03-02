@@ -4,7 +4,7 @@ We greatly value the feedback and contributions of our users. We have a simple p
 
 ### Bugs and New Features
 
-We keep a distinction between New Features and Bugs/Issues. We try to minimise the noise in our Github Issues stream by first having a conversation on [KOB! Whatsapp Group](https://chat.whatsapp.com/El6d3aAc6pYLEDEdQPVABY).
+We keep a distinction between New Features and Bugs/Issues. We try to minimise the noise in our Github Issues stream by first having a conversation on [KochiOrgBook! Whatsapp Group](https://chat.whatsapp.com/El6d3aAc6pYLEDEdQPVABY).
 
 - User Issues can be raised in our issue section.
 - New Features or Enhancements can be discussed in our issue section.
@@ -15,7 +15,9 @@ After accepting a new feature or confirming that a bug was found, an Issue may b
 
 ### Pull Requests
 
-Pull Requests are _always_ very welcome, but require the initial discussion on Whatsapp Group followed by a Github Issue as described above. The PR template is to be filled in before submission, ensuring that it is _linked back_ to the Github Issue number by replacing `#XXX` with the appropriate Issue reference.
+[Make a pull r, but make sure to initiate discussion on Whatsapp Group followed by a Github Issue as described above. The PR template is to be filled in before submission, ensuring that it is _linked back_ to the Github Issue number by replacing `#XXX` with the appropriate [Issue reference](https://github.com/EtricKombat/KOBman/blob/master/docs/ISSUE_TEMPLATE.md).
+
+
 
 Each PR should also be accompanied by a passing test(s) proving it's validity (where feasible). 
 
@@ -53,5 +55,5 @@ Push the changes into your local repository by using the below command
 
       $ git push
       
-Go to your local repository and make a <a href="https://github.com/EtricKombat/KOBman/blob/master/docs/PULL_REQUEST_TEMPLATE.md">pull request</a> to reflect the changes in the master repository
+Go to your local repository and make a pull request to reflect the changes in the master repository
 
