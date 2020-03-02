@@ -109,24 +109,26 @@ For new features creation , you have to edit (add file 'kobman-\' ) extention sc
         │   ├── kobman-uninstall.sh
         │   ├── kobman-utils.sh
         │   └── kobman-version.sh
-	├── tests
-	│   ├── test-kob-greenlight.sh
-	│   ├── test-kob-help.sh
-	│   ├── test-kob-install.sh
-	│   ├── test-kob-kobconnect.sh
-	│   ├── test-kob-kobdflow.sh
-	│   ├── test-kob-kobregistery.sh
-	│   ├── test-kob-kob.sh
-	│   ├── test-kob-kobvon.sh
-	│   ├── test-kob-list.sh
-	│   ├── test-kob-status.sh
-	│   ├── test-kob-tob.sh
-	│   ├── test-kob-tobvon.sh
-	│   ├── test-kob-uninstall.sh
-	│   └── test-kob-version.sh
+        ├── tests
+        │   ├── test-kob-greenlight.sh
+        │   ├── test-kob-help.sh
+        │   ├── test-kob-install.sh
+        │   ├── test-kob-kobconnect.sh
+        │   ├── test-kob-kobdflow.sh
+        │   ├── test-kob-kobregistery.sh
+        │   ├── test-kob-kob.sh
+        │   ├── test-kob-kobvon.sh
+        │   ├── test-kob-list.sh
+        │   ├── test-kob-status.sh
+        │   ├── test-kob-tob.sh
+        │   ├── test-kob-tobvon.sh
+        │   ├── test-kob-uninstall.sh
+        │   └── test-kob-version.sh
         ├── tmp
-            ├── kobman-0.01.zip
+            ├── kobm        an-0.01.zip
+            ├── kobman-test.zip
             └── stage
+
 
 
 ## Contributors
