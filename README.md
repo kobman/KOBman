@@ -136,7 +136,10 @@ For new features creation , you have to edit (add file 'kobman-\' ) extention sc
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. 
+This project exists thanks to all the people who . [contribute](https://github.com/EtricKombat/KOBman/blob/master/docs/How%20to%20contribute%20to%20this%20project.md).
+
+
+
 
 **Connect with us**
 
