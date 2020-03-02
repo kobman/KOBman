@@ -48,7 +48,7 @@ function __kobman_uninstall_greenlight
 
 	sudo rm -rf greenlight/ 2> /dev/null	
 	sudo rm -rf greenlight/ /usr/local/bin/sti /usr/local/bin/s2i source-to-image-v1.1.14-874754de-linux-amd64.tar.gz 2> /dev/null	
-
+	cd ~
        	rm -rf  ${KOBMAN_GREENLIGHT_DEV_DIR} 
 
 }

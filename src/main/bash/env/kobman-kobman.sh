@@ -26,10 +26,10 @@ function __kobman_uninstall_kobman
 #	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
  	__kobman_echo_green "KOBman - Uninstalling..."
        	cd ${KOBMAN_KOBMAN_DEV_DIR} 
-	sudo kobman/docker/manage rm 2> /dev/null	
-	sudo rm -rf kobman/ 2> /dev/null	
-       	rm -rf  ${KOBMAN_KOBMAN_DEV_DIR}
+#	sudo kobman/docker/manage rm 2> /dev/null	
+#	sudo rm -rf kobman/ 2> /dev/null	
 	cd ~
+       	rm -rf  ${KOBMAN_KOBMAN_DEV_DIR}
 }
 
 function __kobman_version_kobman

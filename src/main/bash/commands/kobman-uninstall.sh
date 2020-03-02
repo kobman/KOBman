@@ -32,19 +32,15 @@ local command deployment_type environment_type name_space
                                 echo "uninstalling kobregistory..."
                         elif [ "$environment_type" = "tobvon" ]
                         then
-                                echo "uninstalling tobvon..."
                                 __kobman_uninstall_tobvon
 			elif [ "$environment_type" = "tob" ]
                         then
-				echo "uninstalling tob..."
                                 __kobman_uninstall_tob
                         elif [ "$environment_type" = "greenlight" ]
                         then
-				echo "uninstalling greenlight..."
                                 __kobman_uninstall_greenlight
                         elif [ "$environment_type" = "kobman" ]
                         then
-				echo "uninstalling greenlight..."
                                 __kobman_uninstall_kobman
                         else
                                 echo "verifiy your command and try again"
@@ -68,15 +64,15 @@ local command deployment_type environment_type name_space
                                 echo "uninstalling kobregistory..."
  			elif [ "$environment_type" = "tobvon" ]
                         then
-				echo "uninstalling tobvon..."
+				echo "undeploy - uninstalling tobvon..."
                                 __kobman_uninstall_tobvon
 			elif [ "$environment_type" = "tob" ]
                         then
-			       echo "uninstalling tob..."
+			       echo "undeploy - uninstalling tob..."
                                __kobman_uninstall_tob
                          elif [ "$environment_type" = "greenlight" ]
                          then
-				echo "uninstalling greenlight..."
+				echo "undeploy - uninstalling greenlight..."
                                 __kobman_uninstall_greenlight
                          else
                                  echo "verifiy your command and try again"

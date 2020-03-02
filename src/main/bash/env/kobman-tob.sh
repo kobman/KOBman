@@ -50,9 +50,8 @@ function __kobman_uninstall_tob
 
 	sudo rm -rf TheOrgBook/ 2> /dev/null 	
 	sudo rm -rf /usr/local/bin/s2i /usr/local/bin/sti TheOrgBook/ 2> /dev/null	
-
-	rm -rf ${KOBMAN_TOB_DEV_DIR}
 	cd ~
+	rm -rf ${KOBMAN_TOB_DEV_DIR}
 }	
 
 function __kobman_version_tob
