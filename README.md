@@ -22,7 +22,7 @@ KOBman is a utility for managing parallel versions of multiple KochiOrgBook proj
 
 See documentation on the [KOBman! website](https://github.com/EtricKombat/KOBman/blob/master/docs/Environment%20Installation.md).
 
-## Installation
+## Step 1:Installation
 
 Open your favourite terminal and enter the following:
 
@@ -31,7 +31,7 @@ Open your favourite terminal and enter the following:
 If the environment needs tweaking for KOBman to be installed, the installer will prompt you accordingly and ask you to remove '~/.kobman' directory and restart your machine .
 
 
-### Local Installation
+## Step 2:Local Installation
 
 To install KOBman locally running against your local server, run the following commands:
 
@@ -40,7 +40,7 @@ To install KOBman locally running against your local server, run the following c
 
 
 
-### Local Environment Installation
+## Step 3:Local Environment Installation
 
 Run the following commands on the terminal to manage respective environments.
 	
