@@ -49,12 +49,7 @@ Run the following commands on the terminal to manage respective environments.
         kob install --dev tobvon       [name_space]       
         kob install --dev tob          [name_space]
         kob install --dev greenlight   [name_space]
-        kob install --dev kobvon       [name_space]   / work in Progress
-        kob install --dev kob          [name_space]   / work in Progress
-        kob install --dev kobdflow     [name_space]   / work in Progress
-        kob install --dev kobconnect   [name_space]   / work in Progress        
-        kob install --dev kobregistory [name_space]   / work in Progress
-
+        
         Example   :
             kob install --dev tob hyperledgerkochi
         
@@ -63,30 +58,19 @@ Deployment commands:
         kob install --deploy tobvon       [name_space]       
         kob install --deploy tob          [name_space]
         kob install --deploy greenlight   [name_space]
-        kob install --deploy kobvon       [name_space]/ work in Progress
-        kob install --deploy kob          [name_space]/ work in Progress
-        kob install --deploy kobdflow     [name_space]/ work in Progress
-        kob install --deploy kobconnect   [name_space]/ work in Progress        
-        kob install --deploy kobregistory [name_space]/ work in Progress
-        
+               
 	Example   :
-            kob install --deploy tob bcgov
+            kob install --deploy tob hyperledgerkochi
 Uninstall environement  commands:
        
         kob uninstall --dev tobvon             
         kob uninstall --dev tob         
         kob uninstall --dev greenlight  
-        kob uninstall --dev kobvon       
-        kob uninstall --dev kob          
-        kob uninstall --dev kobdflow     
-        kob uninstall --dev kobconnect           
-        kob uninstall --dev kobregistory 
-
-                
+       
+            
         
 Other useful commands:        
-  
-             
+               
         kob list
         kob status        
         kob help     
@@ -97,7 +81,38 @@ Other useful commands:
 
 For new features creation , you have to edit (add file 'kobman-\' ) extention script in the below listed directory,test it & publish
 
-        ./kobman/env/
+        .kobman/
+        ├── archives
+        ├── bin
+        │   ├── kobman-init.sh
+        │   └── kobman-test.sh
+        ├── candidates
+        ├── env
+        │   ├── kobman-kobconnect.sh
+        │   ├── kobman-kobdflow.sh
+        │   ├── kobman-kobman.sh
+        │   ├── kobman-kobregistery.sh
+        │   ├── kobman-kob.sh
+        │   ├── kobman-kobvon.sh
+        │   ├── kobman-tobdflow.sh
+        │   ├── kobman-tob.sh
+        │   └── kobman-tobvon.sh
+        ├── etc
+        │   └── config
+        ├── src
+        │   ├── kobman-greenlight.sh
+        │   ├── kobman-help.sh
+        │   ├── kobman-install.sh
+        │   ├── kobman-list.sh
+        │   ├── kobman-main.sh
+        │   ├── kobman-status.sh
+        │   ├── kobman-uninstall.sh
+        │   ├── kobman-utils.sh
+        │   └── kobman-version.sh
+        ├── tmp
+            ├── kobman-0.01.zip
+            └── stage
+
 
 ## Contributors
 
