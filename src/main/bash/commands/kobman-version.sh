@@ -23,6 +23,9 @@ function __kobman_environment_version {
 		greenlight)
 			__kobman_version_greenlight
 		;;	
+		kobman)
+			__kobman_version_kobman
+		;;	
 		kobvon)
 			__kobman_version_kobvon
 		;;	
