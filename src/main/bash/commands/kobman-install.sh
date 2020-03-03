@@ -349,19 +349,24 @@ function __kobman_python_install {
 
 function __kobman_docker_install {
 
-        sudo apt-get remove docker docker-engine docker-ce docker-ce-cli containerd.io docker.io -y
+          sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
 	__kobman_echo_yellow "Installing Docker"	
 	sudo apt-get update -y
- 	__kobman_echo_yellow "Package permission : Allowing apt to use repository over HTTPS"
-        sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common docker docker-engine docker-ce docker-ce-cli containerd.io docker.io -y
+        sudo apt install docker.io -y
+	__kobman_echo_yellow "Package permission : Allowing apt to use repository over HTTPS"
+
+        sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+
 	__kobman_echo_yellow "Adding docker official key"
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	__kobman_echo_yellow "Verifying apt key fingerprint"
 	sudo apt-key fingerprint 0EBFCD88
+
 	__kobman_echo_yellow "Setting up $(lsb_release -is) $(lsb_release -cs) docker-stable repository"
         sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
 	__kobman_echo_yellow "Installing Docker-Engine"
 	sudo apt-get update -y
+        sudo apt-get install docker-ce docker-ce-cli containerd.io -y
         sudo docker run hello-world
 	__kobman_echo_yellow "Installing Docker-Compose"
 	sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -379,6 +384,7 @@ function __kobman_docker_install {
 
         if [[ "$proxychk" -eq 1 ]]
         then
+		__kobman_echo_red "Docker proxy setting up @ /root/.docker/config.json"
                 sudo sed -i '$ d' /root/.docker/config.json
                 sudo echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
 
