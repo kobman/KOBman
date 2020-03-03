@@ -35,7 +35,7 @@ function __kob_install {
                         elif [ "$environment_type" = "tobvon" ]
                         then
                                 echo "Building tobvon..."
-                       		__kobman_development_tobvon_dir 
+#                      		__kobman_development_tobvon_dir 
 				
 				__kobman_check_proxy
                                 __kobman_ubuntu_update_upgrade
@@ -48,7 +48,7 @@ function __kob_install {
 			elif [ "$environment_type" = "tob" ]
                         then
                                 echo "Building tob..."
-                       		__kobman_development_tob_dir 
+#                      		__kobman_development_tob_dir 
 				if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
 				then
                                          __kobman_check_proxy
@@ -63,7 +63,7 @@ function __kob_install {
                         elif [ "$environment_type" = "greenlight" ]
                         then
                                 echo "Building greenlight ..."
-                       		__kobman_development_greenlight_dir 
+#                      		__kobman_development_greenlight_dir 
 				if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
 				then
                                          __kobman_check_proxy
