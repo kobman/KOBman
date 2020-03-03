@@ -36,7 +36,7 @@ function __kobman_uninstall_kobman
         cd ~
         echo "after"
         pwd
-        rm -rf DevDir_KOBman 2> /dev/null
+        sudo rm -rf DevDir_KOBman 2> /dev/null
 
 
 #	cd ~

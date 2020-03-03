@@ -58,7 +58,7 @@ function __kobman_uninstall_tob
         cd ~
         echo "after"
         pwd
-        rm -rf DevDir_TOB 2> /dev/null
+        sudo rm -rf DevDir_TOB 2> /dev/null
 
 	#cd ~
 	#rm -rf ${KOBMAN_TOB_DEV_DIR}
