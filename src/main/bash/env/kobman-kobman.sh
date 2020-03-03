@@ -25,13 +25,8 @@ function __kobman_install_kobman
 function __kobman_uninstall_kobman
 {
  	__kobman_echo_green "KOBman - Uninstalling..."
-       	cd ${KOBMAN_KOBMAN_DEV_DIR} 
-
-	echo "before "  
-        pwd
+       	#cd ${KOBMAN_KOBMAN_DEV_DIR} 
         cd ~
-        echo "after"
-        pwd
         sudo rm -rf DevDir_KOBman 2> /dev/null
 
 }
