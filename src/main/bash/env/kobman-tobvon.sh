@@ -37,9 +37,15 @@ function __kobman_uninstall_tobvon
  	__kobman_echo_red "VON-(TheOrgBook) - Uninstalling..."	
         cd ${KOBMAN_VON_DEV_DIR} 
 	sudo rm -rf von-network/ 2> /dev/null	
+	echo "before "	
+	pwd
 	cd ~
-	rm -rf ${KOBMAN_VON_DEV_DIR} 2> /dev/null	
+	echo "after"
+	pwd
+	rm -rf DevDir_TOBVon 2> /dev/null	
+#	rm -rf ${KOBMAN_VON_DEV_DIR} 2> /dev/null	
 }
+
 
 function __kobman_version_tobvon
 {
