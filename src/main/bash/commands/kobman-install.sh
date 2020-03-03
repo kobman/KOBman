@@ -160,97 +160,9 @@ function __kob_install {
 
 	fi
 
-
-# 	__kobman_check_candidate_present "$candidate" || return 1
-# 	__kobman_determine_version "$candidate" "$version" "$folder" || return 1
-# 
-# 	if [[ -d "${KOBMAN_CANDIDATES_DIR}/${candidate}/${VERSION}" || -h "${KOBMAN_CANDIDATES_DIR}/${candidate}/${VERSION}" ]]; then
-# 		echo ""
-# 		__kobman_echo_red "Stop! ${candidate} ${VERSION} is already installed."
-# 		return 1
-# 	fi
-# 
-# 	if [[ ${VERSION_VALID} == 'valid' ]]; then
-# 		__kobman_determine_current_version "$candidate"
-# 		__kobman_install_candidate_version "$candidate" "$VERSION" || return 1
-# 
-# 		if [[ "$kobman_auto_answer" != 'true' && "$auto_answer_upgrade" != 'true' && -n "$CURRENT" ]]; then
-# 			__kobman_echo_confirm "Do you want ${candidate} ${VERSION} to be set as default? (Y/n): "
-# 			read USE
-# 		fi
-# 		if [[ -z "$USE" || "$USE" == "y" || "$USE" == "Y" ]]; then
-# 			echo ""
-# 			__kobman_echo_green "Setting ${candidate} ${VERSION} as default."
-# 			__kobman_link_candidate_version "$candidate" "$VERSION"
-# 			__kobman_add_to_path "$candidate"
-# 		fi
-# 		return 0
-# 
-# 	elif [[ "$VERSION_VALID" == 'invalid' && -n "$folder" ]]; then
-# 		__kobman_install_local_version "$candidate" "$VERSION" "$folder" || return 1
-# 
-# 	else
-# 		echo ""
-# 		__kobman_echo_red "Stop! $1 is not a valid ${candidate} version."
-# 		return 1
-# 	fi
 }
 
-#function __kobman_install_candidate_version {
-#	local candidate version
-#
-#	candidate="$1"
-#	version="$2"
-#
-#	__kobman_download "$candidate" "$version" || return 1
-#	__kobman_echo_green "Installing: ${candidate} ${version}"
-#
-#	mkdir -p "${KOBMAN_CANDIDATES_DIR}/${candidate}"
-#
-#	rm -rf "${KOBMAN_DIR}/tmp/out"
-#	unzip -oq "${KOBMAN_DIR}/archives/${candidate}-${version}.zip" -d "${KOBMAN_DIR}/tmp/out"
-#	mv "$KOBMAN_DIR"/tmp/out/* "${KOBMAN_CANDIDATES_DIR}/${candidate}/${version}"
-#	__kobman_echo_green "Done installing!"
-#	echo ""
-#}
-#
-#function __kobman_install_local_version {
-#	local candidate version folder version_length version_length_max
-#
-#	version_length_max=15
-#
-#	candidate="$1"
-#	version="$2"
-#	folder="$3"
-#
-#	#Validate max length of version
-#	version_length=${#version}
-#	__kobman_echo_debug "Validating that actual version length ($version_length) does not exceed max ($version_length_max)"
-#
-#	if [[ $version_length -gt $version_length_max ]]; then
-#		__kobman_echo_red "Invalid version! ${version} with length ${version_length} exceeds max of ${version_length_max}!"
-#		return 1
-#	fi
-#
-#	mkdir -p "${KOBMAN_CANDIDATES_DIR}/${candidate}"
-#
-#	# handle relative paths
-#	if [[ "$folder" != /* ]]; then
-#		folder="$(pwd)/$folder"
-#	fi
-#
-#	if [[ -d "$folder" ]]; then
-#		__kobman_echo_green "Linking ${candidate} ${version} to ${folder}"
-#		ln -s "$folder" "${KOBMAN_CANDIDATES_DIR}/${candidate}/${version}"
-#		__kobman_echo_green "Done installing!"
-#
-#	else
-#		__kobman_echo_red "Invalid path! Refusing to link ${candidate} ${version} to ${folder}."
-#		return 1
-#	fi
-#
-#	echo ""
-#}
+
 
 function __kobman_download {
 	local candidate version archives_folder
@@ -373,19 +285,18 @@ function __kobman_check_proxy {
 	then
 		proxychk=1
 		sudo dpkg --configure -a
-        	
-        	__kobman_echo_red "Bypassing proxy server requires listed values\n"
-		read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
+		__kobman_echo_red "By passing proxy server requires listed values\n"
+		read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] : " prox
         	sudo echo -e "\n"
-         	read -p "Enter the port?[eg :8980,443..etc]          :" port
+         	read -p "Enter the port?[eg :8980,443..etc]          : " port
          	sudo echo -e "\n"
-         	read -p "Enter proxy user name                       :" uname
+         	read -p "Enter proxy user name                       : " uname
          	sudo echo -e "\n"
-         	read  -p "Enter proxy password?[your login password]  :" pword
+         	read  -p "Enter proxy password?[your login password] : " pword
          	__kobman_echo_red "Configure github username/email"
-         	read -p "Enter github user name                      :" git_uname
+         	read -p "Enter github user name                      : " git_uname
          	sudo echo -e "\n"
-         	read -p "Enter github email ID?                      :" emil
+         	read -p "Enter github email ID?                      : " emil
          	sudo echo -e "\n"
          	__kobman_proxy_environment
         for proto in http https ftp socks;
@@ -438,19 +349,15 @@ function __kobman_python_install {
 
 function __kobman_docker_install {
 
-        sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
+        sudo apt-get remove docker docker-engine docker-ce docker-ce-cli containerd.io docker.io -y
 	__kobman_echo_yellow "Installing Docker"	
 	sudo apt-get update -y
-        sudo apt install docker.io -y
-	__kobman_echo_yellow "Package permission : Allowing apt to use repository over HTTPS"
-
-        sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-
+ 	__kobman_echo_yellow "Package permission : Allowing apt to use repository over HTTPS"
+        sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common docker docker-engine docker-ce docker-ce-cli containerd.io docker.io -y
 	__kobman_echo_yellow "Adding docker official key"
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	__kobman_echo_yellow "Verifying apt key fingerprint"
 	sudo apt-key fingerprint 0EBFCD88
-
 	__kobman_echo_yellow "Setting up $(lsb_release -is) $(lsb_release -cs) docker-stable repository"
         sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
 	__kobman_echo_yellow "Installing Docker-Engine"
@@ -512,11 +419,9 @@ function __kobman_npm_install {
 function __kobman_visual_studio_install {
 
 	__kobman_echo_yellow "Installing Visual-Studio"	
-# sudo apt update
 	sudo apt install software-properties-common apt-transport-https wget
 	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 	sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-#	sudo apt update
 	sudo apt install code
 
 }
