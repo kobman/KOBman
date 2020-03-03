@@ -34,8 +34,6 @@ function __kob_install {
                                 echo "Building kobregistory..."
                         elif [ "$environment_type" = "tobvon" ]
                         then
-                               # echo "Development environemtn s"
-#                      		__kobman_development_tobvon_dir 
 				__kobman_check_proxy
                                 __kobman_ubuntu_update_upgrade
                                 __kobman_git_install
@@ -46,8 +44,6 @@ function __kob_install {
  				__kobman_install_tobvon "$name_space"
 			elif [ "$environment_type" = "tob" ]
                         then
-                               # echo "Building tob..."
-#                      		__kobman_development_tob_dir 
 				if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
 				then
                                          __kobman_check_proxy
@@ -61,8 +57,6 @@ function __kob_install {
  				__kobman_install_tob "$name_space"
                         elif [ "$environment_type" = "greenlight" ]
                         then
-                               # echo "Building greenlight ..."
-#                      		__kobman_development_greenlight_dir 
 				if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
 				then
                                          __kobman_check_proxy
@@ -100,8 +94,8 @@ function __kob_install {
                                 echo "Starting kobregistory..."
  			elif [ "$environment_type" = "tobvon" ]
                         then
-                                echo "Starting tobvon..."
-                                if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
+				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
+
 				then
                                          __kobman_check_proxy
                                          __kobman_ubuntu_update_upgrade
@@ -115,8 +109,7 @@ function __kob_install {
                                 __kobman_start_tobvon
 			elif [ "$environment_type" = "tob" ]
                         then
-                               echo "Starting tob..."
-                                if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
+				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
 				then
                                          __kobman_check_proxy
                                          __kobman_ubuntu_update_upgrade
@@ -130,8 +123,7 @@ function __kob_install {
                                 __kobman_start_tob
                          elif [ "$environment_type" = "greenlight" ]
                          then
-                                 echo "Building greenlight ..."
-                                if [ ! -d "${KOBMAN_CANDIDATES_DIR}/von-network" ]
+				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
 				then
                                          __kobman_check_proxy
                                          __kobman_ubuntu_update_upgrade
@@ -379,7 +371,7 @@ function __kobman_docker_install {
         sudo docker-compose --version
 	__kobman_echo_red "Docker Login"
 	sudo rm -rf /root/.docker/
-        >/etc/systemd/system/docker.service.d/https-proxy.conf
+        >/etc/systemd/system/docker.service.d/https-proxy.conf > /dev/null
 	sudo docker login
 
         if [[ "$proxychk" -eq 1 ]]
