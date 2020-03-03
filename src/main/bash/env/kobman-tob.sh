@@ -6,8 +6,8 @@ function __kobman_development_tob_dir {
 	sudo mkdir -p DevDir_TOB
 	cd DevDir_TOB
 	export KOBMAN_TOB_DEV_DIR=$PWD
-	__kobman_echo_red "TheOrgBook development environment setting up at  "
-	__kobman_echo_red " ${KOBMAN_TOB_DEV_DIR}  "
+#	__kobman_echo_red "TheOrgBook development environment setting up at  "
+#	__kobman_echo_red " ${KOBMAN_TOB_DEV_DIR}  "
 	cd ${KOBMAN_TOB_DEV_DIR}
 	sudo mkdir -p test/ dependency/
 

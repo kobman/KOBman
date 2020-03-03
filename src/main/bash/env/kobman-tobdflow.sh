@@ -5,8 +5,8 @@ function __kobman_development_greenlight_dir {
 	sudo mkdir -p DevDir_greenlight
 	cd DevDir_greenlight
 	export KOBMAN_GREENLIGHT_DEV_DIR=$PWD
-	__kobman_echo_red "Greenlight development environment setting up at  "
-	__kobman_echo_red " ${KOBMAN_GREENLIGHT_DEV_DIR} "
+#	__kobman_echo_red "Greenlight development environment setting up at  "
+#	__kobman_echo_red " ${KOBMAN_GREENLIGHT_DEV_DIR} "
 	cd ${KOBMAN_GREENLIGHT_DEV_DIR}
 	echo  $KOBMAN_GREENLIGHT_DEV_DIR
 	sudo mkdir -p test/ dependency/

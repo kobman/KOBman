@@ -5,8 +5,8 @@ function __kobman_development_kobman_dir {
 	sudo mkdir -p DevDir_KOBman
 	cd DevDir_KOBman
 	export KOBMAN_KOBMAN_DEV_DIR=$PWD
-	__kobman_echo_red "KOBman development environment setting up at  "
-	__kobman_echo_red "${KOBMAN_KOBMAN_DEV_DIR}"
+#	__kobman_echo_red "KOBman development environment setting up at  "
+#	__kobman_echo_red "${KOBMAN_KOBMAN_DEV_DIR}"
 	cd ${KOBMAN_KOBMAN_DEV_DIR}
 	sudo mkdir -p test/ dependency/
 }
