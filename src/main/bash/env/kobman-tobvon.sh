@@ -40,15 +40,8 @@ function __kobman_uninstall_tobvon
 {
  	__kobman_echo_red "VON-(TheOrgBook) - Uninstalling..."	
 	cd ${KOBMAN_VON_DEV_DIR} 
-        echo "pwd from von dev dir" 
-	pwd	
-        echo "removing von src code" 
 	sudo rm -rf von-network/ 2> /dev/null	
-	echo "before "	
-	pwd
 	cd ~
-	echo "after"
-	pwd
 	sudo rm -rf DevDir_TOBVon 2> /dev/null	
 #	rm -rf ${KOBMAN_VON_DEV_DIR} 2> /dev/null	
 }
