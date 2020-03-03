@@ -53,11 +53,7 @@ function __kobman_uninstall_tob
 	sudo rm -rf TheOrgBook/ 2> /dev/null 	
 	sudo rm -rf /usr/local/bin/s2i /usr/local/bin/sti TheOrgBook/ 2> /dev/null	
 
-	echo "before "  
-        pwd
         cd ~
-        echo "after"
-        pwd
         sudo rm -rf DevDir_TOB 2> /dev/null
 
 	#cd ~
