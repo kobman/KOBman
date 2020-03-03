@@ -12,3 +12,10 @@ kob help > output.txt
   echo "Failed $0"
 # check and remove
 rm output.txt
+
+
+
+
+
+
+
