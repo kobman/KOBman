@@ -379,7 +379,8 @@ function __kobman_docker_install {
         sudo docker-compose --version
 	__kobman_echo_red "Docker Login"
 	sudo rm -rf /root/.docker/
-        sudo docker login
+        >/etc/systemd/system/docker.service.d/https-proxy.conf
+	sudo docker login
 
         if [[ "$proxychk" -eq 1 ]]
         then
