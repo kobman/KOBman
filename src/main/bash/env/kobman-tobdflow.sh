@@ -43,13 +43,20 @@ function __kobman_uninstall_greenlight
 {
 	
  	__kobman_echo_green "Greenlight - Uninstalling..."
-       	cd $KOBMAN_GREENLIGHT_DEV_DIR 
+       	sudo chmod 777 $KOBMAN_GREENLIGHT_DEV_DIR
+	cd $KOBMAN_GREENLIGHT_DEV_DIR 
 	sudo greenlight/docker/manage rm 2> /dev/null	
-
 	sudo rm -rf greenlight/ 2> /dev/null	
 	sudo rm -rf greenlight/ /usr/local/bin/sti /usr/local/bin/s2i source-to-image-v1.1.14-874754de-linux-amd64.tar.gz 2> /dev/null	
-	cd ~
-       	rm -rf  ${KOBMAN_GREENLIGHT_DEV_DIR} 
+       	
+echo "before cd ~"  
+        pwd
+        cd ~
+        echo "after cd ~"
+        pwd
+        rm -rf DevDir_greenlight 2> /dev/null
+	
+#	rm -rf  ${KOBMAN_GREENLIGHT_DEV_DIR} 
 
 }
 

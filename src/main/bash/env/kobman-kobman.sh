@@ -28,8 +28,17 @@ function __kobman_uninstall_kobman
        	cd ${KOBMAN_KOBMAN_DEV_DIR} 
 #	sudo kobman/docker/manage rm 2> /dev/null	
 #	sudo rm -rf kobman/ 2> /dev/null	
-	cd ~
-       	rm -rf  ${KOBMAN_KOBMAN_DEV_DIR}
+
+	echo "before "  
+        pwd
+        cd ~
+        echo "after"
+        pwd
+        rm -rf DevDir_KOBman 2> /dev/null
+
+
+#	cd ~
+ #     	rm -rf  ${KOBMAN_KOBMAN_DEV_DIR}
 }
 
 function __kobman_version_kobman
