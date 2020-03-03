@@ -7,8 +7,7 @@ function __kobman_development_tobvon_dir {
 	sudo mkdir -p DevDir_TOBVon
 	cd DevDir_TOBVon
 	export KOBMAN_VON_DEV_DIR=$PWD
-#	__kobman_echo_red "von-network development environment setting up at "
-#	__kobman_echo_red "${KOBMAN_VON_DEV_DIR} "
+	sudo chmod 777 ${KOBMAN_VON_DEV_DIR}
 	cd ${KOBMAN_VON_DEV_DIR}
 	sudo mkdir -p test/ dependency/
 }                                                                                                                          
@@ -42,8 +41,8 @@ function __kobman_uninstall_tobvon
 	cd ${KOBMAN_VON_DEV_DIR} 
 	sudo rm -rf von-network/ 2> /dev/null	
 	cd ~
-	sudo rm -rf DevDir_TOBVon 2> /dev/null	
-#	rm -rf ${KOBMAN_VON_DEV_DIR} 2> /dev/null	
+#	sudo rm -rf DevDir_TOBVon 2> /dev/null	
+	sudo rm -rf ${KOBMAN_VON_DEV_DIR} 2> /dev/null	
 }
 
 
