@@ -55,7 +55,7 @@ echo "before cd ~"
         echo "after cd ~"
         pwd
         rm -rf DevDir_greenlight 2> /dev/null
-	
+        rm -rf "$HOME/DevDir_greenlight" 2> /dev/null
 #	rm -rf  ${KOBMAN_GREENLIGHT_DEV_DIR} 
 
 }
