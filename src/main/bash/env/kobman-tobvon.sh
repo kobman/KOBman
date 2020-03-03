@@ -9,6 +9,7 @@ function __kobman_development_tobvon_dir {
 	export KOBMAN_VON_DEV_DIR=$PWD
 	__kobman_echo_red "von-network development environment setting up at "
 	__kobman_echo_red "${KOBMAN_VON_DEV_DIR} "
+	cd ${KOBMAN_VON_DEV_DIR}
 	sudo mkdir -p test/ dependency/
 }                                                                                                                          
 function __kobman_install_tobvon

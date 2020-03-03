@@ -1,14 +1,14 @@
 #!/bin/bash
 function __kobman_development_kobman_dir {
 
+	cd ~
 	sudo mkdir -p DevDir_KOBman
 	cd DevDir_KOBman
 	export KOBMAN_KOBMAN_DEV_DIR=$PWD
 	__kobman_echo_red "KOBman development environment setting up at  "
 	__kobman_echo_red "${KOBMAN_KOBMAN_DEV_DIR}"
+	cd ${KOBMAN_KOBMAN_DEV_DIR}
 	sudo mkdir -p test/ dependency/
-	sudo git clone https://github.com/${kobman_namespace}/KOBman.git
-	cd ~
 }
 
 function __kobman_install_kobman
@@ -19,6 +19,8 @@ function __kobman_install_kobman
 #              	sudo chmod 755 ${KOBMAN_CANDIDATES_DIR} 
 		cd ${KOBMAN_CANDIDATES_DIR}
          	__kobman_development_kobman_dir 
+		sudo git clone https://github.com/${kobman_namespace}/KOBman.git
+		cd ~
 }
 
 function __kobman_uninstall_kobman

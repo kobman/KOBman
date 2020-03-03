@@ -2,11 +2,13 @@
                                                               
 function __kobman_development_tob_dir {
 
+	cd ~	
 	sudo mkdir -p DevDir_TOB
 	cd DevDir_TOB
 	export KOBMAN_TOB_DEV_DIR=$PWD
 	__kobman_echo_red "TheOrgBook development environment setting up at  "
 	__kobman_echo_red " ${KOBMAN_TOB_DEV_DIR}  "
+	cd ${KOBMAN_TOB_DEV_DIR}
 	sudo mkdir -p test/ dependency/
 
                                                             
@@ -25,7 +27,7 @@ function __kobman_install_tob
                 sudo TheOrgBook/docker/manage rm
                 sudo TheOrgBook/docker/manage build
                 sudo sed -i -e 's/- 3000/- 3100/g' TheOrgBook/docker/docker-compose.yml
-
+		cd ~
 
 }
 
