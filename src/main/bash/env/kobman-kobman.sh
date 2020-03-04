@@ -40,6 +40,6 @@ function __kobman_version_kobman
 #                read -p "Enter namespace for Github : " kobman_namespace
 #       	fi 
 # 	__kobman_echo_green "KOBman - Version"	
-	git ls-remote --tags https://github.com/${kobman_namespace}/KOBman | grep -o v0.0.*
+	sudo git ls-remote --tags https://github.com/${kobman_namespace}/KOBman | grep -o v0.0.*
 }
 
