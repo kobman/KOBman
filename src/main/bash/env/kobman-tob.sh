@@ -58,10 +58,6 @@ function __kobman_version_tob
 {
 	
 	kobman_namespace="$1"
-#	if [ -z "$kobman_namespace" ]; then
-#		read -p "Enter namespace for Github :" kobman_namespace	
-#	fi	
-# 	__kobman_echo_cyan "TheOrgBook - Version"	
 	git ls-remote --tags https://github.com/${kobman_namespace}/TheOrgBook | grep -o v0.0.*
 
 

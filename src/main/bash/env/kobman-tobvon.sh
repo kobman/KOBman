@@ -50,10 +50,6 @@ function __kobman_uninstall_tobvon
 function __kobman_version_tobvon
 {
 	kobman_namespace="$1"
-#        if [ -z "$kobman_namespace" ]; then
-#                read -p "Enter namespace for Github :" kobman_namespace
-#	fi	
-# 	__kobman_echo_red "VON-(TheOrgBook) - Version"	
 	git ls-remote --tags https://github.com/${kobman_namespace}/von-network | grep -o v0.0.*
 
 }

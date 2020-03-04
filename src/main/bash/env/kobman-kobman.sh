@@ -37,10 +37,6 @@ function __kobman_version_kobman
 {
 
 	kobman_namespace="$1"
-#        if [ -z "$kobman_namespace" ]; then
-#                read -p "Enter namespace for Github : " kobman_namespace
-#       	fi 
-# 	__kobman_echo_green "KOBman - Version"	
 	sudo git ls-remote --tags https://github.com/${kobman_namespace}/KOBman | grep -o v0.0.*
 }
 
