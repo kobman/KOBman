@@ -35,8 +35,8 @@ function __kobman_uninstall_kobman
 
 function __kobman_version_kobman
 {
-	kobman_namespace="$1"
-	echo "KOBMAN NAMESPACE= ${KOBMAN_NAMESPACE}"
+	kobman_namespace=$KOBMAN_NAMESPACE
+	echo "KOBMAN NAMESPACE= $KOBMAN_NAMESPACE"
 	echo "kobman namespace= ${kobman_namespace}"
 #        if [ -z "$kobman_namespace" ]; then
 #                read -p "Enter namespace for Github : " kobman_namespace
