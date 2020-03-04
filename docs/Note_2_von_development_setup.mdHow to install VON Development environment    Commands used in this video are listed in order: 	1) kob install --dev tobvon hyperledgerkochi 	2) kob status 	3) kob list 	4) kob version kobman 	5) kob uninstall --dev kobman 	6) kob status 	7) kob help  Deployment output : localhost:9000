@@ -1,0 +1,14 @@
+# How to install VON Development environment ?
+
+
+Commands used in this video are listed in order:
+
+      kob install --dev tobvon hyperledgerkochi
+      kob status
+      kob list    
+      kob version kobman
+      kob uninstall --dev kobman    
+      kob status
+      kob help
+
+Deployment output : localhost:9000
