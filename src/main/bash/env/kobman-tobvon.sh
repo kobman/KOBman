@@ -41,7 +41,7 @@ function __kobman_uninstall_tobvon
 	cd ${KOBMAN_VON_DEV_DIR} 
 	sudo rm -rf von-network/ 2> /dev/null	
 	cd ~
-	sudo rm -rf $KOBMAN_VON_DEV_DIR 2> /dev/null	
+	sudo rm -rf ${KOBMAN_VON_DEV_DIR} 2> /dev/null	
 
         cd ~
 }
