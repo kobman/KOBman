@@ -6,7 +6,7 @@ Commands used in this video are listed in order:
       kob install --dev tobvon hyperledgerkochi
       kob status
       kob list    
-      kob version kobman
+      kob version tobvon
       kob uninstall --dev kobman    
       kob status
       kob help
