@@ -25,10 +25,13 @@ function __kobman_install_kobman
 function __kobman_uninstall_kobman
 {
  	__kobman_echo_green "KOBman - Uninstalling..."
-        cd ~
-	sudo rm -rf ${KOBMAN_KOBMAN_DEV_DIR} 2> /dev/null
  
-	}
+	cd ${KOBMAN_KOBMAN_DEV_DIR} 
+	sudo rm -rf KOBman/ 2> /dev/null	
+	cd ~
+	sudo rm -rf ${KOBMAN_KOBMAN_DEV_DIR} 2> /dev/null	
+        cd ~
+}
 
 function __kobman_version_kobman
 {
