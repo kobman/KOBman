@@ -81,7 +81,7 @@ Other useful commands:
         kob version     
          
 
-## Adding new features
+## New Feature creation
 
 For new features creation , you have to edit (add file 'kobman-\' ) extention script in the below listed directory,test it & publish
 
