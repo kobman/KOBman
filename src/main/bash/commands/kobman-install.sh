@@ -272,7 +272,9 @@ function __kobman_proxy_environment {
 
 function __kobman_check_proxy {
 
-	read -p "Are you behind a corporate proxy?" reply 
+	__kobman_echo_red "================================="
+	read -p "Behind Proxy ?! [y/n]" reply 
+	__kobman_echo_red "================================="
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ] 
 	then
 		proxychk=1
