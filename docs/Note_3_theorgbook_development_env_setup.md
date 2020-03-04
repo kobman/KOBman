@@ -6,7 +6,7 @@ Commands used in this video are listed:
     kob install --dev tob hyperledgerkochi
     kob status
     kob list
-    kob version kobman
+    kob version tob
     kob uninstall --dev kobman
     kob status
     kob help
