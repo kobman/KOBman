@@ -42,10 +42,9 @@ function __kobman_uninstall_tob
 {
 #	sudo chmod 777 KOBMAN_CANDIDATES_DIR
  	__kobman_echo_cyan "TheOrgBook - Uninstalling..."	
-	sudo chmod 777 ${KOBMAN_TOB_DEV_DIR}
+	sudo chmod 777 $KOBMAN_TOB_DEV_DIR
 	cd ${KOBMAN_TOB_DEV_DIR}
 	sudo TheOrgBook/docker/manage rm 2> /dev/null	
-
 	sudo rm ${KOBMAN_TOB_DEV_DIR}/source-* 2> /dev/null	
 	sudo rm -rf TheOrgBook/ 2> /dev/null 	
 	sudo rm -rf /usr/local/bin/s2i /usr/local/bin/sti TheOrgBook/ 2> /dev/null	
@@ -53,7 +52,7 @@ function __kobman_uninstall_tob
         #cd ~
         #sudo rm -rf DevDir_TOB 2> /dev/null
 	cd ~
-	sudo rm -rf ${KOBMAN_TOB_DEV_DIR} 2> /dev/null
+	sudo rm -rf $KOBMAN_TOB_DEV_DIR 2> /dev/null
 	cd ~
 }	
 
