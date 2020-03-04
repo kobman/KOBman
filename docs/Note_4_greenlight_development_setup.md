@@ -7,7 +7,7 @@ Commands used in this video are listed:
     kob status
     kob list
     kob version greenlight
-    kob uninstall --dev kobman
+    kob uninstall --dev greenlight
     kob status
     kob help
 
