@@ -7,7 +7,7 @@ Commands used in this video are listed in order:
       kob status
       kob list    
       kob version tobvon
-      kob uninstall --dev kobman    
+      kob uninstall --dev tobvon    
       kob status
       kob help
 
