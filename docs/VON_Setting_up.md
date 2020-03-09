@@ -48,10 +48,11 @@ this command will automatically install the needed pre-requesters and software�
 
 ```
 
-3. After that move to the directory where von is locally installed here the directory is “user/home/von-network” using terminal commands a follows:
+3. After that move to the directory where von is locally installed here the directory is “/home/[user name]/DevDir_TOBVon/von-network” using terminal commands a follows:
 
 ```bash
-cd von-network
+cd /home/[user name]/DevDir_TOBVon/von-network
+
 ```
 
 4. Build the docker images that will be used to run the Indy network containers (this process will take several minutes):
