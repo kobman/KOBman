@@ -44,7 +44,8 @@ this command will automatically install the needed pre-requesters and software�
 2. Once the setup is completed, please check the von-network folder is exists in your local system in the following directory path 
 
 ```bash
-user/home/von-network.
+/home/[user name]/DevDir_TOBVon/von-network
+
 ```
 
 3. After that move to the directory where von is locally installed here the directory is “user/home/von-network” using terminal commands a follows:
