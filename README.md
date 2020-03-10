@@ -29,7 +29,7 @@ See more examples on the [KOBman! Environment Installation](https://github.com/E
 
 Open your favourite terminal and enter the following:
 
-    $ curl -L https://raw.githubusercontent.com/hyperledgerkochi/KOBman/master/get.kobman.io | bash
+    $ curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash
 
 If the environment needs tweaking for KOBman to be installed, the installer will prompt you accordingly and ask you to remove '~/.kobman' directory and restart your machine .
 
