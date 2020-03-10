@@ -51,6 +51,10 @@ function __kobman_environment_version {
 		kobregistery)
 			__kobman_version_kobregistery "$name_space"
 
+		;;
+		"")
+			__kobman_version_kobman "$name_space"
+
 		;;	
 	esac
 }
