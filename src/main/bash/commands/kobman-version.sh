@@ -53,7 +53,8 @@ function __kobman_environment_version {
 
 		;;
 		"")
-			__kobman_version_kobman "$name_space"
+			echo "Version - v0.0.1"	
+		#	__kobman_version_kobman "$name_space"
 
 		;;	
 	esac
