@@ -29,6 +29,7 @@ function __kobman_uninstall_kobman
 	cd ${KOBMAN_KOBMAN_DEV_DIR} 
 	sudo rm -rf KOBman/ 2> /dev/null	
 	cd ~
+	sudo rm -rf Dev_KOBman/ 2> /dev/null	
 	sudo rm -rf ${KOBMAN_KOBMAN_DEV_DIR} 2> /dev/null	
         cd ~
 }
