@@ -62,10 +62,8 @@ esac
 
 sudo apt install figlet -y
 
-# figlet KOB-Setup ...
-# figlet ${KOBMAN_NAMESPACE} repo 
 
-figlet KochiOrgBook -f small
+figlet KOB Utility -f small
 figlet Setting up -f small
 
 
