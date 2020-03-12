@@ -39,7 +39,6 @@ function __kobman_version_kobman
 
 	kobman_namespace="$1"
 	cd ${KOBMAN_KOBMAN_DEV_DIR} 
-	echo $PWD	
 	cd KOBman/	
 	git show-ref --tag | grep -o v0.0.*
 #	sudo git ls-remote --tags https://github.com/${kobman_namespace}/KOBman | grep -o v0.0.*_*
