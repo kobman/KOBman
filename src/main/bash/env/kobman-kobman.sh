@@ -42,5 +42,6 @@ function __kobman_version_kobman
 	cd KOBman/	
 	git show-ref --tag | grep -o v0.0.*
 #	sudo git ls-remote --tags https://github.com/${kobman_namespace}/KOBman | grep -o v0.0.*_*
+	cd ~
 }
 
