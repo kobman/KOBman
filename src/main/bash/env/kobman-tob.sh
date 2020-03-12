@@ -58,8 +58,11 @@ function __kobman_version_tob
 {
 	
 	kobman_namespace="$1"
-	git ls-remote --tags https://github.com/${kobman_namespace}/TheOrgBook | grep -o v0.0.*
+#	git ls-remote --tags https://github.com/${kobman_namespace}/TheOrgBook | grep -o v0.0.*
 
+	cd ${KOBMAN_TOB_DEV_DIR} 
+	cd TheOrgBook/	
+	git show-ref --tag | grep -o v0.0.*
 
 }
 

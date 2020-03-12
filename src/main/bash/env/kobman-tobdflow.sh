@@ -57,7 +57,11 @@ function __kobman_uninstall_greenlight
 function __kobman_version_greenlight
 {
 	kobman_namespace="$1"
-	git ls-remote --tags https://github.com/${kobman_namespace}/greenlight | grep -o v0.0.*
+#	git ls-remote --tags https://github.com/${kobman_namespace}/greenlight | grep -o v0.0.*
+	cd ${KOBMAN_GREENLIGHT_DEV_DIR} 
+	cd greenlight/	
+	git show-ref --tag | grep -o v0.0.*
+
 
 }
 
