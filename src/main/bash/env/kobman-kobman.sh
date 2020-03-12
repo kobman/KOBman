@@ -17,8 +17,7 @@ function __kobman_install_kobman
  		__kobman_echo_green "${kobman_namespace}"	
 		cd ${KOBMAN_CANDIDATES_DIR}
          	__kobman_development_kobman_dir 
-		echo "$PWD"	
-		sudo git clone https://github.com/${kobman_namespace}/KOBman
+		sudo git clone https://github.com/${kobman_namespace}/KOBman.git
 		cd ~
 		cd ${KOBMAN_CANDIDATES_DIR}
 }
