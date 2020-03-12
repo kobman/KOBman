@@ -3,8 +3,8 @@
 function __kobman_development_tob_dir {
 
 	cd ~	
-	sudo mkdir -p DevDir_TOB
-	cd DevDir_TOB
+	sudo mkdir -p Dev_TOB
+	cd Dev_TOB
 	export KOBMAN_TOB_DEV_DIR=$PWD
 	sudo chmod 777 $KOBMAN_TOB_DEV_DIR
 	cd $KOBMAN_TOB_DEV_DIR

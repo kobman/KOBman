@@ -4,8 +4,8 @@
 function __kobman_development_tobvon_dir {
 
 	cd ~	
-	sudo mkdir -p DevDir_TOBVon
-	cd DevDir_TOBVon
+	sudo mkdir -p Dev_TOBVon
+	cd Dev_TOBVon
 	export KOBMAN_VON_DEV_DIR=$PWD
 	sudo chmod 777 ${KOBMAN_VON_DEV_DIR}
 	cd ${KOBMAN_VON_DEV_DIR}

@@ -2,8 +2,8 @@
 function __kobman_development_kobman_dir {
 
 	cd ~
-	sudo mkdir -p DevDir_KOBman
-	cd DevDir_KOBman
+	sudo mkdir -p Dev_KOBman
+	cd Dev_KOBman
 	export KOBMAN_KOBMAN_DEV_DIR=$PWD
 	sudo chmod 777 ${KOBMAN_KOBMAN_DEV_DIR}
 	cd ${KOBMAN_KOBMAN_DEV_DIR}

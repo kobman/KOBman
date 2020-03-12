@@ -2,8 +2,8 @@
 
 function __kobman_development_greenlight_dir {
 	cd ~
-	sudo mkdir -p DevDir_greenlight
-	cd DevDir_greenlight
+	sudo mkdir -p Dev_greenlight
+	cd Dev_greenlight
 	export KOBMAN_GREENLIGHT_DEV_DIR=$PWD
        	sudo chmod 777 ${KOBMAN_GREENLIGHT_DEV_DIR}
 	cd ${KOBMAN_GREENLIGHT_DEV_DIR}
