@@ -11,8 +11,8 @@
 
 **Commands used in this video are listed in order:**
 
-    curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash
-    source ~/.kobman/bin/kobman-init.sh
+  curl -L https://raw.githubusercontent.com/EtricKombat/KOBman/master/get.kobman.io | bash
+  source ~/.kobman/bin/kobman-init.sh
 
 
 
