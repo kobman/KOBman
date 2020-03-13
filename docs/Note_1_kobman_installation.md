@@ -8,9 +8,10 @@
     source ~/.kobman/bin/kobman-init.sh
 
 
-## See videos on
-	
-	KOBman Development environment setup
-	VON Development environment setup
-	TheOrgBook Development environment 
-	Greenlight Development environment setup
+**Pre-requesites**
+
+    OS  : Ubuntu 18.04LTS
+    RAM : 4GB (minimum)
+    HDD : 20GB(minimum)
+
+
