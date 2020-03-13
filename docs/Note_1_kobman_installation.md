@@ -7,7 +7,7 @@
 
     OS  : Ubuntu 18.04LTS
     RAM : 4GB (minimum)
-    HDD : 20GB(minimum)
+    HDD : 10GB(minimum)
 
 **Commands used in this video are listed in order:**
 
