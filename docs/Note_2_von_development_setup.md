@@ -11,4 +11,6 @@ Commands used in this video are listed in order:
       kob status
       kob help
 
-Deployment output : localhost:9000
+Deployment output at :
+
+      localhost:9000
