@@ -3,9 +3,9 @@
 
 Commands used in this video are listed:
 
+    kob list
     kob install --dev tob hyperledgerkochi
     kob status
-    kob list
     kob version tob
     kob uninstall --dev kobman
     kob status
