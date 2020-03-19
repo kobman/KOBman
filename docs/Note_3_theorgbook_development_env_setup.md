@@ -11,6 +11,7 @@ Commands used in this video are listed:
     kob status
     kob help
 
-TheOrgBook output 	    : localhost:8080/en/home
+After deployment:
 
-solr output 		    : localhost:8983
+    TheOrgBook output 	    : localhost:8080/en/home
+    solr output 		    : localhost:8983
