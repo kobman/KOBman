@@ -63,7 +63,7 @@ function __kobman_version_tob
 	cd ${KOBMAN_TOB_DEV_DIR} 
 	cd TheOrgBook/	
 	git show-ref --tag | grep -o v0.0.*
-
+	cd ~
 }
 
 

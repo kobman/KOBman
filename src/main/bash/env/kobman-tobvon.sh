@@ -50,11 +50,9 @@ function __kobman_uninstall_tobvon
 function __kobman_version_tobvon
 {
 	kobman_namespace="$1"
-
-#	git ls-remote --tags https://github.com/${kobman_namespace}/von-network | grep -o v0.0.*
 	cd ${KOBMAN_VON_DEV_DIR} 
 	cd von-network/	
 	git show-ref --tag | grep -o v0.0.*
-
+	cd ~
 }
 

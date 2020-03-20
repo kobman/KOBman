@@ -61,7 +61,7 @@ function __kobman_version_greenlight
 	cd ${KOBMAN_GREENLIGHT_DEV_DIR} 
 	cd greenlight/	
 	git show-ref --tag | grep -o v0.0.*
-
+	cd ~
 
 }
 
