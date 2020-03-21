@@ -37,10 +37,12 @@ function __kobman_uninstall_kobman
 function __kobman_version_kobman
 {
 
-	kobman_namespace="$1"
-	cd ${KOBMAN_KOBMAN_DEV_DIR} 
-	cd KOBman/	
-	git show-ref --tag | grep -o v0.0.*
-	cd ~
+	if [ -d "${KOBMAN_KOBMAN_DEV_DIR}" ]; then 
+		kobman_namespace="$1"
+		cd ${KOBMAN_KOBMAN_DEV_DIR} 
+		cd KOBman/	
+		git show-ref --tag | grep -o v0.0.*
+		cd ~
+	fi
 }
 
