@@ -43,6 +43,8 @@ function __kobman_version_kobman
 		cd KOBman/	
 		git show-ref --tag | grep -o v0.0.*
 		cd ~
-	fi
+	else
+ 		__kobman_echo_greenlight "KOBman Environment not found in local system"	
+fi
 }
 

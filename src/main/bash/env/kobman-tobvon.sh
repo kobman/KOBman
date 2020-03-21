@@ -50,10 +50,16 @@ function __kobman_uninstall_tobvon
 
 function __kobman_version_tobvon
 {
-	kobman_namespace="$1"
-	cd ${KOBMAN_VON_DEV_DIR} 
-	cd von-network/	
-	git show-ref --tag | grep -o v0.0.*
-	cd ~
+
+	if [ -d "${KOBMAN_TOBVON_DEV_DIR}" ]; then 
+		kobman_namespace="$1"
+		cd ${KOBMAN_VON_DEV_DIR} 
+		cd von-network/	
+		git show-ref --tag | grep -o v0.0.*
+		cd ~
+	else
+ 		__kobman_echo_red "TOBVON  Environment not found in local system"	
+
+	fi
 }
 

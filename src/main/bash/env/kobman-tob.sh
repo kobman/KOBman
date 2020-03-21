@@ -56,14 +56,15 @@ function __kobman_uninstall_tob
 
 function __kobman_version_tob
 {
-	
-	kobman_namespace="$1"
-#	git ls-remote --tags https://github.com/${kobman_namespace}/TheOrgBook | grep -o v0.0.*
-
-	cd ${KOBMAN_TOB_DEV_DIR} 
-	cd TheOrgBook/	
-	git show-ref --tag | grep -o v0.0.*
-	cd ~
+	if [ -d "${KOBMAN_TOB_DEV_DIR}" ]; then 
+		kobman_namespace="$1"
+		cd ${KOBMAN_TOB_DEV_DIR} 
+		cd TheOrgBook/	
+		git show-ref --tag | grep -o v0.0.*
+		cd ~
+	else
+ 		__kobman_echo_cyan "TheOrgBook Environment not found in local system"	
+	fi
 }
 
 
