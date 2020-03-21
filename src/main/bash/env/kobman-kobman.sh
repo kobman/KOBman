@@ -12,7 +12,7 @@ function __kobman_development_kobman_dir {
 
 function __kobman_install_kobman
 {
-		kobman_namespace="EtricKombat"
+		kobman_namespace="$1"
  		__kobman_echo_green "Building kobman from"	
  		__kobman_echo_green "${kobman_namespace}"	
 		cd ${KOBMAN_CANDIDATES_DIR}
