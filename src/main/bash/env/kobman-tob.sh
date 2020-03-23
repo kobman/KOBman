@@ -6,10 +6,9 @@ function __kobman_development_tob_dir {
 	sudo mkdir -p Dev_TOB
 	cd Dev_TOB
 	export KOBMAN_TOB_DEV_DIR=$PWD
-	sudo chmod 777 $KOBMAN_TOB_DEV_DIR
+	sudo chmod 777 ${KOBMAN_TOB_DEV_DIR}
 	cd $KOBMAN_TOB_DEV_DIR
 	sudo mkdir -p test/ dependency/
-
                                                             
 }
 function __kobman_install_tob
