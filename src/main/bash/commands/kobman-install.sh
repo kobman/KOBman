@@ -70,9 +70,7 @@ function __kob_install {
  				__kobman_install_greenlight "$name_space"
                         elif [ "$environment_type" = "kobman" ]
                         then
-                               	__kobman_echo_green "Installing KOBMAN"
-                       		__kobman_install_kobman
-			#	__kobman_development_kobman_dir 
+                               __kobman_install_kobman "$name_space"
 				cd ~	
 			else
                                 echo "verifiy your command and try again"
