@@ -1,4 +1,4 @@
-## &#x1F4D9; Uninstall Commands/function signatures:
+# &#x1F4D9; Uninstall Commands/function signatures:
 
 **common execution file for installation commands - KOBman/src/main/bash/commands/kobman-main.sh**
 
