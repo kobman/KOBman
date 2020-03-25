@@ -1,5 +1,6 @@
 # &#x1F4D9; Uninstall Commands/Function Signatures
 
+## Listing down the existing uninstallation commands and its function signatures
 
 *The values of the arguments accepted by the function "kob" is exported as environment variables which later on recalls in other functions.*
 
