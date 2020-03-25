@@ -9,11 +9,11 @@
 	
 ### <span>&#8284;</span> Development environement installation commands/function signatures:
 
-
+*The values of the arguments accepted by the function "kob" is exported as environment variables which later on recalls in other functions.*
 
 **common execution file for installation commands - KOBman/src/main/bash/commands/kobman-main.sh**
 
-The values of the arguments accepted by the function "kob" is exported as environment variables which later on recalls in other functions.
+
 
         function kob                                    Argument:$0 $1 $2 $3 $4           return :?
 
