@@ -43,7 +43,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-tobvon.sh**
 
         function __kobman_install_tobvon             	 Argument:             return :
-
+	function __kobman_development_tobvon_dir         Argument:             return :
         
 ### <span>&#10146;</span> tob development environement installation commands/signatures:
   
@@ -54,7 +54,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-tob.sh**
 
 	function __kobman_install_tob               	  Argument:             return :
-        function __kobman_version_tob               	  Argument:             return :
+        function __kobman_development_tob_dir             Argument:             return :
 	
 ### <span>&#10146;</span> greenlight development environement installation commands/signatures:
 
@@ -65,7 +65,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-greenlight.sh**
 
 	    function __kobman_install_greenlight               Argument:             return :
-        function __kobman_version_greenlight               Argument:             return :
+        function __kobman_development_greenlight_dir         Argument:             return :
 
 ### <span>&#10146;</span> kobvon development environement installation commands/signatures:
         
@@ -76,7 +76,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobvon.sh**
 
 	    function __kobman_install_kobvon               	   Argument:             return :
-        function __kobman_version_  kobvon             	   Argument:             return :
+        
 
 ### <span>&#10146;</span> kob development environement installation commands/signatures:
 
@@ -87,7 +87,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-kob.sh**
 
 	    function __kobman_install_kob               	   Argument:             return :
-        function __kobman_version_kob               	   Argument:             return :
+        
 	
 ### <span>&#10146;</span> kobdflow development environement installation commands/signatures:
 
@@ -98,7 +98,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobdflow.sh**
 
 	    function __kobman_install_kobdflow                Argument:             return :
-        function __kobman_version_kobdflow                Argument:             return :
+        
 	
 ### <span>&#10146;</span> kobconnect development environement installation commands/signatures:
 
@@ -109,7 +109,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobconnect.sh**
 
 	    function __kobman_install_kobconnect               Argument:             return :
-        function __kobman_version_kobconnect               Argument:             return :
+        
 	
 ### <span>&#10146;</span> kobregistory development environement installation commands/signatures:
 
@@ -120,7 +120,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobregistory.sh**
 
 	    function __kobman_install_kobregistory              Argument:             return :
-        function __kobman_version_kobregistory              Argument:             return :
+        
 
 
 
@@ -137,6 +137,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-tobvon.sh**
 
         function __kobman_install_tobvon             	 Argument:             return :
+	function __kobman_development_tobvon_dir         Argument:             return :
         function __kobman_start_tobvon               	 Argument:             return :
        
         
@@ -149,6 +150,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-tob.sh**
 
 	function __kobman_install_tob               	  Argument:             return :
+	function __kobman_development_tob_dir         Argument:             return :
         function __kobman_start_tob                 	  Argument:             return :
        
 	
@@ -161,8 +163,9 @@
 **executed file - KOBman/src/main/bash/env/kobman-tobdflow.sh**
 	
 	    function __kobman_install_greenlight               Argument:             return :
+	    function __kobman_development_greenlight_dir         Argument:             return :
         function __kobman_start_greenlight                 Argument:             return :
-        function __kobman_version_greenlight               Argument:             return :
+       
 
 ### <span>&#10146;</span> kobvon deployment environement installation commands/signatures:
 
