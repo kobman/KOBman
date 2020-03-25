@@ -12,11 +12,11 @@
 
 
 
-**common execution file - KOBman/src/main/bash/commands/kobman-main.sh**
+**common execution file for installation commands - KOBman/src/main/bash/commands/kobman-main.sh**
 
         function kob                                    Argument:$0 $1 $2 $3 $4           return :?
 
-**common executed file - KOBman/src/main/bash/commands/kobman-install.sh**
+**common executed file for installation commands - KOBman/src/main/bash/commands/kobman-install.sh**
 
         function __kob_install                          Argument:$1            return :
 
