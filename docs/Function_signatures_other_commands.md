@@ -2,6 +2,7 @@
   
  <span>&#9758;</span>
  
+ <span>&#10146;</span>
              
         kob list
         kob status        
