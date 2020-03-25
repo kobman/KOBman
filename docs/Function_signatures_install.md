@@ -1,13 +1,13 @@
 
-## &#x1F4D8; Install Command Function Signatures
+# &#x1F4D8; Install Command Function Signatures
 
 
 
 
 
-### Listing down the existing installation commands and its function signatures
+## Listing down the existing installation commands and its function signatures
 	
-#### Development environement installation commands/function signatures:
+### <span>&#8284;</span> Development environement installation commands/function signatures:
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-## Deployment environement setup commands/signatures:
+## <span>&#8284;</span> Deployment environement setup commands/signatures:
 
 
 
