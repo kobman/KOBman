@@ -4,16 +4,34 @@
 
 
 
+
 ## Listing down the existing commands and its function signatures
 	
 ### Development environement installation commands/function signatures:
 
 kobman development environement installation commands/signatures:
+
+
+**common execution file - KOBman/src/main/bash/commands/kobman-main.sh**
+
+        function kob                                    Argument:$0 $1 $2 $3 $4           return :?
+
+**common executed file - KOBman/src/main/bash/commands/kobman-install.sh**
+
+        function __kob_install                          Argument:$1            return :
+
+
+
+**command**
        
         kob install --dev kobman       [name_space]       
         
-        function __kobman_install_kobman             	 Argument:             return :
-        function __kobman_version_kobman             	 Argument:             return :
+
+**executed file - KOBman/src/main/bash/env/kobman-kobman.sh**
+
+	function __kobman_install_kobman             	 Argument:$4             return :
+	function __kobman_development_kobman_dir         Argument:             return :
+       
        
 
 tobvon development environement installation commands/signatures:
@@ -22,7 +40,7 @@ tobvon development environement installation commands/signatures:
         kob install --dev tobvon       [name_space]       
         
         function __kobman_install_tobvon             	 Argument:             return :
-        function __kobman_version_tobvon             	 Argument:             return :
+
         
  tob development environement installation commands/signatures:
   
