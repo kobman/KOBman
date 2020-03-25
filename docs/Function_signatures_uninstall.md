@@ -1,4 +1,4 @@
-# &#x1F4D9; Uninstall Commands/function signatures:
+# &#x1F4D9; Uninstall Commands/Function Signatures
 
 
 *The values of the arguments accepted by the function "kob" is exported as environment variables which later on recalls in other functions.*
