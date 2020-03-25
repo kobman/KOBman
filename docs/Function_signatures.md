@@ -70,7 +70,8 @@
 
 ### kobvon development environement installation commands/signatures:
         
-**command**	
+**command**
+
 	kob install --dev kobvon       [name_space]   / work in Progress
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobvon.sh**
@@ -81,6 +82,7 @@
 ### kob development environement installation commands/signatures:
 
 **command**
+
         kob install --dev kob          [name_space]   / work in Progress
 	
 **executed file - KOBman/src/main/bash/env/kobman-kob.sh**
@@ -91,6 +93,7 @@
 ### kobdflow development environement installation commands/signatures:
 
 **command**
+
         kob install --dev kobdflow     [name_space]   / work in Progress
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobdflow.sh**
@@ -112,6 +115,7 @@
 ### kobregistory development environement installation commands/signatures:
 
 **command**
+
         kob install --dev kobregistory [name_space]   / work in Progress
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobregistory.sh**
@@ -128,6 +132,7 @@
 ### tobvon deployment environement installation commands/signatures:
        
 **command**
+
         kob install --deploy tobvon       [name_space]       
         
 **executed file - KOBman/src/main/bash/env/kobman-tobvon.sh**
@@ -139,6 +144,7 @@
 ### tob deployment environement installation commands/signatures:
 
 **command**
+
         kob install --deploy tob          [name_space]
 
 **executed file - KOBman/src/main/bash/env/kobman-tob.sh**
@@ -150,6 +156,7 @@
 ### greenlight deployment environement installation commands/signatures:
 
 **command**
+
         kob install --deploy greenlight   [name_space]
 	
 **executed file - KOBman/src/main/bash/env/kobman-tobdflow.sh**
@@ -161,6 +168,7 @@
 ### kobvon deployment environement installation commands/signatures:
 
 **command**
+
         kob install --deploy kobvon       [name_space]   / work in Progress
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobvon.sh**
@@ -172,6 +180,7 @@
 ### kob deployment environement installation commands/signatures:
 
 **command**
+
         kob install --deploy kob          [name_space]   / work in Progress
 	
 **executed file - KOBman/src/main/bash/env/kobman-kob.sh**
@@ -183,6 +192,7 @@
 ### kobdflow deployment environement installation commands/signatures:
 
 **command**
+
         kob install --deploy kobdflow     [name_space]   / work in Progress
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobdlow.sh**
@@ -194,6 +204,7 @@
 ### kobconnect deployment environement installation commands/signatures:	
 
 **command**
+
         kob install --deploy kobconnect   [name_space]   / work in Progress 
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobconnect.sh**
@@ -204,6 +215,7 @@
 ### kobregistory deployment environement installation commands/signatures:
 
 **command**
+
         kob install --deploy kobregistory [name_space]   / work in Progress
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobregistory.sh**
@@ -219,6 +231,7 @@
 ### tobvon development environement uninstallation commands/signatures:
        
 **command**
+
         kob uninstall --dev tobvon
 	
 **executed file - KOBman/src/main/bash/env/kobman-tobvon.sh**
@@ -228,6 +241,7 @@
 ### tob development environement uninstallation commands/signatures:
 
 **command**
+
         kob uninstall --dev tob         
 	
 **executed file - KOBman/src/main/bash/env/kobman-tob.sh**
@@ -237,6 +251,7 @@
 ### greenlight development environement uninstallation commands/signatures:
 
 **command**
+
 	kob uninstall --dev greenlight  
 	
 **executed file - KOBman/src/main/bash/env/kobman-tobdflow.sh**
@@ -246,6 +261,7 @@
 ### kobvon development environement uninstallation commands/signatures:	
 	
 **command**
+
 	kob uninstall --dev kobvon     
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobvon.sh**
@@ -255,6 +271,7 @@
 ### kob development environement uninstallation commands/signatures:
 	
 **command**
+
 	kob uninstall --dev kob          
 	
 **executed file - KOBman/src/main/bash/env/kobman-kob.sh**
@@ -264,6 +281,7 @@
 ### kobdflow development environement uninstallation commands/signatures:
 	
 **command**
+
 	kob uninstall --dev kobdflow     
 
 **executed file - KOBman/src/main/bash/env/kobman-kobdflow.sh**
@@ -273,6 +291,7 @@
 ### kobconnect development environement uninstallation commands/signatures:
 
 **command**
+
 	kob uninstall --dev kobconnect   
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobconnect.sh**
@@ -282,6 +301,7 @@
 ### kobregistory development environement uninstallation commands/signatures:
 
 **command**
+
 	kob uninstall --dev kobregistory 
 	
 **executed file - KOBman/src/main/bash/env/kobman-kobregistory.sh**
