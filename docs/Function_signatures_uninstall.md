@@ -92,7 +92,7 @@
         
 	    function __kobman_uninstall_kobconnect             Argument:             return :
 
- <span>&#9758;</span>
+
  
 ### <span>&#10146;</span> kobregistory development environement uninstallation commands/signatures:
 
