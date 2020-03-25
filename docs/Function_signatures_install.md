@@ -148,7 +148,7 @@
 
 **executed file - KOBman/src/main/bash/env/kobman-tob.sh**
 
-	    function __kobman_install_tob               	  Argument:             return :
+	function __kobman_install_tob               	  Argument:             return :
         function __kobman_start_tob                 	  Argument:             return :
        
 	
@@ -174,7 +174,7 @@
 
 	    function __kobman_install_kobvon               	   Argument:             return :
         function __kobman_start_kobvon                 	   Argument:             return :
-        function __kobman_version_kobvon               	   Argument:             return :
+  
 		
 ### <span>&#10146;</span> kob deployment environement installation commands/signatures:
 
@@ -186,7 +186,7 @@
 
 	    function __kobman_install_kob               	   Argument:             return :
         function __kobman_start_kob                 	   Argument:             return :
-        function __kobman_version_kob               	   Argument:             return :
+
 	
 ### <span>&#10146;</span> kobdflow deployment environement installation commands/signatures:
 
@@ -198,7 +198,7 @@
 
 	    function __kobman_install_kobdflow                Argument:             return :
         function __kobman_start_kobdflow                  Argument:             return :
-        function __kobman_version_kobdflow                Argument:             return :
+
 	
 ### <span>&#10146;</span> kobconnect deployment environement installation commands/signatures:	
 
@@ -209,7 +209,7 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobconnect.sh**
 
 	    function __kobman_install_kobconnect               Argument:             return :
-        function __kobman_version_kobconnect               Argument:             return :
+
 	
 ### <span>&#10146;</span> kobregistory deployment environement installation commands/signatures:
 
@@ -220,5 +220,5 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobregistory.sh**
 
 	    function __kobman_install_kobregistory              Argument:             return :
-        function __kobman_version_kobregistory              Argument:             return :
+
 
