@@ -20,7 +20,7 @@
         function __kob_install                          Argument:$1            return :
 
 
-### kobman development environement installation commands/signatures:
+### <span>&#10146;</span> kobman development environement installation commands/signatures:
 
 **command**
        
@@ -34,7 +34,7 @@
        
        
 
-### tobvon development environement installation commands/signatures:
+### <span>&#10146;</span> tobvon development environement installation commands/signatures:
 
 **command**    
 
@@ -45,7 +45,7 @@
         function __kobman_install_tobvon             	 Argument:             return :
 
         
-### tob development environement installation commands/signatures:
+### <span>&#10146;</span> tob development environement installation commands/signatures:
   
   **command**
   
@@ -56,7 +56,7 @@
 	function __kobman_install_tob               	  Argument:             return :
         function __kobman_version_tob               	  Argument:             return :
 	
-### greenlight development environement installation commands/signatures:
+### <span>&#10146;</span> greenlight development environement installation commands/signatures:
 
 **command**
 
@@ -67,7 +67,7 @@
 	    function __kobman_install_greenlight               Argument:             return :
         function __kobman_version_greenlight               Argument:             return :
 
-### kobvon development environement installation commands/signatures:
+### <span>&#10146;</span> kobvon development environement installation commands/signatures:
         
 **command**
 
@@ -78,7 +78,7 @@
 	    function __kobman_install_kobvon               	   Argument:             return :
         function __kobman_version_  kobvon             	   Argument:             return :
 
-### kob development environement installation commands/signatures:
+### <span>&#10146;</span> kob development environement installation commands/signatures:
 
 **command**
 
@@ -89,7 +89,7 @@
 	    function __kobman_install_kob               	   Argument:             return :
         function __kobman_version_kob               	   Argument:             return :
 	
-### kobdflow development environement installation commands/signatures:
+### <span>&#10146;</span> kobdflow development environement installation commands/signatures:
 
 **command**
 
@@ -100,7 +100,7 @@
 	    function __kobman_install_kobdflow                Argument:             return :
         function __kobman_version_kobdflow                Argument:             return :
 	
-### kobconnect development environement installation commands/signatures:
+### <span>&#10146;</span> kobconnect development environement installation commands/signatures:
 
 **command**
 
@@ -111,7 +111,7 @@
 	    function __kobman_install_kobconnect               Argument:             return :
         function __kobman_version_kobconnect               Argument:             return :
 	
-### kobregistory development environement installation commands/signatures:
+### <span>&#10146;</span> kobregistory development environement installation commands/signatures:
 
 **command**
 
@@ -128,7 +128,7 @@
 
 
 
-### tobvon deployment environement installation commands/signatures:
+### <span>&#10146;</span> tobvon deployment environement installation commands/signatures:
        
 **command**
 
@@ -140,7 +140,7 @@
         function __kobman_start_tobvon               	 Argument:             return :
        
         
-### tob deployment environement installation commands/signatures:
+### <span>&#10146;</span> tob deployment environement installation commands/signatures:
 
 **command**
 
@@ -152,7 +152,7 @@
         function __kobman_start_tob                 	  Argument:             return :
        
 	
-### greenlight deployment environement installation commands/signatures:
+### <span>&#10146;</span> greenlight deployment environement installation commands/signatures:
 
 **command**
 
@@ -164,7 +164,7 @@
         function __kobman_start_greenlight                 Argument:             return :
         function __kobman_version_greenlight               Argument:             return :
 
-### kobvon deployment environement installation commands/signatures:
+### <span>&#10146;</span> kobvon deployment environement installation commands/signatures:
 
 **command**
 
@@ -176,7 +176,7 @@
         function __kobman_start_kobvon                 	   Argument:             return :
         function __kobman_version_kobvon               	   Argument:             return :
 		
-### kob deployment environement installation commands/signatures:
+### <span>&#10146;</span> kob deployment environement installation commands/signatures:
 
 **command**
 
@@ -188,7 +188,7 @@
         function __kobman_start_kob                 	   Argument:             return :
         function __kobman_version_kob               	   Argument:             return :
 	
-### kobdflow deployment environement installation commands/signatures:
+### <span>&#10146;</span> kobdflow deployment environement installation commands/signatures:
 
 **command**
 
@@ -200,7 +200,7 @@
         function __kobman_start_kobdflow                  Argument:             return :
         function __kobman_version_kobdflow                Argument:             return :
 	
-### kobconnect deployment environement installation commands/signatures:	
+### <span>&#10146;</span> kobconnect deployment environement installation commands/signatures:	
 
 **command**
 
@@ -211,7 +211,7 @@
 	    function __kobman_install_kobconnect               Argument:             return :
         function __kobman_version_kobconnect               Argument:             return :
 	
-### kobregistory deployment environement installation commands/signatures:
+### <span>&#10146;</span> kobregistory deployment environement installation commands/signatures:
 
 **command**
 
