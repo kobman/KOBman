@@ -8,6 +8,8 @@
 
         function __kob_uninstall                          Argument:$1            return :
 
+ <span>&#9758;</span>
+ 
 ### tobvon development environement uninstallation commands/signatures:
        
 **command**
@@ -17,7 +19,9 @@
 **executed file - KOBman/src/main/bash/env/kobman-tobvon.sh**
 	
 	    function __kobman_uninstall_tobvon             Argument:             return :
-	
+
+<span>&#9758;</span>
+
 ### tob development environement uninstallation commands/signatures:
 
 **command**
@@ -27,7 +31,9 @@
 **executed file - KOBman/src/main/bash/env/kobman-tob.sh**
 
 	    function __kobman_uninstall_tob             Argument:             return :
-        
+ 
+ <span>&#9758;</span>
+
 ### greenlight development environement uninstallation commands/signatures:
 
 **command**
@@ -37,7 +43,9 @@
 **executed file - KOBman/src/main/bash/env/kobman-tobdflow.sh**
 
 	    function __kobman_uninstall_greenlight             Argument:             return :
-        
+
+ <span>&#9758;</span>
+ 
 ### kobvon development environement uninstallation commands/signatures:	
 	
 **command**
@@ -47,7 +55,9 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobvon.sh**
 
 	    function __kobman_uninstall_kobvon             Argument:             return :
-	
+
+ <span>&#9758;</span>
+ 
 ### kob development environement uninstallation commands/signatures:
 	
 **command**
@@ -57,7 +67,9 @@
 **executed file - KOBman/src/main/bash/env/kobman-kob.sh**
         	
 	    function __kobman_uninstall_kob             Argument:             return :
-	
+
+ <span>&#9758;</span>
+ 
 ### kobdflow development environement uninstallation commands/signatures:
 	
 **command**
@@ -67,7 +79,9 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobdflow.sh**
         
 	    function __kobman_uninstall_kobdflow             Argument:             return :
-	
+
+ <span>&#9758;</span>
+ 
 ### kobconnect development environement uninstallation commands/signatures:
 
 **command**
@@ -77,7 +91,9 @@
 **executed file - KOBman/src/main/bash/env/kobman-kobconnect.sh**
         
 	    function __kobman_uninstall_kobconnect             Argument:             return :
-	
+
+ <span>&#9758;</span>
+ 
 ### kobregistory development environement uninstallation commands/signatures:
 
 **command**
