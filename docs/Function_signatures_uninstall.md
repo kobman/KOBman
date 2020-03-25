@@ -1,5 +1,8 @@
 # &#x1F4D9; Uninstall Commands/function signatures:
 
+
+*The values of the arguments accepted by the function "kob" is exported as environment variables which later on recalls in other functions.*
+
 **common execution file for installation commands - KOBman/src/main/bash/commands/kobman-main.sh**
 
         function kob                                    Argument:$0 $1 $2 $3 $4           return :?
