@@ -1,4 +1,4 @@
-# &#x1F4D7; Other Commands Function/Signature:        
+# &#x1F4D7; Other Commands/Function Signatures       
   
 
  
