@@ -1,8 +1,7 @@
 #!/bin/bash
 
-
-function __kobman_development_tobvon_dir {
-
+function __kobman_development_tobvon_dir 
+{
 	cd ~	
 	sudo mkdir -p Dev_TOBVon
 	cd Dev_TOBVon
@@ -13,19 +12,19 @@ function __kobman_development_tobvon_dir {
 }                                                                                                                          
 function __kobman_install_tobvon
 {
-		kobman_namespace="$1"	
-		__kobman_echo_red "Building VON-(TheOrgBook) from"
-		__kobman_echo_red " ${kobman_namespace}"
-         
-		cd ${KOBMAN_CANDIDATES_DIR}
-		__kobman_development_tobvon_dir 
-		echo "$PWD"
-		sudo git clone https://github.com/${kobman_namespace}/von-network.git
-                sudo von-network/manage rm
-                sudo von-network/manage build
-		cd ~
+	kobman_namespace="$1"	
+	__kobman_echo_red "Building VON-(TheOrgBook) from"
+	__kobman_echo_red " ${kobman_namespace}"
+	cd ${KOBMAN_CANDIDATES_DIR}
+	__kobman_development_tobvon_dir 
+	echo "$PWD"
+	sudo git clone https://github.com/${kobman_namespace}/von-network.git
+        sudo von-network/manage rm
+        sudo von-network/manage build
+	echo "TOBVon Development Environment is installed."	
+	__kobman_echo_red "TOBVon Development Environment is installed."	
+	cd ~
 }
-
 function __kobman_start_tobvon
 {
 
@@ -43,10 +42,9 @@ function __kobman_uninstall_tobvon
 	cd ~
 	sudo rm -rf Dev_TOBVon/ 2> /dev/null	
 	sudo rm -rf ${KOBMAN_VON_DEV_DIR} 2> /dev/null	
-
-        cd ~
+	__kobman_echo_red "TOBVon Development Environment is un-installed."	
+	cd ~
 }
-
 
 function __kobman_version_tobvon
 {
@@ -62,4 +60,3 @@ function __kobman_version_tobvon
 
 	fi
 }
-

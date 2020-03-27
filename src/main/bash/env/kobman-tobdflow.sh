@@ -11,28 +11,26 @@ function __kobman_development_greenlight_dir {
 	sudo mkdir -p test/ dependency/
 }
 
-
 function __kobman_install_greenlight
 {
-		kobman_namespace="$1"
- 		__kobman_echo_green "Building greenlight from"	
- 		__kobman_echo_green "${kobman_namespace}"	
-               	sudo chmod 777 ${KOBMAN_CANDIDATES_DIR} 
-		cd ${KOBMAN_CANDIDATES_DIR}
-         	__kobman_development_greenlight_dir 
-		sudo git clone https://github.com/${kobman_namespace}/greenlight.git
-                sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
-                sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
-                sudo mv s2i sti /usr/local/bin/
-                sudo greenlight/docker/manage rm
-                sudo greenlight/docker/manage build
-		cd ~
-
+	kobman_namespace="$1"
+ 	__kobman_echo_green "Building greenlight from"	
+ 	__kobman_echo_green "${kobman_namespace}"	
+        sudo chmod 777 ${KOBMAN_CANDIDATES_DIR} 
+	cd ${KOBMAN_CANDIDATES_DIR}
+        __kobman_development_greenlight_dir 
+	sudo git clone https://github.com/${kobman_namespace}/greenlight.git
+        sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+        sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+        sudo mv s2i sti /usr/local/bin/
+        sudo greenlight/docker/manage rm
+        sudo greenlight/docker/manage build
+	cd ~
+ 	__kobman_echo_green "Greenlight Development Environment is installed."	
 }
 
 function __kobman_start_greenlight
 {
-
  	__kobman_echo_green "Starting greenlight from"	
  	__kobman_echo_green "${kobman_namespace}"	
        	cd ${KOBMAN_GREENLIGHT_DEV_DIR} 
@@ -50,8 +48,8 @@ function __kobman_uninstall_greenlight
 	sudo rm -rf greenlight/ /usr/local/bin/sti /usr/local/bin/s2i source-to-image-v1.1.14-874754de-linux-amd64.tar.gz 2> /dev/null	
         cd ~
        	sudo rm -rf ${KOBMAN_GREENLIGHT_DEV_DIR} 2> /dev/null
+ 	__kobman_echo_green "Greenlight Development Environment is un-installed."	
         cd ~
-		
 }
 
 function __kobman_version_greenlight
@@ -68,5 +66,3 @@ function __kobman_version_greenlight
 
 	fi
 }
-
-

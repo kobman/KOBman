@@ -9,24 +9,23 @@ function __kobman_development_tob_dir {
 	sudo chmod 777 ${KOBMAN_TOB_DEV_DIR}
 	cd $KOBMAN_TOB_DEV_DIR
 	sudo mkdir -p test/ dependency/
-                                                            
 }
 function __kobman_install_tob
 {
-	        kobman_namespace="$1"
-                __kobman_echo_cyan "Building TheOrgBook from"
-                __kobman_echo_cyan "${kobman_namespace}"
-		cd ${KOBMAN_CANDIDATES_DIR}
-         	__kobman_development_tob_dir 
-		sudo git clone https://github.com/${kobman_namespace}/TheOrgBook.git
-                sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
-                sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
-                sudo mv s2i sti /usr/local/bin/
-                sudo TheOrgBook/docker/manage rm
-                sudo TheOrgBook/docker/manage build
-                sudo sed -i -e 's/- 3000/- 3100/g' TheOrgBook/docker/docker-compose.yml
-		cd ~
-
+        kobman_namespace="$1"
+        __kobman_echo_cyan "Building TheOrgBook from"
+        __kobman_echo_cyan "${kobman_namespace}"
+	cd ${KOBMAN_CANDIDATES_DIR}
+       	__kobman_development_tob_dir 
+	sudo git clone https://github.com/${kobman_namespace}/TheOrgBook.git
+        sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+        sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+        sudo mv s2i sti /usr/local/bin/
+        sudo TheOrgBook/docker/manage rm
+        sudo TheOrgBook/docker/manage build
+        sudo sed -i -e 's/- 3000/- 3100/g' TheOrgBook/docker/docker-compose.yml
+	__kobman_echo_cyan "TOB Development Environment is installed."	
+	cd ~
 }
 
 function __kobman_start_tob
@@ -46,9 +45,9 @@ function __kobman_uninstall_tob
 	sudo rm ${KOBMAN_TOB_DEV_DIR}/source-* 2> /dev/null	
 	sudo rm -rf TheOrgBook/ 2> /dev/null 	
 	sudo rm -rf /usr/local/bin/s2i /usr/local/bin/sti TheOrgBook/ 2> /dev/null	
-
 	cd ~
 	sudo rm -rf ${KOBMAN_TOB_DEV_DIR} 2> /dev/null
+	__kobman_echo_cyan "TOB Development Environment is un-installed."	
 	cd ~
 }	
 
@@ -64,6 +63,3 @@ function __kobman_version_tob
  		__kobman_echo_cyan "TheOrgBook Environment not found in local system"	
 	fi
 }
-
-
-
