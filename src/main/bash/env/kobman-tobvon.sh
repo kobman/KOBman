@@ -56,7 +56,6 @@ function __kobman_version_tobvon
 		git show-ref --tag | grep -o v0.0.*
 		cd ~
 	else
- 		__kobman_echo_red "TOBVON  Environment not found in local system"	
-
+ 		__kobman_echo_red "TOBVON is not installed"	
 	fi
 }

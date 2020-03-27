@@ -60,6 +60,6 @@ function __kobman_version_tob
 		git show-ref --tag | grep -o v0.0.*
 		cd ~
 	else
- 		__kobman_echo_cyan "TheOrgBook Environment not found in local system"	
+ 		__kobman_echo_cyan "TOB is not installed"	
 	fi
 }

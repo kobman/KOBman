@@ -62,7 +62,7 @@ function __kobman_version_greenlight
 		git show-ref --tag | grep -o v0.0.*
 		cd ~
 	else
- 		__kobman_echo_green "Greenlight Environment not found in local system"	
+ 		__kobman_echo_green "Greenlight is not installed "	
 
 	fi
 }
