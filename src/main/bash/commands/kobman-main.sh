@@ -8,20 +8,26 @@ function kob {
 	ENVIRONMENT_TYPE="$3"
 	NAME_SPACE=${4:-EtricKombat}
 	case "$COMMAND" in
-		l)
+		-L)
 			COMMAND="list";;
-		ls)
-			COMMAND="list";;
-		h)
+		-H)
 			COMMAND="help";;
-		v)
+		-V)
 			COMMAND="version";;
-		i)
+		--version)
+			COMMAND="version";;
+		-I)
 			COMMAND="install";;
-		rm)
+		-U)
 			COMMAND="uninstall";;
-		s)
+		-S)
 			COMMAND="status";;
+#		-D)
+#			COMMAND="deploy";;
+#		-U)
+#			COMMAND="upgrade";;
+#		-u)
+#			COMMAND="update";;
 	esac
 	
 	if [ -f "${KOBMAN_DIR}/etc/config" ]; then
