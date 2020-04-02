@@ -1,7 +1,7 @@
 
 function __kob_update{
 
-__kobman_echo_yellow "Testing update command"
+__kobman_echo_red "Testing update command"
 
 
 }
