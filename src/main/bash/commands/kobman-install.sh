@@ -13,7 +13,7 @@ function __kob_install {
 	if [ "$command" = "install" ]
 	then
         	case $deployment_type in
-                --dev)
+                --environment)
                         if [ "$environment_type" = "all" ]
                         then
                                 echo "working all parameter"
