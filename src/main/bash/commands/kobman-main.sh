@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
---environment | -env)
+
 
 function kob {
 
@@ -13,9 +13,7 @@ function kob {
 			COMMAND="list";;
 		-H)
 			COMMAND="help";;
-		-V)
-			COMMAND="version";;
-		--version)
+		-V | --version)
 			COMMAND="version";;
 		-I)
 			COMMAND="install";;
