@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+--environment | -env)
 
 function kob {
 
@@ -22,12 +23,12 @@ function kob {
 			COMMAND="uninstall";;
 		-S)
 			COMMAND="status";;
-#		-D)
-#			COMMAND="deploy";;
-#		-U)
-#			COMMAND="upgrade";;
-#		-u)
-#			COMMAND="update";;
+		-D)
+			COMMAND="deploy";;
+		-U)
+			COMMAND="upgrade";;
+		-u)
+			COMMAND="update";;
 	esac
 	
 	if [ -f "${KOBMAN_DIR}/etc/config" ]; then
