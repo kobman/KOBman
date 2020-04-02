@@ -1,5 +1,5 @@
 
-function __kob_upgrade{
+function __kob_upgrade {
 
 __kobman_echo_red "Testing upgrade Command"
 
