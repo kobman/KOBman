@@ -11,7 +11,7 @@ local command deployment_type environment_type name_space
 	if [ "$command" = "uninstall" ]
 	then
         	case $deployment_type in
-                --environment | --env)
+                --environment | -env)
                         if [ "$environment_type" = "all" ]
                         then
                                 echo "uninstalling all environment"
