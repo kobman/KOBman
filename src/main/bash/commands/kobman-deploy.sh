@@ -1,4 +1,4 @@
-
+#!/bin/bash
 function __kob_deploy {
 
 
