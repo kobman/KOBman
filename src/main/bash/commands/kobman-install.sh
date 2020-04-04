@@ -60,7 +60,12 @@ function __kob_install {
                                          __kobman_npm_install
                                          __kobman_visual_studio_install
                                 fi
- 				__kobman_install_tob "$name_space"
+				if [ "$parameter_type" = "--namespace" ]
+                        	then
+ 					__kobman_install_tob "$name_space"
+				else
+					echo "Try with parameter '--namespace'"		
+				fi	
                         elif [ "$environment_type" = "greenlight" ]
                         then
 				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
@@ -73,7 +78,12 @@ function __kob_install {
                                          __kobman_npm_install
                                          __kobman_visual_studio_install
                                 fi
- 				__kobman_install_greenlight "$name_space"
+				if [ "$parameter_type" = "--namespace" ]
+                        	then
+ 					__kobman_install_greenlight "$name_space"
+				else
+					echo "Try with parameter '--namespace'"		
+				fi	
                         elif [ "$environment_type" = "kobman" ]
                         then
                                __kobman_install_kobman "$name_space"
