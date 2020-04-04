@@ -3,11 +3,12 @@
 
 function __kob_install {
 
-	local command deployment_type environment_type name_space 
+	local command deployment_type environment_type parameter_type name_space 
 
 	command=$COMMAND
 	deployment_type=$DEPLOYMENT_TYPE
 	environment_type=$ENVIRONMENT_TYPE
+	parameter_type=$PARAMETER_TYPE
 	name_space=$NAME_SPACE 
 	
 	if [ "$command" = "install" ]
@@ -40,8 +41,13 @@ function __kob_install {
                                 __kobman_python_install
                                 __kobman_docker_install
                                 __kobman_npm_install
-                                __kobman_visual_studio_install
- 				__kobman_install_tobvon "$name_space"
+     				__kobman_visual_studio_install
+				if [ "$parameter_type" = "--namespace" ]
+                        	then
+ 					__kobman_install_tobvon "$name_space"
+				else
+					echo "Try with parameter '--namespace'"		
+				fi	
 			elif [ "$environment_type" = "tob" ]
                         then
 				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
