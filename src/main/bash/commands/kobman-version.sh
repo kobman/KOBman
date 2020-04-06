@@ -16,8 +16,8 @@ function __kob_version {
 
 function __kobman_environment_version {
 
-	if [ "$ENVIRONMENT_TYPE" = "--environment" | "$ENVIRONMENT_TYPE" = "-env"]	
-	then	
+	if [ $ENVIRONMENT_TYPE -eq "--environment" ] || [ $ENVIRONMENT_TYPE -eq "-env" ];then	
+	
 	
 	case "$PARAMETER_TYPE" in
 		tobvon)
