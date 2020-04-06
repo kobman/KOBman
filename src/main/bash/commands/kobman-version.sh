@@ -16,7 +16,10 @@ function __kob_version {
 
 function __kobman_environment_version {
 
-	case "$DEPLOYMENT_TYPE" in
+	if [ "$ENVIRONMENT_TYPE" = "--environment" | "$ENVIRONMENT_TYPE" = "-env"]	
+	then	
+	
+	case "$PARAMETER_TYPE" in
 		tobvon)
 			__kobman_version_tobvon "$name_space"
 
@@ -53,9 +56,9 @@ function __kobman_environment_version {
 
 		;;
 		"")
-			echo "Version - v0.0.1"	
-		#	__kobman_version_kobman "$name_space"
+			echo "verify your command &  try again"	
 
 		;;	
 	esac
+	fi
 }
