@@ -73,8 +73,9 @@ function __kob_deploy {
 				fi	
                         elif [ "$environment_type" = "greenlight" ]
                         then
-				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
+				if [ -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
 				then
+                                       	echo "deploying greenlight env" 
                                          __kobman_check_proxy
                                          __kobman_ubuntu_update_upgrade
                                          __kobman_git_install
