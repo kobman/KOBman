@@ -33,13 +33,17 @@ function __kob_deploy {
                                 echo "deploying kobregistory"
                         elif [ "$environment_type" = "tobvon" ]
                         then
-				__kobman_check_proxy
-                                __kobman_ubuntu_update_upgrade
-                                __kobman_git_install
-                                __kobman_python_install
-                                __kobman_docker_install
-                                __kobman_npm_install
-     				__kobman_visual_studio_install
+				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
+				then
+					__kobman_check_proxy
+       		                        __kobman_ubuntu_update_upgrade
+               		                __kobman_git_install
+                       		        __kobman_python_install
+                               		__kobman_docker_install
+                                	__kobman_npm_install
+     					__kobman_visual_studio_install
+				fi
+	
 				if [ "$parameter_type" = "--namespace" ]
                         	then
  					__kobman_install_tobvon "$name_space"
@@ -49,7 +53,7 @@ function __kob_deploy {
 				fi	
 			elif [ "$environment_type" = "tob" ]
                         then
-				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
+				if [ -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
 				then
                                          __kobman_check_proxy
                                          __kobman_ubuntu_update_upgrade
@@ -104,11 +108,6 @@ function __kob_deploy {
        		 esac
 
 	fi
-
-
-
-
-
 
 
 
