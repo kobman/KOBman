@@ -8,7 +8,7 @@ function __kob_version {
 	deployment_type=$DEPLOYMENT_TYPE
 	environment_type=$ENVIRONMENT_TYPE
 	name_space=$NAME_SPACE                                                                   
-	__kobman_environment_version "$DEPLOYMENT_TYPE" 
+	__kobman_environment_version  
 
 }
 
@@ -16,12 +16,12 @@ function __kob_version {
 
 function __kobman_environment_version {
 
-	if [ $ENVIRONMENT_TYPE -eq "--environment" ] || [ $ENVIRONMENT_TYPE -eq "-env" ];then	
+	if [ $DEPLOYMENT_TYPE == "--environment" ] || [ $DEPLOYMENT_TYPE == "-env" ];then	
 	
 	
-	case "$PARAMETER_TYPE" in
+	case "$ENVIRONMENT_TYPE" in
 		tobvon)
-			__kobman_version_tobvon "$name_space"
+			__kobman_version_tobvon "$NAME_SPACE"
 
 		;;	
 		tob)
