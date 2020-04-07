@@ -49,7 +49,7 @@ function __kobman_uninstall_tobvon
 function __kobman_version_tobvon
 {
 
-	if [ -d $KOBMAN_TOBVON_DEV_DIR ]
+	if [ -d "${KOBMAN_TOBVON_DEV_DIR" ]
 	then 
 		kobman_namespace="$1"
 		cd ${KOBMAN_VON_DEV_DIR} 
