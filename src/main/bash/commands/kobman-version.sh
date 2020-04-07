@@ -16,10 +16,10 @@ function __kob_version {
 
 function __kobman_environment_version {
 
-	if [ $DEPLOYMENT_TYPE == "--environment" ] || [ $DEPLOYMENT_TYPE == "-env" ];then	
+	if [ $DEPLOYMENT_TYPE == "--environment" ] 
+	then	
 	
-	
-	case "$ENVIRONMENT_TYPE" in
+		case "$ENVIRONMENT_TYPE" in
 		tobvon)
 			__kobman_version_tobvon "$NAME_SPACE"
 
