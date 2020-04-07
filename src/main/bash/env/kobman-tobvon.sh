@@ -52,7 +52,8 @@ function __kobman_version_tobvon
 	if [ -d "${KOBMAN_TOBVON_DEV_DIR" ]
 	then 
 		kobman_namespace="$1"
-		cd "${KOBMAN_VON_DEV_DIR}/von-network" 
+		cd "${KOBMAN_VON_DEV_DIR}" 
+		echo "${KOBMAN_VON_DEV_DIR}" 
 		cd von-network/	
 		git show-ref --tag | grep -o v0.0.*
 		cd ~
