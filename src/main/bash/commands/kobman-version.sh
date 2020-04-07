@@ -8,11 +8,11 @@ function __kob_version {
 	deployment_type=$DEPLOYMENT_TYPE
 	environment_type=$ENVIRONMENT_TYPE
 	name_space=$NAME_SPACE                                                                   
-	if [ $DEPLOYMENT_TYPE == "" ] 
+	if [ "$DEPLOYMENT_TYPE" == "" ] 
 	then
 		echo "kobmam version - v0.0.1"	
 	else	
-		__kobman_environment_version  
+		__kobman_environment_version "$name_space" 
 	fi
 }
 
@@ -20,12 +20,14 @@ function __kob_version {
 
 function __kobman_environment_version {
 
-	if [ $DEPLOYMENT_TYPE == "--environment" ] 
+ 	local name_space 
+	name_space=$1
+	if [ "$DEPLOYMENT_TYPE" == "--environment" ] 
 	then	
 	
 		case "$ENVIRONMENT_TYPE" in
 		tobvon)
-			__kobman_version_tobvon "$NAME_SPACE"
+			__kobman_version_tobvon "$name_space"
 
 		;;	
 		tob)
