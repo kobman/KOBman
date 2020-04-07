@@ -33,7 +33,7 @@ function __kobman_start_greenlight
 {
  	__kobman_echo_green "Starting greenlight from"	
  	__kobman_echo_green "${kobman_namespace}"	
-       	sudo chmod a+rwx $(KOBMAN_GREENLIGHT_DEV_DIR}
+       	sudo chmod a+rwx ${KOBMAN_GREENLIGHT_DEV_DIR}
 	cd ${KOBMAN_GREENLIGHT_DEV_DIR} 
 	sudo greenlight/docker/manage start
 }

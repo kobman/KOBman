@@ -32,7 +32,7 @@ function __kobman_start_tob
 {
 	__kobman_echo_cyan "Starting TheOrgBook from "	
 	__kobman_echo_cyan "${kobman_namespace}"	
-	sudo chmod a+rwx $(KOBMAN_TOB_DEV_DIR}
+	sudo chmod a+rwx ${KOBMAN_TOB_DEV_DIR}
 	cd ${KOBMAN_TOB_DEV_DIR}
 	sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
 }
