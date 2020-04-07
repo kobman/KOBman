@@ -55,7 +55,8 @@ function __kob_deploy {
                         then
 				if [ -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
 				then
-                                         __kobman_check_proxy
+                                       	echo "deploying tob env" 
+					 __kobman_check_proxy
                                          __kobman_ubuntu_update_upgrade
                                          __kobman_git_install
                                          __kobman_python_install
