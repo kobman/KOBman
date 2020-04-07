@@ -8,8 +8,12 @@ function __kob_version {
 	deployment_type=$DEPLOYMENT_TYPE
 	environment_type=$ENVIRONMENT_TYPE
 	name_space=$NAME_SPACE                                                                   
-	__kobman_environment_version  
-
+	if [ $DEPLOYMENT_TYPE == "" ] 
+	then
+		echo "kobmam version - v0.0.1"	
+	else	
+		__kobman_environment_version  
+	fi
 }
 
 
