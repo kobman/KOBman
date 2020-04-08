@@ -172,9 +172,6 @@ mkdir -p "$kobman_var_folder"
 mkdir -p "$kobman_archives_folder"
 mkdir -p "$kobman_candidates_folder"
 
-# echo "Getting available candidates..."
-# KOBMAN_CANDIDATES_CSV=$(curl -s "${KOBMAN_SERVICE}/${KOBMAN_NAMESPACE}/KOBDevOps/master/all")
-# echo "$KOBMAN_CANDIDATES_CSV" > "${KOBMAN_DIR}/var/candidates"
 
 echo "Prime the config file..."
 touch "$kobman_config_file"
@@ -221,7 +218,7 @@ mv "$kobman_stage_folder"/kobman-[kt]* "$kobman_env_folder"
 mv "$kobman_stage_folder"/kobman-* "$kobman_src_folder"
 
 echo "Set version to $KOBMAN_VERSION ..."
-echo "$KOBMAN_VERSION" > "${KOBMAN_DIR}/var/version"
+echo "$KOBMAN_VERSION" > "${KOBMAN_DIR}/var/version.txt"
 
 
 if [[ $darwin == true ]]; then

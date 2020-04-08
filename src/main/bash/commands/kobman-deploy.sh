@@ -33,7 +33,7 @@ function __kob_deploy {
                                 echo "deploying kobregistory"
                         elif [ "$environment_type" = "tobvon" ]
                         then
-				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
+				if [ -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
 				then
 					__kobman_check_proxy
        		                        __kobman_ubuntu_update_upgrade

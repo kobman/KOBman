@@ -36,7 +36,7 @@ function __kob_update {
 			then
 				if [ "$parameter_type" = "--namespace" ]
                         	then
-					echo "updating tobvon environment"	
+					echo "updating tobvon environment from $name_space"	
 				else
 					echo "Try with parameter '--namespace'"		
 				fi
@@ -45,7 +45,7 @@ function __kob_update {
 			then
 				if [ "$parameter_type" = "--namespace" ]
                         	then
-					echo "updating tob environment"	
+					echo "updating tob environment from $name_space"	
 				else
 					echo "Try with parameter '--namespace'"		
 				fi
@@ -54,7 +54,7 @@ function __kob_update {
 			then
 				if [ "$parameter_type" = "--namespace" ]
                         	then
-					echo "updating greenlight environment"	
+					echo "updating greenlight environment from $name_space"	
 				else
 					echo "Try with parameter '--namespace'"		
 				fi
