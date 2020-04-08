@@ -24,7 +24,7 @@ function kob {
 			COMMAND="status";;
 		-D)
 			COMMAND="deploy";;
-		-U)
+		-U | self-update)
 			COMMAND="upgrade";;
 		-u)
 			COMMAND="update";;
