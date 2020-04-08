@@ -11,6 +11,9 @@ function __kob_version {
 	if [ "$DEPLOYMENT_TYPE" == "" ] 
 	then
 		echo "kobmam version - v0.0.1"	
+		cd "${KOBMAN_DIR}/var"	
+		cat version	
+		cd ~	
 	else	
 		__kobman_environment_version "$name_space" 
 	fi

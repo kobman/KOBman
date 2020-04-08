@@ -7,7 +7,7 @@ function __kobman_development_tob_dir {
 	cd Dev_TOB
 	export KOBMAN_TOB_DEV_DIR=$PWD
 	sudo chmod 777 ${KOBMAN_TOB_DEV_DIR}
-	cd $KOBMAN_TOB_DEV_DIR
+	cd ${KOBMAN_TOB_DEV_DIR}
 	sudo mkdir -p test/ dependency/
 }
 function __kobman_install_tob
@@ -32,7 +32,7 @@ function __kobman_start_tob
 {
 	__kobman_echo_cyan "Starting TheOrgBook from "	
 	__kobman_echo_cyan "${kobman_namespace}"	
-	sudo chmod a+rwx ${KOBMAN_TOB_DEV_DIR}
+#	sudo chmod a+rwx ${KOBMAN_TOB_DEV_DIR}
 	cd ${KOBMAN_TOB_DEV_DIR}
 	sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
 }
@@ -40,7 +40,7 @@ function __kobman_start_tob
 function __kobman_uninstall_tob
 {
  	__kobman_echo_cyan "TheOrgBook - Uninstalling..."	
-	sudo chmod a+rwx $KOBMAN_TOB_DEV_DIR
+#	sudo chmod a+rwx $KOBMAN_TOB_DEV_DIR
 	cd ${KOBMAN_TOB_DEV_DIR}
 	sudo TheOrgBook/docker/manage rm 2> /dev/null	
 	sudo rm ${KOBMAN_TOB_DEV_DIR}/source-* 2> /dev/null	
@@ -54,7 +54,7 @@ function __kobman_uninstall_tob
 
 function __kobman_version_tob
 {
-	if [ -d "${KOBMAN_TOB_DEV_DIR}" ]; then 
+	if [ ! -d "${KOBMAN_TOB_DEV_DIR}" ]; then 
 		kobman_namespace="$1"
 		cd ${KOBMAN_TOB_DEV_DIR} 
 		cd TheOrgBook/	
