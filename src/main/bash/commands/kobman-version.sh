@@ -11,7 +11,7 @@ function __kob_version {
 	if [ "$DEPLOYMENT_TYPE" == "" ] 
 	then
 		cd "${KOBMAN_DIR}/var"	
-		cat version	
+		cat version.txt	
 		cd ~	
 	else	
 		__kobman_environment_version "$name_space" 
