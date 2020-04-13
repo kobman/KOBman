@@ -44,6 +44,7 @@ function __kobman_environment_version {
 
 		;;	
 		kobvon)
+			echo "invoking kobman version"
 			__kobman_version_kobvon 
 
 		;;	
