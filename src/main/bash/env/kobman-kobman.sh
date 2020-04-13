@@ -43,9 +43,9 @@ function __kobman_version_kobman
 #		cd KOBman/	
 #		git show-ref --tag | grep -o v0.0.*
  		cd "${KOBMAN_DIR}"/var
+		cd "${KOBMAN_DIR}/var"
                 cat version.txt
-
-		cd ~
+                cd ~
 	else
  		__kobman_echo_green "KOBman is not installed"	
 fi
