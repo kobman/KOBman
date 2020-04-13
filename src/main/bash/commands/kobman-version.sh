@@ -14,7 +14,7 @@ function __kob_version {
 		cat version.txt	
 		cd ~	
 	else	
-		__kobman_environment_version "$name_space" 
+		__kobman_environment_version  
 	fi
 }
 
@@ -29,38 +29,38 @@ function __kobman_environment_version {
 	
 		case "$ENVIRONMENT_TYPE" in
 		tobvon)
-			__kobman_version_tobvon "$name_space"
+			__kobman_version_tobvon 
 
 		;;	
 		tob)
-			__kobman_version_tob "$name_space"
+			__kobman_version_tob 
 
 		;;	
 		greenlight)
-			__kobman_version_greenlight "$name_space"
+			__kobman_version_greenlight 
 		;;	
 		kobman)
-			__kobman_version_kobman "$name_space"
+			__kobman_version_kobman 
 
 		;;	
 		kobvon)
-			__kobman_version_kobvon "$name_space"
+			__kobman_version_kobvon 
 
 		;;	
 		kob)
-			__kobman_version_kob "$name_space"
+			__kobman_version_kob 
 
 		;;	
 		kobdflow)
-			__kobman_version_kobdflow "$name_space"
+			__kobman_version_kobdflow 
 
 		;;	
 		kobconnect)
-			__kobman_version_kobconnect "$name_space"
+			__kobman_version_kobconnect 
 
 		;;	
 		kobregistery)
-			__kobman_version_kobregistery "$name_space"
+			__kobman_version_kobregistery
 
 		;;
 		"")
