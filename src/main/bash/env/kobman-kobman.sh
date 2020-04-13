@@ -42,7 +42,7 @@ function __kobman_version_kobman
 #		cd ${KOBMAN_KOBMAN_DEV_DIR} 
 #		cd KOBman/	
 #		git show-ref --tag | grep -o v0.0.*
- 		cd "${KOBMAN_DIR}/var"
+ 		cd "${KOBMAN_DIR}"/var
                 cat version.txt
 
 		cd ~
