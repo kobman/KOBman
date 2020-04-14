@@ -29,9 +29,9 @@ echo "$KOB_VERSION"
 cd $PWD/bin/dist
 #replacing variables with actual values
 echo "updating variables"
-sed -i "s/@KOB_VERSION@/$KOB_VERSION/g" $PWD/bin/dist/get.kobman.io.tmpl
-sed -i "s/@KOB_ARCHIVE_DOWLOAD_REPO@/$KOB_ARCHIVE_DOWLOAD_REPO/g" $PWD/bin/dist/get.kobman.io.tmpl
-sed -i "s/@KOB_NAMESPACE@/$KOBMAN_NAMESPACE/g" $PWD/bin/dist/get.kobman.io.tmpl
+sed -i "s/@KOB_VERSION@/$KOB_VERSION/g" $PWD/get.kobman.io.tmpl
+sed -i "s/@KOB_ARCHIVE_DOWLOAD_REPO@/$KOB_ARCHIVE_DOWLOAD_REPO/g" $PWD/get.kobman.io.tmpl
+sed -i "s/@KOB_NAMESPACE@/$KOBMAN_NAMESPACE/g" $PWD/get.kobman.io.tmpl
 echo "tagging"
 git tag "$KOB_VERSION"
 echo "pushing version"
