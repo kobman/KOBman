@@ -22,7 +22,7 @@ git branch -D "$BRANCH"
 git checkout -b "$BRANCH"
 
 #moving into distributions folder
-cd dist/
+cd /bin/dist/
 
 #replacing variables with actual values
 echo "updating variables"

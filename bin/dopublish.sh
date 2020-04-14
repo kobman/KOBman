@@ -4,7 +4,7 @@ KOB_VERSION=$1
 KOB_ARCHIVE_DOWLOAD_REPO="KOBman_website"
 BRANCH="production"
 #moving into dist folder
-cd dist/
+cd /bin/dist/
 
 ##TODO:- archiving using tar command needed
 
