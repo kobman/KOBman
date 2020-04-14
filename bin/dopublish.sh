@@ -23,7 +23,7 @@ echo "adding and commiting installer.sh"
 
 ##TODO:- pushing the dist folder to KOBman_website
 
-sudo git add $PWD
+sudo git add $KOBMAN_DIST_FOLDER
 # sudo git add KOBman-installer.sh
 sudo git commit -m "Update version of $BRANCH to $KOB_VERSION"
 # echo "pushing to release master"
