@@ -14,6 +14,7 @@ KOBMAN_NAMESPACE="asa1997"
 # 	exit 0
 # fi
 
+echo "$KOB_VERSION"
 #prepare branch
 echo "prepare branch"
 #git fetch
