@@ -23,14 +23,15 @@ echo "$KOB_VERSION"
 # git checkout -b "$BRANCH"
 
 #moving into distributions folder
-mkdir $PWD/bin/dist
-cd dist
-cp $PWD/tmpl/get.kobman.io.tmpl $PWD/bin/dist/
+# mkdir $PWD/bin/dist
+# cd dist
+# cp $PWD/tmpl/get.kobman.io.tmpl $PWD/bin/dist/
+cd $PWD/bin/dist
 #replacing variables with actual values
 echo "updating variables"
-sed -i "s/@KOB_VERSION@/$KOB_VERSION/g" get.kobman.io.tmpl
-sed -i "s/@KOB_ARCHIVE_DOWLOAD_REPO@/$KOB_ARCHIVE_DOWLOAD_REPO/g" get.kobman.io.tmpl
-sed -i "s/@KOB_NAMESPACE@/$KOBMAN_NAMESPACE/g" get.kobman.io.tmpl
+sed -i "s/@KOB_VERSION@/$KOB_VERSION/g" $PWD/bin/dist/get.kobman.io.tmpl
+sed -i "s/@KOB_ARCHIVE_DOWLOAD_REPO@/$KOB_ARCHIVE_DOWLOAD_REPO/g" $PWD/bin/dist/get.kobman.io.tmpl
+sed -i "s/@KOB_NAMESPACE@/$KOBMAN_NAMESPACE/g" $PWD/bin/dist/get.kobman.io.tmpl
 echo "tagging"
 git tag "$KOB_VERSION"
 echo "pushing version"
