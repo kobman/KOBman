@@ -11,7 +11,7 @@ echo "$PWD"
 
 ##TODO:- archiving using tar command needed
 
-tar cvf kobman_latest.tar /home/usr/KOBman/src/
+tar cvf kobman_latest.tar /~/KOBman/src/
 cat kobman_latest.tar >> kobman-$KOB_VERSION.tar
 
 echo "adding release repo"
