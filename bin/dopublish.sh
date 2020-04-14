@@ -11,7 +11,7 @@ echo "moving into dist"
 cd dist/
 # cd $KOBMAN_DIST_FOLDER
 # echo "dist folder:$KOBMAN_DIST_FOLDER"
-# echo "$PWD"
+echo "$PWD"
 
 tar -cvf kobman_latest.tar KOBman/src
 cat kobman_latest.tar >> kobman-$KOB_VERSION.tar
