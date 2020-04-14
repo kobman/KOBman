@@ -4,11 +4,11 @@ KOB_VERSION=$1
 KOB_ARCHIVE_DOWLOAD_REPO="KOBman_website"
 BRANCH="master"
 #moving into dist folder
-cd /bin/dist/
+cd $PWD/bin/dist/
 
 ##TODO:- archiving using tar command needed
 
-tar -cvf kobman_latest.tar /home/KOBman/src/
+tar -cvf kobman_latest.tar /usr/home/KOBman/src
 cat kobman_latest.tar >> kobman-$KOB_VERSION.tar
 
 echo "adding release repo"
