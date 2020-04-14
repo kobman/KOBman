@@ -4,7 +4,10 @@ KOB_VERSION=$1
 KOB_ARCHIVE_DOWLOAD_REPO="KOBman_website"
 BRANCH="master"
 #moving into dist folder
+echo "$PWD"
+echo "moving into dist"
 cd $PWD/bin/dist/
+echo "$PWD"
 
 ##TODO:- archiving using tar command needed
 
