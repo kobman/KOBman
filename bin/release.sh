@@ -16,11 +16,11 @@ KOBMAN_NAMESPACE="asa1997"
 
 echo "$KOB_VERSION"
 #prepare branch
-echo "prepare branch"
-#git fetch
-git checkout master
-git branch -D "$BRANCH"
-git checkout -b "$BRANCH"
+# echo "prepare branch"
+# #git fetch
+# git checkout master
+# git branch -D "$BRANCH"
+# git checkout -b "$BRANCH"
 
 #moving into distributions folder
 cd /bin/dist/
