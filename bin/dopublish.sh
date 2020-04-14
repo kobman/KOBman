@@ -5,6 +5,7 @@ KOB_ARCHIVE_DOWLOAD_REPO="KOBman_website"
 BRANCH="master"
 #moving into dist folder
 echo "$PWD"
+export KOBMAN_DIST_FOLDER="/home/arun/KOBman/bin/dist"
 echo "moving into dist"
 cd $KOBMAN_DIST_FOLDER
 echo "dist folder:$KOBMAN_DIST_FOLDER"
