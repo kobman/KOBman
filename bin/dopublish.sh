@@ -6,12 +6,12 @@ BRANCH="master"
 #moving into dist folder
 echo "$PWD"
 echo "moving into dist"
-cd $PWD/bin/dist/
+cd $KOBMAN_DIST_FOLDER
 echo "$PWD"
 
 ##TODO:- archiving using tar command needed
 
-tar cvf kobman_latest.tar /~/KOBman/src/
+tar -cvf kobman_latest.tar "$KOBMAN_SRC_FOLDER"
 cat kobman_latest.tar >> kobman-$KOB_VERSION.tar
 
 echo "adding release repo"
