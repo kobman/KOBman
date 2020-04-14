@@ -1,6 +1,12 @@
 #!/bin/bash
 
+#moving into dist folder
+cd dist/
+
 ##TODO:- archiving using tar command needed
+
+tar -cvf kobman_latest.tar /home/KOBman/src/
+cat kobman_latest.tar >> kobman-$KOB_VERSION.tar
 
 echo "adding release repo"
 git remote add release https://github.com/asa1997/$KOB_ARCHIVE_DOWLOAD_REPO
