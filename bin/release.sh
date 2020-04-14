@@ -23,8 +23,9 @@ echo "$KOB_VERSION"
 # git checkout -b "$BRANCH"
 
 #moving into distributions folder
-cd /bin/dist/
-
+mkdir $PWD/bin/dist
+cd dist
+cp $PWD/tmpl/get.kobman.io.tmpl $PWD/bin/dist/
 #replacing variables with actual values
 echo "updating variables"
 sed -i "s/@KOB_VERSION@/$KOB_VERSION/g" get.kobman.io.tmpl
