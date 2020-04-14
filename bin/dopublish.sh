@@ -11,7 +11,7 @@ echo "$PWD"
 
 ##TODO:- archiving using tar command needed
 
-tar -cvf kobman_latest.tar /usr/home/KOBman/src
+tar cvf kobman_latest.tar /home/usr/KOBman/src/
 cat kobman_latest.tar >> kobman-$KOB_VERSION.tar
 
 echo "adding release repo"
@@ -20,7 +20,7 @@ echo "adding and commiting installer.sh"
 
 ##TODO:- pushing the dist folder to KOBman_website
 
-sudo git add /bin/dist/
+sudo git add $PWD
 # sudo git add KOBman-installer.sh
 sudo git commit -m "Update version of $BRANCH to $KOB_VERSION"
 # echo "pushing to release master"
