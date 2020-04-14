@@ -5,6 +5,8 @@ services:
 script:
 - docker build -t asa1997/kobman .
 - docker run --rm -v $PWD:/usr/src/app asa1997/kobman
+- bin/release.sh 0.0.$TRAVIS_BUILD_NUMBER
+- bin/dopublish.sh 0.0.$TRAVIS_BUILD_NUMBER
 deploy:
     provider: pages
     skip-cleanup: true

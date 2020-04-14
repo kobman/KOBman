@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KOB_VERSION="0.0.2"
+KOB_VERSION="$1"
 
 BRANCH="production"
 
