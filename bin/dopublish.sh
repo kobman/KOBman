@@ -7,6 +7,7 @@ BRANCH="master"
 echo "$PWD"
 echo "moving into dist"
 cd $KOBMAN_DIST_FOLDER
+echo "dist folder:$KOBMAN_DIST_FOLDER"
 echo "$PWD"
 
 ##TODO:- archiving using tar command needed
