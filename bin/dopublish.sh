@@ -8,14 +8,15 @@ KOBMAN_SRC_FOLDER="/home/arun/KOBman/src"
 echo "$PWD"
 export KOBMAN_DIST_FOLDER="/home/arun/KOBman/bin/dist"
 echo "moving into dist"
-cd $KOBMAN_DIST_FOLDER
-echo "dist folder:$KOBMAN_DIST_FOLDER"
-echo "$PWD"
+cd dist/
+# cd $KOBMAN_DIST_FOLDER
+# echo "dist folder:$KOBMAN_DIST_FOLDER"
+# echo "$PWD"
 
 ##TODO:- archiving using tar command needed
 
-tar -cvf kobman_latest.tar "$KOBMAN_SRC_FOLDER"
-cat kobman_latest.tar >> kobman-$KOB_VERSION.tar
+# tar -cvf kobman_latest.tar ""
+# cat kobman_latest.tar >> kobman-$KOB_VERSION.tar
 
 echo "adding release repo"
 git remote add release https://github.com/asa1997/$KOB_ARCHIVE_DOWLOAD_REPO
