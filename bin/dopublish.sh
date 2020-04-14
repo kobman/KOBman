@@ -4,6 +4,7 @@ KOB_VERSION=$1
 KOB_ARCHIVE_DOWLOAD_REPO="KOBman_website"
 BRANCH="master"
 #moving into dist folder
+KOBMAN_SRC_FOLDER="/home/arun/KOBman/src"
 echo "$PWD"
 export KOBMAN_DIST_FOLDER="/home/arun/KOBman/bin/dist"
 echo "moving into dist"
