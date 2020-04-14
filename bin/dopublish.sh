@@ -2,7 +2,7 @@
 
 KOB_VERSION=$1
 KOB_ARCHIVE_DOWLOAD_REPO="KOBman_website"
-BRANCH="production"
+BRANCH="master"
 #moving into dist folder
 cd /bin/dist/
 
