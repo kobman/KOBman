@@ -12,9 +12,7 @@ function __kobman_development_kobman_dir {
 
 function __kobman_install_kobman
 {
-	local kobman_env_folder;
-	kobman_env_folder="${KOBMAN_DIR}/envs"
-	cd kobman_env_folder
+	cd "${KOBMAN_DIR}/envs"
 	mkdir kobman
 	cd kobman
 	touch current
