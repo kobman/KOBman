@@ -64,7 +64,7 @@ fi
 # <https://github.com/kobman/kobman-extensions>.
 OLD_IFS="$IFS"
 IFS=$'\n'
-scripts=($(find "${KOBMAN_DIR}/src" "${KOBMAN_DIR}/env" -type f -name 'kobman-*'))
+scripts=($(find "${KOBMAN_DIR}/src" "${KOBMAN_DIR}/envs" -type f -name 'kobman-*'))
 for f in "${scripts[@]}"; do
 	source "$f"
 done

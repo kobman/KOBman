@@ -12,6 +12,15 @@ function __kobman_development_kobman_dir {
 
 function __kobman_install_kobman
 {
+	local kobman_env_folder;
+	kobman_env_folder="${KOBMAN_DIR}/envs"
+	cd kobman_env_folder
+	mkdir kobman
+	cd kobman
+	touch current
+	cat "${KOBMAN_DIR}/var/version.txt" > current	
+	echo "displaying kobman current"
+	cat current	
 	kobman_namespace="$1"
  	__kobman_echo_green "Building kobman from"	
  	__kobman_echo_green "${kobman_namespace}"	
@@ -42,7 +51,7 @@ function __kobman_version_kobman
 #		cd ${KOBMAN_KOBMAN_DEV_DIR} 
 #		cd KOBman/	
 #		git show-ref --tag | grep -o v0.0.*
- 		cd "${KOBMAN_DIR}"/var
+ #		cd "${KOBMAN_DIR}"/var
 		cd "${KOBMAN_DIR}/var"
                 cat version.txt
                 cd ~
