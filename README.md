@@ -95,6 +95,13 @@ Other useful commands:
         kob version     
          
 
+### Manual Release
+
+To perform a manual release,
+* Go to `/bin` directory in you KOBman directory
+* Execute `release.sh <version number>`. This will tag your repo with the latest version.
+* Execute `dopublish.sh <version number>`. This will push your changes to the target repo
+
 ## Adding new features
 
 For new features creation , you have to edit (add file 'kobman-*' ) extention script in the below listed directory,test it & publish
