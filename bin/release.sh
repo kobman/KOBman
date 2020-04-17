@@ -2,25 +2,26 @@
 
 KOB_VERSION="$1"
 
-BRANCH="production"
+BRANCH="tag"
 
 KOB_ARCHIVE_DOWLOAD_REPO="KOBman_website"
 
 KOBMAN_NAMESPACE="asa1997"
 
 #sanityls
-# if [[ -z "$VERSION" ]]; then
-# 	echo "Usage: release.sh <version>"
-# 	exit 0
-# fi
+if [[ -z "$VERSION" ]]; 
+    then
+        echo "Usage: release.sh <version>"
+ 	    exit 0
+fi
 
 echo "$KOB_VERSION"
 #prepare branch
 # echo "prepare branch"
 # #git fetch
-# git checkout master
-# git branch -D "$BRANCH"
-# git checkout -b "$BRANCH"
+git checkout Dev
+git branch -D "$BRANCH"
+git checkout -b "$BRANCH"
 
 #copy the tmpl file to /scripts
 echo "copying tmpl file to scripts"
@@ -41,7 +42,8 @@ echo "pushing version"
 git push origin $KOB_VERSION
 
 #pushing get.kobman.io to repo
-sudo git add ~/dev_branch/KOBman/scripts/get.kobman.io
-sudo git commit -m "variables updated"
-sudo git push dev Dev
+# sudo git add ~/dev_branch/KOBman/scripts/get.kobman.io
+# sudo git commit -m "variables updated"
+# sudo git push dev Dev
 
+git -d branch $BRANCH
