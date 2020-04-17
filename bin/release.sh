@@ -2,18 +2,18 @@
 
 kob_version="$1"
 
-branch="tag"
+branch="REL-taggin"
 
 kob_archive_download_repo="KOBman_target_repo"
 
 kob_namespace= ${KOB_NAMESPACE:-hyperledgerkochi}
 
 #sanityls
-# if [[ -z "$VERSION" ]]; 
-#     then
-#         echo "Usage: release.sh <version>"
-#  	    exit 0
-# fi
+if [[ -z "$VERSION" ]]; 
+    then
+        echo "Usage: release.sh <version>"
+ 	    exit 0
+fi
 
 echo "$kob_version"
 #prepare branch

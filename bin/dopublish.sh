@@ -7,7 +7,7 @@ kob_namespace= ${KOB_NAMESPACE:-hyperledgerkochi}
 #Checkout latest tag
 # The branch is used to make the tar files.
 git branch -D $kob_rel_version-branch
-git checkout tags/$kob_rel_version -b $kob_rel_version-branch
+git checkout tags/$kob_rel_version -b REL-$kob_rel_version-branch
 
 echo "making the tar files..."
 tar -cvf /$HOME/$USR/KOBman/bin/kobman_latest.tar /$HOME/$USR/KOBman/src/ /$HOME/$USR/KOBman/bin/
@@ -15,10 +15,10 @@ cp /$HOME/$USR/KOBman/bin/kobman_latest.tar /$HOME/$USR/KOBman/bin/kobman-$kob_r
 
 #The branch is used to prepare the target repo and pushing
 git checkout -b $branch
-git clone https://github.com/asa1997/$kob_archive_download_repo
-mkdir $kob_archive_download_repo/dist
+git clone https://github.com/$kob_namespace/$kob_archive_download_repo
+mkdir /$HOME/$USR/KOBman/$kob_archive_download_repo/dist
 echo "moving necessary files to target"
-mv /$HOME/$USR/KOBman/bin/kobman*.tar $kob_archive_download_repo/dist 
+mv /$HOME/$USR/KOBman/bin/kobman*.tar $HOME/$USR/KOBman/$kob_archive_download_repo/dist 
 mv /$HOME/$USR/KOBman/scripts/get.kobman.io /$HOME/$USR/KOBman/$kob_archive_download_repo/dist
 
 echo "moving into $kob_archive_download_repo"
