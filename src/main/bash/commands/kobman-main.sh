@@ -8,7 +8,7 @@ function kob {
 	DEPLOYMENT_TYPE="$2"
 	ENVIRONMENT_TYPE="$3"
 	PARAMETER_TYPE="$4"
-	NAME_SPACE=${5:-hyperledgerkochi}
+	NAME_SPACE=${5:-EtricKombat}
 	case "$COMMAND" in
 		-L)
 			COMMAND="list";;
