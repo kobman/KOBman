@@ -1,12 +1,12 @@
 #!/bin/bash
 
-KOB_VERSION="$1"
+kob_version="$1"
 
-BRANCH="tag"
+branch="tag"
 
-KOB_ARCHIVE_DOWLOAD_REPO="KOBman_target_repo"
+kob_archive_download_repo="KOBman_target_repo"
 
-KOBMAN_NAMESPACE="asa1997"
+kob_namespace= ${KOB_NAMESPACE:-hyperledgerkochi}
 
 #sanityls
 # if [[ -z "$VERSION" ]]; 
@@ -15,35 +15,35 @@ KOBMAN_NAMESPACE="asa1997"
 #  	    exit 0
 # fi
 
-echo "$KOB_VERSION"
+echo "$kob_version"
 #prepare branch
 # echo "prepare branch"
 # #git fetch
 git checkout Dev
-git branch -D "$BRANCH"
-git checkout -b "$BRANCH"
+git branch -D "$branch"
+git checkout -b "$branch"
 
 #copy the tmpl file to /scripts
 echo "copying tmpl file to scripts"
-cp ~/dev_branch/KOBman/scripts/tmpl/get.kobman.io.tmpl ~/dev_branch/KOBman/scripts/
+cp /$HOME/$USR/KOBman/scripts/tmpl/get.kobman.io.tmpl /$HOME/$USR/KOBman/scripts/
 
-mv ~/dev_branch/KOBman/scripts/get.kobman.io.tmpl ~/dev_branch/KOBman/scripts/get.kobman.io
+mv /$HOME/$USR/KOBman/scripts/get.kobman.io.tmpl /$HOME/$USR/KOBman/scripts/get.kobman.io
 
 #replacing variables with actual values
 echo "updating variables"
-sed -i "s/@KOB_VERSION@/$KOB_VERSION/g" ~/dev_branch/KOBman/scripts/get.kobman.io
-sed -i "s/@KOB_ARCHIVE_DOWLOAD_REPO@/$KOB_ARCHIVE_DOWLOAD_REPO/g" ~/dev_branch/KOBman/scripts/get.kobman.io
-sed -i "s/@KOB_NAMESPACE@/$KOBMAN_NAMESPACE/g" ~/dev_branch/KOBman/scripts/get.kobman.io
+sed -i "s/@KOB_VERSION@/$kob_version/g" /$HOME/$USR/KOBman/scripts/get.kobman.io
+sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$kob_archive_download_repo/g" /$HOME/$USR/KOBman/scripts/get.kobman.io
+sed -i "s/@KOB_NAMESPACE@/$kob_namespace/g" /$HOME/$USR/KOBman/scripts/get.kobman.io
 
 #Tagging 
 echo "tagging"
-git tag -a "$KOB_VERSION" -m "Releasing version $KOB_VERSION"
+git tag -a "$kob_version" -m "Releasing version $kob_version"
 echo "pushing version"
-git push origin $KOB_VERSION
+git push origin $kob_version
 git checkout Dev
-git branch -D $BRANCH
+git branch -D $branch
 #pushing get.kobman.io to repo
-# sudo git add ~/dev_branch/KOBman/scripts/get.kobman.io
+# sudo git add /$HOME/$USR/KOBman/scripts/get.kobman.io
 # sudo git commit -m "variables updated"
 # sudo git push dev Dev
 

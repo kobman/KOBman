@@ -1,36 +1,36 @@
 #!/bin/bash
 
-KOB_REL_VERSION=$1
-KOB_ARCHIVE_DOWLOAD_REPO="KOBman_target_repo"
-BRANCH="release"
-KOB_NAMESPACE="asa1997"
-
+kob_rel_version=$1
+kob_archive_download_repo="KOBman_target_repo"
+branch="REL-$kob_rel_version"
+kob_namespace= ${KOB_NAMESPACE:-hyperledgerkochi}
 #Checkout latest tag
 # The branch is used to make the tar files.
-git branch -D $KOB_REL_VERSION-branch
-git checkout tags/$KOB_REL_VERSION -b $KOB_REL_VERSION-branch
+git branch -D $kob_rel_version-branch
+git checkout tags/$kob_rel_version -b $kob_rel_version-branch
 
 echo "making the tar files..."
-tar -cvf kobman_latest.tar ~/dev_branch/KOBman/src/ ~/dev_branch/KOBman/bin/
-cp kobman_latest.tar ~/dev_branch/KOBman/bin/kobman-$KOB_REL_VERSION.tar
+tar -cvf /$HOME/$USR/KOBman/bin/kobman_latest.tar /$HOME/$USR/KOBman/src/ /$HOME/$USR/KOBman/bin/
+cp /$HOME/$USR/KOBman/bin/kobman_latest.tar /$HOME/$USR/KOBman/bin/kobman-$kob_rel_version.tar
 
 #The branch is used to prepare the target repo and pushing
-git checkout -b $BRANCH
-git clone https://github.com/asa1997/$KOB_ARCHIVE_DOWLOAD_REPO
-mkdir $KOB_ARCHIVE_DOWLOAD_REPO/dist
+git checkout -b $branch
+git clone https://github.com/asa1997/$kob_archive_download_repo
+mkdir $kob_archive_download_repo/dist
 echo "moving necessary files to target"
-mv *.tar $KOB_ARCHIVE_DOWLOAD_REPO/dist 
-mv ~/dev_branch/KOBman/scripts/get.kobman.io ~/dev_branch/KOBman/$KOB_ARCHIVE_DOWLOAD_REPO/dist
+mv /$HOME/$USR/KOBman/bin/kobman*.tar $kob_archive_download_repo/dist 
+mv /$HOME/$USR/KOBman/scripts/get.kobman.io /$HOME/$USR/KOBman/$kob_archive_download_repo/dist
 
-echo "moving into $KOB_ARCHIVE_DOWLOAD_REPO"
-cd $KOB_ARCHIVE_DOWLOAD_REPO
+echo "moving into $kob_archive_download_repo"
+cd $kob_archive_download_repo
+git fetch
 echo "saving changes and pushing"
 git add .
-git commit -m "Released the version $KOB_REL_VERSION"
+git commit -m "Released the version $kob_rel_version"
 git push origin master -f
 cd ..
-rm -rf $KOB_ARCHIVE_DOWLOAD_REPO
+rm -rf $kob_archive_download_repo
 git checkout Dev
-git branch -D $BRANCH
+git branch -D $branch
 
 
