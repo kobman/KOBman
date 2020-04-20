@@ -16,17 +16,6 @@ function __kob_install {
         	case $deployment_type in
                 --environment | -env)
 
-
-				if [ ! -d "${KOBMAN_VON_DEV_DIR}/von-network" ]
-				then
-                                         __kobman_check_proxy
-                                         __kobman_ubuntu_update_upgrade
-                                         __kobman_git_install
-                                         __kobman_python_install
-                                         __kobman_docker_install
-                                         __kobman_npm_install
-                                         __kobman_visual_studio_install
-                                fi
 				if [ "$parameter_type" = "--namespace" ]
                         	then
  					__kobman_install_${environment_type} "$name_space"
