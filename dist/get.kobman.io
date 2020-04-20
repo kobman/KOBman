@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dpkg --configure -a
+dpkg --configure -a
 #Install: stable
 
 # Global variables
