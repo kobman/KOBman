@@ -4,7 +4,7 @@ sudo dpkg --configure -a
 #Install: stable
 
 # Global variables
-KOBMAN_VERSION="0.01"
+export KOBMAN_VERSION="0.01"
 KOBMAN_PLATFORM=$(uname)
 export KOBMAN_SERVICE="https://raw.githubusercontent.com"
 export KOBMAN_NAMESPACE="EtricKombat"
