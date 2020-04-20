@@ -6,7 +6,7 @@ sudo dpkg --configure -a
 # Global variables
 KOBMAN_VERSION="0.01"
 KOBMAN_PLATFORM=$(uname)
-KOBMAN_SERVICE="https://raw.githubusercontent.com"
+export KOBMAN_SERVICE="https://raw.githubusercontent.com"
 export KOBMAN_NAMESPACE="EtricKombat"
 
 
