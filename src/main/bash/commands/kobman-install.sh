@@ -187,8 +187,17 @@ function __kob_install {
 
 }
 
+function __kobman_install_dependancies {
 
+	__kobman_check_proxy
+        __kobman_ubuntu_update_upgrade
+        __kobman_git_install
+        __kobman_python_install
+        __kobman_docker_install
+        __kobman_npm_install
+        __kobman_visual_studio_install
 
+}
 function __kobman_download {
 	local candidate version archives_folder
 
