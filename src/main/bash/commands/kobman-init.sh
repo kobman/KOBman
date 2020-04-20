@@ -6,6 +6,11 @@ if [ -z "$KOBMAN_VERSION" ]; then
 	export KOBMAN_VERSION="@KOBMAN_VERSION@"
 fi
 
+
+
+export KOBMAN_SERVICE="https://raw.githubusercontent.com"
+export KOBMAN_NAMESPACE="EtricKombat"
+
 #if [ -z "$KOBMAN_CANDIDATES_API" ]; then
 #	export KOBMAN_CANDIDATES_API="@KOBMAN_CANDIDATES_API@"
 #fi
