@@ -1,4 +1,4 @@
-================================================================================
+===============================================================================
 Available Environments
 ================================================================================
 q-quit                                  /-search down
@@ -12,17 +12,19 @@ von-network is being developed as part of the Verifiable Organizations Network
 (VON). For more information on VON see https://vonx.io. Even, better - join in 
 with what we are doing and contribute to VON and the Indy community..
 
-                                                            $ kob install tobvon
+                                                   $ kob install --dev tobvon
+                                                   $ kob install --deploy tobvon
 --------------------------------------------------------------------------------
 TheOrgBook                        https://github.com/hyperledgerkochi/TheOrgBook
 
-TheOrgBook is a Credential Registry of verifiable credentials about entities. 
+TheOrgBook is a Credential Registry of v Verifiable credentials about entities. 
 A public instance of TheOrgBook, such as BC's OrgBook contains a verifiable 
 credentials about organizations (incorporations, professionals, etc.) issued 
 by trusted public services such as Corporate Registries, regulatory agencies, 
 permitting services, licencing services, procurement services and the like.
 
-                                                             $ kob install tob
+                                                   $ kob install --dev tob
+                                                   $ kob install --deploy tob
 --------------------------------------------------------------------------------
 greenlight                        https://github.com/hyperledgerkochi/greenlight
 
@@ -30,8 +32,17 @@ GreenLight (an instance of decentralized workFlow) demonstrates a basic
 application for deploying the VON-X library, in order to enable issuer 
 registration, claims verification, and credential submission to TheOrgBook. 
 It includes Docker tooling for deployment of the application behind a Caddy 
-reverse proxy.
-                                                         $ kob install greenlight
+reverse proxy.                                                         
+                                                $ kob install --dev greenlight
+                                                $ kob install --deploy greenlight
+--------------------------------------------------------------------------------
+
+kobman                        https://github.com/hyperledgerkochi/KOBman
+
+Kobman is a developer friendly utility which was created with intention of easing
+up the day-to-day activity related to the KochiOrgBook project.
+
+                                                    $ kob install --dev kobman
 --------------------------------------------------------------------------------
 
 KOBConnect                     https://github.com/hyperledgerkochi/KOBConnect
