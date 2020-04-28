@@ -4,7 +4,7 @@
 #Install: stable
 
 # Global variables
-KOBMAN_VERSION="0.0.1"
+KOBMAN_VERSION="test-0.0.1"
 KOB_ARCHIVE_DOWLOAD_REPO="@KOB_ARCHIVE_DOWLOAD_REPO@"
 KOBMAN_PLATFORM=$(uname)
 KOBMAN_SERVICE="https://raw.githubusercontent.com"
