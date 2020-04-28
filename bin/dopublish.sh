@@ -1,36 +1,38 @@
 #!/bin/bash
 
 kob_rel_version=$1
-kob_archive_download_repo="KOBman_target_repo"
-branch="REL-$kob_rel_version"
-kob_namespace= ${KOB_NAMESPACE:-hyperledgerkochi}
+#kob_archive_download_repo="KOBman_target_repo"
+kob_rel_stage_area=$HOME/$USR/tmp
+#kob_namespace="asa1997"
+
+source $HOME/$USR/KOBman/bin/release_var_setup.sh
+
 #Checkout latest tag
-# The branch is used to make the tar files.
-git branch -D $kob_rel_version-branch
-git checkout tags/$kob_rel_version -b REL-$kob_rel_version-branch
+git checkout tags/$kob_rel_version -b $kob_rel_version
 
 echo "making the tar files..."
-tar -cvf /$HOME/$USR/KOBman/bin/kobman_latest.tar /$HOME/$USR/KOBman/src/ /$HOME/$USR/KOBman/bin/
-cp /$HOME/$USR/KOBman/bin/kobman_latest.tar /$HOME/$USR/KOBman/bin/kobman-$kob_rel_version.tar
+tar -cvf $KOBMAN_DIR/bin/kobman_latest.tar $KOBMAN_DIR/src/ $KOBMAN_DIR/bin/
+cp $KOBMAN_DIR/bin/kobman_latest.tar $KOBMAN_DIR/bin/kobman-$kob_rel_version.tar
 
 #The branch is used to prepare the target repo and pushing
-git checkout -b $branch
-git clone https://github.com/$kob_namespace/$kob_archive_download_repo
-mkdir /$HOME/$USR/KOBman/$kob_archive_download_repo/dist
+mkdir $kob_rel_stage_area
+cd $kob_rel_stage_area
+git clone $LINK_TO_DOWNLOAD_REPO
+mkdir $TARGET_REPO_DIR/dist
 echo "moving necessary files to target"
-mv /$HOME/$USR/KOBman/bin/kobman*.tar $HOME/$USR/KOBman/$kob_archive_download_repo/dist 
-mv /$HOME/$USR/KOBman/scripts/get.kobman.io /$HOME/$USR/KOBman/$kob_archive_download_repo/dist
+mv $KOBMAN_DIR/bin/kobman*.tar $TARGET_REPO_DIR/dist 
+mv $TARGET_REPO_DIR/scripts/get.kobman.io $TARGET_REPO_DIR/dist
 
-echo "moving into $kob_archive_download_repo"
-cd $kob_archive_download_repo
-git fetch
+echo "moving into $KOB_ARCHIVE_DOWNLOAD_REPO"
+cd $TARGET_REPO_DIR
+git pull
 echo "saving changes and pushing"
 git add .
 git commit -m "Released the version $kob_rel_version"
 git push origin master -f
-cd ..
-rm -rf $kob_archive_download_repo
-git checkout Dev
-git branch -D $branch
+
+rm -rf $kob_rel_stage_area
+git checkout master
+git branch -D $kob_rel_version
 
 
