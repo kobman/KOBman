@@ -6,7 +6,7 @@ branch="release"
 
 #kob_archive_download_repo="KOBman_target_repo"
 
-#kob_namespace="asa1997"
+kob_namespace=${KOBMAN_NAMESPACE:-hyperledgerkochi}
 source $HOME/$USR/KOBman/bin/release_var_setup.sh
 #sanityls
 # if [[ -z "$VERSION" ]]; 
