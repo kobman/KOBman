@@ -2,7 +2,7 @@
 
 kob_rel_version=$1
 #kob_archive_download_repo="KOBman_target_repo"
-kob_rel_stage_area=~/tmp/
+kob_rel_stage_area=~/tmp
 #kob_namespace="asa1997"
 
 source $HOME/$USR/KOBman/bin/release_var_setup.sh
