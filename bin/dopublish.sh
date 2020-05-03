@@ -16,8 +16,8 @@ cp $KOBMAN_DIR/bin/kobman_latest.tar $KOBMAN_DIR/bin/kobman-$kob_rel_version.tar
 
 #The branch is used to prepare the target repo and pushing
 mkdir $kob_rel_stage_area
-mkdir $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO
-git clone $LINK_TO_DOWNLOAD_REPO $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO
+cd $kob_rel_stage_area
+git clone $LINK_TO_DOWNLOAD_REPO 
 mkdir $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 
 #Moving necessary files to the target repo
@@ -30,7 +30,7 @@ git pull $KOB_ARCHIVE_DOWNLOAD_REPO
 echo "saving changes and pushing"
 sudo git add .
 sudo git commit -m "Released the version $kob_rel_version"
-sudo git push origin master -f
+git push origin master -f
 
 rm -rf $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO $kob_rel_stage_area
 

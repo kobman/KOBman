@@ -10,11 +10,11 @@ branch="release"
 source $HOME/$USR/KOBman/bin/release_var_setup.sh
 
 #sanityls
-if [[ -z "$kob_version" ]]; 
-    then
-        echo "Usage: release.sh <version>"
- 	    exit 0
-fi
+# if [[ -z "$kob_version" ]]; 
+#     then
+#         echo "Usage: release.sh <version>"
+#  	    exit 0
+# fi
 
 
 git checkout master
