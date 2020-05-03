@@ -29,7 +29,7 @@ sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOBMAN_DIR/
 sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOBMAN_DIR/scripts/get.kobman.io
 
 sudo git add .
-sudo git commit -m "Variables replaced"
+sudo git commit -m "Variables replaced with originals"
 
 #Tagging and pushing 
 git tag -a "$kob_version" -m "Releasing version $kob_version"
