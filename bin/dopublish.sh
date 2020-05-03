@@ -32,6 +32,7 @@ sudo git add .
 sudo git commit -m "Released the version $kob_rel_version"
 git push origin master -f
 
+cd $KOBMAN_DIR
 rm -rf $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO $kob_rel_stage_area
 
 git checkout master
