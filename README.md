@@ -28,7 +28,7 @@ See documentation on the [KOBMAN! website](https://kobman.github.io).
 
 Open your favourite terminal and enter the following:
 
-    $ curl -L https://raw.githubusercontent.com/@KOB_NAMESPACE@/@KOB_ARCHIVE_DOWNLOAD_REPO@/master/get.kobman.io | bash
+    $ curl -L https://raw.githubusercontent.com/asa1997/KOBman_target_repo/master/get.kobman.io | bash
 
 If the environment needs tweaking for KOBMAN to be installed, the installer will prompt you accordingly and ask you to restart.
 
