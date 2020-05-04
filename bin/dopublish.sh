@@ -11,7 +11,7 @@ source $HOME/$USR/KOBman/bin/release_var_setup.sh
 git checkout tags/$kob_rel_version -b $kob_rel_version
 
 echo "making the tar files..."
-tar -cvf $KOBMAN_DIR/bin/kobman_latest.tar $KOBMAN_DIR/src/ $KOBMAN_DIR/bin/
+tar -cvf $KOBMAN_DIR/bin/kobman-latest.tar $KOBMAN_DIR/src/ $KOBMAN_DIR/bin/
 cp $KOBMAN_DIR/bin/kobman_latest.tar $KOBMAN_DIR/bin/kobman-$kob_rel_version.tar
 
 
@@ -23,6 +23,7 @@ mkdir $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 #Moving necessary files to the target repo
 mv $KOBMAN_DIR/bin/kobman*.tar $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 mv $KOBMAN_DIR/scripts/get.kobman.io $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
+mv $KOBMAN_DIR/README.md $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 
 
 cd $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/

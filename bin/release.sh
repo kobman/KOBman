@@ -27,9 +27,11 @@ mv $KOBMAN_DIR/scripts/get.kobman.io.tmpl $KOBMAN_DIR/scripts/get.kobman.io
 sed -i "s/@KOB_VERSION@/$kob_version/g" $KOBMAN_DIR/scripts/get.kobman.io
 sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOBMAN_DIR/scripts/get.kobman.io
 sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOBMAN_DIR/scripts/get.kobman.io
+sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOBMAN_DIR/README.md
+sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOBMAN_DIR/README.md
 
-sudo git add .
-sudo git commit -m "Variables replaced with originals"
+# sudo git add .
+# sudo git commit -m "Variables replaced with originals"
 
 #Tagging and pushing 
 git tag -a "$kob_version" -m "Releasing version $kob_version"
