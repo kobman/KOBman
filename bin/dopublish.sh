@@ -12,7 +12,7 @@ git checkout tags/$kob_rel_version -b $kob_rel_version
 
 echo "making the tar files..."
 tar -cvf $KOBMAN_DIR/bin/kobman-latest.tar $KOBMAN_DIR/src/ $KOBMAN_DIR/bin/
-cp $KOBMAN_DIR/bin/kobman_latest.tar $KOBMAN_DIR/bin/kobman-$kob_rel_version.tar
+cp $KOBMAN_DIR/bin/kobman-latest.tar $KOBMAN_DIR/bin/kobman-$kob_rel_version.tar
 
 
 mkdir $kob_rel_stage_area
