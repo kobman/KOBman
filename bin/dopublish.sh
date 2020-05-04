@@ -23,7 +23,7 @@ mkdir $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 #Moving necessary files to the target repo
 mv $KOBMAN_DIR/bin/kobman*.tar $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 mv $KOBMAN_DIR/scripts/get.kobman.io $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
-mv $KOBMAN_DIR/README.md $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
+mv $KOBMAN_DIR/scripts/README.md $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 
 
 cd $kob_rel_stage_area/$KOB_ARCHIVE_DOWNLOAD_REPO/

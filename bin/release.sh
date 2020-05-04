@@ -22,7 +22,8 @@ git checkout master
 #copy the tmpl file to /scripts and rename it
 cp $KOBMAN_DIR/scripts/tmpl/get.kobman.io.tmpl $KOBMAN_DIR/scripts/
 mv $KOBMAN_DIR/scripts/get.kobman.io.tmpl $KOBMAN_DIR/scripts/get.kobman.io
-
+cp $KOBMAN_DIR/scripts/tmpl/README.md.tmpl $KOBMAN_DIR/scripts/
+mv $KOBMAN_DIR/scripts/README.md.tmpl $KOBMAN_DIR/scripts/README.md
 #replacing variables with actual values
 sed -i "s/@KOB_VERSION@/$kob_version/g" $KOBMAN_DIR/scripts/get.kobman.io
 sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOBMAN_DIR/scripts/get.kobman.io
