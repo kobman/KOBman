@@ -9,7 +9,7 @@ branch="release"
 
 # source $HOME/$USR/KOBman/bin/release_var_setup.sh
 
-sanityls
+# sanityls
 if [[ -z "$kob_version" ]]; 
     then
         echo "Usage: release.sh <version>"
@@ -47,7 +47,8 @@ sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOB_DIR/scr
 sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOB_DIR/scripts/README.md
 
 git add .
-git commit -m "Variables replaced with originals"
+git commit -m "Variables changed"
+
 
 #Tagging and pushing 
 git tag -a "$kob_version" -m "Releasing version $kob_version"
