@@ -46,13 +46,14 @@ sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOB_DIR/scripts/get.kobman.io
 sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOB_DIR/scripts/README.md
 sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOB_DIR/scripts/README.md
 
-git add .
-git commit -m "Variables changed"
 
 
 #Tagging and pushing 
 git tag -a "$kob_version" -m "Releasing version $kob_version"
 git push origin $kob_version
+
+git add $KOB_DIR/scripts/get.kobman.io $KOB_DIR/scripts/README.md
+git commit -m "Variables changed"
 
 git checkout -b $branch
 git checkout $branch
