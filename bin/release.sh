@@ -9,11 +9,17 @@ branch="release"
 
 source $HOME/$USR/KOBman/bin/release_var_setup.sh
 
-#sanityls
+# sanityls
 # if [[ -z "$kob_version" ]]; 
 #     then
 #         echo "Usage: release.sh <version>"
 #  	    exit 0
+# fi
+
+# if [ -z $KOB_NAMESPACE ];
+#     then
+#         KOB_NAMESPACE=${KOB_NAMESPACE:-hyperledgerkochi}
+
 # fi
 
 
@@ -31,9 +37,9 @@ sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOBMAN_DIR/scripts/get.kobman.io
 sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOBMAN_DIR/scripts/README.md
 sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOBMAN_DIR/scripts/README.md
 
-sudo git add .
-sudo git commit -m "Variables replaced with originals"
-
+git add .
+git commit -m "Variables replaced with originals"
+exit 0
 #Tagging and pushing 
 sudo git tag -a "$kob_version" -m "Releasing version $kob_version"
 git push origin $kob_version
