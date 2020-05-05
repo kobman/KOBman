@@ -39,6 +39,7 @@ sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOBMAN_DIR/scripts/README.md
 
 git add .
 git commit -m "Variables replaced with originals"
+echo "before exit"
 exit 0
 #Tagging and pushing 
 sudo git tag -a "$kob_version" -m "Releasing version $kob_version"
