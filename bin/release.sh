@@ -31,7 +31,7 @@ fi
 echo $KOB_DIR
 git checkout master
 git checkout -b $branch
-
+git checkout $branch
 #copy the tmpl file to /scripts and rename it
 cp $KOB_DIR/scripts/tmpl/get.kobman.io.tmpl $KOB_DIR/scripts/
 mv $KOB_DIR/scripts/get.kobman.io.tmpl $KOB_DIR/scripts/get.kobman.io
