@@ -2,12 +2,9 @@
 
 kob_version="$1"
 
-branch="release"
+branch="Release"
 
-#kob_archive_download_repo="KOBman_target_repo"
-# kob_namespace=${KOBMAN_NAMESPACE:-hyperledgerkochi}
 
-# source $HOME/$USR/KOBman/bin/release_var_setup.sh
 
 # sanityls
 if [[ -z "$kob_version" ]]; 
@@ -33,6 +30,8 @@ if  [ -z "$KOB_DIR" ];
 fi
 echo $KOB_DIR
 git checkout master
+git branch -D $branch
+git checkout -b $branch
 
 #copy the tmpl file to /scripts and rename it
 cp $KOB_DIR/scripts/tmpl/get.kobman.io.tmpl $KOB_DIR/scripts/
@@ -47,16 +46,16 @@ sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOB_DIR/scr
 sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOB_DIR/scripts/README.md
 
 
+git add .
+git commit -m "Update version of $branch to $version"
 
-#Tagging and pushing 
+#push release branch
+git push -f origin "$branch:$branch"
+
+#Push tag 
 git tag -a "$kob_version" -m "Releasing version $kob_version"
 git push origin $kob_version
 
-git add $KOB_DIR/scripts/get.kobman.io $KOB_DIR/scripts/README.md
-git commit -m "Variables changed"
 
-git checkout -b $branch
-git checkout $branch
-git merge master
-
+git checkout master
 
