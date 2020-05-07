@@ -30,7 +30,6 @@ if  [ -z "$KOB_DIR" ];
 fi
 echo $KOB_DIR
 git checkout master
-git branch -D $branch
 git checkout -b $branch
 
 #copy the tmpl file to /scripts and rename it
