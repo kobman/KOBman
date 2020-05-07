@@ -50,7 +50,7 @@ git add .
 git commit -m "Update version of $branch to $version"
 
 #push release branch
-git push -f origin "$branch:$branch"
+git push -f origin $branch
 
 #Push tag 
 git tag -a "$kob_version" -m "Releasing version $kob_version"
