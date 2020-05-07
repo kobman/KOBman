@@ -30,12 +30,12 @@ mkdir $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 
 echo "making the tar files..."
 tar -cvf $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist/kobman-latest.tar $KOB_DIR/src/ $KOB_DIR/bin/
-cp $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist/kobman-latest.tar $KOB_DIR/bin/kobman-$kob_rel_version.tar
+cp $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist/kobman-latest.tar $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist/kobman-$kob_rel_version.tar
 
 
 #Moving necessary files to the target repo
-mv $KOB_DIR/scripts/* $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
-
+mv $KOB_DIR/scripts/get.kobman.io $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
+mv $KOB_DIR/scripts/README.md $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
 
 cd $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/
 git pull 
