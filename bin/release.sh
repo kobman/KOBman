@@ -46,7 +46,7 @@ sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOB_DIR/scripts/README.md
 
 
 git add .
-git commit -m "Update version of $branch to $version"
+git commit -m "Update version of $branch to $kob_version"
 
 #push release branch
 git push -f origin $branch
