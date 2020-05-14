@@ -58,6 +58,7 @@ function __kobman_validate_version()
 	__kobman_echo_no_colour "$1" | grep -qw '[0-9]*\.[0-9]*\.[0-9]*'
 	if [ "$?" -eq "0" ];
 	then
+#Future Edit : 
         	git ls-remote --tags "https://github.com/asa1997/KOBman" | grep -w 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*' | sort -r | head | grep -o '[^\/]*$' | grep -w "$version" > ~/version.txt
         	if [ "$?" -eq "0" ];    # check version.txt is empty or not (or version variable is empty or not)
         	then
@@ -68,6 +69,8 @@ function __kobman_validate_version()
 		fi
 	else
         __kobman_echo_no_colour "invalid version format"
+	unset KOBMAN_VERISON	
+	#exit 	
 	return 
 fi
 	
