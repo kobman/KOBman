@@ -5,26 +5,26 @@ version_value=""
 function __kob_install {
 
 
-	if [ "${ARGUMENT_[1]}" == "" ];
+	if [ -z "${argument_[1]}" ];
 	then
 		__kobman_echo_no_colour "Invalid command : Try with --environment/-env "
 		return	
-	elif [ "${ARGUMENT_[1]}" == "--environment" ] || [ "${ARGUMENT_[1]}" == "-env"  ];
+	elif [ "${argument_[1]}" == "--environment" ] || [ "${argument_[1]}" == "-env"  ];
 	then	
-		environment_value=${ARGUMENT_[2]}
-		curl -sL "https://raw.githubusercontent.com/EtricKombat/KOBman/master/dist/list" | grep -i "$environment_value" > /dev/null
+		environment_value=${argument_[2]}
+		curl -sL "https://raw.githubusercontent.com/${KOBMAN_NAMESPACE}/KOBman/master/dist/list" | grep -i "$environment_value" > /dev/null
 	#	curl -L ""${KOBMAN_SERVICE}/${KOBMAN_NAMESPACE}/KOBman/${KOBMAN_DIST_BRANCH}/dist/list | grep -i "${environment_value}" > /dev/null
 	if [ "$?" -eq "0" ]   
 	then
-		if [ "${ARGUMENT_[3]}" == "--version" ];
+		if [ "${argument_[3]}" == "--version" ];
 		then
-       			__kobman_validate_version "${ARGUMENT_[4]}"
-			if [[ "${ARGUMENT_[5]}" == "--namespace" && $version_value != "" ]];
+       			__kobman_validate_version "${argument_[4]}"
+			if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]];
         		then    
-               			namespace_value=${ARGUMENT_[6]}   
+               			namespace_value=${argument_[6]}   
 				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 					# kob install --environment kobman --version 0.0.2 --namespace EtricKombat 
-			elif [[ "${ARGUMENT_[5]}" == "" && $version_value != "" ]];
+			elif [[ "${argument_[5]}" == "" && $version_value != "" ]];
                		then 	
         			namespace_value=${KOBMAN_NAMESPACE}
 				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
@@ -32,13 +32,13 @@ function __kob_install {
 			else		
 				return	
 			fi
-		elif [ "${ARGUMENT_[3]}" == "--namespace" ];
+		elif [ "${argument_[3]}" == "--namespace" ];
 		then
-        		namespace_value=${ARGUMENT_[4]}
+        		namespace_value=${argument_[4]}
 			version_value=${KOBMAN_VERSION}   
 			__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 					# kob install --environment kobman --namespace EtricKombat , if the namespace value is not provided we need to do another condition check for that.	
-		elif [ "${ARGUMENT_[3]}" = "" ];
+		elif [ "${argument_[3]}" = "" ];
 		then
 			namespace_value=${KOBMAN_NAMESPACE}
 			version_value=${KOBMAN_VERSION}   
