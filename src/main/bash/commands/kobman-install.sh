@@ -26,7 +26,14 @@ function __kob_install {
 					# kob install --environment kobman --version 0.0.2 --namespace EtricKombat 
 			elif [[ "${argument_[5]}" == "" && $version_value != "" ]];
                		then 	
-        			namespace_value=${KOBMAN_NAMESPACE}
+        	
+        		# set env vars if not set
+  #Future Edit -3 : KOBMAN_VERSION should be assigned with latest	
+			
+			if [ -z "$KOBMAN_VERSION" ]; then
+          			export KOBMAN_VERSION="0.0.1"
+  			fi
+			namespace_value=${KOBMAN_NAMESPACE}
 				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 					# kob install --environment kobman --version 0.0.1	
 			else		
