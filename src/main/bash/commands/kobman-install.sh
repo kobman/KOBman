@@ -84,7 +84,6 @@ function __kobman_validate_version()
 	else
         __kobman_echo_no_colour "invalid version format"
 	unset KOBMAN_VERISON	
-	#exit 	
 	return 
 fi
 	
@@ -99,8 +98,12 @@ function __kobman_create_environment_directory
 		version_id=$2 
         	namespace_name=$3
 		
-		__kobman_echo_no_colour "Directory Structure creation of Env : ${environment_name} , version : ${version_id}, namespace : ${namespace_name}" 
-                cd "${KOBMAN_DIR}/envs"
+		__kobman_echo_no_colour "Directory Structure creation of :"  
+               	__kobman_echo_red "Environment 		: ${environment_name} " 
+               	__kobman_echo_cyan "Version 		: ${version_id}" 
+               	__kobman_echo_green "Namespace		: ${namespace_name}" 
+		
+		cd "${KOBMAN_DIR}/envs"
                 mkdir -p kob_env_"${environment_name}"
                 cd kob_env_"${environment_name}"
                 touch current
@@ -115,10 +118,8 @@ function __kobman_create_environment_directory
                 
       		cp "${KOBMAN_DIR}/envs/kobman-${environment_name}.sh" .
                 source "${KOBMAN_DIR}/envs/kob_env_${environment_name}/${version_id}/kobman-${environment_name}.sh"
-# 		source ${KOBMAN_DIR}/envs/kob_env_"${parameter_value1}/${latest_version}/kobman-${parameter_value1}.sh"
-       		
-		__kobman_echo_no_colour "Installation for ${environment_name} has been completed"		
-
+		__kobman_echo_no_colour "${environment_name} installation has been completed -> SUCCESSFULLY"		
+		cd ~
 }
 
 #	
