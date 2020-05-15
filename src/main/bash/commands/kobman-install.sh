@@ -4,6 +4,7 @@ version_value=""
 
 function __kob_install {
 
+#Latest version check and assignment should happen here (if latest has been released )
 
 	if [ -z "${argument_[1]}" ];
 	then
@@ -18,56 +19,40 @@ function __kob_install {
 	then
 		if [ "${argument_[3]}" == "--version" ];
 		then
+# todo:  Namespace argument should pass as well
        			__kobman_validate_version "${argument_[4]}"
 			if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]];
         		then    
                			namespace_value=${argument_[6]}   
 				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-					# kob install --environment kobman --version 0.0.2 --namespace EtricKombat 
+
+# kob install --environment kobman --version 0.0.2 --namespace EtricKombat 
 			elif [[ "${argument_[5]}" == "" && $version_value != "" ]];
                		then 	
-        	
-        		# set env vars if not set
-  #Future Edit -3 : KOBMAN_VERSION should be assigned with latest	
-			
-			if [ -z "$KOBMAN_VERSION" ]; then
-          			export KOBMAN_VERSION="0.0.1"
-  			fi
-			namespace_value=${KOBMAN_NAMESPACE}
+				namespace_value=${KOBMAN_NAMESPACE}
 				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-					# kob install --environment kobman --version 0.0.1	
+
+# kob install --environment kobman --version 0.0.1	
 			else		
 				return	
 			fi
 		elif [ "${argument_[3]}" == "--namespace" ];
 		then
-        		# set env vars if not set
-  #Future Edit -2 : KOBMAN_VERSION should be assigned with latest	
-			
-			if [ -z "$KOBMAN_VERSION" ]; then
-          			export KOBMAN_VERSION="0.0.1"
-  			fi
-
 			namespace_value=${argument_[4]}
 			version_value=${KOBMAN_VERSION}   
 			__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-					# kob install --environment kobman --namespace EtricKombat , if the namespace value is not provided we need to do another condition check for that.	
+
+# kob install --environment kobman --namespace EtricKombat , if the namespace value is not provided we need to do another condition check for that.	
 		elif [ "${argument_[3]}" = "" ];
 		then
-
-        		# set env vars if not set
-  #Future Edit -3 : KOBMAN_VERSION should be assigned with latest	
-			
-			if [ -z "$KOBMAN_VERSION" ]; then
-          			export KOBMAN_VERSION="0.0.1"
-  			fi
 			namespace_value=${KOBMAN_NAMESPACE}
 			version_value=${KOBMAN_VERSION}   
 			__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-					# kob install --environment kobman 	
+
+# kob install --environment kobman 	
 		fi
 	else
-       		__kobman_echo_no_colour "environemt not available"
+       		__kobman_echo_red "environemt not available"
 		return	
 	fi
 	
@@ -76,21 +61,21 @@ fi
 
 function __kobman_validate_version() 
 {
-	__kobman_echo_no_colour "$1" | grep -qw '[0-9]*\.[0-9]*\.[0-9]*'
+	__kobman_echo_no_colour "$1" | grep -w '[0-9]*\.[0-9]*\.[0-9]*'
 	if [ "$?" -eq "0" ];
 	then
-#Future Edit : 
+#Future Edit : asa1997 should replaced with KOBMAN_NAMESPACE/ $namespace_value 
         	git ls-remote --tags "https://github.com/asa1997/KOBman" | grep -w 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*' | sort -r | head | grep -o '[^\/]*$' | grep -w "$version" > ~/version.txt
         	if [ "$?" -eq "0" ];    # check version.txt is empty or not (or version variable is empty or not)
         	then
                 	version_value=$1	
         	else
-                	__kobman_echo_no_colour "version not available"
+                	__kobman_echo_red "version not available"
 			return  
 		fi
 	else
-        __kobman_echo_no_colour "invalid version format"
-	unset KOBMAN_VERISON	
+        __kobman_echo_red "invalid version format"
+	export KOBMAN_VERISON=""	
 	return 
 fi
 	
