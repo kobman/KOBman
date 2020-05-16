@@ -1,55 +1,49 @@
 #!/bin/bash
 
 kob_rel_version=$1
+branch="Release"
+dist_branch="dist"
 
-if [ -z "$KOB_ARCHIVE_DOWNLOAD_REPO" ];
-    then
-        KOB_ARCHIVE_DOWNLOAD_REPO=${KOB_ARCHIVE_DOWNLOAD_REPO:-KOBman_target_repo}
-fi
-echo $KOB_ARCHIVE_DOWNLOAD_REPO
-if  [ -z "$KOB_DIR" ];
-    then
-        KOB_DIR=~/KOBman
+#sanity
+if [[ -z "$kob_rel_version" ]]; then
+	echo "Usage: dopublish.sh <version>"
+	exit 0
 fi
 
-if [ -z "$KOB_NAMESPACE" ];
-    then
-        KOB_NAMESPACE=${KOB_NAMESPACE:-hyperledgerkochi}
-
-fi
-
-echo $KOB_NAMESPACE
 #Checkout latest tag
-git checkout tags/$kob_rel_version -b $kob_rel_version
+# git checkout tags/$kob_rel_version -b $kob_rel_version
+git checkout $branch
 
 
-mkdir $KOB_DIR/tmp
-cd $KOB_DIR/tmp
-git clone https://github.com/$KOB_NAMESPACE/$KOB_ARCHIVE_DOWNLOAD_REPO
-mkdir $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
+# temporary folder for storing tar files. folder also added in .gitignore
+mkdir -p build/tmp
 
-echo "making the tar files..."
-tar -cvf $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist/kobman-latest.tar $KOB_DIR/src/ $KOB_DIR/bin/
-cp $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist/kobman-latest.tar $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist/kobman-$kob_rel_version.tar
+# making of zip files
+zip -r build/tmp/kobman-latest.zip ~/KOBman/src/
+cp build/tmp/kobman-latest.zip build/tmp/kobman-$kob_rel_version.zip
 
+# moving get.kobman.io to tmp/
+mv ~/KOBman/scripts/get.kobman.io build/tmp/
 
-#Moving necessary files to the target repo
-mv $KOB_DIR/scripts/get.kobman.io $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
-mv $KOB_DIR/scripts/README.md $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/dist
+# moving into dist branch
+git checkout $dist_branch
 
-cd $KOB_DIR/tmp/$KOB_ARCHIVE_DOWNLOAD_REPO/
-git pull 
-echo "saving changes and pushing"
-git add .
+# collecting files from Release branch tmp/ folder to dist branch
+git checkout $branch -- ~/KOBman/build/tmp/* &> /dev/null
+
+mkdir dist &> /dev/null
+# moving of latest files from tmp/ to dist/
+mv build/tmp/* dist/
+
+# saving changes and pushing
+git add dist/*
 git commit -m "Released the version $kob_rel_version"
-git push origin master -f
+git push origin $dist_branch
 
-cd $KOB_DIR
-rm -rf tmp/$KOB_ARCHIVE_DOWNLOAD_REPO tmp/
 
-git checkout master
+git checkout dev
 
-git branch -D $kob_rel_version
+
 
 
 

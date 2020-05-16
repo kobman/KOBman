@@ -4,57 +4,54 @@ kob_version="$1"
 
 branch="Release"
 
-
-
-# sanityls
+# sanity check
 if [[ -z "$kob_version" ]]; 
     then
         echo "Usage: release.sh <version>"
- 	    exit 0
+        exit 0
 fi
 
-if [ -z "$KOB_NAMESPACE" ];
+#setting up environment variables
+if [[ -z $KOB_ARCHIVE_DOWNLOAD_REPO ]];
     then
-        KOB_NAMESPACE=${KOB_NAMESPACE:-hyperledgerkochi}
+        KOB_ARCHIVE_DOWNLOAD_REPO={KOB_ARCHIVE_DOWNLOAD_REPO:-KOBman}
+fi
 
-fi
-echo $KOB_NAMESPACE
-if [ -z "$KOB_ARCHIVE_DOWNLOAD_REPO" ];
+if [[ -z $KOB_NAMESPACE ]];
     then
-        KOB_ARCHIVE_DOWNLOAD_REPO=${KOB_ARCHIVE_DOWNLOAD_REPO:-KOBman_target_repo}
+        KOB_NAMESPACE={KOB_NAMESPACE:-hyperledgerkochi}
 fi
-echo $KOB_ARCHIVE_DOWNLOAD_REPO
-if  [ -z "$KOB_DIR" ];
-    then
-        KOB_DIR=~/KOBman
-fi
-echo $KOB_DIR
+
+# prepare branch
+cd ~/KOBman
 git checkout master
+git branch -D $branch
 git checkout -b $branch
-git checkout $branch
-#copy the tmpl file to /scripts and rename it
-cp $KOB_DIR/scripts/tmpl/get.kobman.io.tmpl $KOB_DIR/scripts/
-mv $KOB_DIR/scripts/get.kobman.io.tmpl $KOB_DIR/scripts/get.kobman.io
-cp $KOB_DIR/scripts/tmpl/README.md.tmpl $KOB_DIR/scripts/
-mv $KOB_DIR/scripts/README.md.tmpl $KOB_DIR/scripts/README.md
-#replacing variables with actual values
-sed -i "s/@KOB_VERSION@/$kob_version/g" $KOB_DIR/scripts/get.kobman.io
-sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOB_DIR/scripts/get.kobman.io
-sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOB_DIR/scripts/get.kobman.io
-sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $KOB_DIR/scripts/README.md
-sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $KOB_DIR/scripts/README.md
 
 
-git add .
+#copy the tmpl file to /scripts 
+cp ~/KOBman/scripts/tmpl/*.tmpl ~/KOBman/scripts/
+# replacing @xxx@ variables with acutal values. 
+for file in ~/KOBman/scripts/*.tmpl;
+do
+    sed -i "s/@KOB_VERSION@/$kob_version/g" $file
+    sed -i "s/@KOB_ARCHIVE_DOWNLOAD_REPO@/$KOB_ARCHIVE_DOWNLOAD_REPO/g" $file
+    sed -i "s/@KOB_NAMESPACE@/$KOB_NAMESPACE/g" $file
+    # renaming to remove .tmpl extension
+    mv "$file" "${file//.tmpl/}"
+done
+
+# committing the changes
+git add ~/KOBman/scripts/*.*
 git commit -m "Update version of $branch to $kob_version"
 
 #push release branch
-git push -f origin $branch
+git push -f -u origin $branch
 
 #Push tag 
-git tag -a "$kob_version" -m "Releasing version $kob_version"
+git tag -a $kob_version -m "Releasing version $kob_version"
 git push origin $kob_version
 
-
+#checkout to dev
 git checkout master
 
