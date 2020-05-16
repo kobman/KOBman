@@ -1,5 +1,46 @@
 #!/usr/bin/env bash
 
+
+#1) __kobman_setting_global_variables()
+	# set the variables to be used in this script for processing
+
+#2) __kobman_identify_input_argument()
+	# read the arguments, identify each argument and assign it to variable using if else logic or case statement
+	# for the environment name variable call _validate_and_set_environment()
+	# for the version variable call _Validate_and_set_version()
+	# for the namespace variable call _set_namespace()
+	# for default case (no namespace, version is passed by user as argument) call _set_default()
+
+#3) __kobman_validate_set_environment()
+	# check if the environment passed as argument is valid by checking it against the list.sh file
+	# assign environment variable with argument value
+	# if invalid or non-existent environment then return after displaying the respective message
+
+#4) __kobman_validate_and_set_version()
+	#4a) __kobman_validate_version_format()
+		 # check format of the version, if valid then call check_and_confirm_existing_version() else return
+	#4b) __kobman_check_and_confirm_existing_version()
+		# check if the version argument exists in the list.sh file then assign version variable with argument else return
+
+#5) __kobman_set_namespace()
+	# assigning the argument value to the namespace variable
+
+#6) __kobman_set_default()
+	# set the version to the latest version and namespace to the hyperledgerkochi (environment variable value)
+	# check if the environment variable has a value, version has a value and namespace has a value then call _create_environment_directory()
+
+#7) __kobman_create_environment_directory()
+	# create the dir in the specified location
+	# create the current file with the latest verson identify
+	# call _confirm_environment_dir_exist
+
+#8) __kobman_confirm_environment_dir_exist()
+
+
+
+
+
+
 version_value=""
 
 function __kob_install {
