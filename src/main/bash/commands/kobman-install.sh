@@ -64,10 +64,7 @@ if [ -z "${argument_[1]}" ];
 					if [ $state == 0 ];
 					then	
 						__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-					else
-						echo "Exiting"	
 					fi	
-					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
                                 elif [[ "${argument_[5]}" == "" && $version_value != "" ]]; 
                                 then    
                                         namespace_value=${KOBMAN_NAMESPACE}
@@ -75,10 +72,7 @@ if [ -z "${argument_[1]}" ];
 					if [ $state == 0 ];
 					then	
 						__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-					else
-						echo "Exiting"	
 					fi	
-                                        __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
                                 else    
                                         return  
                                 fi
@@ -90,10 +84,7 @@ if [ -z "${argument_[1]}" ];
 				if [ $state == 0 ];
 				then	
 					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-				else
-					echo "Exiting"	
 				fi	
-                                __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 			;;
 
 
@@ -104,8 +95,6 @@ if [ -z "${argument_[1]}" ];
 				if [ $state == 0 ];
 				then	
 					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-				else
-					echo "Exiting"	
 				fi	
 			;;
 		
