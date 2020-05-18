@@ -61,12 +61,23 @@ if [ -z "${argument_[1]}" ];
                                 if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]]; 
                                 then    
                                         namespace_value=${argument_[6]}   
-					__kobman_validate_version "${version_value}" "${namespace_value}"
-                                        __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+					if [ $state == 0 ];
+					then	
+						__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+					else
+						echo "Exiting"	
+					fi	
+					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
                                 elif [[ "${argument_[5]}" == "" && $version_value != "" ]]; 
                                 then    
                                         namespace_value=${KOBMAN_NAMESPACE}
-					__kobman_validate_version "${version_value}" "${namespace_value}"
+					state=(___kobman_validate_version "${version_value}" "${namespace_value}")
+					if [ $state == 0 ];
+					then	
+						__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+					else
+						echo "Exiting"	
+					fi	
                                         __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
                                 else    
                                         return  
@@ -75,17 +86,27 @@ if [ -z "${argument_[1]}" ];
 			--namespace)
 				version_value=${KOBMAN_VERSION}   
                                 namespace_value=${argument_[4]}   
-				__kobman_validate_version "${version_value}" "${namespace_value}"
+				state=(___kobman_validate_version "${version_value}" "${namespace_value}")
+				if [ $state == 0 ];
+				then	
+					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+				else
+					echo "Exiting"	
+				fi	
                                 __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 			;;
 
 
 			"")
-
 			     	namespace_value=${KOBMAN_NAMESPACE}
                                 version_value=${KOBMAN_VERSION}   
-				__kobman_validate_version "${version_value}" "${namespace_value}"
-				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+				state=(___kobman_validate_version "${version_value}" "${namespace_value}")
+				if [ $state == 0 ];
+				then	
+					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+				else
+					echo "Exiting"	
+				fi	
 			;;
 		
 			esac  
