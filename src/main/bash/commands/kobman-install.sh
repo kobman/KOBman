@@ -61,18 +61,20 @@ if [ -z "${argument_[1]}" ];
                                 if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]]; 
                                 then    
                                         namespace_value=${argument_[6]}   
-					if [ $state == 0 ];
+					__kobman_validate_version "${version_value}" "${namespace_value}"
+					if [ "$?" -eq "0" ];
 					then	
 						__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 					fi	
                                 elif [[ "${argument_[5]}" == "" && $version_value != "" ]]; 
                                 then    
                                         namespace_value=${KOBMAN_NAMESPACE}
-					state=(___kobman_validate_version "${version_value}" "${namespace_value}")
-					if [ $state == 0 ];
+					__kobman_validate_version "${version_value}" "${namespace_value}"
+					if [ "$?" -eq "0" ];
 					then	
 						__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 					fi	
+					
                                 else    
                                         return  
                                 fi
@@ -80,8 +82,8 @@ if [ -z "${argument_[1]}" ];
 			--namespace)
 				version_value=${KOBMAN_VERSION}   
                                 namespace_value=${argument_[4]}   
-				state=(___kobman_validate_version "${version_value}" "${namespace_value}")
-				if [ $state == 0 ];
+				__kobman_validate_version "${version_value}" "${namespace_value}"
+				if [ "$?" -eq "0" ];
 				then	
 					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 				fi	
@@ -91,8 +93,8 @@ if [ -z "${argument_[1]}" ];
 			"")
 			     	namespace_value=${KOBMAN_NAMESPACE}
                                 version_value=${KOBMAN_VERSION}   
-				state=(___kobman_validate_version "${version_value}" "${namespace_value}")
-				if [ $state == 0 ];
+				__kobman_validate_version "${version_value}" "${namespace_value}"
+				if [ "$?" -eq "0" ];
 				then	
 					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 				fi	
