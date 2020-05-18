@@ -41,72 +41,75 @@
 
 
 
-version_value=""
-
 function __kob_install {
 
 #Latest version check and assignment should happen here (if latest has been released )
 
-	if [ -z "${argument_[1]}" ];
-	then
-		__kobman_echo_no_colour "Invalid command : Try with --environment/-env "
-		return	
-	elif [ "${argument_[1]}" == "--environment" ] || [ "${argument_[1]}" == "-env"  ];
-	then	
-		environment_value=${argument_[2]}
-		curl -sL "https://raw.githubusercontent.com/${KOBMAN_NAMESPACE}/KOBman/master/dist/list" | grep -i "$environment_value" > /dev/null
-	#	curl -L ""${KOBMAN_SERVICE}/${KOBMAN_NAMESPACE}/KOBman/${KOBMAN_DIST_BRANCH}/dist/list | grep -i "${environment_value}" > /dev/null
-	if [ "$?" -eq "0" ]   
-	then
-		if [ "${argument_[3]}" == "--version" ];
-		then
-# todo:  Namespace argument should pass as well
-       			__kobman_validate_version "${argument_[4]}"
-			if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]];
-        		then    
-               			namespace_value=${argument_[6]}   
-				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+if [ -z "${argument_[1]}" ];
+        then
+                __kobman_echo_no_colour "Invalid command : Try with --environment/-env "
+                return  
+        elif [ "${argument_[1]}" == "--environment" ] || [ "${argument_[1]}" == "-env"  ];  
+        then    
+                environment_value=${argument_[2]}
+                curl -sL "https://raw.githubusercontent.com/${KOBMAN_NAMESPACE}/KOBman/master/dist/list" | grep -i "$environment_value" > /dev/null
+                if [ "$?" -eq "0" ]   
+                then
+                      	case "${argument_[3]}" in
+			--version)
+				version_value=${argument_[4]}
+                                if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]]; 
+                                then    
+                                        namespace_value=${argument_[6]}   
+					__kobman_validate_version "${version_value}" "$namespace_value"
+                                        __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+                                elif [[ "${argument_[5]}" == "" && $version_value != "" ]]; 
+                                then    
+                                        namespace_value=${KOBMAN_NAMESPACE}
+					__kobman_validate_version "${version_value}"
+                                        __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+                                else    
+                                        return  
+                                fi
+			;;
+			--namespace)
+				version_value=${KOBMAN_VERSION}   
+                                __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+			;;
 
-# kob install --environment kobman --version 0.0.2 --namespace EtricKombat 
-			elif [[ "${argument_[5]}" == "" && $version_value != "" ]];
-               		then 	
-				namespace_value=${KOBMAN_NAMESPACE}
-				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 
-# kob install --environment kobman --version 0.0.1	
-			else		
-				return	
-			fi
-		elif [ "${argument_[3]}" == "--namespace" ];
-		then
-			namespace_value=${argument_[4]}
-			version_value=${KOBMAN_VERSION}   
-			__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-
-# kob install --environment kobman --namespace EtricKombat , if the namespace value is not provided we need to do another condition check for that.	
-		elif [ "${argument_[3]}" = "" ];
-		then
-			namespace_value=${KOBMAN_NAMESPACE}
-			version_value=${KOBMAN_VERSION}   
-			__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
-
-# kob install --environment kobman 	
-		fi
-	else
-       		__kobman_echo_red "environemt not available"
-		return	
-	fi
-	
-fi
+			"")
+			     	namespace_value=${KOBMAN_NAMESPACE}
+                                version_value=${KOBMAN_VERSION}   
+                                __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+			;;
+		
+			esac  
+                else
+                        __kobman_echo_red "Environemt not available . Check -> kobman,tob,tobvon,greenlight ...etc"
+                return  
+                fi
+    
+        fi
 }
 
+
+function __kobman_setting_global_variables {
+	
+	# set the variables to be used in this script for processing
+	version_value=""
+
+}
 function __kobman_validate_version() 
 {
-	__kobman_echo_no_colour "$1" | grep -w '[0-9]*\.[0-9]*\.[0-9]*'
+	version=$1
+	namespace=${2:-$KOBMAN_NAMESPACE}	
+	
+	__kobman_echo_no_colour "${version}" | grep -w '[0-9]*\.[0-9]*\.[0-9]*' > /dev/null
 	if [ "$?" -eq "0" ];
 	then
 #Future Edit : asa1997 should replaced with KOBMAN_NAMESPACE/ $namespace_value 
-        	git ls-remote --tags "https://github.com/asa1997/KOBman" | grep -w 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*' | sort -r | head | grep -o '[^\/]*$' | grep -w "$version" > ~/version.txt
+        	git ls-remote --tags "https://github.com/${namespace}/KOBman" | grep -w 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*' | sort -r | head | grep -o '[^\/]*$' | grep -w "$version" > ~/version.txt
         	if [ "$?" -eq "0" ];    # check version.txt is empty or not (or version variable is empty or not)
         	then
                 	version_value=$1	
@@ -115,10 +118,10 @@ function __kobman_validate_version()
 			return  
 		fi
 	else
-        __kobman_echo_red "invalid version format"
-	export KOBMAN_VERISON=""	
-	return 
-fi
+        	__kobman_echo_red "invalid version format"
+		export KOBMAN_VERISON=""	
+		return 
+	fi
 	
 
 }
