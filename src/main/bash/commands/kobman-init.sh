@@ -3,11 +3,12 @@
 
 # set env vars if not set
 if [ -z "$KOBMAN_VERSION" ]; then
-	export KOBMAN_VERSION="@KOBMAN_VERSION@"
+	export KOBMAN_VERSION="0.0.1"
 fi
 
-if [ -z "$KOBMAN_CANDIDATES_API" ]; then
-	export KOBMAN_CANDIDATES_API="@KOBMAN_CANDIDATES_API@"
+# set kobman namespace if not set
+if [ -z "$KOBMAN_NAMESPACE" ]; then
+	export KOBMAN_NAMESPACE="hyperledgerkochi"
 fi
 
 if [ -z "$KOBMAN_DIR" ]; then
@@ -64,7 +65,7 @@ fi
 # <https://github.com/kobman/kobman-extensions>.
 OLD_IFS="$IFS"
 IFS=$'\n'
-scripts=($(find "${KOBMAN_DIR}/src" "${KOBMAN_DIR}/env" -type f -name 'kobman-*'))
+scripts=($(find "${KOBMAN_DIR}/src" "${KOBMAN_DIR}/envs" -type f -name 'kobman-*'))
 for f in "${scripts[@]}"; do
 	source "$f"
 done
@@ -76,48 +77,9 @@ if [ -f "${KOBMAN_DIR}/etc/config" ]; then
 	source "${KOBMAN_DIR}/etc/config"
 fi
 
-# Create upgrade delay file if it doesn't exist
-if [[ ! -f "${KOBMAN_DIR}/var/delay_upgrade" ]]; then
-	touch "${KOBMAN_DIR}/var/delay_upgrade"
-fi
 
-# set curl connect-timeout and max-time
-if [[ -z "$kobman_curl_connect_timeout" ]]; then kobman_curl_connect_timeout=7; fi
-if [[ -z "$kobman_curl_max_time" ]]; then kobman_curl_max_time=10; fi
+#sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
 
-# set curl retry
-if [[ -z "${kobman_curl_retry}" ]]; then kobman_curl_retry=0; fi
-
-# set curl retry max time in seconds
-if [[ -z "${kobman_curl_retry_max_time}" ]]; then kobman_curl_retry_max_time=60; fi
-
-# set curl to continue downloading automatically
-if [[ -z "${kobman_curl_continue}" ]]; then kobman_curl_continue=true; fi
-
-# Read list of candidates and set array
-KOBMAN_CANDIDATES_CACHE="${KOBMAN_DIR}/var/candidates"
-KOBMAN_CANDIDATES_CSV=$(<"$KOBMAN_CANDIDATES_CACHE")
-__kobman_echo_debug "Setting candidates csv: $KOBMAN_CANDIDATES_CSV"
-if [[ "$zsh_shell" == 'true' ]]; then
-	KOBMAN_CANDIDATES=(${(s:,:)KOBMAN_CANDIDATES_CSV})
-else
-	OLD_IFS="$IFS"
-	IFS=","
-        KOBMAN_CANDIDATES=(${KOBMAN_CANDIDATES_CSV})
-	IFS="$OLD_IFS"
-fi
-
-export KOBMAN_CANDIDATES_DIR="${KOBMAN_DIR}/candidates"
-
-
-sudo chmod 777 ${KOBMAN_CANDIDATES_DIR}
-
-for candidate_name in "${KOBMAN_CANDIDATES[@]}"; do
-	candidate_dir="${KOBMAN_CANDIDATES_DIR}/${candidate_name}/current"
-	if [[ -h "$candidate_dir" || -d "${candidate_dir}" ]]; then
-		__kobman_export_candidate_home "$candidate_name" "$candidate_dir"
-		__kobman_prepend_candidate_to_path "$candidate_dir"
-	fi
-done
+#done
 unset OLD_IFS candidate_name candidate_dir
 export PATH
