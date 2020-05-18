@@ -4,3 +4,7 @@ build/
 bin/
 dist/
 scripts/
+bin/release.sh
+bin/dopublish.sh
+Dockerfile
+.travis.yml
