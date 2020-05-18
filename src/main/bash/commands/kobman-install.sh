@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-# DONE
-
-#1) __kobman_setting_global_variables() 
-	# set the variables to be used in this script for processing
-
-
-# NOT DONE
 
 #2) __kobman_identify_input_argument()
 	# read the arguments, identify each argument and assign it to variable using if else logic or case statement
@@ -15,17 +8,6 @@
 	# for the namespace variable call _set_namespace()
 	# for default case (no namespace, version is passed by user as argument) call _set_default()
 
-#3) __kobman_validate_set_environment()
-	# check if the environment passed as argument is valid by checking it against the list.sh file
-	# assign environment variable with argument value                                                                 
-	# if invalid or non-existent environment then return after displaying the respective message
-
-#4) __kobman_validate_and_set_version()
-	#4a) __kobman_validate_version_format()
-		 # check format of the version, if valid then call check_and_confirm_existing_version() else return
-	#4b) __kobman_check_and_confirm_existing_version()
-		# check if the version argument exists in the list.sh file then assign version variable with argument else return
-
 #5) __kobman_set_namespace()
 	# assigning the argument value to the namespace variable
 
@@ -33,14 +15,13 @@
 	# set the version to the latest version and namespace to the hyperledgerkochi (environment variable value)
 	# check if the environment variable has a value, version has a value and namespace has a value then call _create_environment_directory()
 
+
 #7) __kobman_create_environment_directory()
 	# create the dir in the specified location
 	# create the current file with the latest verson identify
 	# call _confirm_environment_dir_exist
 
 #8) __kobman_confirm_environment_dir_exist()
-
-
 
 
 
@@ -55,16 +36,17 @@ if [ -z "${argument_[1]}" ];
                 return  
         elif [ "${argument_[1]}" == "--environment" ] || [ "${argument_[1]}" == "-env"  ];  
         then    
-                environment_value=${argument_[2]}
-                curl -sL "https://raw.githubusercontent.com/${KOBMAN_NAMESPACE}/KOBman/master/dist/list" | grep -i "$environment_value" > /dev/null
+		__kobman_validate_set_environment "${argument_[2]}"
                 if [ "$?" -eq "0" ]   
                 then
-                      	case "${argument_[3]}" in
+                      	environment_value=${argument_[2]}
+			
+			case "${argument_[3]}" in
 			--version)
                                 if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]]; 
                                 then    
                                         __kobman_setting_global_variables "${argument_[6]}" "${argument_[4]}"
-					__kobman_validate_version "${version_value}" "${namespace_value}"
+					__kobman_validate_and_set_version "${version_value}" "${namespace_value}"
 					if [ "$?" -eq "0" ];
 					then	
 						__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
@@ -72,7 +54,7 @@ if [ -z "${argument_[1]}" ];
                                 elif [[ "${argument_[5]}" == "" && $version_value != "" ]]; 
                                 then    
                                         __kobman_setting_global_variables "${KOBMAN_NAMESPACE}" "${argument_[4]}"
-					__kobman_validate_version "${version_value}" "${namespace_value}"
+					__kobman_validate_and_set_version "${version_value}" "${namespace_value}"
 					if [ "$?" -eq "0" ];
 					then	
 						__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
@@ -84,7 +66,7 @@ if [ -z "${argument_[1]}" ];
 			;;
 			--namespace)
                                 __kobman_setting_global_variables "${argument_[4]}" "${KOBMAN_VERSION}" 
-				__kobman_validate_version "${version_value}" "${namespace_value}"
+				__kobman_validate_and_set_version "${version_value}" "${namespace_value}"
 				if [ "$?" -eq "0" ];
 				then	
 					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
@@ -94,7 +76,7 @@ if [ -z "${argument_[1]}" ];
 
 			"")
                                 __kobman_setting_global_variables "${KOBMAN_NAMESPACE}" "${KOBMAN_VERSION}" 
-				__kobman_validate_version "${version_value}" "${namespace_value}"
+				__kobman_validate_and_set_version "${version_value}" "${namespace_value}"
 				if [ "$?" -eq "0" ];
 				then	
 					__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
@@ -103,12 +85,18 @@ if [ -z "${argument_[1]}" ];
 		
 			esac  
                 else
-                        __kobman_echo_red "Environemt not available . Check -> kobman,tob,tobvon,greenlight ...etc"
+                        __kobman_echo_red "Environemt not available ."
                 return  
                 fi
     
         fi
 }
+
+function __kobman_validate_set_environment
+{
+	curl -sL "https://raw.githubusercontent.com/${KOBMAN_NAMESPACE}/KOBman/master/dist/list" | grep -i "$1" > /dev/null
+}
+
 
 function __kobman_setting_global_variables
 {
@@ -116,15 +104,14 @@ function __kobman_setting_global_variables
         version_value=$2
 }
 
-function __kobman_validate_version() 
+function __kobman_validate_and_set_version
 {
 	version=$1
 	namespace=$2	
-	
-	__kobman_echo_no_colour "${version}" | grep -w '[0-9]*\.[0-9]*\.[0-9]*' > /dev/null
+	__kobman_validate_version_format "${version}" 
 	if [ "$?" -eq "0" ];
 	then
-        	git ls-remote --tags "https://github.com/${namespace}/KOBman" | grep -w 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*' | sort -r | head | grep -o '[^\/]*$' | grep -w "$version" > ~/version.txt
+        	__kobman_check_and_confirm_existing_version "${namespace}" "${version}"
         	if [ "$?" -eq "0" ];    # check version.txt is empty or not (or version variable is empty or not)
         	then
                 	version_value=$1
@@ -142,6 +129,16 @@ function __kobman_validate_version()
 
 }
 
+function __kobman_validate_version_format
+{
+	__kobman_echo_no_colour "$1" | grep -w '[0-9]*\.[0-9]*\.[0-9]*' 
+}
+
+function __kobman_check_and_confirm_existing_version
+{
+       	git ls-remote --tags "https://github.com/${1}/KOBman" | grep -w 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*' | sort -r | head | grep -o '[^\/]*$' | grep -w "$2" 
+}
+
 
 function __kobman_create_environment_directory
 {
@@ -150,10 +147,10 @@ function __kobman_create_environment_directory
 		version_id=$2 
         	namespace_name=$3
 		
-		__kobman_echo_no_colour "Directory Structure creation of :"  
-               	__kobman_echo_red "Environment 		: ${environment_name} " 
-               	__kobman_echo_cyan "Version 		: ${version_id}" 
-               	__kobman_echo_green "Namespace		: ${namespace_name}" 
+		__kobman_echo_red "Directory Structure creation of :"  
+               	__kobman_echo_white "Environment 		: ${environment_name} " 
+               	__kobman_echo_white "Version 		: ${version_id}" 
+               	__kobman_echo_white "Namespace		: ${namespace_name}" 
 		
 		cd "${KOBMAN_DIR}/envs"
                 mkdir -p kob_env_"${environment_name}"
