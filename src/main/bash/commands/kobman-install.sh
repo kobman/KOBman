@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+# DONE
 
-#1) __kobman_setting_global_variables()
+#1) __kobman_setting_global_variables() 
 	# set the variables to be used in this script for processing
+
+
+
 
 #2) __kobman_identify_input_argument()
 	# read the arguments, identify each argument and assign it to variable using if else logic or case statement
@@ -13,7 +17,7 @@
 
 #3) __kobman_validate_set_environment()
 	# check if the environment passed as argument is valid by checking it against the list.sh file
-	# assign environment variable with argument value
+	# assign environment variable with argument value                                                                 
 	# if invalid or non-existent environment then return after displaying the respective message
 
 #4) __kobman_validate_and_set_version()
@@ -59,8 +63,7 @@ if [ -z "${argument_[1]}" ];
 			--version)
                                 if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]]; 
                                 then    
-                                        namespace_value=${argument_[6]}   
-					version_value=${argument_[4]}
+                                        __kobman_setting_global_variables "${argument_[6]}" "${argument_[4]}"
 					__kobman_validate_version "${version_value}" "${namespace_value}"
 					if [ "$?" -eq "0" ];
 					then	
@@ -68,8 +71,7 @@ if [ -z "${argument_[1]}" ];
 					fi	
                                 elif [[ "${argument_[5]}" == "" && $version_value != "" ]]; 
                                 then    
-                                        namespace_value=${KOBMAN_NAMESPACE}
-					version_value=${argument_[4]}
+                                        __kobman_setting_global_variables "${KOBMAN_NAMESPACE}" "${argument_[4]}"
 					__kobman_validate_version "${version_value}" "${namespace_value}"
 					if [ "$?" -eq "0" ];
 					then	
@@ -81,8 +83,7 @@ if [ -z "${argument_[1]}" ];
                                 fi
 			;;
 			--namespace)
-				version_value=${KOBMAN_VERSION}   
-                                namespace_value=${argument_[4]}   
+                                __kobman_setting_global_variables "${argument_[4]}" "${KOBMAN_VERSION}" 
 				__kobman_validate_version "${version_value}" "${namespace_value}"
 				if [ "$?" -eq "0" ];
 				then	
@@ -92,8 +93,7 @@ if [ -z "${argument_[1]}" ];
 
 
 			"")
-			     	namespace_value=${KOBMAN_NAMESPACE}
-                                version_value=${KOBMAN_VERSION}   
+                                __kobman_setting_global_variables "${KOBMAN_NAMESPACE}" "${KOBMAN_VERSION}" 
 				__kobman_validate_version "${version_value}" "${namespace_value}"
 				if [ "$?" -eq "0" ];
 				then	
@@ -110,6 +110,11 @@ if [ -z "${argument_[1]}" ];
         fi
 }
 
+function __kobman_setting_global_variables
+{
+     	namespace_value=$1
+        version_value=$2
+}
 
 function __kobman_validate_version() 
 {
@@ -132,7 +137,6 @@ function __kobman_validate_version()
 		fi
 	else
         	__kobman_echo_red "invalid version format"
-	#	export KOBMAN_VERISON=""	
 		return 2  
 	fi
 	
