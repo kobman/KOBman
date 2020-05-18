@@ -1,3 +1,6 @@
 scripts/tmpl/README.md.tmpl
 scripts/Readme.md
 build/
+bin/
+dist/
+scripts/
