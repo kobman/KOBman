@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#TO-DELETE -1
-#sudo dpkg --configure -a
 
 #Install: stable
 
@@ -30,11 +28,6 @@ kobman_profile="${HOME}/.profile"
 kobman_bashrc="${HOME}/.bashrc"
 kobman_zshrc="${HOME}/.zshrc"
 
-#TO-DELETE -2
-#kobman_candidates_folder="${KOBMAN_DIR}/candidates"
-#kobman_zip_tests="${kobman_tmp_folder}/kobman-test.zip"
-#kobman_tests_folder="${KOBMAN_DIR}/tests"
-#kobman_archives_folder="${KOBMAN_DIR}/archives"
 
 
 kobman_init_snippet=$( cat << EOF
@@ -173,9 +166,6 @@ mkdir -p "$kobman_env_folder"
 mkdir -p "$kobman_etc_folder"
 mkdir -p "$kobman_var_folder"
 
-#TO-DELETE -3
-#mkdir -p "$kobman_archives_folder"
-#mkdir -p "$kobman_candidates_folder"
 
 
 echo "Prime the config file..."
@@ -249,10 +239,10 @@ if [[ -z $(grep 'kobman-init.sh' "$kobman_zshrc") ]]; then
     echo "Updated existing ${kobman_zshrc}"
 fi
 
-sudo chmod a+rwx .
-sudo chmod u+xr ${KOBMAN_DIR}/candidates 
-sudo chmod go+x /
-sudo chmod go+x /root
+#sudo chmod a+rwx .
+#sudo chmod u+xr ${KOBMAN_DIR}/candidates 
+#sudo chmod go+x /
+#sudo chmod go+x /root
 echo -e "\n\n\nAll done!\n\n"
 
 echo "Please open a new terminal, or run the following in the existing one:"
