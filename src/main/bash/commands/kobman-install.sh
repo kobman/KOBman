@@ -61,12 +61,12 @@ if [ -z "${argument_[1]}" ];
                                 if [[ "${argument_[5]}" == "--namespace" && $version_value != "" ]]; 
                                 then    
                                         namespace_value=${argument_[6]}   
-					__kobman_validate_version "${version_value}" "$namespace_value"
+					__kobman_validate_version "${version_value}" "${namespace_value}"
                                         __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
                                 elif [[ "${argument_[5]}" == "" && $version_value != "" ]]; 
                                 then    
                                         namespace_value=${KOBMAN_NAMESPACE}
-					__kobman_validate_version "${version_value}"
+					__kobman_validate_version "${version_value}" "${namespace_value}"
                                         __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
                                 else    
                                         return  
@@ -74,14 +74,18 @@ if [ -z "${argument_[1]}" ];
 			;;
 			--namespace)
 				version_value=${KOBMAN_VERSION}   
+                                namespace_value=${argument_[4]}   
+				__kobman_validate_version "${version_value}" "${namespace_value}"
                                 __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 			;;
 
 
 			"")
+
 			     	namespace_value=${KOBMAN_NAMESPACE}
                                 version_value=${KOBMAN_VERSION}   
-                                __kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
+				__kobman_validate_version "${version_value}" "${namespace_value}"
+				__kobman_create_environment_directory "$environment_value" "$version_value" "$namespace_value" 
 			;;
 		
 			esac  
@@ -103,7 +107,7 @@ function __kobman_setting_global_variables {
 function __kobman_validate_version() 
 {
 	version=$1
-	namespace=${2:-$KOBMAN_NAMESPACE}	
+	namespace=$2	
 	
 	__kobman_echo_no_colour "${version}" | grep -w '[0-9]*\.[0-9]*\.[0-9]*' > /dev/null
 	if [ "$?" -eq "0" ];
@@ -112,15 +116,17 @@ function __kobman_validate_version()
         	git ls-remote --tags "https://github.com/${namespace}/KOBman" | grep -w 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*' | sort -r | head | grep -o '[^\/]*$' | grep -w "$version" > ~/version.txt
         	if [ "$?" -eq "0" ];    # check version.txt is empty or not (or version variable is empty or not)
         	then
-                	version_value=$1	
-        	else
+                	version_value=$1
+			echo "Valid Version"	
+        		return 0	
+		else
                 	__kobman_echo_red "version not available"
-			return  
+			return 1 
 		fi
 	else
         	__kobman_echo_red "invalid version format"
 		export KOBMAN_VERISON=""	
-		return 
+		return 2  
 	fi
 	
 
