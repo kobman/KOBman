@@ -40,7 +40,7 @@ git add dist/*
 git commit -m "Released the version $kob_rel_version"
 git push origin -f $dist_branch
 
-
+#checkout back to master
 git checkout master
 
 
