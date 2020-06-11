@@ -30,12 +30,12 @@ function __test_kob_init {
   __kobman_echo_no_colour "creating and sourcing dummyenv files..."
   touch $KOBMAN_DIR/var/kobman_env_$kobman_env_name.proc
   
-  __kobman_insert_dummyenv_version
+  fake_publish_dummyenv
   
-  __kobman_install_dummyenv_script > $path_to_kob_envs/kobman-$kobman_env_name.sh
+  create_install_dummyenv_script > $path_to_kob_envs/kobman-$kobman_env_name.sh
   
   touch $path_to_kob_env_tests/test-kobman-${kobman_env_name}.sh
-  __kobman_dummyenv_validation > $path_to_kob_env_tests/test-kobman-${kobman_env_name}.sh
+  create_dummyenv_validation_script > $path_to_kob_env_tests/test-kobman-${kobman_env_name}.sh
   
   source $path_to_kob_envs/kobman-$kobman_env_name.sh
 
@@ -134,7 +134,7 @@ function __test_kob_cleanup()
 
 
 
-function __kobman_install_dummyenv_script(){
+function create_install_dummyenv_script(){
   
 cat <<EOF
 #!/bin/bash
@@ -190,7 +190,7 @@ function __kobman_create_dev_environment
 EOF
 }
 
-function __kobman_dummyenv_validation()
+function create_dummyenv_validation_script()
 {
 
 cat <<EOF
@@ -289,7 +289,7 @@ cat <<EOF
 EOF
 }
 
-function __kobman_insert_dummyenv_version
+function fake_publish_dummyenv
 {
   
   rm $KOBMAN_DIR/var/list.txt
