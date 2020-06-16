@@ -34,8 +34,8 @@ function __test_kob_init {
   
   create_install_dummyenv_script > $path_to_kob_envs/kobman-$kobman_env_name.sh
   
-  touch $path_to_kob_env_tests/test-kobman-${kobman_env_name}.sh
-  create_dummyenv_validation_script > $path_to_kob_env_tests/test-kobman-${kobman_env_name}.sh
+  touch $path_to_kob_env_tests/test-kob-${kobman_env_name}.sh
+  create_dummyenv_validation_script > $path_to_kob_env_tests/test-kob-${kobman_env_name}.sh
   
   source $path_to_kob_envs/kobman-$kobman_env_name.sh
 
@@ -46,8 +46,7 @@ function __test_kob_execute {
 
   __kobman_echo_no_colour "executing install command..."
   kob install --environment ${kobman_env_name} --version $version > ~/output.txt
-#   echo "output.txt"
-#   cat ~/output.txt
+  
    
   cat ~/output.txt | grep -q "dummyenv installed"
   
@@ -66,7 +65,7 @@ function __test_kob_execute {
 
 function __test_kob_validate {
   __kobman_echo_no_colour "validating install command...."
-  . $path_to_kob_env_tests/test-kobman-${kobman_env_name}.sh  > ~/tmp.txt
+  . $path_to_kob_env_tests/test-kob-${kobman_env_name}.sh  > ~/tmp.txt
   
 
   
@@ -74,7 +73,9 @@ function __test_kob_validate {
     
     __kobman_echo_no_colour "install command did not execute properly"
     status="fail"
+    
     __test_kob_cleanup
+    
     return 1
   
   fi
@@ -126,7 +127,8 @@ function __test_kob_cleanup()
 
   rm ~/output.txt ~/tmp.txt  $path_to_kob_envs/kobman-$kobman_env_name.sh $KOBMAN_DIR/var/kobman_env_$kobman_env_name.proc
   rm -rf ~/Dev_$kobman_env_name
-  rm -rf $path_to_kob_envs/kob_env_$kobman_env_name
+  rm -rf $KOBMAN_DIR/envs/kob_env_$kobman_env_name
+  rm $path_to_kob_env_tests/test-kob-$kobman_env_name.sh
   sed -i "s/dummyenv,0.0.2,0.0.3,0.0.5,0.0.7,0.0.9//g" $KOBMAN_DIR/var/list.txt 
 
 }
@@ -243,7 +245,7 @@ cat <<EOF
       return 1
     fi
 
-    if [[ "$(cat $KOBMAN_DIR/var/kobman_env_dummyenv.proc)" == "1" ]]; then
+    if [[ "$(cat $KOBMAN_DIR/var/kobman_env_$kobman_env_name.proc)" == "1" ]]; then
       
       status="false"
       __test_kob_output
@@ -310,6 +312,7 @@ function __test_kob_run
     __test_kob_init
   
   else
+
     
     __kobman_echo_red "test-kob-install failed" 
     return 1
@@ -326,7 +329,6 @@ function __test_kob_run
     return 1
   
   fi
-
   if [[ $status=="true" ]]; then
   
     __test_kob_validate
@@ -337,7 +339,13 @@ function __test_kob_run
     return 1
   
   fi
-  __test_kob_cleanup 
+  if [[ $status == "true" ]]; then
+      __test_kob_cleanup
+  else
+    __kobman_echo_red "test-kob-install failed"
+    return 1
+  fi
+ 
 
 }
 __test_kob_run
