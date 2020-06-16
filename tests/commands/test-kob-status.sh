@@ -115,7 +115,6 @@ function __kobman_install_dummyenv
 function __kobman_uninstall_dummyenv
 {
     version=$1
-    rm -rf $KOBMAN_DIR/envs/kob_env_dummyenv/$version
 }
 function __kobman_update_dummyenv
 {
