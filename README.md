@@ -70,10 +70,10 @@ ____________________
 ### Version commands:
 
     $ kob --version
-    $ kob --version -env [environment_name]
+    $ kob --version --environment [environment_name]
 
     Example   :
-       $ kob --version -env KOBman
+       $ kob --version --environment KOBman
 
 ____________________
 
