@@ -1,6 +1,6 @@
 # KOBman
 
-**KOBman** , is A command line utility inspired from sdkman !! 
+**KOBman** , is A command line utility inspired from sdkman !!
 KOBMan gives you a *kob* command on your shell , you can use it to automate the setup of various development environments required for KOB projects  
 
 
@@ -15,7 +15,7 @@ KOBMan gives you a *kob* command on your shell , you can use it to automate the 
 <!--
 <!--[![Build Status](https://travis-ci.org/kobman/kobman-cli.svg?branch=master)](https://travis-ci.org/kobman/kobman-cli)
 [![Latest Version](https://api.bintray.com/packages/kobman/generic/kobman-cli/images/download.svg) ](https://bintray.com/kobman/generic/kobman-cli/_latestVersion)
-[![Backers on Open Collective](https://opencollective.com/kobman/backers/badge.svg)](#backers) 
+[![Backers on Open Collective](https://opencollective.com/kobman/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/kobman/sponsors/badge.svg)](#sponsors)
 [![Slack](https://slack.kobman.io/badge.svg)](https://slack.kobman.io)
 -->
@@ -28,7 +28,7 @@ See documentation on the [KOBMAN! website](https://kobman.github.io).
 
 Open your favourite terminal and enter the following:
 
-    $ curl -L https://raw.githubusercontent.com/kobman/KOBman/master/dist/get.kobman.io | bash
+    $ curl -L https://raw.githubusercontent.com/kobman/KOBman/dist/dist/get.kobman.io | bash
 
 If the environment needs tweaking for KOBMAN to be installed, the installer will prompt you accordingly and ask you to restart.
 
@@ -37,7 +37,7 @@ If the environment needs tweaking for KOBMAN to be installed, the installer will
 
 To install KOBMAN locally running against your local server, run the following commands:
 
-	
+
 	$ source ~/.kobman/bin/kobman-init.sh
 
 
@@ -45,9 +45,9 @@ To install KOBMAN locally running against your local server, run the following c
 ### Local Environment Installation
 
 Run the following commands on the terminal to manage respective environments.
-	
+
 	Development environement setup commands:
-       
+
         kob install --dev tobvon       [name_space]       
         kob install --dev tob          [name_space]
         kob install --dev greenlight   [name_space]
@@ -59,9 +59,9 @@ Run the following commands on the terminal to manage respective environments.
 
         Example   :
             kob install --dev tob hyperledgerkochi
-        
+
 Deployment commands:
-        
+
         kob install --deploy tobvon       [name_space]       
         kob install --deploy tob          [name_space]
         kob install --deploy greenlight   [name_space]
@@ -70,11 +70,11 @@ Deployment commands:
         kob install --deploy kobdflow     [name_space]
         kob install --deploy kobconnect   [name_space]        
         kob install --deploy kobregistory [name_space]
-        
+
 	Example   :
             kob install --deploy tob bcgov
 Uninstall environement  commands:
-       
+
         kob uninstall tobvon             
         kob uninstall tob         
         kob uninstall greenlight  
@@ -82,18 +82,18 @@ Uninstall environement  commands:
         kob uninstall kob          
         kob uninstall kobdflow     
         kob uninstall kobconnect           
-        kob uninstall kobregistory 
+        kob uninstall kobregistory
 
-                
-        
+
+
 Other useful commands:        
-  
-             
+
+
         kob list
         kob status        
         kob help     
         kob version     
-         
+
 
 ## Adding new features
 
@@ -103,7 +103,5 @@ For new features creation , you have to edit (add file 'kobman-*' ) extention sc
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. 
+This project exists thanks to all the people who contribute.
 <a href="https://github.com/kobman/KOBman/graphs/contributors"><img src="https://i.stack.imgur.com/kk4j4.jpg" /></a>
-
-
