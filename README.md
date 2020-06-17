@@ -41,58 +41,41 @@ To install KOBMAN locally running against your local server, run the following c
 	$ source ~/.kobman/bin/kobman-init.sh
 
 
-
 ### Local Environment Installation
 
 Run the following commands on the terminal to manage respective environments.
 
-	Development environement setup commands:
+	Install commands:
 
-        kob install --dev tobvon       [name_space]       
-        kob install --dev tob          [name_space]
-        kob install --dev greenlight   [name_space]
-        kob install --dev kobvon       [name_space]
-        kob install --dev kob          [name_space]
-        kob install --dev kobdflow     [name_space]
-        kob install --dev kobconnect   [name_space]        
-        kob install --dev kobregistory [name_space]
+        kob install -env [environment_name] --version [version_tag]
 
         Example   :
-            kob install --dev tob hyperledgerkochi
+            kob install -env KOBman --version 0.0.2
 
-Deployment commands:
-
-        kob install --deploy tobvon       [name_space]       
-        kob install --deploy tob          [name_space]
-        kob install --deploy greenlight   [name_space]
-        kob install --deploy kobvon       [name_space]
-        kob install --deploy kob          [name_space]
-        kob install --deploy kobdflow     [name_space]
-        kob install --deploy kobconnect   [name_space]        
-        kob install --deploy kobregistory [name_space]
-
-	Example   :
-            kob install --deploy tob bcgov
-Uninstall environement  commands:
-
-        kob uninstall tobvon             
-        kob uninstall tob         
-        kob uninstall greenlight  
-        kob uninstall kobvon       
-        kob uninstall kob          
-        kob uninstall kobdflow     
-        kob uninstall kobconnect           
-        kob uninstall kobregistory
+Please got throught the list command for trying out more environments and its version
 
 
+Uninstall commands:
+
+kob uninstall -env [environment_name] --version [version_tag]
+
+Example   :
+    kob uninstall -env KOBman --version 0.0.2
+
+Version commands:
+
+    kob --version
+    kob --version -env [environment_name]
+
+    Example   :
+        kob --version -env KOBman
 
 Other useful commands:        
-
 
         kob list
         kob status        
         kob help     
-        kob version     
+
 
 
 ## Adding new features
