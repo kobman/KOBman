@@ -28,7 +28,7 @@ See documentation on the [KOBMAN! website](https://kobman.github.io).
 
 Open your favourite terminal and enter the following:
 
-    $ curl -L https://raw.githubusercontent.com/kobman/KOBman/dist/dist/get.kobman.io | bash
+    $ curl -L https://raw.githubusercontent.com/hyplerledgerkochi/KOBman/dist/dist/get.kobman.io | bash
 
 If the environment needs tweaking for KOBMAN to be installed, the installer will prompt you accordingly and ask you to restart.
 
@@ -47,10 +47,10 @@ Run the following commands on the terminal to manage respective environments.
 
 ### Install commands:
 
-        kob install -env [environment_name] --version [version_tag]
+        kob install --environment [environment_name] --version [version_tag]
 
         Example   :
-            kob install -env KOBman --version 0.0.2
+            kob install --environment KOBman --version 0.0.2
 
 Please got throught the list command for trying out more environments and its version
 
@@ -77,7 +77,7 @@ ____________________
 
 ### Other useful commands:        
 
-        kob list
+        kob list  - please run the following command
         kob status        
         kob help     
 
