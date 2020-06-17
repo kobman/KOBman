@@ -41,11 +41,11 @@ To install KOBMAN locally running against your local server, run the following c
 	$ source ~/.kobman/bin/kobman-init.sh
 
 
-### Local Environment Installation
+### Local environment commands
 
 Run the following commands on the terminal to manage respective environments.
 
-	Install commands:
+### Install commands:
 
         kob install -env [environment_name] --version [version_tag]
 
@@ -54,15 +54,18 @@ Run the following commands on the terminal to manage respective environments.
 
 Please got throught the list command for trying out more environments and its version
 
+____________________
 
-Uninstall commands:
+### Uninstall commands:
 
-kob uninstall -env [environment_name] --version [version_tag]
+        kob uninstall -env [environment_name] --version [version_tag]
 
-Example   :
-    kob uninstall -env KOBman --version 0.0.2
+        Example   :
+            kob uninstall -env KOBman --version 0.0.2
 
-Version commands:
+____________________
+
+### Version commands:
 
     kob --version
     kob --version -env [environment_name]
@@ -70,7 +73,9 @@ Version commands:
     Example   :
         kob --version -env KOBman
 
-Other useful commands:        
+____________________
+
+### Other useful commands:        
 
         kob list
         kob status        
@@ -80,7 +85,7 @@ Other useful commands:
 
 ## Adding new features
 
-For new features creation , you have to edit (add file 'kobman-*' ) extention script in the below listed directory,test it & publish
+For new features creation , you have to create a new file (extention script) in the below listed directory,test it & publish
 
         ./kobman/env/
 
