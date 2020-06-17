@@ -52,7 +52,7 @@ Run the following commands on the terminal to manage respective environments.
         Example   :
            $ kob install --environment KOBman --version 0.0.2
 
-Please run the following command to get the list of other environment and its versions.
+Please run the following command to get the list of other environments and its versions.
 
 	   	`$ kob list`
 
