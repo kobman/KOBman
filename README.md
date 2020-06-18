@@ -24,6 +24,13 @@ KOBMAN is a tool for managing parallel Versions of multiple KochiOrgBook project
 
 See documentation on the [KOBMAN! website](https://kobman.github.io).
 
+## System pre-requisite
+
+  - OS          : Ubuntu 18.04LTS
+  - Memory[RAM]): 4GB (min)
+  - Storage     : 30GB (min)
+
+
 ## Installation
 
 Open your favourite terminal and enter the following:
@@ -47,10 +54,10 @@ Run the following commands on the terminal to manage respective environments.
 
 ### Install commands:
 
-        $ kob install --environment [environment_name] --version [version_tag]
+        $ kob install -env [environment_name] --version [version_tag]
 
         Example   :
-           $ kob install --environment KOBman --version 0.0.2
+           $ kob install -env KOBman --version 0.0.2
 
 Please run the following command to get the list of other environments and its versions.
 
@@ -60,20 +67,20 @@ ____________________
 
 ### Uninstall commands:
 
-        $ kob uninstall --environment [environment_name] --version [version_tag]
+        $ kob uninstall -env [environment_name] --version [version_tag]
 
         Example   :
-           $ kob uninstall --environment KOBman --version 0.0.2
+           $ kob uninstall -env KOBman --version 0.0.2
 
 ____________________
 
 ### Version commands:
 
     $ kob --version
-    $ kob --version --environment [environment_name]
+    $ kob --version -env [environment_name]
 
     Example   :
-       $ kob --version --environment KOBman
+       $ kob --version -env KOBman
 
 ____________________
 
