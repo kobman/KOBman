@@ -104,7 +104,7 @@
 		**Output** : 
 		<br>*Installed environments and their versions*</br>
 		*------------------------------------------------------------*
-		<br>_~ KOBman  0.0.3*_</br>
+		<br> _~ KOBman  0.0.3*_ </br>
 		
 ## 6. <ins> Help Command <ins> ##
 	
