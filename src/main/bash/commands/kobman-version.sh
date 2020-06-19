@@ -1,33 +1,31 @@
 #!/usr/bin/env bash
 
 
-
 function __kob_version {
 
-        local environment_type environment_name
 
-        environment_type=$ENVIRONMENT_TYPE
-        environment_name=$NAME_SPACE
-        if [ "$DEPLOYMENT_TYPE" == "" ]
-        then
-                cd "${KOBMAN_DIR}/var"
-                cat version.txt
-                cd ~
-        else
-                __kobman_environment_version "$environment_type" "$environment_name"
-        fi
+  local environment_type=$1
+  local environment_value=$2
+
+  if [ "$environment_type" == "" ]
+	then
+		cd "${KOBMAN_DIR}/var"
+		cat version.txt
+		cd ~
+	else
+		__kobman_environment_version "$environment_type" "$environment_value"
+	fi
 }
 
 
 
 function __kobman_environment_version {
 
-        local environment_type environment_name
-        environment_type=$1
-        environment_name=$2
-        if [ "$environment_type" == "--environment" ]
-        then
+  local environment_type=$1
+  local environment_value=$2
 
-                __kobman_version_${environment_name}
-        fi
+	if [ "$environment_type" == "--environment" ]
+	then
+			__kobman_version_"$environment_value"
+	fi
 }
