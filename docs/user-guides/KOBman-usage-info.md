@@ -89,21 +89,22 @@
 			**Output** :
 			*greenlight is not installed*
 	
-## 5. <ins> Status Command <ins> ##
+## 4. <ins> Status Command <ins> ##
 	
 	$ kob status
 	
 - **Command Arguments** :
-	- `status` - Shows the presence of all  KOB  environment on the host.
+	- `status` - Show the list of environments and its versions that has been installed in the system
 	
 - **Example** :
-	- VON environment is present is the system
+	- KOBman environment is present is the system
 	
 			$ kob status
 		
-		**Output** : </br>
-		=========STATUS=========</br>
-		*Dev_VON*
+		**Output** : 
+		*Installed environments and their versions*
+		---------------------------------------------
+		*~ KOBman  0.0.3\**
 		
 ## 6. <ins> Help Command <ins> ##
 	
