@@ -5,8 +5,8 @@
 - **Command Arguments** :
 
 	-  `install` - Install KOB environment on the host with X.Y.Z version number format.
-	-  `--environment/-env` - Parameter to indicate the environment that is to be installed
-	-  `[env-name]` - Name of the environment to be installed
+	-  `--environment/-env` - Parameter to indicate the environment that is to be installed.
+	-  `[env-name]` - Name of the environment to be installed.
 	
 - **Examples** :
 
@@ -25,7 +25,7 @@
 - **Command Arguments** :
 	- `uninstall` - Uninstall KOB environment on the host.
 	- `--environment/-env` - Type of KOB environment to be un-installed.
-	- `{some-env-name}` - Name of the environment
+	- `{some-env-name}` - Name of the environment.
 	- `{version}` - The version for which files has to be removed.
 
 - **Examples** :
@@ -70,9 +70,9 @@
 
 		$ kob --version --environment {some-env-name}
 	- **Command Arguments** :
-		- `--version/-V` - Display the version 
-		- `--environment/-env` - KOB environment that is installed on the host
-		- `{some-env-name}` - Name of the environment
+		- `--version/-V` - Display the version.
+		- `--environment/-env` - KOB environment that is installed on the host.
+		- `{some-env-name}` - Name of the environment.
 	- **Examples** :
 	
 		- greenlight 0.0.1 is an environment that is installed
@@ -94,10 +94,10 @@
 	$ kob status
 	
 - **Command Arguments** :
-	- `status` - Show the list of environments and its versions that has been installed in the system
+	- `status` - Show the list of environments and its versions that has been installed in the system.
 	
 - **Example** :
-	- KOBman environment is present is the system
+	- KOBman environment is present is the system.
 	
 			$ kob status
 		
@@ -147,8 +147,8 @@
 	$ kob upgrade [--version  X.Y.Z] or $kob self-update
 
 - **Command Arguments**
-	- `upgrade` - Upgrade to a later version of KOBman 
-	- `self-update`- Upgrade to a later version of KOBman
+	- `upgrade` - Upgrade to a later version of KOBman.
+	- `self-update`- Upgrade to a later version of KOBman.
 	- `--version /-V` - version of KOBman to which the current installation has to be upgraded.
 	
 - **Examples**
@@ -162,7 +162,7 @@
 			$ kob upgrade --version 0.0.1
 		**Output** :
 		*kobman upgraded to 0.0.1* or *Kobman already on 0.0.1*
-	- Current version is same as latest version 
+	- Current version is same as latest version.
 			
 			$ kob upgrade --version 0.0.1
 		**Output** :
@@ -185,7 +185,7 @@
 	- `--environment` - Environment to be updated.
 	
 - **Examples**
-	- Default update, without version or environment, all new candidate environments are updated  on the host
+	- Default update, without version or environment, all new candidate environments are updated  on the host.
 		
 			$ kob update
 		**Output** :</br>
@@ -199,13 +199,13 @@
 		**Output** :
 		*greenlight updated to 0.0.1* or *greenlight already on 0.0.1*
 
-	- greenlight current version is same as new version
+	- greenlight current version is same as new version.
 
 			$ kob update –environment greenlight –version 0.0.1
 		**Output** :
 		*greenlight already on 0.0.1*
  
-	- Update to greenlight version 0.0.2, a version not available in master (dist) repository
+	- Update to greenlight version 0.0.2, a version not available in master (dist) repository.
 
 			$ kob upgrade –environment greenlight –version 0.0.2
 		**Output** :
