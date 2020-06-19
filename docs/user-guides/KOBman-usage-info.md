@@ -34,7 +34,7 @@
 
 			$kob uninstall –env KOBman 
 		**Output** :
-		*Version {version tag} for KOBman has been uninstalled successfully *
+		*Version {version tag} for KOBman has been uninstalled successfully*
 
 ## 3. <ins> Version Command <ins> ##
 	
