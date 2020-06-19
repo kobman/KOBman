@@ -119,10 +119,10 @@
 		
 		$ kob help
 	**Output** : </br>
-	![Output of $kob help](https://github.com/asa1997/assets/blob/master/Screenshot%20from%202020-04-05%2020-56-18.png)
+	![Output of $kob help](https://github.com/arunng21/uploads/blob/master/KOB_help.png)
 
 
-## 7. <ins> List Command <ins> ##
+## 6. <ins> List Command <ins> ##
 	
 	$ kob list
 	
@@ -134,7 +134,12 @@
 		
 		$ kob list
 	**Output** : </br>
-	![Output of $ kob list](https://github.com/asa1997/assets/blob/master/Screenshot%20from%202020-04-05%2021-07-27.png)
+	*Available environments and their respective version numbers*</br>
+	*---------------------------------------------------------------* </br>
+	*von-network 0.0.2 0.0.3 0.0.5 0.0.7* </br>
+	*TheOrgBook 0.0.2 0.0.3 0.0.5 0.0.7* </br>
+	*greenlight 0.0.2 0.0.3 0.0.5 0.0.7* </br>
+	*KOBman 0.0.2 0.0.3 0.0.5 0.0.7* </br>
 
 
 ## 8. <ins> Upgrade Command <ins> ##
