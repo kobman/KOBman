@@ -142,7 +142,7 @@
 	*KOBman 0.0.2 0.0.3 0.0.5 0.0.7* </br>
 
 
-## 8. <ins> Upgrade Command <ins> ##
+## 7. <ins> Upgrade Command <ins> ##
 	
 	$ kob upgrade [--version  X.Y.Z] or $kob self-update
 
@@ -161,7 +161,7 @@
 			
 			$ kob upgrade --version 0.0.1
 		**Output** :
-		*kobman upgraded to 0.0.1*
+		*kobman upgraded to 0.0.1* or *Kobman already on 0.0.1*
 	- Current version is same as latest version 
 			
 			$ kob upgrade --version 0.0.1
@@ -174,14 +174,14 @@
 		*kobman version 0.0.2 not found*
 
 
-## 9. <ins> Update Command <ins> ##
+## 8. <ins> Update Command <ins> ##
 	
 	$ kob update [--environment {environment to be updated} --version  X.Y.Z] 
 
 - **Command Arguments**
 
 	- `update` - To update and check for new versions of KOBman environments.
-	- `--version/-V` - Version of KOBman environment to which the current installation has to be  upgraded.
+	- `--version` - Version of KOBman to which the current installation has to be upgraded. 
 	- `--environment` - Environment to be updated.
 	
 - **Examples**
@@ -197,7 +197,7 @@
 
 			$ kob update –environment greenlight –version 0.0.1
 		**Output** :
-		*greenlight updated to 0.0.1*
+		*greenlight updated to 0.0.1* or *greenlight already on 0.0.1*
 
 	- greenlight current version is same as new version
 
