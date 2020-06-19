@@ -104,14 +104,16 @@
 		**Output** : 
 		<br>*Installed environments and their versions*</br>
 		*------------------------------------------------------------*
-		<br> _~ KOBman  0.0.3*_ </br>
+		<br>~ KOBman  0.0.3*</br>
+		- `“~”` represents the environment which has been installed the last. 
+		- `“*”` represents the current version for each env 
 		
-## 6. <ins> Help Command <ins> ##
+## 5. <ins> Help Command <ins> ##
 	
 	$ kob help
 	
 - **Command Argument**
-	- `help` - Displays the details of various functions available with KOBman utility.
+	- `help` - Displays the details of various functions available with KOBman.
 
 - **Example**
 		
