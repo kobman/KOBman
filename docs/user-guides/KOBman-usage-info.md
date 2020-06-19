@@ -14,47 +14,29 @@
 
 			$ kob install -env von-network –V 0.0.2
 	 	**Output** :
-	 	* Dev environment for von-network created successfully*
+	 	*Dev environment for von-network created successfully*
 
-## 2. <ins> Deploy Command <ins> ##
-
-	$ kob deploy --environment {some-env-name } [--namespace {repo-namespace}]
-
-
-- **Command Arguments** :     
-	- `deploy` - Deploy KOB environment on the host with X.Y.Z version number format.
-	- `--environment/-env` - Type of KOB environment to be installed on the host.
-	- `{some-env-name}` - Name of the environment.
-	- `--namespace` - KOB namespace parameter.
-	- `{repo-namespace}` - Namespace of any specific github user who has forked KOB projects.
-
-- **Examples** :
-
-	- greenlight environment deploy
-
-			$ kob deploy --environment greenlight --namespace hyperledgerkochi
-		
-		**Output** :
-		*greenlight is deployed*
-
-## 3. <ins> Uninstall Command <ins> ##
+## 2. <ins> Uninstall Command <ins> ##
 	
 	$ kob uninstall --environment {some-env-name}
-	
+	or
+	$ kob uninstall –env [env_name] -V [version]
+		
 - **Command Arguments** :
 	- `uninstall` - Uninstall KOB environment on the host.
 	- `--environment/-env` - Type of KOB environment to be un-installed.
 	- `{some-env-name}` - Name of the environment
+	- `{version}` - The version for which files has to be removed.
 
 - **Examples** :
 
-	- tobvon environment uninstallation 
+	- KOBman environment uninstallation 
 
-			$ kob uninstall --environment tobvon 
+			$kob uninstall –env KOBman 
 		**Output** :
-		*tobvon environment is uninstalled*
+		*Version {version tag} for KOBman has been uninstalled successfully *
 
-## 4. <ins> Version Command <ins> ##
+## 3. <ins> Version Command <ins> ##
 	
 - **<ins>Version of KOBman Utility<ins>**
 
