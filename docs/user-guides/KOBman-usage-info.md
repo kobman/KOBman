@@ -1,22 +1,20 @@
 ## 1. <ins> Install Command <ins> ##
 
-	$ kob install --environment/-env {some-env-name} [--namespace {repo-namespace}]
+	$ kob install –env [env_name] -V [version] 
 
 - **Command Arguments** :
 
 	-  `install` - Install KOB environment on the host with X.Y.Z version number format.
-	-  `--environment/-env` - Type of KOB environment to be installed on the host.
-	-  `{some-env-name}` - Name of the environment.
-	-  `--namespace` - KOB namespace parameter.
-	-  `{repo-namespace}` - Namespace of any specific github user who has forked KOB projects.
-
+	-  `--environment/-env` - Parameter to indicate the environment that is to be installed
+	-  `[env-name]` - Name of the environment to be installed
+	
 - **Examples** :
 
-	- tobvon dev  environment installation 
+	- von-network dev environment installation
 
-			$ kob install --environment tobvon --namespace hyperledgerkochi
+			$ kob install -env von-network –V 0.0.2
 	 	**Output** :
-	 	*tobvon installed*
+	 	* Dev environment for von-network created successfully*
 
 ## 2. <ins> Deploy Command <ins> ##
 
