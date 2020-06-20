@@ -4,7 +4,7 @@ function __kob_help {
 
 	__kobman_echo_yellow "KOBman - Help"
 	__kobman_echo_blue "------------------------------------------------------------"
-	__kobman_echo_white " $ kob <command> <qualifer> <version> <namespace>"   
+	__kobman_echo_white " $ kob <command> <qualifer> "   
 	__kobman_echo_white ""
 	__kobman_echo_white "namespace"
 	__kobman_echo_blue "-------------------------------------------------------------"
