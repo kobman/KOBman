@@ -17,7 +17,7 @@ function __kob_help {
 	__kobman_echo_white "KOBman       : https://github.com/hyperlederkochi/KOBman"
 	__kobman_echo_white ""
 	__kobman_echo_white "(Please use the list command to know about the different"
-	__kobman_echo_white " environnments that can be installed by KOBman)"
+	__kobman_echo_white " environments that can be installed by KOBman)"
 	__kobman_echo_white ""
 	__kobman_echo_white "Commands"
 	__kobman_echo_blue "-------------------------------------------------------------"
