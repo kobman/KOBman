@@ -38,3 +38,9 @@ function __kobman_create_dev_environment
 	export Dev_${environment}=$PWD
 	mkdir -p test/ dependency/
 }
+
+function __kobman_uninstall_KOBman
+{
+	__kobman_echo_white "Removing dev environment for KOBman"
+	rm -rf ~/Dev_KOBman
+}

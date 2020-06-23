@@ -52,25 +52,25 @@ function __kobman_create_environment_directory
 		local version_id=$2
 
 		cd "${KOBMAN_DIR}/envs"
-                mkdir -p kob_env_"${environment_name}"
-                cd kob_env_"${environment_name}"
-                touch current
+		mkdir -p kob_env_"${environment_name}"
+		cd kob_env_"${environment_name}"
+		touch current
 		destdir="${KOBMAN_DIR}/envs/kob_env_${environment_name}/current"
 
-               	if [ ! -d "$version_id" ]
+		if [ ! -d "$version_id" ]
 		then
 			mkdir -p $version_id
-                	cd $version_id                                          # Needs to be refactored identify the latest version
-                	__kobman_echo_no_colour "$version_id" > "$destdir"
-      			cp "${KOBMAN_DIR}/envs/kobman-${environment_name}.sh" .
-                	source "${KOBMAN_DIR}/envs/kob_env_${environment_name}/${version_id}/kobman-${environment_name}.sh"
+			cd $version_id                                          # Needs to be refactored identify the latest version
+			__kobman_echo_no_colour "$version_id" > "$destdir"
+			cp "${KOBMAN_DIR}/envs/kobman-${environment_name}.sh" .
+			source "${KOBMAN_DIR}/envs/kob_env_${environment_name}/${version_id}/kobman-${environment_name}.sh"
 			__kobman_install_"${environment_name}" "${environment_name}" "${version_id}"
 			cd ~
-               	elif [ -d "$version_id" ]  && [ $(cat $destdir) != "$version_id" ]
+			elif [[ -d "$version_id" && $(cat $destdir) != "$version_id" ]]
 		then
 			cd ~
 			__kobman_echo_no_colour "Re-installing  https://github.com/${KOBMAN_NAMESPACE}/${environment_name} with version:${version_id} "
-                	__kobman_echo_no_colour "$version_id" > "$destdir"
+			__kobman_echo_no_colour "$version_id" > "$destdir"
 			__kobman_install_"${environment_name}" "${environment_name}" "${version_id}"
 			return 1
 		else
