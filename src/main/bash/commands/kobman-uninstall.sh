@@ -1,93 +1,68 @@
 #!/usr/bin/env bash
 
 function __kob_uninstall {
-local command deployment_type environment_type name_space 
 
-	command=$COMMAND
-	deployment_type=$DEPLOYMENT_TYPE
-	environment_type=$ENVIRONMENT_TYPE
-	name_space=$NAME_SPACE 
-	
-	if [ "$command" = "uninstall" ]
-	then
-        	case $deployment_type in
-                --environment | -env)
-                        if [ "$environment_type" = "all" ]
-                        then
-                                echo "uninstalling all environment"
-                        elif [ "$environment_type" = "kobvon" ]
-                        then
-                                echo "uninstalling kobvon..."
-                        elif [ "$environment_type" = "kob" ]
-                        then
-                                echo "uninstalling kob..."
-                        elif [ "$environment_type" = "kobdflow" ]
-                        then
-                                echo "uninstalling kobdflow..."
-                        elif [ "$environment_type" = "kobconnect" ]
-                        then
-                                echo "uninstalling kobconnect..."
-                        elif [ "$environment_type" = "kobregistory" ]
-                        then
-                                echo "uninstalling kobregistory..."
-                        elif [ "$environment_type" = "tobvon" ]
-                        then
-                                __kobman_uninstall_tobvon
-			elif [ "$environment_type" = "tob" ]
-                        then
-                                __kobman_uninstall_tob
-                        elif [ "$environment_type" = "greenlight" ]
-                        then
-                                __kobman_uninstall_greenlight
-                        elif [ "$environment_type" = "kobman" ]
-                        then
-                                __kobman_uninstall_kobman
-                        else
-                                echo "verifiy your command and try again"
-                        fi
-                ;;
-                --deploy)
-                        if [ "$environment_type" = "kobvon" ]
-                        then
-                                echo "uninstalling kobvon..."
-                        elif [ "$environment_type" = "kob" ]
-                        then
-                                echo "uninstalling kob..."
-                        elif [ "$environment_type" = "kobdflow" ]
-                        then
-                                echo "uninstalling kobdflow..."
-                        elif [ "$environment_type" = "kobconnect" ]
-                        then
-                                echo "uninstalling kobconnect..."
-                        elif [ "$environment_type" = "kobregistory" ]
-                        then
-                                echo "uninstalling kobregistory..."
- 			elif [ "$environment_type" = "tobvon" ]
-                        then
-				echo "undeploy - uninstalling tobvon..."
-                                __kobman_uninstall_tobvon
-			elif [ "$environment_type" = "tob" ]
-                        then
-			       echo "undeploy - uninstalling tob..."
-                               __kobman_uninstall_tob
-                         elif [ "$environment_type" = "greenlight" ]
-                         then
-				echo "undeploy - uninstalling greenlight..."
-                                __kobman_uninstall_greenlight
-                         else
-                                 echo "verifiy your command and try again"
-                         fi
-                 ;;
+local environment version
+environment=$1
+version=$2
 
-                *)
-                        if [ -z $deployment_type ]
-                        then
-                                echo "Default deployment are --dev,--deploy"
-                        fi
-                ;;
+if [[ $environment == "all" ]]; then
+  if [[ $INTERACTIVE_MODE == "true" ]]; then
+    __kobman_echo_white "This operation would remove all the environments and its files"
+    __kobman_interactive_uninstall || return 1
+    __kobman_echo_white "Removing files..."
+    rm -rf $KOBMAN_DIR/envs/kob_env_*
+    rm -rf ~/Dev_*
+    __kobman_echo_white "Files removed successfully."
+    return 0
+  else
+    
+    __kobman_echo_white "Removing files..."
+    rm -rf $KOBMAN_DIR/envs/kob_env_*
+    rm -rf ~/Dev_*
+    __kobman_echo_white "Files removed successfully."
+    return 0
+  fi
+fi
 
-       		 esac
+__kobman_check_parameter_present "$environment" "$version" || return 1
 
-	fi
+if [[ $version == $(cat $KOBMAN_DIR/envs/kob_env_$environment/current) ]]; then  
+  if [[ $INTERACTIVE_MODE == "true" ]]; then
+    __kobman_echo_white "This operation would remove the current version $version for $environment"
+    __kobman_interactive_uninstall || return 1
+    __kobman_echo_no_colour "Uninstalling version $version of $environment"
+    __kobman_echo_no_colour "This would leave the environment without a current"
+    rm $KOBMAN_DIR/envs/kob_env_$environment/current 
+    rm -rf $KOBMAN_DIR/envs/kob_env_$environment/$version 
+    __kobman_uninstall_$environment
+    __kobman_echo_green "Version $version for $environment has been uninstalled successfully"
+  else
+    
+    __kobman_echo_no_colour "Uninstalling version $version of $environment"
+    __kobman_echo_no_colour "This would leave the environment without a current"
+    rm $KOBMAN_DIR/envs/kob_env_$environment/current 
+    rm -rf $KOBMAN_DIR/envs/kob_env_$environment/$version 
+    __kobman_uninstall_$environment
+    __kobman_echo_green "Version $version for $environment has been uninstalled successfully"
 
-}
+  fi
+else
+  if [[ $INTERACTIVE_MODE == "true" ]]; then
+  __kobman_echo_white "$version for $environment is not the current version"
+  __kobman_echo_white "The operation will still remove the files for the version."
+  __kobman_interactive_uninstall || return 1
+     __kobman_echo_no_colour "Removing files..."
+    rm -rf $KOBMAN_DIR/envs/kob_env_$environment/$version
+    __kobman_echo_green "Files removed successfully."
+  else
+    __kobman_echo_no_colour "Removing files..."
+    rm -rf $KOBMAN_DIR/envs/kob_env_$environment/$version
+    __kobman_echo_green "Files removed successfully."
+  fi
+fi
+} 
+
+
+
+
