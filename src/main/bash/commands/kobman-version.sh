@@ -4,28 +4,13 @@
 function __kob_version {
 
 
-  local environment_type=$1
+  local environment_parameter=$1
   local environment_value=$2
 
-  if [ "$environment_type" == "" ]
+  if [ -z "$environment_parameter" ]
 	then
-		cd "${KOBMAN_DIR}/var"
-		cat version.txt
-		cd ~
+		echo "KOBman version" "$(cat ${KOBMAN_DIR}/var/version.txt)"
 	else
-		__kobman_environment_version "$environment_type" "$environment_value"
-	fi
-}
-
-
-
-function __kobman_environment_version {
-
-  local environment_type=$1
-  local environment_value=$2
-
-	if [ "$environment_type" == "--environment" ]
-	then
-			__kobman_version_"$environment_value"
+		__kobman_version_"$environment_value"
 	fi
 }
