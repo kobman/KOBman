@@ -6,7 +6,7 @@
 
 	-  `install` - Install KOB environment on the host with X.Y.Z version number format.
 	-  `--environment/-env` - Parameter to indicate the environment that is to be installed.
-	-  `[env-name]` - Name of the environment to be installed.
+	-  `[env_name]` - Name of the environment to be installed.
 	
 - **Examples** :
 
@@ -18,7 +18,7 @@
 
 ## 2. <ins> Uninstall Command <ins> ##
 	
-	$ kob uninstall --environment {some-env-name}
+	$ kob uninstall --environment {some-env-name} #please use [env_name] throughout the file to maintain consistency.
 	or
 	$ kob uninstall –env [env_name] -V [version]
 		
@@ -68,7 +68,7 @@
 
 - <ins>**Version of an Environment**<ins>
 
-		$ kob --version --environment {some-env-name}
+		$ kob --version --environment {some-env-name} #please use [env_name] throughout the file to maintain consistency.
 	- **Command Arguments** :
 		- `--version/-V` - Display the version.
 		- `--environment/-env` - KOB environment that is installed on the host.
@@ -195,9 +195,9 @@
  
  	- Update greenlight to version 0.0.1
 
-			$ kob update –environment greenlight –version 0.0.1
+			$ kob update --environment greenlight --version 0.0.1
 		**Output** :
-		*greenlight updated to 0.0.1* or *greenlight already on 0.0.1*
+		*greenlight updated to 0.0.1* 
 
 	- greenlight current version is same as new version.
 
@@ -207,7 +207,7 @@
  
 	- Update to greenlight version 0.0.2, a version not available in master (dist) repository.
 
-			$ kob upgrade –environment greenlight –version 0.0.2
+			$ kob upgrade --environment greenlight --version 0.0.2
 		**Output** :
 		*greenlight version 0.0.2 not found<ins>*
 
