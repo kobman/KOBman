@@ -113,11 +113,13 @@ function __kobman_identify_parameter
 		__kobman_check_if_version_exists "${qualifier2}" "${qualifier4}" || return 1
 	fi
 
-	if [[ -z "${qualifier3}" && "$converted_cmd_name" == "uninstall" ]]; then
+	if [[ -z "${qualifier3}" && "$converted_cmd_name" == "uninstall" && -d $KOBMAN_DIR/envs/kob_env_$qualifier2 ]]; then
 		qualifier4=($(cat $KOBMAN_DIR/envs/kob_env_$qualifier2/current))
 		__kobman_validate_version_format "$qualifier4" || return 1
 		__kobman_check_if_version_exists "${qualifier2}" "$qualifier4" || return 1
-	elif [ -z "${qualifier3}" ]; then
+	fi
+	
+	if [[ -z "${qualifier3}" && $converted_cmd_name = "install" ]]; then
 		__kobman_validate_version_format "$KOBMAN_VERSION" || return 1
 		__kobman_check_if_version_exists "${qualifier2}" "$KOBMAN_VERSION" || return 1
 	fi
