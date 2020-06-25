@@ -1,17 +1,15 @@
 
 #!/bin/bash
 
-status="true"
 
 function __test_kob_init
 {
-    echo "Checking for kob..."
     if [[ -d $KOBMAN_DIR ]]; then
         source $KOBMAN_DIR/src/kobman-utils.sh
         __kobman_echo_no_colour "kob found"
         source $KOBMAN_DIR/bin/kobman-init.sh
     else
-        status="false"
+        test_status="failed"
         echo "kob not found"
         echo "Please install KOBman first and try again"
         echo "Exiting!!!"
@@ -21,13 +19,13 @@ function __test_kob_init
 
     __kobman_echo_no_colour "Checking for installed version file...."
 
-    env_version=($(find $KOBMAN_DIR/var/ -name "version.txt" -print))
-    if [[ -z $env_version ]]; then
+
+    if [[ ! -f $KOBMAN_DIR/var/version.txt ]]; then
          __kobman_echo_no_colour "No version file found"
          __kobman_echo_no_colour "Please re-install and try again"
          __kobman_echo_no_colour "Exiting!!!"
-         status="false"
-         return 1
+         test_status="failed"
+         exit 
     else
          __kobman_echo_no_colour "version file found "
          __kobman_echo_no_colour "Proceeding with the test..."
@@ -47,10 +45,10 @@ function __test_kob_validate
 
     __kobman_echo_no_colour "Validating...."
 
-    cat tmp.txt | grep -w $(cat $KOBMAN_DIR/var/version.txt)
+    cat tmp.txt | grep -qw "KOBman version [0-9].[0-9].[0-9]" 
     if [[ "$?" != "0" ]]; then
         __kobman_echo_no_colour "no version details available"
-        status="false"
+        test_status="failed"
         return 1
     fi
 }
@@ -62,31 +60,19 @@ function __test_kob_cleanup
 
 function __test_kob_run
 {
-    if [[ $status == "true" ]]; then
-        __test_kob_init
-    else
-        return 1
-    fi
-
-    if [[ $status == "true" ]]; then
-        __test_kob_execute
-    else
-        return 1
-    fi
-
-    if [[ $status == "true" ]]; then
-        __test_kob_validate
-    else
-        __test_kob_cleanup
-        return 1
-    fi
+    test_status="success"
+    
+    __test_kob_init
+    __test_kob_execute
+    __test_kob_validate
     __test_kob_cleanup
+
+    if [[ $test_status == "success" ]]; then
+	__kobman_echo_no_colour "test-kob-version success"
+    else
+	__kobman_echo_no_colour "test-kob-version failed"
+    fi
 
 }
 
 __test_kob_run
-if [[ $status == "true" ]]; then
-    __kobman_echo_green "test-kob-version success"
-else
-    __kobman_echo_red "test-kob-version failed"
-fi
