@@ -41,8 +41,11 @@ function __kob_help {
 	__kobman_echo_white "               The command lists the various environment that "
 	__kobman_echo_white "               can be installed."
 	__kobman_echo_white ""
-	__kobman_echo_white "udpate       : $ kob selfupdate"
+	__kobman_echo_white "selfupdate   : $ kob selfupdate"
 	__kobman_echo_white "               Updates KOBman to next version available. "
+	__kobman_echo_white ""
+	__kobman_echo_white "update       : $ kob update"
+	__kobman_echo_white "               Updates the list file with lastest changes."
 	__kobman_echo_white ""
 	__kobman_echo_white "version      : Version of KOBman Utility "
 	__kobman_echo_blue "               -------------------------"
@@ -58,6 +61,7 @@ function __kob_help {
 	__kobman_echo_white "               Eg: $ kob -V -env greenlight"
 	__kobman_echo_white ""
 	__kobman_echo_white "help         : $ kob help"
-        __kobman_echo_white "               Displays the KOBman manual"
+    __kobman_echo_white "               Displays the KOBman manual"
 	__kobman_echo_white ""
+	
 }
