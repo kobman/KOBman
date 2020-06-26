@@ -18,7 +18,7 @@
 
 ## 2. <ins> Uninstall Command <ins> ##
 	
-	$ kob uninstall --environment {some-env-name} #please use [env_name] throughout the file to maintain consistency.
+	$ kob uninstall --environment [env_name]
 	or
 	$ kob uninstall –env [env_name] -V [version]
 		
@@ -68,7 +68,7 @@
 
 - <ins>**Version of an Environment**<ins>
 
-		$ kob --version --environment {some-env-name} #please use [env_name] throughout the file to maintain consistency.
+		$ kob --version --environment [env_name]
 	- **Command Arguments** :
 		- `--version/-V` - Display the version.
 		- `--environment/-env` - KOB environment that is installed on the host.
