@@ -113,7 +113,7 @@ function __kobman_identify_parameter
 		__kobman_check_if_version_exists "${qualifier2}" "${qualifier4}" || return 1
 	fi
 
-	if [[ -z "${qualifier3}" && "$converted_cmd_name" == "uninstall" && -d $KOBMAN_DIR/envs/kob_env_$qualifier2 ]]; then
+	if [[ -z "${qualifier3}" && "$converted_cmd_name" == "uninstall" && -d $KOBMAN_DIR/envs/kob_env_$qualifier2/current ]]; then
 		qualifier4=($(cat $KOBMAN_DIR/envs/kob_env_$qualifier2/current))
 		__kobman_validate_version_format "$qualifier4" || return 1
 		__kobman_check_if_version_exists "${qualifier2}" "$qualifier4" || return 1
