@@ -2,6 +2,7 @@
 
 function __test_kob_init
 {
+	commands="install uninstall status list version help" #Update and selfupdate commands missing.
     if [[ -d $KOBMAN_DIR ]]; then
         source $KOBMAN_DIR/src/kobman-utils.sh
         __kobman_echo_no_colour "kob found"
@@ -12,39 +13,28 @@ function __test_kob_init
         echo "Exiting!"
         exit 1
     fi
-    #No need to check for init
-    if [[ ! -f $KOBMAN_DIR/var/list.txt ]]; then
-        __kobman_echo_no_colour "Could not find list.txt"
-        __kobman_echo_no_colour "Try reinstalling KOBman"
-        __kobman_echo_no_colour "Exiting!!!"
-        exit 1
-    fi
+    
 }
 
 function __test_kob_execute
 {
     kob help >> output.txt
-    echo $? >> result.txt # Don't think this is necessary as we check for kobman in the init.
 }
 
 function __test_kob_validate
 {
-    __kobman_echo_no_colour "Validating test command..." #validating help command
-    true=0 #use?
-    
-    cat result.txt | grep -q $true
+    __kobman_echo_no_colour "Validating help command..." 
     if [[ ! "$?" == "0" ]]; then
-        __kobman_echo_no_colour "test command did not execute properly"
+        __kobman_echo_no_colour "help command did not execute properly"
         test_status="failed"
         return 1
     fi
-    
-    commands="install uninstall status list version help" #move this into the init. Update and selfupdate commands missing.
+
     for command in $commands;
     do
     	cat output.txt |grep -iq $command
     	if [[ ! "$?" == "0" ]]; then
-    		__kobman_echo_no_colour "test command did not give the desired output" #help command instead of test command
+    		__kobman_echo_no_colour "help command did not give the desired output"
        		test_status="failed"
         	return 1
     	fi
@@ -53,7 +43,7 @@ function __test_kob_validate
 
 function __test_kob_cleanup
 {
-    rm output.txt result.txt
+    rm output.txt 
 }
 
 function __test_kob_run
