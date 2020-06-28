@@ -9,7 +9,7 @@ function __test_kob_init
     else
         echo "kob not found"
         echo "Please install KOBman and try again"
-        echo "Exiting!!1"
+        echo "Exiting!"
         exit 1
     fi
     if [[ ! -f $KOBMAN_DIR/var/list.txt ]]; then
