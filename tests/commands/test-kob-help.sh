@@ -2,7 +2,7 @@
 
 function __test_kob_init
 {
-	commands="install uninstall status list version help" #Update and selfupdate commands missing.
+	commands="install uninstall status list version help update selfupdate"
     if [[ -d $KOBMAN_DIR ]]; then
         source $KOBMAN_DIR/src/kobman-utils.sh
         __kobman_echo_no_colour "kob found"
@@ -24,7 +24,7 @@ function __test_kob_execute
 function __test_kob_validate
 {
     __kobman_echo_no_colour "Validating help command..." 
-    if [[ ! "$?" == "0" ]]; then
+    if [[ ! "$?" == 0 ]]; then
         __kobman_echo_no_colour "help command did not execute properly"
         test_status="failed"
         return 1
