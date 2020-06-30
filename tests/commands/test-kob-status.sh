@@ -19,28 +19,6 @@ function __test_kob_init
         echo "Exiting!!1"
         exit 1
     fi
-<<<<<<< HEAD
-    
-    # __kobman_echo_no_colour "Checking for installed environments...."
-    env_folder=($(find $KOBMAN_DIR/envs/ -name "kob_env_*" -print))
-    # if [[ -z $env_folder ]]; then
-    #     __kobman_echo_no_colour "No environments installed"
-    #     __kobman_echo_no_colour "Please install an enivornment first and try again"
-    #     __kobman_echo_no_colour "Exiting!!!"
-    #     status="false"
-    #     return 1
-    # else
-    #     __kobman_echo_no_colour "Environments found"
-    #     __kobman_echo_no_colour "Proceeding with the test..."
-    # fi
-    __kobman_echo_no_colour "creating and sourcing dummyenv files..."
-    touch $KOBMAN_DIR/var/kobman_env_$kobman_env_name.proc
-  
-    fake_publish_dummyenv
-  
-    create_install_dummyenv_script > $path_to_kob_envs/kobman-$kobman_env_name.sh
-    source $KOBMAN_DIR/bin/kobman-init.sh
-=======
     if [[ ! -f $KOBMAN_DIR/var/list.txt ]]; then
         __kobman_echo_no_colour "Could not find list.txt"
         __kobman_echo_no_colour "Try reinstalling KOBman"
@@ -55,27 +33,9 @@ function __test_kob_init
     fake_publish_dummyenv
     
  
->>>>>>> 781dceb13a95d7b797dcfc283cce9829b4338348
 }
 function __test_kob_execute
 {
-<<<<<<< HEAD
-    kob status >> state1.txt
-    __kobman_echo_no_colour "Executing install command for various versions of dummyenv"
-    __kobman_echo_white "Version-0.0.2"
-    kob install --environment dummyenv --version 0.0.2
-    kob status >> state2.txt
-    cat state2.txt
-    __kobman_echo_white "Version-0.0.3"
-    kob install --environment --version 0.0.3
-    kob status >> state3.txt
-    cat state3.txt
-    __kobman_echo_no_colour "Uninstalling dummyenv - version 0.0.2"
-    __kobman_uninstall_dummyenv 0.0.2
-    kob status >> state4.txt
-    cat state4.txt
-
-=======
     __kobman_echo_no_colour "Installing dummyenv"
     kob install -env $environment -V $version >> ~/output.txt
     cat ~/output.txt | grep -q "dummyenv installed"
@@ -96,7 +56,6 @@ function __test_kob_execute
     kob status
     kob status >> status2.txt 
     
->>>>>>> 781dceb13a95d7b797dcfc283cce9829b4338348
 }
 function __test_kob_validate
 {
@@ -136,69 +95,9 @@ function __test_kob_validate
         return 1
     fi   
 
-<<<<<<< HEAD
-function create_install_dummyenv_script(){
-  
-cat <<EOF
-#!/bin/bash
-function __kobman_install_dummyenv
-{
-  
-  cd ~
-  if [ ! -d "Dev_dummyenv" ]; then 
-    
-    __kobman_create_dev_environment 
-    __kobman_echo_white "dummyenv installed"
-  else
-    
-    rm -rf ~/Dev_dummyenv	
-    __kobman_create_dev_environment  
-    __kobman_echo_white "dummyenv installed"
-    
-  fi		
-}
-function __kobman_uninstall_dummyenv
-{
-    version=$1
-}
-function __kobman_update_dummyenv
-{
-    __kobman_echo_white "update"
-}
-function __kobman_upgrade_dummyenv
-{
-    __kobman_echo_white "upgraded"
-}
-function __kobman_start_dummyenv
-{
-    __kobman_echo_white "start"
-}
-function __kobman_stop_dummyenv
-{
-    __kobman_echo_white "stop"
-}
-function __kobman_create_dev_environment 
-{
-	 
-	cd ~
-	mkdir -p Dev_dummyenv
-	cd Dev_dummyenv
-	export DUMMYENV_DEV_DIR=$PWD
-	mkdir -p test/ dependency/
-}
-EOF
-}
-
-function __test_kob_run
-{
-    if [[ $status == "true" ]]; then
-        __test_kob_init
-    else
-=======
     if [[ -f $KOBMAN_DIR/envs/kobman_env_$environment/$version/kobman-$environment.sh ]]; then
         __kobman_echo_no_colour "Uninstall did not remove the file kob_env_$environment/$version/kobman-$environment.sh"
         test_status="failed"
->>>>>>> 781dceb13a95d7b797dcfc283cce9829b4338348
         return 1
     fi
 
