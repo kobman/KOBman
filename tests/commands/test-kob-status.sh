@@ -19,17 +19,12 @@ function __test_kob_init
         echo "Exiting!!1"
         exit 1
     fi
-    if [[ ! -f $KOBMAN_DIR/var/list.txt ]]; then
-        __kobman_echo_no_colour "Could not find list.txt"
-        __kobman_echo_no_colour "Try reinstalling KOBman"
-        __kobman_echo_no_colour "Exiting!!!"
-        exit 1
-    fi
+
     export INTERACTIVE_MODE="false"
     __kobman_echo_no_colour "Creating and sourcing dummyenv files..."
     touch $KOBMAN_DIR/var/kobman_env_$environment.proc
     create_install_dummyenv_script > $path_to_kob_envs/kobman-$environment.sh
-    source $KOBMAN_DIR/src/kobman-utils.sh
+    source $KOBMAN_DIR/src/kobman-status.sh
     fake_publish_dummyenv
     
  
@@ -59,7 +54,7 @@ function __test_kob_execute
 }
 function __test_kob_validate
 {
-    __kobman_echo_no_colour "validating uninstall command..."
+    __kobman_echo_no_colour "validating status command..."
     if [[ $(cat $KOBMAN_DIR/var/kobman_env_$environment.proc) == "1" ]]; then
         __kobman_echo_no_colour "install command did not execute properly"
         test_status="failed"
@@ -67,48 +62,34 @@ function __test_kob_validate
     fi
 
     cat status1.txt | grep -q "~ $environment  $version*"
-    if [[ "$?" == "0" ]]; then
-        __kobman_echo_blue "Current version verified of $environment."
-    else
-        __kobman_echo_red "Not the current version."
+    if [[ "$?" != "0" ]]; then
+        __kobman_echo_red "Not the current version of $environment."
     fi
     
     cat status3.txt | grep -q "$version"
-    if [[ "$?" == "0" ]]; then
-        __kobman_echo_green "Current version verified of $environment in the current file."
-    else
-        __kobman_echo_red "Not the current version."
+    if [[ "$?" != "0" ]]; then
+        __kobman_echo_red "Not the current version in the current file in $KOBMAN_DIR."
     fi
 
     cat status1.txt | grep -qw $environment
     if [[ "$?" != "0" ]]; then
-        __kobman_echo_no_colour "install command did not execute properly"
+        kob status
+        __kobman_echo_no_colour "Could not find $environment in the output of status."
         test_status="failed"
         return 1
     fi
 
     cat status2.txt | grep -qw $environment
     if [[ "$?" == "0" ]]; then
-        
-        __kobman_echo_no_colour "uninstall command did not execute properly"
+        kob status
+        __kobman_echo_no_colour "$environment was found after uninstalling in the output of status"
         test_status="failed"
         return 1
     fi   
 
-    if [[ -f $KOBMAN_DIR/envs/kobman_env_$environment/$version/kobman-$environment.sh ]]; then
-        __kobman_echo_no_colour "Uninstall did not remove the file kob_env_$environment/$version/kobman-$environment.sh"
-        test_status="failed"
-        return 1
-    fi
 
     if [[ -d $KOBMAN_DIR/envs/kobman_env_$environment/$version ]]; then
-        __kobman_echo_no_colour "Uninstall command did not remove the folder kob_env_$environment/$version"
-        test_status="failed"
-        return 1
-    fi
-
-    if [[ -d ~/Dev_$environment ]]; then
-        __kobman_echo_no_colour "Uninstall command did not remove the folder $HOME/$USR/Dev_$environment"
+        __kobman_echo_no_colour "Could not find the folder $KOBMAN_DIR/envs/kobman_env_$environment/$version"
         test_status="failed"
         return 1
     fi
