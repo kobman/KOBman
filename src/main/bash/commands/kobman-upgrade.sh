@@ -4,7 +4,7 @@ mkdir $KOBMAN_DIR/backup
 __kobman_echo_white "Making backups..."
 zip -r $KOBMAN_DIR/backup/kobman_backup.zip .kobman
 __kobman_echo_white "Removing current version..."
-find $KOBMAN_DIR -mindepth 1 -name backup -prune -o -exec rm -rf {} \;
+find $KOBMAN_DIR -mindepth 1 -name backup -prune -o -exec rm -rf {} +
 __kobman_echo_white "Fetching latest version..."
 __kobman_secure_curl https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/dist/dist/get.kobman.io | bash
 unzip $KOBMAN_DIR/backup/kobman_backup.zip -d $KOBMAN_DIR/backup
