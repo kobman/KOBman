@@ -67,3 +67,10 @@ Adding the SSH key to the ssh-agent ensures that your SSH key has an extra layer
 8. If prompted, confirm your GitHub password.
 
     ![Image of confirm password textbox](https://docs.github.com/assets/images/help/settings/sudo_mode_popup.png)
+    
+### Set up the repositoriy's origin branch to ssh
+
+Run the following command in the terminal
+        
+        $ git remote set-url origin git@github.com:nikhilbhardwaj/abc.git
+
