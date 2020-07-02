@@ -32,7 +32,7 @@ After the above 4 steps you will have your private key and public key in the fil
 
 2. Add your SSH private key to the ssh-agent. 
     
-        $ ssh-add ~/kobman_ssh.pub
+        $ ssh-add ~/kobman_ssh
         
 Adding the SSH key to the ssh-agent ensures that your SSH key has an extra layer of security through the use of a passphrase.
 
