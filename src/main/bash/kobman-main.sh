@@ -74,7 +74,14 @@ function kob {
 	if [ -n "$cmd_found" ]; then
 		# It's available as a shell function
 		if [ "$converted_cmd_name" = "install" ]; then
-			__kobman_identify_parameter
+			__kobman_identify_parameter || return 1
+			__kobman_check_ssh_key || return 1
+			
+			
+			__kob_"$converted_cmd_name" "${qualifier2}" "${qualifier4}"
+		elif [[ "$converted_cmd_name" == "uninstall" ]]; then
+			__kobman_identify_parameter || return 1
+			__kob_"$converted_cmd_name" "${qualifier2}" "${qualifier4}"
 		else
 			__kob_"$converted_cmd_name" "$2" "$3" "$4"
 			final_rc=$?
@@ -93,24 +100,33 @@ function __kobman_identify_parameter
 		return 1
 	fi
 
-	if [ "${qualifier1}" == "--environment" ] || [ "${qualifier1}" == "-env" ]; then
-
+	if [[ $qualifier2 == "all" ]]; then
+		return 0
+	fi
+	
+	if [[ "${qualifier1}" == "--environment" || "${qualifier1}" == "-env" ]]; then
+		
 		__kobman_validate_environment "${qualifier2}" || return 1
+	
 	fi
 
-	if [ "${qualifier3}" == "--version" ]; then
+	if [[ "${qualifier3}" == "--version" || "${qualifier3}" == "-V" ]]; then
 
 		__kobman_validate_version_format "${qualifier4}" || return 1
 		__kobman_check_if_version_exists "${qualifier2}" "${qualifier4}" || return 1
 	fi
 
-
-	if [ -z "${qualifier3}" ]; then
+	if [[ -z "${qualifier3}" && "$converted_cmd_name" == "uninstall" && -f $KOBMAN_DIR/envs/kob_env_$qualifier2/current ]]; then
+		qualifier4=($(cat $KOBMAN_DIR/envs/kob_env_$qualifier2/current))
+		__kobman_validate_version_format "$qualifier4" || return 1
+		__kobman_check_if_version_exists "${qualifier2}" "$qualifier4" || return 1
+	fi
+	
+	if [[ -z "${qualifier3}" && $converted_cmd_name = "install" ]]; then
 		__kobman_validate_version_format "$KOBMAN_VERSION" || return 1
 		__kobman_check_if_version_exists "${qualifier2}" "$KOBMAN_VERSION" || return 1
 	fi
 
-	__kob_"$converted_cmd_name" "${qualifier2}" "${qualifier4}"
-	 
-
 }
+
+
