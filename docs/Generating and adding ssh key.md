@@ -70,7 +70,7 @@ Adding the SSH key to the ssh-agent ensures that your SSH key has an extra layer
     
 ### Set up the repositoriy's origin branch to ssh
 
-Run the following command in the terminal
+Run the following command in the terminal substituting in your GitHub namespace
         
-        $ git remote set-url origin git@github.com:nikhilbhardwaj/abc.git
+        $ git remote set-url origin git@github.com:<your namespace>/KOBman.git
 
