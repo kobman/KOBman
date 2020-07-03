@@ -1,29 +1,29 @@
 #!/bin/bash
 function __kob_upgrade {
-mkdir ~/user_configs
+mkdir $KOBMAN_DIR/backup
 __kobman_echo_white "Making backups..."
-zip -r user_configs/kobman_backup.zip .kobman
+zip -r $KOBMAN_DIR/backup/kobman_backup.zip .kobman
 __kobman_echo_white "Removing current version..."
-rm -rf $KOBMAN_DIR
+find $KOBMAN_DIR -mindepth 1 -name backup -prune -o -exec rm -rf {} +
 __kobman_echo_white "Fetching latest version..."
-__kobman_secure_curl https://raw.githubusercontent.com/EtricKombat/KOBman/dist/dist/get.kobman.io | bash
-unzip user_configs/kobman_backup.zip -d ~/user_configs
+__kobman_secure_curl https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/dist/dist/get.kobman.io | bash
+unzip $KOBMAN_DIR/backup/kobman_backup.zip -d $KOBMAN_DIR/backup
 __kobman_echo_white "Restoring user configs..."
-dir=$(find  ~/user_configs/.kobman/envs -type d -name kob_env_*)
+dir=$(find  $KOBMAN_DIR/backup/.kobman/envs -type d -name kob_env_*)
 if [[ -n $dir ]]; then
-    mv ~/user_configs/.kobman/envs/kob_env_* $KOBMAN_DIR/envs
+    mv $KOBMAN_DIR/backup/.kobman/envs/kob_env_* $KOBMAN_DIR/envs
 fi
-if [[ -f ~/user_configs/.kobman/var/*.proc ]]; then
-    mv ~/user_configs/.kobman/var/*.proc $KOBMAN_DIR/var/
+if [[ -f $KOBMAN_DIR/backup/.kobman/var/*.proc ]]; then
+    mv $KOBMAN_DIR/backup/.kobman/var/*.proc $KOBMAN_DIR/var/
 fi
-if [[ -f ~/user_configs/.kobman/var/current ]]; then
-    mv ~/user_configs/.kobman/var/current $KOBMAN_DIR/var/
+if [[ -f $KOBMAN_DIR/backup/.kobman/var/current ]]; then
+    mv $KOBMAN_DIR/backup/.kobman/var/current $KOBMAN_DIR/var/
 fi
 source $KOBMAN_DIR/bin/kobman-init.sh
 __kobman_echo_blue "Upgraded successfully"
 __kobman_echo_blue "Current version:$(cat $KOBMAN_DIR/var/version.txt)"
 
-rm -rf ~/user_configs
+rm -rf $KOBMAN_DIR/backup
 
 ##TODO:- validate whether the user configs are compatible with the current version
 }
