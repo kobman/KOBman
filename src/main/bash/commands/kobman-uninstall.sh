@@ -5,7 +5,6 @@ function __kob_uninstall {
 local environment version
 environment=$1
 version=$2
-
 __kobman_check_parameter_present "$environment" "$version" || return 1
 
 # Condition where all the envs and its available versions will be removed
@@ -38,7 +37,7 @@ elif [[ -f $KOBMAN_DIR/envs/kob_env_$environment/current && $version == $(cat $K
   __kobman_uninstall_$environment
   __kobman_echo_green "Version $version for $environment has been uninstalled successfully"
  # 1) Current file is present and the user prompts to remove a previous version and 2) Current file is not present and the user prompts to reove a previous version 
-elif [[ -f $KOBMAN_DIR/envs/kob_env_$environment/current && version != $(cat $KOBMAN_DIR/envs/kob_env_$environment/current) || ! -f $KOBMAN_DIR/envs/kob_env_$environment/current && -d $KOBMAN_DIR/envs/kob_env_$environment/$version   ]]; then  
+elif [[ -f $KOBMAN_DIR/envs/kob_env_$environment/current && $version != $(cat $KOBMAN_DIR/envs/kob_env_$environment/current) || ! -f $KOBMAN_DIR/envs/kob_env_$environment/current && -d $KOBMAN_DIR/envs/kob_env_$environment/$version   ]]; then  
 
   __kobman_echo_white "$version for $environment is not the current version"
   __kobman_echo_white "The operation will still remove the files for the version."
