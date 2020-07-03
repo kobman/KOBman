@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 #!/bin/bash
 
 path_to_kob_envs="${KOBMAN_DIR}/envs"
@@ -181,4 +179,3 @@ __test_kob_run
 
 
 
->>>>>>> fd31352bde2684719a741570e0f37ec092d617bb
