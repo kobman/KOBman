@@ -49,6 +49,6 @@ function __kob_help {
 	__kobman_echo_white "              Eg: $ kob version tobvon"
 	__kobman_echo_white ""
 	__kobman_echo_white "help        : $ kob help"
-    __kobman_echo_white "              Displays the KOBman manual"
+    	__kobman_echo_white "              Displays the KOBman manual"
 	
 }
