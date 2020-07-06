@@ -14,7 +14,7 @@ if [[ $environment == "all" && -z $version ]]; then
   __kobman_interactive_uninstall || return 1
   __kobman_echo_white "Removing files..."
   rm -rf $KOBMAN_DIR/envs/kob_env_*
-  rm -rf ~/Dev_*
+  rm -rf $HOME/Dev_*
   __kobman_echo_green "Files removed successfully."
 # Condition where no current file is present and the user executes uninstall without version parameter
 elif [[ ! -f $KOBMAN_DIR/envs/kob_env_$environment/current && -z $version ]]; then
@@ -34,7 +34,7 @@ elif [[ -f $KOBMAN_DIR/envs/kob_env_$environment/current && $version == $(cat $K
   if [[ -z $l ]]; then
     rm -rf $KOBMAN_DIR/envs/kob_env_$environment
   fi
-  __kobman_uninstall_$environment
+  __kobman_uninstall_$environment "$environment"
   __kobman_echo_green "Version $version for $environment has been uninstalled successfully"
  # 1) Current file is present and the user prompts to remove a previous version and 2) Current file is not present and the user prompts to reove a previous version 
 elif [[ -f $KOBMAN_DIR/envs/kob_env_$environment/current && $version != $(cat $KOBMAN_DIR/envs/kob_env_$environment/current) || ! -f $KOBMAN_DIR/envs/kob_env_$environment/current && -d $KOBMAN_DIR/envs/kob_env_$environment/$version   ]]; then  
