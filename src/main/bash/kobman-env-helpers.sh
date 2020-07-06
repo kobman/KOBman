@@ -41,7 +41,7 @@ function __kobman_interactive_uninstall
 
 function __kobman_check_ssh_key
 {
-  if [[ ! -f ~/kobman_ssh || ! -f ~/kobman_ssh.pub ]]; then
+  if [[ ! -f $HOME/kobman_ssh || ! -f $HOME/kobman_ssh.pub ]]; then
     __kobman_echo_no_colour "No ssh key found."
     __kobman_echo_no_colour ""
     __kobman_echo_no_colour "Follow the instructions in the below link to generate an ssh key and link it with your remote"
