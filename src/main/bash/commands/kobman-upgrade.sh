@@ -19,11 +19,15 @@ fi
 if [[ -f $KOBMAN_DIR/bak/.kobman/var/current ]]; then
     mv $KOBMAN_DIR/bak/.kobman/var/current $KOBMAN_DIR/var/
 fi
+
+if [[ -d $KOBMAN_DIR/bak ]]; then
+    rm -rf $KOBMAN_DIR/bak
+fi
 source $KOBMAN_DIR/bin/kobman-init.sh
 __kobman_echo_blue "Upgraded successfully"
 __kobman_echo_blue "Current version:$(cat $KOBMAN_DIR/var/version.txt)"
 
-rm -rf $KOBMAN_DIR/bak
+
 
 ##TODO:- validate whether the user configs are compatible with the current version
 }
