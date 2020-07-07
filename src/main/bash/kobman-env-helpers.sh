@@ -11,12 +11,12 @@ function __kobman_check_parameter_present
     return 0
   fi
 
-  if [[ ! -d $KOBMAN_DIR/envs/kob_env_$environment ]]; then
+  if [[ ! -d $KOBMAN_DIR/envs/kobman-$environment ]]; then
     __kobman_echo_red "$environment is not installed in your local system"
     return 1
   fi
   
-  if [[ ! -d $KOBMAN_DIR/envs/kob_env_$environment/$version ]]; then
+  if [[ ! -d $KOBMAN_DIR/envs/kobman-$environment/$version ]]; then
     __kobman_echo_red "Version $version for $environment is not installed in your system."
     return 1
   fi
@@ -60,7 +60,7 @@ function __kobman_create_fork
   local environment=$1
   curl -s https://api.github.com/repos/$KOBMAN_NAMESPACE/$environment | grep -q "Not Found"
   if [[ "$?" == "0" ]]; then
-    __kobman_echo_white "Creating a fork under your namespace $KOBMAN_NAMESPACE"
+    __kobman_echo_white "Creating a fork of https://github.com/hyperledgerkochi/$environment under your namespace $KOBMAN_NAMESPACE"
     curl -s -u  $KOBMAN_NAMESPACE https://api.github.com/repos/hyperledgerkochi/$environment/forks -d ''  > /dev/null
     curl -s https://api.github.com/repos/$KOBMAN_NAMESPACE/$environment | grep -q "Not Found"
     if [[ "$?" == "0" ]]; then
@@ -70,7 +70,7 @@ function __kobman_create_fork
       return 1
     fi
   else
-    __kobman_echo_white "Fork of https://github.com/hyperledgerkochi/$environment found under your namespace $KOBMAN_NAMESPACE"
+    
     return 0
   fi
 }
