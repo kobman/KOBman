@@ -59,9 +59,9 @@ function __test_kob_run
     __test_kob_validate
     __test_kob_cleanup
     if [[ $test_status == "success" ]]; then
-        __kobman_echo_green "test-kob-update success"
+        __kobman_echo_green "test-kob-upgrade success"
     else
-        __kobman_echo_red "test-kob-update failed"
+        __kobman_echo_red "test-kob-upgrade failed"
     fi
 }
 __test_kob_run
