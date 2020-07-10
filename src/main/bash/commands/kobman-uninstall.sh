@@ -14,7 +14,9 @@ if [[ $environment == "all" && -z $version ]]; then
   __kobman_interactive_uninstall || return 1
   __kobman_echo_white "Removing files..."
   find $KOBMAN_DIR/envs -maxdepth 1 -mindepth 1 -type d -exec rm -rf '{}' \;
-  rm -rf $HOME/Dev_*
+  if [[ -n $KOBMAN_ENV_ROOT ]]; then
+    rm -rf $KOBMAN_ENV_ROOT
+  fi
   __kobman_echo_green "Files removed successfully."
 # Condition where no current file is present and the user executes uninstall without version parameter
 elif [[ ! -f $KOBMAN_DIR/envs/kobman-$environment/current && -z $version ]]; then
