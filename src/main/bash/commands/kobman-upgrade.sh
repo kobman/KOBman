@@ -15,10 +15,10 @@ for i in "${dir[@]}"; do
     mv $KOBMAN_DIR/bak/.kobman/envs/$n $KOBMAN_DIR/envs
 done
 if [[ -f $KOBMAN_DIR/bak/.kobman/var/*.proc ]]; then
-    mv $KOBMAN_DIR/bak/.kobman/var/*.proc $KOBMAN_DIR/var/
+    mv $KOBMAN_DIR/bak/.kobman/var/*.proc $KOBMAN_DIR/var
 fi
 if [[ -f $KOBMAN_DIR/bak/.kobman/var/current ]]; then
-    mv $KOBMAN_DIR/bak/.kobman/var/current $KOBMAN_DIR/var/
+    mv $KOBMAN_DIR/bak/.kobman/var/current $KOBMAN_DIR/var
 fi
 source $KOBMAN_DIR/bin/kobman-init.sh
 __kobman_echo_blue "Upgraded successfully"
