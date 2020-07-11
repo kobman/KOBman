@@ -10,9 +10,10 @@ __kobman_secure_curl https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/
 unzip $KOBMAN_DIR/bak/kobman_bak.zip -d $KOBMAN_DIR/bak
 __kobman_echo_white "Restoring user configs..."
 dir=$(find  $KOBMAN_DIR/bak/.kobman/envs -type d -name kobman-*)
-if [[ -n $dir ]]; then
-    mv $KOBMAN_DIR/bak/.kobman/envs/kobman-* $KOBMAN_DIR/envs
-fi
+for i in "${dir[@]}"; do
+    n=${i##*/}
+    mv $KOBMAN_DIR/bak/.kobman/envs/$n $KOBMAN_DIR/envs
+done
 if [[ -f $KOBMAN_DIR/bak/.kobman/var/*.proc ]]; then
     mv $KOBMAN_DIR/bak/.kobman/var/*.proc $KOBMAN_DIR/var/
 fi
@@ -23,6 +24,7 @@ source $KOBMAN_DIR/bin/kobman-init.sh
 __kobman_echo_blue "Upgraded successfully"
 __kobman_echo_blue "Current version:$(cat $KOBMAN_DIR/var/version.txt)"
 
+unset n i dir
 rm -rf $KOBMAN_DIR/bak
 
 ##TODO:- validate whether the user configs are compatible with the current version
