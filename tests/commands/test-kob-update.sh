@@ -28,6 +28,11 @@ function __test_kob_execute
 
 function __test_kob_validate
 {
+    __kobman_echo_no_colour "Validating update command"
+    __kobman_echo_no_colour "Before updation:"
+    cat $HOME/ts1_result.out
+    __kobman_echo_no_colour "After updation:"
+    cat $HOME/ts2_result.out
     sort -u $HOME/ts1_result.out >> $HOME/sorted_result1.out
 	sort -u $HOME/ts2_result.out >> $HOME/sorted_result2.out
 	local diff=$(comm -3 $HOME/sorted_result1.out $HOME/sorted_result2.out)
