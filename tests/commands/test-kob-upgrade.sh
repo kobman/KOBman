@@ -22,17 +22,17 @@ function __test_kob_init
 function __test_kob_execute
 {
     __kobman_echo_no_colour "Executing commands"
-    kob -V >> $HOME/old.txt
+    kob -V >> $HOME/ts1_result.out
     tree $KOBMAN_DIR/envs >> $HOME/tree1.txt
     kob upgrade >> $HOME/output.txt
     tree $KOBMAN_DIR/envs >> $HOME/tree2.txt
-    kob -V >> $HOME/new.txt
+    kob -V >> $HOME/ts2_result.out
 }
 
 function __test_kob_validate
 {
     __kobman_echo_no_colour "Validating upgrade command...."
-    diff1=$(comm -3 $HOME/old.txt $HOME/new.txt)
+    diff1=$(comm -3 $HOME/ts1_result.out $HOME/ts2_result.out)
     if [[ -z $diff1 ]]; then
         __kobman_echo_no_colour "Version did not change after upgrading"
         test_status="failed"
@@ -49,7 +49,7 @@ function __test_kob_validate
 
 function __test_kob_cleanup
 {
-    rm $HOME/output.txt $HOME/old.txt $HOME/new.txt $HOME/tree1.txt $HOME/tree2.txt
+    rm $HOME/output.txt $HOME/*.out $HOME/tree1.txt $HOME/tree2.txt
 }
 function __test_kob_run
 {
