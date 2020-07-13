@@ -15,9 +15,11 @@ if [ -z "$KOBMAN_DIR" ]; then
 	export KOBMAN_DIR="$HOME/.kobman"
 fi
 
-if [[ -z "$INTERACTIVE_MODE" ]]; then
-	export INTERACTIVE_MODE="true"
+if [[ -z "$KOBMAN_INTERACTIVE_USER_MODE" ]]; then
+	export KOBMAN_INTERACTIVE_USER_MODE="true"
 fi
+
+
 # infer platform
 KOBMAN_PLATFORM="$(uname)"
 if [[ "$KOBMAN_PLATFORM" == 'Linux' ]]; then
