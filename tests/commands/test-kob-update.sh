@@ -44,9 +44,6 @@ function __test_kob_validate
 function __test_kob_cleanup
 {
     rm $HOME/ts*_result.out $HOME/remote_list*.txt $HOME/sorted_result*.out
-    unset KOBMAN_NAMESPACE
-    unset KOBMAN_REMOTE_BRANCH
-    source $KOBMAN_DIR/bin/kobman-init.sh
 }
 
 function __test_kob_run
