@@ -12,7 +12,7 @@ function __kobman_install_KOBman
 	if [[ ! -d $KOBMAN_ENV_ROOT ]]; then
 		__kobman_create_fork "${environment_name}" || return 1
  		__kobman_echo_white "Creating Dev environment for ${environment_name}"
- 		__kobman_echo_white "from https://github.com/${KOBMAN_NAMESPACE}/${environment_name}"
+ 		__kobman_echo_white "from https://github.com/${KOBMAN_USER_NAMESPACE}/${environment_name}"
  		__kobman_echo_white "version :${version_id} "
 		__kobman_create_dev_environment "$environment_name" || return 1
 		__kobman_echo_violet "Dev environment for ${environment_name} created successfully"
