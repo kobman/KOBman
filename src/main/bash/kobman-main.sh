@@ -75,6 +75,9 @@ function kob {
 		# It's available as a shell function
 		if [ "$converted_cmd_name" = "install" ]; then
 			__kobman_identify_parameter || return 1
+			__kobman_check_ssh_key || return 1
+			
+			
 			__kob_"$converted_cmd_name" "${qualifier2}" "${qualifier4}"
 		elif [[ "$converted_cmd_name" == "uninstall" ]]; then
 			__kobman_identify_parameter || return 1
@@ -124,7 +127,6 @@ function __kobman_identify_parameter
 		__kobman_check_if_version_exists "${qualifier2}" "$KOBMAN_VERSION" || return 1
 	fi
 
-	
-	 
-
 }
+
+
