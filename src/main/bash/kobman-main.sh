@@ -76,8 +76,6 @@ function kob {
 		if [ "$converted_cmd_name" = "install" ]; then
 			__kobman_identify_parameter || return 1
 			__kobman_check_ssh_key || return 1
-			
-			
 			__kob_"$converted_cmd_name" "${qualifier2}" "${qualifier4}"
 		elif [[ "$converted_cmd_name" == "uninstall" ]]; then
 			__kobman_identify_parameter || return 1
@@ -116,8 +114,8 @@ function __kobman_identify_parameter
 		__kobman_check_if_version_exists "${qualifier2}" "${qualifier4}" || return 1
 	fi
 
-	if [[ -z "${qualifier3}" && "$converted_cmd_name" == "uninstall" && -f $KOBMAN_DIR/envs/kob_env_$qualifier2/current ]]; then
-		qualifier4=($(cat $KOBMAN_DIR/envs/kob_env_$qualifier2/current))
+	if [[ -z "${qualifier3}" && "$converted_cmd_name" == "uninstall" && -f $KOBMAN_DIR/envs/kobman-$qualifier2/current ]]; then
+		qualifier4=($(cat $KOBMAN_DIR/envs/kobman-$qualifier2/current))
 		__kobman_validate_version_format "$qualifier4" || return 1
 		__kobman_check_if_version_exists "${qualifier2}" "$qualifier4" || return 1
 	fi
@@ -128,5 +126,3 @@ function __kobman_identify_parameter
 	fi
 
 }
-
-

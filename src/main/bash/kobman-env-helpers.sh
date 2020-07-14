@@ -11,12 +11,12 @@ function __kobman_check_parameter_present
     return 0
   fi
 
-  if [[ ! -d $KOBMAN_DIR/envs/kob_env_$environment ]]; then
+  if [[ ! -d $KOBMAN_DIR/envs/kobman-$environment ]]; then
     __kobman_echo_red "$environment is not installed in your local system"
     return 1
   fi
   
-  if [[ ! -d $KOBMAN_DIR/envs/kob_env_$environment/$version ]]; then
+  if [[ ! -d $KOBMAN_DIR/envs/kobman-$environment/$version ]]; then
     __kobman_echo_red "Version $version for $environment is not installed in your system."
     return 1
   fi
@@ -26,7 +26,7 @@ function __kobman_check_parameter_present
 
 function __kobman_interactive_uninstall
 {
-  if [[ $INTERACTIVE_MODE = "true" ]]; then
+  if [[ $KOBMAN_INTERACTIVE_USER_MODE = "true" ]]; then
     read -p "Would you like to proceed?(y/n):" c
     if [[ $c == "n" ]]; then
       __kobman_echo_no_colour "Exiting!!!"
@@ -41,7 +41,7 @@ function __kobman_interactive_uninstall
 
 function __kobman_check_ssh_key
 {
-  if [[ ! -f ~/kobman_ssh || ! -f ~/kobman_ssh.pub ]]; then
+  if [[ ! -f $HOME/kobman_ssh || ! -f $HOME/kobman_ssh.pub ]]; then
     __kobman_echo_no_colour "No ssh key found."
     __kobman_echo_no_colour ""
     __kobman_echo_no_colour "Follow the instructions in the below link to generate an ssh key and link it with your remote"
@@ -58,20 +58,42 @@ function __kobman_check_ssh_key
 function __kobman_create_fork
 {
   local environment=$1
-  curl -s https://api.github.com/repos/$KOBMAN_NAMESPACE/$environment | grep -q "Not Found"
+  if [[ -z $KOBMAN_USER_NAMESPACE ]]; then
+    __kobman_echo_no_colour "user namespace not found"
+    __kobman_echo_no_colour ""
+    __kobman_echo_no_colour "Please run the below command by substituing <namespace> with your namespace"
+    __kobman_echo_no_colour ""
+    __kobman_echo_white "$ export KOBMAN_USER_NAMESPACE=<namespace>"
+    __kobman_echo_no_colour ""
+    __kobman_error_rollback "$environment"
+    return 1
+  fi
+  curl -s https://api.github.com/repos/$KOBMAN_USER_NAMESPACE/$environment | grep -q "Not Found"
   if [[ "$?" == "0" ]]; then
-    __kobman_echo_white "Creating a fork under your namespace $KOBMAN_NAMESPACE"
-    curl -s -u  $KOBMAN_NAMESPACE https://api.github.com/repos/hyperledgerkochi/$environment/forks -d ''  > /dev/null
-    curl -s https://api.github.com/repos/$KOBMAN_NAMESPACE/$environment | grep -q "Not Found"
+    __kobman_echo_white "Creating a fork of https://github.com/$KOBMAN_NAMESPACE/$environment under your namespace $KOBMAN_USER_NAMESPACE"
+    curl -s -u  $KOBMAN_NAMESPACE https://api.github.com/repos/$KOBMAN_NAMESPACE/$environment/forks -d ''  > /dev/null
+    curl -s https://api.github.com/repos/$KOBMAN_USER_NAMESPACE/$environment | grep -q "Not Found"
     if [[ "$?" == "0" ]]; then
       __kobman_echo_red "Could not create fork"
       __kobman_echo_red "Please try again"
       __kobman_echo_no_colour "Make sure you have given the correct environment name"
+      __kobman_error_rollback "$environment"
       return 1
     fi
   else
-    __kobman_echo_white "Fork of https://github.com/hyperledgerkochi/$environment found under your namespace $KOBMAN_NAMESPACE"
+    
     return 0
   fi
 }
+function __kobman_error_rollback
+{
+  local environment=$1
+  if [[ -d $KOBMAN_DIR/envs/kobman-$environment ]]; then
+    rm -rf $KOBMAN_DIR/envs/kobman-$environment
+  fi
 
+  if [[ -d $KOBMAN_ENV_ROOT ]]; then
+    rm -rf $KOBMAN_ENV_ROOT
+  fi
+
+}
