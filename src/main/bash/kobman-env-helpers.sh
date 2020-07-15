@@ -82,14 +82,14 @@ function __kobman_create_fork
     if [[ -d $KOBMAN_NAMESPACE/$environment ]]; then
       rm -rf $KOBMAN_NAMESPACE/$environment
     fi
-    curl -s https://api.github.com/repos/$KOBMAN_USER_NAMESPACE/$environment | grep -q "Not Found"
-    if [[ "$?" == "0" ]]; then
-      __kobman_echo_red "Could not create fork"
-      __kobman_echo_red "Please try again"
-      __kobman_echo_no_colour "Make sure you have given the correct environment name"
-      __kobman_error_rollback "$environment"
-      return 1
-    fi
+    # curl -s https://api.github.com/repos/$KOBMAN_USER_NAMESPACE/$environment | grep -q "Not Found"
+    # if [[ "$?" == "0" ]]; then
+    #   __kobman_echo_red "Could not create fork"
+    #   __kobman_echo_red "Please try again"
+    #   __kobman_echo_no_colour "Make sure you have given the correct environment name"
+    #   __kobman_error_rollback "$environment"
+    #   return 1
+    # fi
   else
     
     return 0
