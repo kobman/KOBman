@@ -34,7 +34,6 @@ function __test_kob_execute
     __kobman_echo_no_colour "Installing dummyenv"
     kob install -env $environment -V $version >> $HOME/install_output.txt
     cat $HOME/install_output.txt | grep -q "dummyenv installed"
-    cat $KOBMAN_DIR/envs/kobman-$environment/current >> $HOME/ts3_result.out
     if [[ "$?" == "0" ]]; then
         __kobman_echo_no_colour "0" > $KOBMAN_DIR/var/kobman_env_$environment.proc
         __kobman_echo_white "Output of status"
@@ -42,6 +41,9 @@ function __test_kob_execute
         kob status
     else
         __kobman_echo_no_colour "1" > $KOBMAN_DIR/var/kobman_env_$environment.proc    
+    fi
+    if [[ -f $KOBMAN_DIR/envs/kobman-$environment/current ]]; then
+        cat $KOBMAN_DIR/envs/kobman-$environment/current >> $HOME/ts3_result.out
     fi
     kob status >> $HOME/ts1_result.out
     __kobman_echo_no_colour "Removing dummyenv"
