@@ -20,7 +20,7 @@ function __kobman_install_KOBman
  		__kobman_echo_white "Removing existing version "
 		rm -rf $KOBMAN_ENV_ROOT
  		__kobman_echo_white "Creating Dev environment for ${environment_name}"
- 		__kobman_echo_white "from https://github.com/${KOBMAN_NAMESPACE}/${environment_name}"
+ 		__kobman_echo_white "from https://github.com/${KOBMAN_USER_NAMESPACE}/${environment_name}"
  		__kobman_echo_white "version :${version_id} "
 		__kobman_create_dev_environment  "$environment_name" || return 1
 		__kobman_echo_violet "Dev environment for ${environment_name} created successfully"
@@ -35,7 +35,7 @@ function __kobman_create_dev_environment
 	
 	local environment_name=$1
 	mkdir -p $KOBMAN_ENV_ROOT
-	git clone -q https://github.com/$KOBMAN_NAMESPACE/${environment_name} $KOBMAN_ENV_ROOT/$environment_name
+	git clone -q https://github.com/$KOBMAN_USER_NAMESPACE/${environment_name} $KOBMAN_ENV_ROOT/$environment_name
 	if [[ ! -d $KOBMAN_ENV_ROOT || ! -d $KOBMAN_ENV_ROOT/$environment_name ]]; then
 		__kobman_error_rollback $environment_name
 		return 1
