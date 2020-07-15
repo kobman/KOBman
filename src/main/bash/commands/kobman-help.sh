@@ -1,54 +1,54 @@
 #!/usr/bin/env bash
 
 function __kob_help {
+cat << EOF
+KOBman - Help 
+---------------------------------------------------------
+$ kob <command> <qualifer> 
 
-	__kobman_echo_yellow "KOBman - Help"
-	__kobman_echo_blue "------------------------------------------------------------"
-	__kobman_echo_white " $ kob <command> <qualifer> <version> <namespace>"   
-	__kobman_echo_white ""
-	__kobman_echo_white "namespace"
-	__kobman_echo_blue "-------------------------------------------------------------"
-	__kobman_echo_white "A Namespace is a mechanism to partition resources created by"
-	__kobman_echo_white "users into a logically named group."
-	__kobman_echo_white ""
-	__kobman_echo_white "bcgov  		: The namespace of the British Columbia"
-	__kobman_echo_white "hyperledgerkochi: The namespace of Kochi"
-	__kobman_echo_white ""
-	__kobman_echo_white "Environment"
-	__kobman_echo_blue "-------------------------------------------------------------"
-	__kobman_echo_white ""
-	__kobman_echo_white "tobvon     : https://github.com/hyperledgerkochi/von-network"
-	__kobman_echo_white "tob        : https://github.com/hyperledgerkochi/TheOrgBook"
-	__kobman_echo_white "greenlight : https://github.com/hyperledgerkochi/greenlight"
-	__kobman_echo_white "kobman     : https://github.com/hyperlederkochi/KOBman"
-	__kobman_echo_white ""
-	__kobman_echo_white ""
-	__kobman_echo_white "Commands"
-	__kobman_echo_blue "-------------------------------------------------------------"
-	__kobman_echo_white "install     : $ kob install <environment><version><namespace>"          
-	__kobman_echo_white "              The command is used to install the specified "
-	__kobman_echo_white "              environment."
-	__kobman_echo_white "              Eg: $ kob install --dev tobvon bcgov"
-	__kobman_echo_white ""
-	__kobman_echo_white "uninstall   : $ kob uninstall <qualifier> <environment> <namespace>"
-	__kobman_echo_white "              The command is used to uninstall the specified "
-	__kobman_echo_white "              environment."
-	__kobman_echo_white "              Eg: $ kob uninstall --dev tobvon bcgov"
-	__kobman_echo_white ""
-	__kobman_echo_white "status      : $ kob status"  
-	__kobman_echo_white "              The command displays the installed environments."
-	__kobman_echo_white ""
-	__kobman_echo_white "list        : $ kob list"
-	__kobman_echo_white "              The command lists the various environment that "
-	__kobman_echo_white "              can be installed."
-	__kobman_echo_white ""
-	__kobman_echo_white "version     : $ kob version <environment>"
-	__kobman_echo_white "              The command displays the version of the specified "
-	__kobman_echo_white "              environment."
-	__kobman_echo_white "              "
-	__kobman_echo_white "              Eg: $ kob version tobvon"
-	__kobman_echo_white ""
-	__kobman_echo_white "help        : $ kob help"
-    	__kobman_echo_white "              Displays the KOBman manual"
-	
+<qualifier>   : environment, version, namespace
+
+<command> 
+ ----------------------------------------------------------
+install       : $ kob install –env [env_name] -V [version]
+		The command is used to install the specified
+		environment.
+		Eg: $ kob install -env von-network –V 0.0.2
+
+uninstall     : $ kob uninstall --environment [env_name]
+		or
+		$ kob uninstall –env [env_name] -V [version]
+		The command is used to uninstall the specified
+		environment.
+		Eg: $ kob uninstall –env KOBman
+
+status        : $ kob status
+		The command displays the installed environments.
+
+list          : $ kob list
+		The command lists the various environment that
+		can be installed.
+
+upgrade       : $ kob upgrade
+		Upgrades KOBman to next version available.
+
+update        : $ kob update
+		Updates the list file with lastest changes.
+
+version       : Version of KOBman Utility
+		-------------------------
+		$ kob --version or kob –V
+		This command displays the version of KOBman
+		installed on the host.
+
+		Version of an Environment
+		-------------------------
+		$ kob -V -env [env_name]
+		The command displays the version of the specified
+		environment.
+		Eg: $ kob -V -env greenlight
+
+help          : $ kob help
+		Displays the KOBman manual
+EOF
 }
