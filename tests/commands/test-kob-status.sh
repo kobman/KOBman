@@ -20,11 +20,11 @@ function __test_kob_init
         exit 1
     fi
 
-    export INTERACTIVE_MODE="false"
+    export KOBMAN_INTERACTIVE_USER_MODE="false"
     __kobman_echo_no_colour "Creating and sourcing dummyenv files..."
     touch $KOBMAN_DIR/var/kobman_env_$environment.proc
     create_install_dummyenv_script > $path_to_kob_envs/kobman-$environment.sh
-    source $KOBMAN_DIR/src/kobman-status.sh
+    source $KOBMAN_DIR/bin/kobman-init.sh
     fake_publish_dummyenv
     
  
@@ -32,9 +32,9 @@ function __test_kob_init
 function __test_kob_execute
 {
     __kobman_echo_no_colour "Installing dummyenv"
-    kob install -env $environment -V $version >> $HOME/output.txt
-    cat $HOME/output.txt | grep -q "dummyenv installed"
-    cat $KOBMAN_DIR/envs/kob_env_$environment/current >> $HOME/status3.txt
+    kob install -env $environment -V $version >> $HOME/install_output.txt
+    cat $HOME/install_output.txt | grep -q "dummyenv installed"
+    cat $KOBMAN_DIR/envs/kobman-$environment/current >> $HOME/ts3_result.out
     if [[ "$?" == "0" ]]; then
         __kobman_echo_no_colour "0" > $KOBMAN_DIR/var/kobman_env_$environment.proc
         __kobman_echo_white "Output of status"
@@ -43,13 +43,13 @@ function __test_kob_execute
     else
         __kobman_echo_no_colour "1" > $KOBMAN_DIR/var/kobman_env_$environment.proc    
     fi
-    kob status >> $HOME/status1.txt
+    kob status >> $HOME/ts1_result.out
     __kobman_echo_no_colour "Removing dummyenv"
-    kob uninstall -env $environment -V $version
+    kob uninstall -env $environment -V $version >> $HOME/uninstall_output.txt
     __kobman_echo_white "Output of status"
     __kobman_echo_white "----------------"
     kob status
-    kob status >> $HOME/status2.txt 
+    kob status >> $HOME/ts2_result.out 
     
 }
 function __test_kob_validate
@@ -61,17 +61,17 @@ function __test_kob_validate
         return 1
     fi
 
-    cat $HOME/status1.txt | grep -q "~ $environment  $version*"
+    cat $HOME/ts1_result.out | grep -q "~ $environment  $version*"
     if [[ "$?" != "0" ]]; then
         __kobman_echo_red "Not the current version of $environment."
     fi
     
-    cat $HOME/status3.txt | grep -q "$version"
+    cat $HOME/ts3_result.out | grep -q "$version"
     if [[ "$?" != "0" ]]; then
         __kobman_echo_red "Not the current version in the current file in $KOBMAN_DIR."
     fi
 
-    cat $HOME/status1.txt | grep -qw $environment
+    cat $HOME/ts1_result.out | grep -qw $environment
     if [[ "$?" != "0" ]]; then
         kob status
         __kobman_echo_no_colour "Could not find $environment in the output of status."
@@ -79,7 +79,7 @@ function __test_kob_validate
         return 1
     fi
 
-    cat $HOME/status2.txt | grep -qw $environment
+    cat $HOME/ts2_result.out | grep -qw $environment
     if [[ "$?" == "0" ]]; then
         kob status
         __kobman_echo_no_colour "$environment was found after uninstalling in the output of status"
@@ -97,7 +97,7 @@ function __test_kob_validate
 
 function __test_kob_cleanup
 {
-    rm $HOME/output.txt $HOME/status*.txt $KOBMAN_DIR/var/kobman_env_$environment.proc $path_to_kob_envs/kobman-$environment.sh
+    rm $HOME/*.out $KOBMAN_DIR/var/kobman_env_$environment.proc $path_to_kob_envs/kobman-$environment.sh $HOME/*_output.txt
     sed -i "s/dummyenv,0.0.2,0.0.3,0.0.5,0.0.7,0.0.9//g" $KOBMAN_DIR/var/list.txt
 }
 
