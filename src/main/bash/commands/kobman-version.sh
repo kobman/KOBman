@@ -14,17 +14,17 @@ function __kob_version {
 
   if [ -z "$environment_parameter" ]
         then
-                echo "KOBman utility version" "$(cat ${KOBMAN_DIR}/var/version.txt)"
+		echo "KOBman utility version" "$(cat ${KOBMAN_DIR}/var/version.txt)"
     return 0
         fi
 
  
 
-  if [[ ! -z $environment_value && -f "${KOBMAN_DIR}/envs/kob_env_${environment_value}/current" ]]
+  if [[ ! -z $environment_value && -f "${KOBMAN_DIR}/envs/kobman-${environment_value}/current" ]]
   then
-                echo "${environment_value} version" "$(cat ${KOBMAN_DIR}/envs/kob_env_${environment_value}/current)"
+		echo "${environment_value} version" "$(cat ${KOBMAN_DIR}/envs/kobman-${environment_value}/current)"
   else
-                __kobman_echo_red "$environment_value environment is not installed in the Local system !"
+		__kobman_echo_red "$environment_value environment is not installed in the Local system !"
   fi
 
  
