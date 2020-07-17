@@ -59,11 +59,13 @@ function __kobman_create_fork
 {
   local environment=$1
   if [[ -z $KOBMAN_USER_NAMESPACE ]]; then
-    __kobman_echo_no_colour "user namespace not found"
-    __kobman_echo_no_colour ""
-    __kobman_echo_no_colour "Please run the below command by substituing <namespace> with your namespace"
+    __kobman_echo_no_colour "Please run the below command by substituing <namespace> with your GitHub id"
     __kobman_echo_no_colour ""
     __kobman_echo_white "$ export KOBMAN_USER_NAMESPACE=<namespace>"
+    __kobman_echo_no_colour ""
+    __kobman_echo_no_colour "Eg: export KOBMAN_USER_NAMESPACE=abc123"
+    __kobman_echo_no_colour ""
+    __kobman_echo_no_colour "Please run the install command after exporting your Github id"
     __kobman_echo_no_colour ""
     __kobman_error_rollback "$environment"
     return 1
