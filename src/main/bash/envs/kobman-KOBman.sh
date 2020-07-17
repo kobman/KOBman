@@ -52,16 +52,14 @@ function __kobman_uninstall_KOBman
 		return 1
 	fi
 	__kobman_echo_white "Removing dev environment for KOBman"
-	cd $KOBMAN_ENV_ROOT/$environment
-	git status | grep "modified"
+	# cd $KOBMAN_ENV_ROOT/$environment
+	git --git-dir=$KOBMAN_ENV_ROOT/$environment/.git --work-tree=$KOBMAN_ENV_ROOT/$environment status | grep -e "modified" -e "untracked"
 	if [[ "$?" == "0" ]]; then
-		__kobman_echo_white "You have unsaved works"
-		__kobman_echo_white "Uninstalling will remove all of the work done"
+		__kobman_echo_red "You have unsaved works"
+		__kobman_echo_red "Uninstalling will remove all of the work done"
 		__kobman_interactive_uninstall || return 1
-		cd $HOME
 		rm -rf $KOBMAN_ENV_ROOT
 	else
-		cd $HOME
 		rm -rf $KOBMAN_ENV_ROOT
 	fi
 }
