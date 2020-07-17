@@ -59,27 +59,39 @@ function __kobman_create_fork
 {
   local environment=$1
   if [[ -z $KOBMAN_USER_NAMESPACE ]]; then
-    __kobman_echo_no_colour "user namespace not found"
-    __kobman_echo_no_colour ""
-    __kobman_echo_no_colour "Please run the below command by substituing <namespace> with your namespace"
+    __kobman_echo_no_colour "Please run the below command by substituing <namespace> with your GitHub id"
     __kobman_echo_no_colour ""
     __kobman_echo_white "$ export KOBMAN_USER_NAMESPACE=<namespace>"
+    __kobman_echo_no_colour ""
+    __kobman_echo_no_colour "Eg: export KOBMAN_USER_NAMESPACE=abc123"
+    __kobman_echo_no_colour ""
+    __kobman_echo_no_colour "Please run the install command after exporting your Github id"
     __kobman_echo_no_colour ""
     __kobman_error_rollback "$environment"
     return 1
   fi
+  if [[ -z $(which hub) ]]; then
+    __kobman_echo_no_colour "Installing hub..."
+    snap install hub --classic 
+  fi
   curl -s https://api.github.com/repos/$KOBMAN_USER_NAMESPACE/$environment | grep -q "Not Found"
   if [[ "$?" == "0" ]]; then
     __kobman_echo_white "Creating a fork of https://github.com/$KOBMAN_NAMESPACE/$environment under your namespace $KOBMAN_USER_NAMESPACE"
-    curl -s -u  $KOBMAN_NAMESPACE https://api.github.com/repos/$KOBMAN_NAMESPACE/$environment/forks -d ''  > /dev/null
-    curl -s https://api.github.com/repos/$KOBMAN_USER_NAMESPACE/$environment | grep -q "Not Found"
-    if [[ "$?" == "0" ]]; then
-      __kobman_echo_red "Could not create fork"
-      __kobman_echo_red "Please try again"
-      __kobman_echo_no_colour "Make sure you have given the correct environment name"
-      __kobman_error_rollback "$environment"
-      return 1
+    git clone -q https://github.com/$KOBMAN_NAMESPACE/$environment $KOBMAN_NAMESPACE/$environment
+    cd $KOBMAN_NAMESPACE/$environment
+    hub fork
+    cd $HOME
+    if [[ -d $KOBMAN_NAMESPACE/$environment ]]; then
+      rm -rf $KOBMAN_NAMESPACE/$environment
     fi
+    # curl -s https://api.github.com/repos/$KOBMAN_USER_NAMESPACE/$environment | grep -q "Not Found"
+    # if [[ "$?" == "0" ]]; then
+    #   __kobman_echo_red "Could not create fork"
+    #   __kobman_echo_red "Please try again"
+    #   __kobman_echo_no_colour "Make sure you have given the correct environment name"
+    #   __kobman_error_rollback "$environment"
+    #   return 1
+    # fi
   else
     
     return 0
