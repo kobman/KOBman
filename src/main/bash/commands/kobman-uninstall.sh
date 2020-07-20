@@ -29,6 +29,7 @@ elif [[ -f $KOBMAN_DIR/envs/kobman-$environment/current && $version == $(cat $KO
   __kobman_echo_cyan "This would leave the environment without a current"
   __kobman_interactive_uninstall || return 1
   __kobman_echo_no_colour "Uninstalling version $version of $environment"
+  __kobman_uninstall_$environment "$environment"
   rm $KOBMAN_DIR/envs/kobman-$environment/current 
   rm -rf $KOBMAN_DIR/envs/kobman-$environment/$version 
   # To remove the folder kobman-$environment if its empty
@@ -36,7 +37,6 @@ elif [[ -f $KOBMAN_DIR/envs/kobman-$environment/current && $version == $(cat $KO
   if [[ -z $l ]]; then
     rm -rf $KOBMAN_DIR/envs/kobman-$environment
   fi
-  __kobman_uninstall_$environment "$environment"
   __kobman_echo_green "Version $version for $environment has been uninstalled successfully"
  # 1) Current file is present and the user prompts to remove a previous version and 2) Current file is not present and the user prompts to reove a previous version 
 elif [[ -f $KOBMAN_DIR/envs/kobman-$environment/current && $version != $(cat $KOBMAN_DIR/envs/kobman-$environment/current) || ! -f $KOBMAN_DIR/envs/kobman-$environment/current && -d $KOBMAN_DIR/envs/kobman-$environment/$version   ]]; then  

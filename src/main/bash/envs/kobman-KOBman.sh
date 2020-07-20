@@ -11,16 +11,16 @@ function __kobman_install_KOBman
 	
 	if [[ ! -d $KOBMAN_ENV_ROOT ]]; then
 		__kobman_create_fork "${environment_name}" || return 1
- 		__kobman_echo_white "Creating Dev environment for ${environment_name}"
- 		__kobman_echo_white "from https://github.com/${KOBMAN_NAMESPACE}/${environment_name}"
+ 		__kobman_echo_white "Creating Dev environment for ${environment_name} under $KOBMAN_ENV_ROOT/$environment_name"
+ 		__kobman_echo_white "from https://github.com/${KOBMAN_USER_NAMESPACE}/${environment_name}"
  		__kobman_echo_white "version :${version_id} "
 		__kobman_create_dev_environment "$environment_name" || return 1
 		__kobman_echo_violet "Dev environment for ${environment_name} created successfully"
 	else
  		__kobman_echo_white "Removing existing version "
 		rm -rf $KOBMAN_ENV_ROOT
- 		__kobman_echo_white "Creating Dev environment for ${environment_name}"
- 		__kobman_echo_white "from https://github.com/${KOBMAN_NAMESPACE}/${environment_name}"
+ 		__kobman_echo_white "Creating Dev environment for ${environment_name}under $KOBMAN_ENV_ROOT/$environment_name"
+ 		__kobman_echo_white "from https://github.com/${KOBMAN_USER_NAMESPACE}/${environment_name}"
  		__kobman_echo_white "version :${version_id} "
 		__kobman_create_dev_environment  "$environment_name" || return 1
 		__kobman_echo_violet "Dev environment for ${environment_name} created successfully"
@@ -35,7 +35,7 @@ function __kobman_create_dev_environment
 	
 	local environment_name=$1
 	mkdir -p $KOBMAN_ENV_ROOT
-	git clone -q https://github.com/$KOBMAN_NAMESPACE/${environment_name} $KOBMAN_ENV_ROOT/$environment_name
+	git clone -q https://github.com/$KOBMAN_USER_NAMESPACE/${environment_name} $KOBMAN_ENV_ROOT/$environment_name
 	if [[ ! -d $KOBMAN_ENV_ROOT || ! -d $KOBMAN_ENV_ROOT/$environment_name ]]; then
 		__kobman_error_rollback $environment_name
 		return 1
@@ -46,6 +46,20 @@ function __kobman_create_dev_environment
 
 function __kobman_uninstall_KOBman
 {
+	local environment=$1
+	if [[ ! -d $KOBMAN_ENV_ROOT/$environment ]]; then
+		__kobman_echo_no_colour "Could not find $KOBMAN_ENV_ROOT/$environment"
+		return 1
+	fi
 	__kobman_echo_white "Removing dev environment for KOBman"
-	rm -rf $KOBMAN_ENV_ROOT
+	# cd $KOBMAN_ENV_ROOT/$environment
+	git --git-dir=$KOBMAN_ENV_ROOT/$environment/.git --work-tree=$KOBMAN_ENV_ROOT/$environment status | grep -e "modified" -e "untracked"
+	if [[ "$?" == "0" ]]; then
+		__kobman_echo_red "You have unsaved works"
+		__kobman_echo_red "Uninstalling will remove all of the work done"
+		__kobman_interactive_uninstall || return 1
+		rm -rf $KOBMAN_ENV_ROOT
+	else
+		rm -rf $KOBMAN_ENV_ROOT
+	fi
 }
