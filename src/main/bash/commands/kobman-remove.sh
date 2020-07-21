@@ -15,11 +15,11 @@ function __kob_remove
     fi
     __kobman_echo_no_colour "Removing environment variables..."
     unset KOBMAN_DIR KOBMAN_ENV_ROOT KOBMAN_VERSION KOBMAN_NAMESPACE KOBMAN_INTERACTIVE_USER_MODE
-    __kobman_echo_no_colour "Removing traces from .bashrc"
+    __kobman_echo_green "KOBman utility removed successfully."
     sed -i '/.kobman/d' $HOME/.bashrc
     exec bash
 
-    echo "KOBman utility removed successfully."
+    
 
 }
 
