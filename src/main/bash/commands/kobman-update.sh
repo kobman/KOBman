@@ -8,7 +8,11 @@ function __kob_update
 		__kobman_echo_red "Please reinstall KOBman and try again"
 		return 1
 	fi
-	list_url="https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/master/dist/list.txt"
+	if [[ -z $KOBMAN_REMOTE_BRANCH ]]; then
+		list_url="https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/master/dist/list.txt"
+	else
+		list_url="https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/$KOBMAN_REMOTE_BRANCH/dist/list.txt"
+	fi
 	__kobman_secure_curl "$list_url" >> remote_list.txt
 	remote=$(cat remote_list.txt)
 	if [[ -z $remote ]]; then
