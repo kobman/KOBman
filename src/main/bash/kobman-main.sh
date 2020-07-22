@@ -29,6 +29,8 @@ function kob {
 			command="upgrade";;
 		-u)
 			command="update";;
+		rm | remove)
+			command="remove";;
 	esac
 
 	if [ -f "${KOBMAN_DIR}/etc/config" ]; then
