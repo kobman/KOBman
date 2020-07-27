@@ -1,26 +1,54 @@
 #!/usr/bin/env bash
 
-
 function __kob_help {
-	__kobman_echo_no_colour ""
-	__kobman_echo_no_colour "Usage: kob <command> [environment] "
-	__kobman_echo_no_colour ""
-	__kobman_echo_no_colour "   commands:"
-	__kobman_echo_no_colour "       install   or i    [--dev] <environment> [namespace]"
-	__kobman_echo_no_colour "       uninstall or rm   <environment> <version>"
-	__kobman_echo_no_colour "       list      or ls   [environment]"
-	__kobman_echo_no_colour "       version   or v"
-	__kobman_echo_no_colour "       status or s"
-	__kobman_echo_no_colour "       help      or h"
-	__kobman_echo_no_colour ""
-	__kobman_echo_no_colour "   environment  :  the KOB to install: tob,tobvon,greenlight.. etc."
-	__kobman_echo_no_colour "                 use list command for comprehensive list of environments"
-	__kobman_echo_no_colour "                 eg: \$ kob list"
-	__kobman_echo_no_colour "   --dev        :for setting up development environment"
+cat << EOF
+KOBman - Help 
+---------------------------------------------------------
+$ kob <command> <qualifer> 
 
-	__kobman_echo_no_colour "   --deploy     :for deploying specific environment"
-	__kobman_echo_no_colour "                 eg: \$ kob --dev install tobvon"
-	__kobman_echo_no_colour "   namespace    :  you can use this for setup dev env from you forked version"
-	__kobman_echo_no_colour "                 eg: \$ kob install --dev tobvon hyperledgerkochi"
-	__kobman_echo_no_colour ""
+<qualifier>   : environment, version, namespace
+
+<command> 
+ ----------------------------------------------------------
+install       : $ kob install –env [env_name] -V [version]
+		The command is used to install the specified
+		environment.
+		Eg: $ kob install -env von-network –V 0.0.2
+
+uninstall     : $ kob uninstall --environment [env_name]
+		or
+		$ kob uninstall –env [env_name] -V [version]
+		The command is used to uninstall the specified
+		environment.
+		Eg: $ kob uninstall –env KOBman
+
+status        : $ kob status
+		The command displays the installed environments.
+
+list          : $ kob list
+		The command lists the various environment that
+		can be installed.
+
+upgrade       : $ kob upgrade
+		Upgrades KOBman to next version available.
+
+update        : $ kob update
+		Updates the list file with lastest changes.
+
+version       : Version of KOBman Utility
+		-------------------------
+		$ kob --version or kob –V
+		This command displays the version of KOBman
+		installed on the host.
+
+		Version of an Environment
+		-------------------------
+		$ kob -V -env [env_name]
+		The command displays the version of the specified
+		environment.
+		Eg: $ kob -V -env greenlight
+
+help          : $ kob help
+		Displays the KOBman manual
+EOF
 }
