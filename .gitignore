@@ -3,3 +3,4 @@ scripts/Readme.md
 build/
 Dockerfile
 .travis.yml
+*.zip
