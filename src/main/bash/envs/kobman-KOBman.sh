@@ -128,3 +128,23 @@ function __kobman_validate_KOBman
 	unset environment version var1 var2
 
 }
+
+function __kobman_update_KOBman
+{
+	##TODO:- add the code for updating KOBman dev
+}
+
+function __kobman_upgrade_KOBman
+{
+	##TODO:- add the code for upgradation 
+}
+
+function __kobman_start_KOBman
+{
+	##Not Applicable
+}
+
+function __kobman_stop_KOBman
+{
+	##Not Applicable
+}
