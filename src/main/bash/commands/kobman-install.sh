@@ -39,7 +39,7 @@ function __kobman_check_if_version_exists
 	cat $KOBMAN_DIR/var/list.txt | grep -w "${environment_name}" | grep -q ${version}
 	if [ "$?" != "0" ]; then
 
-		__kobman_echo_debug "version $version for https://github.com/${KOBMAN_NAMESPACE}/${environment_name} does not exist"
+		__kobman_echo_debug "${environment_name} $version does not exist"
 		return 1
 	fi
 }
@@ -68,11 +68,11 @@ function __kobman_create_environment_directory
 			__kobman_install_"${environment_name}" "${environment_name}" "${version_id}"
 		elif [[ -d ${KOBMAN_DIR}/envs/kobman-${environment_name}/$version_id && $(cat ${KOBMAN_DIR}/envs/kobman-${environment_name}/current) != "$version_id" ]];
 		then
-			__kobman_echo_no_colour "Re-installing  https://github.com/${KOBMAN_NAMESPACE}/${environment_name} with version:${version_id} "
+			__kobman_echo_no_colour "Re-installing ${environment_name} with version:${version_id} "
 			__kobman_echo_no_colour "$version_id" > "$current"
 			__kobman_install_"${environment_name}" "${environment_name}" "${version_id}"
 		else
-			__kobman_echo_white "Version ${version_id} of https://github.com/${KOBMAN_NAMESPACE}/${environment_name} is currently installed in your system "
+			__kobman_echo_white "${environment_name} $version_id is currently installed in your system "
 			
 		fi
 }
