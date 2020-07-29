@@ -95,36 +95,6 @@ function __kobman_validate_KOBman
 		__kobman_echo_no_colour "Found $KOBMAN_DIR/envs/kobman-$environment even after uninstalling"
 		return 1
 	fi
-	# if [[ ! -d $KOBMAN_ENV_ROOT ]]; then
-	# 	__kobman_echo_no_colour "Could not find $KOBMAN_ENV_ROOT"
-	# 	return 1
-	# fi
-
-	# if [[ ! -d $KOBMAN_ENV_ROOT/$environment ]]; then
-	# 	__kobman_echo_no_colour "Could not find $KOBMAN_ENV_ROOT/$environment"
-	# 	return 1
-	# fi
-
-	# if [[ ! -d $KOBMAN_ENV_ROOT/dependency ]]; then
-	# 	__kobman_echo_no_colour "Could not find $KOBMAN_ENV_ROOT/dependency"
-	# 	return 1
-	# fi
-
-	# if [[ ! -d $KOBMAN_DIR/envs/kobman-$environment/$version ]]; then
-	# 	__kobman_echo_no_colour "Could not find $KOBMAN_DIR/envs/kobman-$environment/$version"
-	# 	return 1
-	# fi
-
-	# if [[ ! -f $KOBMAN_DIR/envs/kobman-$environment/$version/kobman-$environment.sh ]]; then
-	# 	__kobman_echo_no_colour "Could not find file $KOBMAN_DIR/envs/kobman-$environment/$version/kobman-$environment.sh"
-	# 	return 1
-	# fi
-
-	# if [[ $(cat $KOBMAN_DIR/envs/kobman-$environment/current) != $version ]]; then
-	# 	__kobman_echo_no_colour "Current file for $environment does not contain the expected version"
-	# 	return 1
-	# fi 
-
 	unset environment version var1 var2
 
 }
