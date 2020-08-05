@@ -55,7 +55,7 @@ function kob {
 	fi
 	# couldn't find the command
 	if [[ -z "$cmd_found" ]]; then
-		__kobman_echo_red "Invalid command: $command"
+		echo "Invalid command: $command"
 		__kob_help
 	fi
 
