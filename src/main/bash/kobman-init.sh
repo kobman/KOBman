@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 
-
+if [[ -f $HOME/.kobman/etc/user-config.CFG ]]; then
+	source $HOME/.kobman/etc/user-config.CFG
+fi
+function __kobman_set_user_configs
+{
+	while read -r user_configs; do
+		$user_configs > $HOME/tmp.txt
+		local user_config_param=$(cut -d "=" -f 1 $HOME/tmp.txt)
+		local user_config_values=$(cut -d "=" -f 2 $HOME/tmp.txt)
+		unset $user_config_param
+		export $user_config_param=$user_config_values
+	done < $HOME/.kobman/etc/user-config.CFG
+}
+rm $HOME/tmp.txt
+unset user_config_param user_config_values user_configs
 # set env vars if not set
 if [ -z "$KOBMAN_VERSION" ]; then
 	export KOBMAN_VERSION="0.0.1"
