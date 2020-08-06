@@ -21,10 +21,10 @@ function __test_kob_init
         __kobman_echo_no_colour "User namespace not found"
         exit 1
     fi
-    if [[ -d $KOBMAN_DIR/envs/kobman-$environment ]]; then
-        mkdir -p $KOBMAN_DIR/env_bak
-        mv $KOBMAN_DIR/envs/kobman-$environment $KOBMAN_DIR/env_bak
-    fi
+    # if [[ -d $KOBMAN_DIR/envs/kobman-$environment ]]; then
+    #     mkdir -p $KOBMAN_DIR/env_bak
+    #     mv $KOBMAN_DIR/envs/kobman-$environment $KOBMAN_DIR/env_bak
+    # fi
     touch $KOBMAN_DIR/var/kob_env_$environment.proc
     export KOBMAN_INTERACTIVE_USER_MODE="false"
 }
