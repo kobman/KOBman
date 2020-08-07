@@ -11,7 +11,7 @@ function __kobman_set_user_configs
 		local user_config_values=$(cut -d "=" -f 2 $HOME/tmp.txt)
 		unset $user_config_param
 		export $user_config_param=$user_config_values
-	done < $HOME/.kobman/etc/user-config.CFG
+	done < $HOME/.kobman/etc/user-config.config
 }
 __kobman_set_user_configs
 rm $HOME/tmp.txt
