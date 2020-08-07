@@ -82,9 +82,9 @@
 			**Output** :
 			*KOBman 0.0.1*
 			
-		- greenlight is an environment that is not installed
+		- KOBman is an environment that is not installed
 		
-				$ kob -V --environment greenlight
+				$ kob -V --environment KOBman
 				
 			**Output** :
 			*KOBman is not installed*
