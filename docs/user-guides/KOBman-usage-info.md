@@ -10,11 +10,11 @@
 	
 - **Examples** :
 
-	- von-network dev environment installation
+	- KOBman dev environment installation
 
-			$ kob install -env von-network –V 0.0.2
+			$ kob install -env KOBman –V 0.0.1
 	 	**Output** :
-	 	*Dev environment for von-network created successfully*
+	 	*Dev environment for KOBman created successfully*
 
 ## 2. <ins> Uninstall Command <ins> ##
 	
@@ -75,19 +75,19 @@
 		- `{some-env-name}` - Name of the environment.
 	- **Examples** :
 	
-		- greenlight 0.0.1 is an environment that is installed
+		- KOBman 0.0.1 is an environment that is installed
 			
-				$ kob --version --environment greenlight 
+				$ kob --version --environment KOBman 
 		
 			**Output** :
-			*greenlight 0.0.1*
+			*KOBman 0.0.1*
 			
 		- greenlight is an environment that is not installed
 		
 				$ kob -V --environment greenlight
 				
 			**Output** :
-			*greenlight is not installed*
+			*KOBman is not installed*
 	
 ## 4. <ins> Status Command <ins> ##
 	
@@ -136,87 +136,10 @@
 	**Output** : </br>
 	*Available environments and their respective version numbers*</br>
 	*---------------------------------------------------------------* </br>
-	*von-network 0.0.2 0.0.3 0.0.5 0.0.7* </br>
-	*TheOrgBook 0.0.2 0.0.3 0.0.5 0.0.7* </br>
-	*greenlight 0.0.2 0.0.3 0.0.5 0.0.7* </br>
-	*KOBman 0.0.2 0.0.3 0.0.5 0.0.7* </br>
-
-
-## 7. <ins> Upgrade Command <ins> ##
 	
-	$ kob upgrade [--version  X.Y.Z] or $kob self-update
-
-- **Command Arguments**
-	- `upgrade` - Upgrade to a later version of KOBman.
-	- `self-update`- Upgrade to a later version of KOBman.
-	- `--version /-V` - version of KOBman to which the current installation has to be upgraded.
-	
-- **Examples**
-	- Default upgrade, without version, updates current installation to latest version i.e 0.0.1.
-			
-			$ kob upgrade
-		**Output** :
-		*kobman upgraded to 0.0.1*
-	- Upgrade to version 0.0.1.
-			
-			$ kob upgrade --version 0.0.1
-		**Output** :
-		*kobman upgraded to 0.0.1* or *Kobman already on 0.0.1*
-	- Current version is same as latest version.
-			
-			$ kob upgrade --version 0.0.1
-		**Output** :
-		*kobman already on 0.0.1*
-	- Upgrade to version 0.0.2, a version not available in master (dist) repository.
-			
-			$ kob upgrade --version 0.0.2
-		**Output** :
-		*kobman version 0.0.2 not found*
+	*KOBman 0.0.1 0.0.2* </br>
 
 
-## 8. <ins> Update Command <ins> ##
-	
-	$ kob update [--environment {environment to be updated} --version  X.Y.Z] 
-
-- **Command Arguments**
-
-	- `update` - To update and check for new versions of KOBman environments.
-	- `--version` - Version of KOBman to which the current installation has to be upgraded. 
-	- `--environment` - Environment to be updated.
-	
-- **Examples**
-	- Default update, without version or environment, all new candidate environments are updated  on the host.
-		
-			$ kob update
-		**Output** :</br>
-		*Kobman environments updated !*</br>
-		*greenlight 0.0.1*</br>
-		*tob 0.0.1*
- 
- 	- Update greenlight to version 0.0.1
-
-			$ kob update --environment greenlight --version 0.0.1
-		**Output** :
-		*greenlight updated to 0.0.1* 
-
-	- greenlight current version is same as new version.
-
-			$ kob update –environment greenlight –version 0.0.1
-		**Output** :
-		*greenlight already on 0.0.1*
- 
-	- Update to greenlight version 0.0.2, a version not available in master (dist) repository.
-
-			$ kob upgrade --environment greenlight --version 0.0.2
-		**Output** :
-		*greenlight version 0.0.2 not found<ins>*
-
-
-
-
-
-	
-	
 		
 		
 
