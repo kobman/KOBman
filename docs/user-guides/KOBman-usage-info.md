@@ -70,7 +70,7 @@
 	
 		- KOBman 0.0.1 is an environment that is installed
 			
-				$ kob --version --environment KOBman 
+				$ kob -V -env KOBman 
 		
 			**Output** :
 			*KOBman 0.0.1*
