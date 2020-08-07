@@ -25,7 +25,7 @@
 - **Command Arguments** :
 	- `uninstall` - Uninstall KOB environment on the host.
 	- `--environment/-env` - Type of KOB environment to be un-installed.
-	- `{some-env-name}` - Name of the environment.
+	- `[env_name]` - Name of the environment. 
 	- `{version}` - The version for which files has to be removed.
 
 - **Examples** :
@@ -55,24 +55,17 @@
 
 		- KOBman 0.0.1 is installed on the host machine 
 
-				$ kob --version 
+				$ kob -V 
 			**Output** :
-			*kobman 0.0.1*
-
-
-		- KOBman 0.0.2 is installed on the host machine
-
-				$ kob -V
-			**Output** :
-			*kobman 0.0.2*
+			*KOBman utility version 0.0.1*
 
 - <ins>**Version of an Environment**<ins>
 
-		$ kob --version --environment [env_name]
+		$ kob -V -env [env_name]
 	- **Command Arguments** :
 		- `--version/-V` - Display the version.
 		- `--environment/-env` - KOB environment that is installed on the host.
-		- `{some-env-name}` - Name of the environment.
+		- `[env_name]` - Name of the environment.
 	- **Examples** :
 	
 		- KOBman 0.0.1 is an environment that is installed
@@ -139,7 +132,7 @@
 	*Available environments and their respective version numbers*</br>
 	*---------------------------------------------------------------* </br>
 	
-	*KOBman 0.0.1 0.0.2* </br>
+	*KOBman 0.0.1* </br>
 
 
 		
