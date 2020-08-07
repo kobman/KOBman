@@ -97,7 +97,7 @@
 		**Output** : 
 		<br>*Installed environments and their versions*</br>
 		*------------------------------------------------------------*
-		<br>~ KOBman  0.0.3*</br>
+		<br>~ KOBman  0.0.1*</br>
 		- `“~”` represents the environment which has been installed the last. 
 		- `“*”` represents the current version for each env 
 		
