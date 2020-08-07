@@ -17,10 +17,11 @@ function __test_kob_init
         __kobman_echo_no_colour "kob found"
     fi
 
-    if [[ -z $KOBMAN_USER_NAMESPACE ]]; then
-        __kobman_echo_no_colour "User namespace not found"
-        exit 1
-    fi
+    # if [[ -z $KOBMAN_USER_NAMESPACE ]]; then
+    #     __kobman_echo_no_colour "User namespace not found"
+    #     exit 1
+    # fi
+    
 
     if [[ ! -d $KOBMAN_ARIES_ENV_ROOT ]]; then
         __kobman_echo_no_colour "Dev envirnoment for $envirnoment is not installed"
