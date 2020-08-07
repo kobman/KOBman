@@ -119,7 +119,9 @@
 		
 		$ kob help
 	**Output** : </br>
-	![Output of $kob help](https://github.com/arunng21/uploads/blob/master/KOB_help.png)
+	
+![image](https://user-images.githubusercontent.com/33585301/89614366-e31ec400-d8a1-11ea-9881-d727e25f0b48.png)
+
 
 
 ## 6. <ins> List Command <ins> ##
