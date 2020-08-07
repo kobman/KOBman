@@ -52,5 +52,5 @@ git push -f -u origin $branch
 git tag -a $kob_version -m "Releasing version $kob_version"
 git push origin $kob_version
 
-#checkout to dev
+#checkout to master
 git checkout master
