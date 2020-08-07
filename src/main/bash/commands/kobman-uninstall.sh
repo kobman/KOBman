@@ -17,6 +17,9 @@ if [[ $environment == "all" && -z $version ]]; then
   if [[ -n $KOBMAN_ENV_ROOT ]]; then
     rm -rf $KOBMAN_ENV_ROOT
   fi
+  if [[ -d $KOBMAN_ARIES_ENV_ROOT ]]; then
+    rm -rf $KOBMAN_ARIES_ENV_ROOT
+  fi
   __kobman_echo_green "Files removed successfully."
 # Condition where no current file is present and the user executes uninstall without version parameter
 elif [[ ! -f $KOBMAN_DIR/envs/kobman-$environment/current && -z $version ]]; then
