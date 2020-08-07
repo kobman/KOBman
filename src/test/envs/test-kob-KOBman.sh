@@ -1,12 +1,19 @@
 #!/bin/bash
 version=$1
 if [[ -z $version ]]; then
+
     echo "Usage: ./test-kob-KOBman.sh <version_tag>"
     exit 1
 fi
 environment=KOBman
 function __test_kob_init
 {
+    mkdir -p $KOBMAN_DIR
+    cp -R $HOME/.kobman/* $KOBMAN_DIR
+    if [[ -d $KOBMAN_DIR/envs/kobman-$environment ]]; then
+        rm -rf $KOBMAN_DIR/envs/kobman-$environment
+    fi
+    tree $KOBMAN_DIR
     if [[ ! -d $KOBMAN_DIR ]]; then
         echo "KOBman utility not found"
         echo "Please install the utility first and try again"
@@ -72,8 +79,7 @@ function __test_kob_validate
 function __test_kob_cleanup
 {
     rm $HOME/*.out $KOBMAN_DIR/var/kob_env_$environment.proc
-    mv $KOBMAN_DIR/env_bak/kobman-$environment $KOBMAN_DIR/envs
-    rm -rf $KOBMAN_DIR/env_bak
+    rm -rf $KOBMAN_DIR
 }
 function __test_kob_run
 {
