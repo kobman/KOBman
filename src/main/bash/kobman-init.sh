@@ -3,6 +3,9 @@
 function __kobman_set_user_configs
 {
 # The functions sets all the user configs specified in the user-config.cfg file
+	if [[ ! -f $HOME/.kobman/etc/user-config.cfg ]]; then
+		return 1
+	fi
 	while read -r user_configs; do
 		echo $user_configs > $HOME/tmp.txt
 		local user_config_param=$(cut -d "=" -f 1 $HOME/tmp.txt)
@@ -15,7 +18,7 @@ function __kobman_set_user_configs
 		export $user_config_param=$user_config_values
 	done < $HOME/.kobman/etc/user-config.cfg
 }
-__kobman_set_user_configs
+__kobman_set_user_configs || return 1
 [ -f $HOME/tmp.txt ] && rm $HOME/tmp.txt 
 unset user_config_param user_config_values user_configs
 # set env vars if not set
