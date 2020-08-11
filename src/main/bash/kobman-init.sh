@@ -1,20 +1,29 @@
 #!/usr/bin/env bash
 
-# if [[ -f $HOME/.kobman/etc/user-config.CFG ]]; then
-# 	source $HOME/.kobman/etc/user-config.CFG
-# fi
+if [[ -f $HOME/.kobman/etc/user-config.cfg ]]; then
+	source $HOME/.kobman/etc/user-config.cfg
+fi
 function __kobman_set_user_configs
 {
+	# if [[ -f $HOME/.kobman/etc/user-config.cfg ]]; then
+	# 	source $HOME/.kobman/etc/user-config.cfg
+	# else
+	# 	return 1
+	# fi
 	while read -r user_configs; do
 		echo $user_configs > $HOME/tmp.txt
 		local user_config_param=$(cut -d "=" -f 1 $HOME/tmp.txt)
+		if echo $user_config_param | grep -q "^#"
+			then
+				continue
+		fi
 		local user_config_values=$(cut -d "=" -f 2 $HOME/tmp.txt)
 		unset $user_config_param
 		export $user_config_param=$user_config_values
-	done < $HOME/.kobman/etc/user-config.config
+	done < $HOME/.kobman/etc/user-config.cfg
 }
 __kobman_set_user_configs
-rm $HOME/tmp.txt
+[ -f $HOME/tmp.txt ] && rm $HOME/tmp.txt 
 unset user_config_param user_config_values user_configs
 # set env vars if not set
 if [ -z "$KOBMAN_VERSION" ]; then
