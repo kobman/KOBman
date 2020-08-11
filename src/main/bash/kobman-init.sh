@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if [[ -f $HOME/.kobman/etc/user-config.cfg ]]; then
-	source $HOME/.kobman/etc/user-config.cfg
-fi
+# if [[ -f $HOME/.kobman/etc/user-config.cfg ]]; then
+# 	source $HOME/.kobman/etc/user-config.cfg
+# fi
 function __kobman_set_user_configs
 {
 	# if [[ -f $HOME/.kobman/etc/user-config.cfg ]]; then
