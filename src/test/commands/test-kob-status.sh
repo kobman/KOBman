@@ -108,8 +108,7 @@ function fake_publish_dummyenv
   __kobman_echo_no_colour "dummyenv,0.0.2,0.0.3,0.0.5,0.0.7,0.0.9" >> $KOBMAN_DIR/var/list.txt 
   source $KOBMAN_DIR/bin/kobman-init.sh
 }
-function create_install_dummyenv_script(){
-  
+function create_install_dummyenv_script(){ 
 cat <<EOF
 #!/bin/bash
 function __kobman_install_dummyenv
