@@ -7,12 +7,12 @@ function __kobman_set_user_configs
 		return 1
 	fi
 	while read -r user_configs; do
-		echo $user_configs > $HOME/tmp.txt
-		local user_config_param=$(cut -d "=" -f 1 $HOME/tmp.txt)
-		if echo $user_config_param | grep -q "^#"
+		if echo $user_configs | grep -q "^#"
 			then
 				continue
 		fi
+		echo $user_configs > $HOME/tmp.txt
+		local user_config_param=$(cut -d "=" -f 1 $HOME/tmp.txt)
 		local user_config_values=$(cut -d "=" -f 2 $HOME/tmp.txt)
 		unset $user_config_param
 		export $user_config_param=$user_config_values
