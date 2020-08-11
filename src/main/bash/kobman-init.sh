@@ -1,15 +1,8 @@
 #!/usr/bin/env bash
 
-# if [[ -f $HOME/.kobman/etc/user-config.cfg ]]; then
-# 	source $HOME/.kobman/etc/user-config.cfg
-# fi
 function __kobman_set_user_configs
 {
-	# if [[ -f $HOME/.kobman/etc/user-config.cfg ]]; then
-	# 	source $HOME/.kobman/etc/user-config.cfg
-	# else
-	# 	return 1
-	# fi
+# The functions sets all the user configs specified in the user-config.cfg file
 	while read -r user_configs; do
 		echo $user_configs > $HOME/tmp.txt
 		local user_config_param=$(cut -d "=" -f 1 $HOME/tmp.txt)
