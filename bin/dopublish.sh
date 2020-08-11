@@ -14,7 +14,6 @@ fi
 # git checkout tags/$kob_rel_version -b $kob_rel_version
 git checkout $branch
 
-
 # temporary folder for storing tar files. folder also added in .gitignore
 mkdir -p build/tmp
 
