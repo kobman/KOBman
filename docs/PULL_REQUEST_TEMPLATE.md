@@ -9,6 +9,6 @@
 
 **This addresses Issue** #XXX-Link-to-Approved-Issue-XXX
 
-![image](https://user-images.githubusercontent.com/33585301/90174860-40e06e00-ddc4-11ea-863a-2355d9eb512b.png)
+
 
 
