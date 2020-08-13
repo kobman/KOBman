@@ -74,6 +74,7 @@ function __kobman_uninstall_Aries-dev
         pip3 uninstall aries-cloudagent -y
         __kobman_echo_white "Removing dev environment for Aries"
         rm -rf $KOBMAN_ARIES_ENV_ROOT
+		unset $KOBMAN_ARIES_ENV_ROOT
     fi
 	
 	# cd $KOBMAN_ARIES_ENV_ROOT/$environment
