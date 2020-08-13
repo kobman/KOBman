@@ -62,4 +62,5 @@ function __kobman_uninstall_KOBman
 	else
 		rm -rf $KOBMAN_ENV_ROOT
 	fi
+	unset $KOBMAN_ENV_ROOT
 }
