@@ -1,4 +1,6 @@
 
+![image](https://user-images.githubusercontent.com/33585301/90174150-26f25b80-ddc3-11ea-99e4-f0dc3a0cad1a.png)
+
 ### To raise a new Pull Request, the following prerequisites need to be met. Please tick before proceeding:
 
 
@@ -6,4 +8,4 @@
 - [ ] a Github [Issue](https://github.com/hyperledgerkochi/KOBman/issues) was opened for this feature / bug.
 - [ ] test coverage was added .
 
-This addresses Issue #XXX-Link-to-Approved-Issue-XXX
+**This addresses Issue** #XXX-Link-to-Approved-Issue-XXX
