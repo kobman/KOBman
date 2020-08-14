@@ -9,7 +9,7 @@ function __kobman_install_Aries-dev
     __kobman_check_python3_installation
     __kobman_check_pip_installation
     __kobman_echo_white "Installing aries-cloudagent"
-    pip install aries-cloudagent
+    pip3 install aries-cloudagent
     if [[ ! -d $KOBMAN_ARIES_ENV_ROOT ]]; then
 		# __kobman_create_fork "${environment}" || return 1
 
@@ -74,7 +74,7 @@ function __kobman_uninstall_Aries-dev
         pip3 uninstall aries-cloudagent -y
         __kobman_echo_white "Removing dev environment for Aries"
         rm -rf $KOBMAN_ARIES_ENV_ROOT
-		unset $KOBMAN_ARIES_ENV_ROOT
+		unset KOBMAN_ARIES_ENV_ROOT
     fi
 	
 	# cd $KOBMAN_ARIES_ENV_ROOT/$environment
