@@ -21,8 +21,10 @@ function __kobman_validate_environment
 }
 
 function __kobman_validate_version_format
-{
+{	
+	local version=$1
 	if ! echo "$version" | grep -qE '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$'
+	then
 		__kobman_echo_debug "Version format you have entered is incorrect"
 		__kobman_echo_green "Correct format -> 0.0.0 [eg: 0.0.2]"
 		return 1
