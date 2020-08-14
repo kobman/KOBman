@@ -8,7 +8,7 @@ It is recommended to create a new branch in developer's local github repository 
 Once developer's code change has completed the developer should make a pull request to any other [contributor's](https://github.com/hyperledgerkochi/KOBman/network/members) 
 recommended branch to testing the code out based on the [checklist](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/KOBman%20Script%20Review%20Checklist.md) . 
 
-A developer/contributor is recommeded to follow the listed steps , for successful merge of their code pull requests. 
+A developer is recommeded to follow the listed steps , for successful merge of their code pull requests. 
 
 **step 1:** For avoiding future merge conflicts sync your master repository with hyperledgerkochi/master (eg :hyperledgerkochi/master - > EtricKombat/master)
 
@@ -31,7 +31,9 @@ The contributor merges the isolated code change pull request to the local branch
 and tests out the functionalty,do a thorough review based on the [checklist provided by the team hyperledgerkochi](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/KOBman%20Script%20Review%20Checklist.md). Once the the contributor feels like the code is functional , and it satisfies the checklist
 they should provide a LGTM approval in the hyperledgerkochi/KOBman's [pull section](https://github.com/hyperledgerkochi/KOBman/pulls) . Only then the code gets merged to hyperledgerkochi/KOBman's github [master repository](https://github.com/hyperledgerkochi/KOBman).
 
-**step 1:** Merge the pull request to new_branch created specifically for testing this pull (which should be synced with hyperledgerkochi/master )
+A code reviewer is recommeded to follow the listed steps , before providing LGTM approval. 
+
+**step 1:** Merge the pull request to new_branch created specifically for testing the code changes in this pull request (new_branch should be synced with hyperledgerkochi/master ) 
 
 **step 3:** Once merged need to test it out by releasing a local version and install/test kob utility from the code reviewers local system.
 
