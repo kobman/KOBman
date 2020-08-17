@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-
-
-
 function kob {
 	[[ -z "$1" ]] && __kob_help && return 0
 
@@ -98,10 +95,6 @@ function kob {
 			fi
 			;;
 	esac
-				
-			
-	
 	unset environment version command args opts
 	
-}
-	
+}	
