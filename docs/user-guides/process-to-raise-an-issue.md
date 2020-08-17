@@ -6,7 +6,7 @@ Before raising an issue the contributor should follow the listed steps:
 * Issue should be raised in hyperlederkochi/KOBman's [ issue section ](https://github.com/hyperledgerkochi/KOBman/issues) 
 * Must provide with snapshots if necessary
 * Each issue should be tracked down and closed by the assignee .
-* Recommended to mark checklist of the issue template before submitting [ refer snapshot below ] # Think its better to give the link to the template as well
+* Recommended to mark checklist of the issue template before submitting [ refer snapshot below ] 
 
 #### Snapshot
 _____________________________________________
