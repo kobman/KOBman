@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-#156 WIP
+
 
 function kob {
 	[[ -z "$1" ]] && __kob_help && return 0
@@ -11,7 +11,8 @@ function kob {
 		local environment=$1
 		if [[ ! -f $KOBMAN_DIR/envs/kobman-$environment.sh ]]; then
 			__kobman_echo_red "Could not find file kobman-$environment.sh"
-			__kobman_echo_white "Install KOBman and try again"
+			__kobman_echo_white "Make sure you have given the correct command name"
+			__kobman_echo_white "If the issue persists, re-install KOBman and try again"
 			return 1
 		fi
 	}
@@ -21,7 +22,8 @@ function kob {
 		local command=$1
 		if [[ ! -f $KOBMAN_DIR/src/kobman-$command.sh ]]; then
 			__kobman_echo_red "Could not find file kobman-$environment.sh"
-			__kobman_echo_white "Install KOBman and try again"			
+			__kobman_echo_white "Make sure you have given the correct command name"		
+			__kobman_echo_white "If the issue persists, re-install KOBman and try again"	
 			return 1
 		fi
 
@@ -29,34 +31,32 @@ function kob {
 
 	opts=()
 	args=()
-	local command
+	local command environment version
 	while [[ -n "$1" ]]; do
-		case "$1" in
-			-V | --version)
-				command=version
-				opts=("${opts[@]}" "$1")
-				args=("${args[@]}" "$1")
-			;;
+		case "$1" in 
 			rm | remove)
 				command=remove
 				args=("${args[@]}" "$1")
 			;;
-			-*)         opts=("${opts[@]}" "$1");; ## -env | -V
+			-env | -V | --environment | --version)         opts=("${opts[@]}" "$1");; ## -env | -V 
         	*)          args=("${args[@]}" "$1");; ## command | env_name | version_tag
     	esac
     	shift
 	done
-	# [[ ${#args[@]} -eq 0 ]] && __kob_help && return 1
+	
 	[[ ${#args[@]} -gt 3 ]] && __kobman_echo_red "Too many arguments!!!" && return 1
-	# [[ ${#args[@]} -lt 2 ]] && __kobman_echo_red "Incorrect syntax" && __kob_help && return 1
+	
 	[[ ${#opts[@]} -gt 2 ]] && __kobman_echo_red "Too many options!!!" && return 1
-	# [[ ${#opts[@]} -eq 0 ]] && __kob_help && return 1
-	# [[ ${opts[@]} -eq 1 ]] && [[ ${args[@]} lt 3 ]] &&  __kobman_echo_red "Number of arguments doesn't match number of options" && return 1
+	if [[ -z $command && ("${opts[0]}" == "-V" || "${opts[0]}" == "--version") ]]; then
+		command=version
+		environment="${args[0]}" 
+		local opt_environment="${opts[1]}"
+	fi
 	[[ -z $command ]] && command="${args[0]}"
-	local environment="${args[1]}"
-	local version="${args[2]}"
+	[[ -z $environment ]] && environment="${args[1]}"
+	[[ -z $version ]] && version="${args[2]}"
 	__kobman_check_for_command_file $command || return 1
-	if [[ -n $environment ]]; then
+	if [[ -n $environment && $environment != "all" ]]; then
 		__kobman_check_for_env_file $environment || return 1
 	fi
 	case $command in 
@@ -74,6 +74,7 @@ function kob {
 		uninstall)
 			[[ ${#opts[@]} -eq 0 ]] && __kobman_echo_red "Incorrect syntax" && __kob_help && return 1
 			[[ ${#args[@]} -eq 0 ]] && __kobman_echo_red "Incorrect syntax" && __kob_help && return 1
+			[[ $environment == "all" ]] && __kob_$command $environment && return 0
 			if [[ -z $version && -f $KOBMAN_DIR/envs/kobman-$environment/current ]]; then
 				version=($(cat $KOBMAN_DIR/envs/kobman-$environment/current))
 			fi
@@ -89,9 +90,9 @@ function kob {
 			;;
 		version)
 			[[ ${#opts[@]} -eq 0 ]] && __kobman_echo_red "Incorrect syntax" && __kob_help && return 1
-			if [[ -n $environment ]]; then
+			if [[ -n $opt_environment ]]; then
 				__kobman_validate_environment $environment || return 1
-				__kob_$command $environment
+				__kob_$command $opt_environment $environment
 			elif [[ -z $environment ]]; then
 				__kob_$command
 			fi
@@ -100,6 +101,7 @@ function kob {
 				
 			
 	
-	
+	unset environment version command args opts
 	
 }
+	
