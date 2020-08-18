@@ -105,10 +105,10 @@ ________________________________
 
 **Step 8:** Remove KOBman utility from local system
 
-      $ kob rm
+      $ kob remove
       
   When prompted, type in 'y' if you want to remove the KOBman utility from your local system or type in 'n' if you want the operation to be cancelled.
 
-![image](https://user-images.githubusercontent.com/54981984/90109022-c9312580-dd68-11ea-945a-5cb12a74512b.png)
+![image](https://user-images.githubusercontent.com/54981984/90509346-cf633f80-e176-11ea-93da-181e8d1b5c40.png)
 
  
