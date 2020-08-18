@@ -8,7 +8,7 @@ function kob {
 		local environment=$1
 		if [[ ! -f $KOBMAN_DIR/envs/kobman-$environment.sh ]]; then
 			__kobman_echo_red "Could not find file kobman-$environment.sh"
-			__kobman_echo_white "Make sure you have given the correct command name"
+			__kobman_echo_white "Make sure you have given the correct environment name"
 			__kobman_echo_white "If the issue persists, re-install KOBman and try again"
 			return 1
 		fi
@@ -41,9 +41,9 @@ function kob {
     	shift
 	done
 	
-	[[ ${#args[@]} -gt 3 ]] && __kobman_echo_red "Too many arguments!!!" && return 1
+	[[ ${#args[@]} -gt 3 ]] && __kobman_echo_red "Incorrect syntax" && __kob_help && return 1
 	
-	[[ ${#opts[@]} -gt 2 ]] && __kobman_echo_red "Too many options!!!" && return 1
+	[[ ${#opts[@]} -gt 2 ]] && __kobman_echo_red "Incorrect syntax" && __kob_help && return 1
 	if [[ -z $command && ("${opts[0]}" == "-V" || "${opts[0]}" == "--version") ]]; then
 		command=version
 		environment="${args[0]}" 
@@ -58,6 +58,7 @@ function kob {
 	fi
 	case $command in 
 		install)
+			
 			[[ ${#opts[@]} -eq 0 ]] && __kobman_echo_red "Incorrect syntax" && __kob_help && return 1
 			[[ ${#args[@]} -eq 0 ]] && __kobman_echo_red "Incorrect syntax" && __kob_help && return 1
 			if [[ -z $version && -n $KOBMAN_VERSION ]]; then
@@ -81,8 +82,8 @@ function kob {
 			__kob_$command $environment $version
 			;;
 		help | list | status | update | upgrade | remove)
-			[[ "${#args[@]}" -ne 1 ]] && __kobman_echo_red "Too many arguments!!!" && return 1
-			[[ "${#opts[@]}" -ne 0 ]] && __kobman_echo_red "Too many options!!!" && return 1
+			[[ "${#args[@]}" -ne 1 ]] && __kobman_echo_red "Incorrect syntax" && return 1
+			[[ "${#opts[@]}" -ne 0 ]] && __kobman_echo_red "Incorrect syntax" && return 1
 			__kob_$command
 			;;
 		version)
@@ -93,6 +94,9 @@ function kob {
 			elif [[ -z $environment ]]; then
 				__kob_$command
 			fi
+			;;
+		*)
+			__kobman_echo_red "Unrecognized command: $command" && return 1
 			;;
 	esac
 	unset environment version command args opts
