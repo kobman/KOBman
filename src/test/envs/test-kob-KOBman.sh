@@ -1,19 +1,15 @@
 #!/bin/bash
-version=$1
-if [[ -z $version ]]; then
+# version=$1
+# if [[ -z $version ]]; then
 
-    echo "Usage: ./test-kob-KOBman.sh <version_tag>"
-    exit 1
-fi
+#     echo "Usage: ./test-kob-KOBman.sh <version_tag>"
+#     exit 1
+# fi
 environment=KOBman
 function __test_kob_init
 {
-    mkdir -p $KOBMAN_DIR
-    cp -R $HOME/.kobman/* $KOBMAN_DIR
-    if [[ -d $KOBMAN_DIR/envs/kobman-$environment ]]; then
-        rm -rf $KOBMAN_DIR/envs/kobman-$environment
-    fi
-    tree $KOBMAN_DIR
+    
+
     if [[ ! -d $KOBMAN_DIR ]]; then
         echo "KOBman utility not found"
         echo "Please install the utility first and try again"
@@ -24,50 +20,25 @@ function __test_kob_init
         source $KOBMAN_DIR/src/kobman-utils.sh
         __kobman_echo_no_colour "kob found"
     fi
-    if [[ -z $KOBMAN_USER_NAMESPACE ]]; then
-        __kobman_echo_no_colour "User namespace not found"
+    
+    if [[ ! -d $KOBMAN_ENV_ROOT ]]; then
+        __kobman_echo_no_colour "KOBman dev environment not installed."
+        __kobman_echo_no_colour "Install the dev environment first and try again."
         exit 1
     fi
-    # if [[ -d $KOBMAN_DIR/envs/kobman-$environment ]]; then
-    #     mkdir -p $KOBMAN_DIR/env_bak
-    #     mv $KOBMAN_DIR/envs/kobman-$environment $KOBMAN_DIR/env_bak
-    # fi
-    touch $KOBMAN_DIR/var/kob_env_$environment.proc
-    export KOBMAN_INTERACTIVE_USER_MODE="false"
 }
 
-function __test_kob_execute 
-{
-    __kobman_echo_no_colour "Installing $environment..."
-    kob install -env $environment -V $version >> $HOME/ts1_result.out
-    if [[ -d $KOBMAN_ENV_ROOT ]]; then
-        echo "0" > $KOBMAN_DIR/var/kob_env_$environment.proc
-        find $KOBMAN_ENV_ROOT -type d -name "$environment" -print >> $HOME/ts2_result.out
-        find $KOBMAN_ENV_ROOT -type d -name "dependecy" -print >> $HOME/ts2_result.out
-        find $KOBMAN_DIR/envs -type d -name "kobman-$environment" -print >> $HOME/ts3_result.out
-        find $KOBMAN_DIR/envs/kobman-$environment -type d -name "$version" -print >> $HOME/ts3_result.out
-        find $KOBMAN_DIR/envs/kobman-$environment/$version -type f -name "kobman-$environment.sh" -print >> $HOME/ts3_result.out
-        kob status
-        __kobman_echo_no_colour "Uninstalling $environment..."
-        kob uninstall -env $environment >> $HOME/ts4_result.out
+# function __test_kob_execute 
+# {
 
-    else
-        echo "1" > $KOBMAN_DIR/var/kob_env_$environment.proc
-    fi
+# # By passing the execute
     
-}
+# }
 
 function __test_kob_validate
 {
     __kobman_echo_no_colour "Validating $environment dev environment"
-    local return_from_validate
-    if [[ $(cat $KOBMAN_DIR/var/kob_env_$environment.proc) == "1" ]]; then
-        tail -1 $HOME/ts1_result.out
-        __kobman_echo_no_colour "Installing failed"
-        test_status="failed"
-        return 1
-    fi
-    
+    local return_from_validate  
     return_from_validate=$(__kobman_validate_$environment "$environment" "$version")
     if [[ $return_from_validate == "1" ]]; then
         test_status="failed"
@@ -75,19 +46,19 @@ function __test_kob_validate
     unset return_from_validate
 
 }
-
-function __test_kob_cleanup
-{
-    rm $HOME/*.out $KOBMAN_DIR/var/kob_env_$environment.proc
-    rm -rf $KOBMAN_DIR
-}
+# No file is being created.
+# function __test_kob_cleanup
+# {
+#     rm $HOME/*.out $KOBMAN_DIR/var/kob_env_$environment.proc
+#     rm -rf $KOBMAN_DIR
+# }
 function __test_kob_run
 {
     test_status="success"
     __test_kob_init
-    __test_kob_execute
+    # __test_kob_execute
     __test_kob_validate
-    __test_kob_cleanup
+    # __test_kob_cleanup
     if [[ $test_status == "success" ]]; then
         __kobman_echo_green "test-kob-KOBman success"
     else
