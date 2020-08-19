@@ -13,7 +13,7 @@ if [[ $environment == "all" && -z $version ]]; then
   __kobman_echo_white "This operation would remove all the environments and its files"
   __kobman_interactive_uninstall || return 1
   __kobman_echo_white "Removing files..."
-  __kobman_secure_curl "https://raw.githubusercontent.com/asa1997/KOBman/aries/dist/environments" >> $HOME/env_tmp.txt
+  __kobman_secure_curl "https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/master/dist/environments" >> $HOME/env_tmp.txt
   sed -i 's/,/ /g' $HOME/env_tmp.txt
   local environment=$(cat $HOME/env_tmp.txt)
   for i in $environment; do
