@@ -5,7 +5,7 @@
 #     echo "Usage: ./test-kob-Aries-Cloudagent-Python <version_tag>"
 #     exit 1
 # fi
-envirnoment="Aries-dev"
+environment="Aries-dev"
 function __test_kob_init
 {
     if [[ ! -d $KOBMAN_DIR ]]; then
@@ -24,7 +24,7 @@ function __test_kob_init
     
 
     if [[ ! -d $KOBMAN_ARIES_ENV_ROOT ]]; then
-        __kobman_echo_no_colour "Dev envirnoment for $envirnoment is not installed"
+        __kobman_echo_no_colour "Dev environment for $environment is not installed"
         __kobman_echo_no_colour "Please install it first and try again"
         exit 1
     fi
@@ -39,7 +39,7 @@ function __test_kob_init
 function __test_kob_validate
 {
     __kobman_echo_no_colour "Validating.."
-    local return_val=$(__kobman_validate_Aries-dev "$envirnoment")
+    local return_val=$(__kobman_validate_Aries-dev "$environment")
     if [[ $return_val == "1" ]]; then
         test_status="failed"
         return 1
