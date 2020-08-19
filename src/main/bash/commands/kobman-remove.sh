@@ -8,7 +8,7 @@ function __kob_remove
     #     __kobman_echo_no_colour "Removing dev environment"
     #     rm -rf $KOBMAN_ENV_ROOT
     # fi
-    __kobman_secure_curl "https://raw.githubusercontent.com/asa1997/KOBman/aries/dist/environments" >> $HOME/env_tmp.txt
+    __kobman_secure_curl "https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/master/dist/environments" >> $HOME/env_tmp.txt
     sed -i 's/,/ /g' $HOME/env_tmp.txt
     local environment=$(cat $HOME/env_tmp.txt)
     for i in $environment; do
