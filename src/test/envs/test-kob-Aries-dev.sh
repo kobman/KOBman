@@ -5,7 +5,7 @@
 #     echo "Usage: ./test-kob-Aries-Cloudagent-Python <version_tag>"
 #     exit 1
 # fi
-environment="Aries-dev"
+envirnoment="Aries-dev"
 function __test_kob_init
 {
     if [[ ! -d $KOBMAN_DIR ]]; then
