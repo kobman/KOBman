@@ -137,15 +137,20 @@ function __kobman_validate_Aries-dev
 		__kobman_echo_no_colour "Could not find file ${KOBMAN_ARIES_ENV_ROOT}/dependency/requirements.txt"
 		return 1
 	fi
-	ls $HOME/.local/lib/python3.6/site-packages >> $HOME/files_to_compare.txt
-	comm -2 ${KOBMAN_ARIES_ENV_ROOT}/dependency/requirements.txt $HOME/files_to_compare.txt >> $HOME/ts1_result.out
-	local result=$(comm -3 ${KOBMAN_ARIES_ENV_ROOT}/dependency/requirements.txt $HOME/ts1_result.out)
+	ls $HOME/.local/lib/python3.6/site-packages | sort >> $HOME/files_to_compare.txt
+	# sort $HOME/files_to_compare.txt >> $HOME/sorted_files_to_compare.txt
+	sort ${KOBMAN_ARIES_ENV_ROOT}/dependency/requirements.txt >> $HOME/sorted_requirements.txt
+	comm -2 $HOME/sorted_requirements.txt $HOME/files_to_compare.txt >> $HOME/ts1_result.out 
+	sort $HOME/ts1_result.out >> $HOME/sorted_ts1_result.out
+	local result=$(comm -3 $HOME/sorted_requirements.txt $HOME/sorted_ts1_result.out)
 	if [[ -n $result ]]; then
 		__kobman_echo_no_colour "Could not find all the requirements"
 		return 1
 	fi
 	[[ -f $HOME/files_to_compare.txt ]] && rm $HOME/files_to_compare.txt
 	[[ -f $HOME/ts1_result.out ]] && rm $HOME/ts1_result.out
+	[[ -f $HOME/sorted_requirements.txt ]] && rm $HOME/sorted_requirements.txt
+	[[ -f $HOME/sorted_ts1_result.out ]] && rm $HOME/sorted_ts1_result.out
 }
 
 # function __kobman_update_Aries-dev
