@@ -42,15 +42,8 @@ function create_list_template_script(){
 cat << EOF
 Available environments and their respective version numbers
 ---------------------------------------------------------------
-von-network 0.0.2 0.0.3 0.0.5 0.0.7
-TheOrgBook 0.0.2 0.0.3 0.0.5 0.0.7
-greenlight 0.0.2 0.0.3 0.0.5 0.0.7
-KOBman 0.0.2 0.0.3 0.0.5 0.0.7
-KOBConnect 0.0.2 0.0.3 0.0.5 0.0.7
-KOBRegistry 0.0.2 0.0.3 0.0.5 0.0.7
-KochiOrgBook 0.0.2 0.0.3 0.0.5 0.0.7
-KOBDflow 0.0.2 0.0.3 0.0.5 0.0.7
-KOBVON 0.0.2 0.0.3 0.0.5 0.0.7
+KOBman - 0.0.1,0.0.1.1
+Aries-dev - 0.0.1
 EOF
 }
 

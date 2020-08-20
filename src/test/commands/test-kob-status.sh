@@ -39,19 +39,22 @@ function __test_kob_execute
         __kobman_echo_white "Output of status"
         __kobman_echo_white "----------------"
         kob status
+        kob status >> $HOME/ts1_result.out
+        if [[ -f $KOBMAN_DIR/envs/kobman-$environment/current ]]; then
+            cat $KOBMAN_DIR/envs/kobman-$environment/current >> $HOME/ts3_result.out
+        fi
+        __kobman_echo_no_colour "Removing dummyenv"
+        kob uninstall -env $environment -V $version >> $HOME/uninstall_output.txt
+        __kobman_echo_white "Output of status"
+        __kobman_echo_white "----------------"
+        kob status
+        kob status >> $HOME/ts2_result.out 
     else
+        tail $HOME/install_output.txt
         __kobman_echo_no_colour "1" > $KOBMAN_DIR/var/kobman_env_$environment.proc    
     fi
-    if [[ -f $KOBMAN_DIR/envs/kobman-$environment/current ]]; then
-        cat $KOBMAN_DIR/envs/kobman-$environment/current >> $HOME/ts3_result.out
-    fi
-    kob status >> $HOME/ts1_result.out
-    __kobman_echo_no_colour "Removing dummyenv"
-    kob uninstall -env $environment -V $version >> $HOME/uninstall_output.txt
-    __kobman_echo_white "Output of status"
-    __kobman_echo_white "----------------"
-    kob status
-    kob status >> $HOME/ts2_result.out 
+
+    
     
 }
 function __test_kob_validate
@@ -99,7 +102,8 @@ function __test_kob_validate
 
 function __test_kob_cleanup
 {
-    rm $HOME/*.out $KOBMAN_DIR/var/kobman_env_$environment.proc $path_to_kob_envs/kobman-$environment.sh $HOME/*_output.txt
+    [[ -f $HOME/*.out ]] && rm $HOME/*.out 
+    rm $KOBMAN_DIR/var/kobman_env_$environment.proc $path_to_kob_envs/kobman-$environment.sh $HOME/*_output.txt
     sed -i "s/dummyenv,0.0.2,0.0.3,0.0.5,0.0.7,0.0.9//g" $KOBMAN_DIR/var/list.txt
 }
 
