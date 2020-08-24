@@ -96,7 +96,6 @@ for f in "${scripts[@]}"; do
 done
 IFS="$OLD_IFS"
 unset scripts f
-[[ -n $KOBMAN_ENV_REPOS ]] && (__kobman_download_envs_from_repo || return 1)
 # Load the kobman config if it exists.
 if [ -f "${KOBMAN_DIR}/etc/config" ]; then
 	source "${KOBMAN_DIR}/etc/config"
