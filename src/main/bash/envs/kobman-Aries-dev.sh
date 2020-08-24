@@ -6,8 +6,8 @@ function __kobman_install_Aries-dev
     if [[ -z $KOBMAN_ARIES_ENV_ROOT ]]; then
         export KOBMAN_ARIES_ENV_ROOT=$HOME/Aries_dev
     fi
-    __kobman_check_python3_installation
-    __kobman_check_pip_installation
+    check_python3_installation
+    check_pip_installation
     __kobman_echo_white "Installing aries-cloudagent"
     pip3 install aries-cloudagent
     if [[ ! -d $KOBMAN_ARIES_ENV_ROOT ]]; then
@@ -39,12 +39,12 @@ function __kobman_create_aries_dev_environment
 	# export KOBMAN_ROOT_DIR="$HOME/${KOBMAN_ARIES_ENV_ROOT}"
 	mkdir -p ${KOBMAN_ARIES_ENV_ROOT}/dependency
     touch ${KOBMAN_ARIES_ENV_ROOT}/dependency/requirements.txt
-    __kobman_add_Aries_requirements > ${KOBMAN_ARIES_ENV_ROOT}/dependency/requirements.txt
+    add_aries_requirements > ${KOBMAN_ARIES_ENV_ROOT}/dependency/requirements.txt
 	mkdir -p ${KOBMAN_ARIES_ENV_ROOT}/src
     __kobman_echo_violet "Dev environment for ${environment} created successfully"
 }
 
-function __kobman_add_Aries_requirements(){
+function add_aries_requirements(){
 cat<<EOF
 aiohttp~=3.6.2
 aiohttp-apispec==2.2.1
@@ -88,7 +88,7 @@ function __kobman_uninstall_Aries-dev
 	# 	rm -rf $KOBMAN_ARIES_ENV_ROOT
 	# fi
 }
-function __kobman_check_python3_installation
+function check_python3_installation
 {
     __kobman_echo_no_colour "Checking python installation"
     if [[ -z $(which python3) ]]; then
@@ -97,7 +97,7 @@ function __kobman_check_python3_installation
         sudo apt-get install python3.6
     fi
 }
-function __kobman_check_pip_installation
+function check_pip_installation
 {
     __kobman_echo_no_colour "Checking pip installation"
     if [[ -z $(which pip3) ]]; then
