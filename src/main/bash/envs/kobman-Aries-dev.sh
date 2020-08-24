@@ -1,5 +1,5 @@
 #!/bin/bash
-function __kobman_install_Aries-dev
+function __kobman_install_aries-dev
 {
     local environment=$1
     local version=$2
@@ -8,7 +8,7 @@ function __kobman_install_Aries-dev
     fi
     check_python3_installation
     check_pip_installation
-    __kobman_echo_white "Installing aries-cloudagent"
+    __kobman_echo_white "Installing $environment environment"
     pip3 install aries-cloudagent
     if [[ ! -d $KOBMAN_ARIES_ENV_ROOT ]]; then
 		# __kobman_create_fork "${environment}" || return 1
@@ -62,7 +62,7 @@ pyld==2.0.1
 EOF
 }
 
-function __kobman_uninstall_Aries-dev
+function __kobman_uninstall_aries-dev
 {
     local environment=$1
     if [[ ! -d $KOBMAN_ARIES_ENV_ROOT ]]; then
@@ -109,7 +109,7 @@ function check_pip_installation
     fi
 }
 
-function __kobman_validate_Aries-dev
+function __kobman_validate_aries-dev
 {
 	local environment=$1
 	
@@ -153,22 +153,22 @@ function __kobman_validate_Aries-dev
 	[[ -f $HOME/sorted_ts1_result.out ]] && rm $HOME/sorted_ts1_result.out
 }
 
-# function __kobman_update_Aries-dev
+# function __kobman_update_aries-dev
 # {
 # 	TODO: Add code for updation
 # }
 
-# function __kobman_upgrade_Aries-dev
+# function __kobman_upgrade_aries-dev
 # {
 # 	TODO: Add code for upgrade
 # }
 
-# function __kobman_start_Aries-dev
+# function __kobman_start_aries-dev
 # {
 # 	TODO: Add code for starting the environment
 # }
 
-# function __kobman_stop_Aries-dev
+# function __kobman_stop_aries-dev
 # {
 # 	TODO: Add code for stop
 # }
