@@ -8,15 +8,15 @@ function __kob_remove
     #     __kobman_echo_no_colour "Removing dev environment"
     #     rm -rf $KOBMAN_ENV_ROOT
     # fi
-    __kobman_secure_curl "https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/master/dist/environments" >> $HOME/env_tmp.txt
-    sed -i 's/,/ /g' $HOME/env_tmp.txt
-    local environment=$(cat $HOME/env_tmp.txt)
+    __kobman_secure_curl "https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/master/dist/environments" >> $HOME/tmp_env_names.txt
+    sed -i 's/,/ /g' $HOME/tmp_env_names.txt
+    local environment=$(cat $HOME/tmp_env_names.txt)
     for i in $environment; do
         if [[ -d $KOBMAN_DIR/envs/kobman-$i ]]; then
         __kobman_uninstall_$i "$i"
         fi
     done
-    [ -f $HOME/env_tmp.txt ] && rm $HOME/env_tmp.txt
+    [ -f $HOME/tmp_env_names.txt ] && rm $HOME/tmp_env_names.txt
     if [[ -d $KOBMAN_DIR ]]; then
         __kobman_echo_no_colour "Removing utility..."
         rm -rf $KOBMAN_DIR
