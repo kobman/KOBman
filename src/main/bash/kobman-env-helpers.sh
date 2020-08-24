@@ -110,42 +110,7 @@ function __kobman_error_rollback
 
 }
 
-function __kobman_download_envs_from_repo
-{
-  # __kobman_echo_white "Downloading environments from external repos"
-  local env_repos=$(echo $KOBMAN_ENV_REPOS | sed 's/,/ /g')
-  local environment_files namespace repo_name trimmed_file_name environment zip_stage_folder
-  zip_stage_folder=$HOME/zip_stage_folder
-  mkdir -p $zip_stage_folder
-  for i in ${env_repos[@]}; do
-    namespace=$(echo $i | cut -d "/" -f 1)
-    repo_name=$(echo $i | cut -d "/" -f 2)
-    if curl -s https://api.github.com/repos/$namespace/$repo_name | grep -q "Not Found"
-    then
-      continue
-    fi
-    curl -sL https://github.com/$namespace/$repo_name/archive/master.zip -o $HOME/$repo_name.zip
-    unzip -q $HOME/$repo_name.zip -d $zip_stage_folder
-    [[ ! -f $zip_stage_folder/$repo_name-master/list.txt ]] && __kobman_echo_red "Error:No list file found for $repo_name" && ([[ -d $zip_stage_folder ]] && rm -rf $zip_stage_folder) && continue
-    environment_files=$(find $zip_stage_folder/$repo_name-master -type f -name "kobman-*.sh")
-    [[ -z ${environment_files[@]} ]] && echo "continue" && continue
-    for j in ${environment_files[@]}; do
-      trimmed_file_name="${j##*/}"
-      environment=$(echo $trimmed_file_name | cut -d "-" -f 2 | sed 's/.sh//g')
-      if cat $KOBMAN_DIR/var/list.txt | grep -qw "$namespace/$repo_name/$environment" 
-      then
-        continue
-      fi
-      mv $j $KOBMAN_DIR/envs/
-      __kobman_echo_no_colour "" >> $KOBMAN_DIR/var/list.txt
-      cat $zip_stage_folder/$repo_name-master/list.txt | grep "$namespace/$repo_name/$environment"  >> $KOBMAN_DIR/var/list.txt
-    done
-    rm $HOME/$repo_name.zip
-  done
-  [[ -d $zip_stage_folder ]] && rm -rf $zip_stage_folder
-  unset environment_files namespace repo_name trimmed_file_name environment zip_stage_folder
-  
-}
+
 
 function __kobman_validate_environment
 {
