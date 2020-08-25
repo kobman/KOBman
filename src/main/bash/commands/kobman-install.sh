@@ -1,6 +1,51 @@
 #!/usr/bin/env bash
 
-function __kob_install
+
+function __kob_install {
+
+	local environment_value=$1
+ 	local version_value=$2
+	__kobman_create_environment_directory "$environment_value" "$version_value"
+}
+
+function __kobman_validate_environment
+{
+	local environment_name=$1
+	echo ${environment_name} > $KOBMAN_DIR/var/current
+	cat $KOBMAN_DIR/var/list.txt | grep -w "$environment_name" > /dev/null	
+	if [ "$?" != "0" ]; then
+
+		__kobman_echo_debug "Environment $environment_name does not exist"
+		return 1
+	fi
+}
+
+function __kobman_validate_version_format
+{
+	__kobman_echo_no_colour "$1" | grep -qw '[0-9].[0-9].[0-9]' 
+
+	if [ "$?" != "0" ]; then
+
+		__kobman_echo_debug "Version format you have entered is incorrect"
+		__kobman_echo_green "Correct format -> 0.0.0 [eg: 0.0.2]"
+		return 1
+	fi
+}
+
+function __kobman_check_if_version_exists
+{
+	local environment_name=$1
+	local version=$2
+	cat $KOBMAN_DIR/var/list.txt | grep -w "${environment_name}" | grep -q ${version}
+	if [ "$?" != "0" ]; then
+
+		__kobman_echo_debug "${environment_name} $version does not exist"
+		return 1
+	fi
+}
+
+
+function __kobman_create_environment_directory
 {
 
 		local environment_name=$1
