@@ -19,26 +19,23 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 4. Make sure your code lints.
 5. Issue that pull request!
 
-## Any contributions you make will be under the Apache License 2.0 Software License
-In short, when you submit code changes, your submissions are understood to be under the same [Apache License 2.0](https://github.com/hyperledgerkochi/KOBman/blob/master/LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
-
 ## Report bugs using Github's [issues](https://github.com/hyperledgerkochi/KOBman/issues)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/hyperledgerkochi/KOBman/issues); it's that easy!
 
 
 ### Bugs and New Features
 
-We keep a distinction between New Features and Bugs/Issues. We try to minimise the noise in our Github Issues stream by first having a conversation on (eg:  [KochiOrgBook! Whatsapp Group](https://chat.whatsapp.com/El6d3aAc6pYLEDEdQPVABY). ) 
+We keep a distinction between New Features and Bugs/Issues. We try to minimise the noise in our Github Issues stream by first having a conversation on approprate media (eg:  [KochiOrgBook! Whatsapp Group](https://chat.whatsapp.com/El6d3aAc6pYLEDEdQPVABY). ) 
 
-- User Issues can be raised in our issue section.
+- User Issues can be raised in our [issues section](https://github.com/hyperledgerkochi/KOBman/issues).
 - New Features or Enhancements can be discussed in our issue section.
 
-After accepting a new feature or confirming that a bug was found, an Issue may be raised filling in the provided Issue Template on the Kobman issue tracker.
+After accepting a new feature or confirming that a bug was found, an Issue may be raised filling in the provided issue template on the KOBman issue tracker.
 
 **Unfortunately we will close any Github Issues that have not followed this process of prior discussion.**
 
 ## Write bug reports with detail, background, and sample code
-[This is an example](http://stackoverflow.com/q/12488905/180626) of a bug report I wrote, and I think it's not a bad model. Here's [another example from Craig Hockenberry](http://www.openradar.me/11905408), an app developer whom I greatly respect.
+[This is an example](https://github.com/asa1997/KOBman/issues/8) of a bug report a contributor wrote.
 
 **Great Bug Reports** tend to have:
 
@@ -57,8 +54,10 @@ I'm again borrowing these from [Facebook's Guidelines](https://github.com/facebo
 
 * 2 spaces for indentation rather than tabs
 
+## Any contributions you make will be under the Apache License 2.0 Software License
+In short, when you submit code changes, your submissions are understood to be under the same [Apache License 2.0](https://github.com/hyperledgerkochi/KOBman/blob/master/LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
 
 ## License
-By contributing, you agree that your contributions will be licensed under its MIT License.
+By contributing, you agree that your contributions will be licensed under its Apache License 2.0.
 
 
