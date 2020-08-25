@@ -9,7 +9,7 @@ Before raising an issue the contributor should follow the listed steps:
 * Recommended to mark checklist of the issue template before submitting [ refer snapshot below ] 
 
 
-### Snapshot
+### Issue Template Snapshot
 _____________________________________________
 
 ![image](https://user-images.githubusercontent.com/33585301/91196051-4e2c1f80-e717-11ea-95c8-a0ead4636e2a.png)
