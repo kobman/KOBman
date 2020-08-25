@@ -39,7 +39,7 @@ function __test_kob_init
 function __test_kob_validate
 {
     __kobman_echo_no_colour "Validating.."
-    local return_val=$(__kobman_validate_Aries-dev "$environment")
+    local return_val=$(__kobman_validate_aries-dev "$environment")
     if [[ $return_val == "1" ]]; then
         test_status="failed"
         return 1
