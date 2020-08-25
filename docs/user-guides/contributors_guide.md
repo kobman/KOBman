@@ -20,7 +20,7 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 5. Issue that pull request!
 
 ## Any contributions you make will be under the Apache License 2.0 Software License
-In short, when you submit code changes, your submissions are understood to be under the same [MIT License](https://github.com/hyperledgerkochi/KOBman/blob/master/LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
+In short, when you submit code changes, your submissions are understood to be under the same [Apache License 2.0](https://github.com/hyperledgerkochi/KOBman/blob/master/LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
 
 ## Report bugs using Github's [issues](https://github.com/hyperledgerkochi/KOBman/issues)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/hyperledgerkochi/KOBman/issues); it's that easy!
