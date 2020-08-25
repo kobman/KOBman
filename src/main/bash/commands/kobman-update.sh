@@ -69,7 +69,7 @@ function __kob_update
 function check_value_for_repo_env_var
 {
 	if [[ -z $KOBMAN_ENV_REPOS ]]; then
-		__kobman_echo_no_colour "No values set for $KOBMAN_ENV_REPOS"
+		__kobman_echo_no_colour "No user repos found"
 		return 1
 	fi
 }
