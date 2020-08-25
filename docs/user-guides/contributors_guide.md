@@ -35,7 +35,7 @@ After accepting a new feature or confirming that a bug was found, an Issue may b
 **Unfortunately we will close any Github Issues that have not followed this process of prior discussion.**
 
 ## Write bug reports with detail, background, and sample code
-[This is an example](https://github.com/asa1997/KOBman/issues/8) of a bug report a contributor wrote.
+[This is an example](https://github.com/asa1997/KOBman/issues/8) of a bug reported by a contributor .
 
 **Great Bug Reports** tend to have:
 
