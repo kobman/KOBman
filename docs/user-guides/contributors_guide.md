@@ -50,9 +50,8 @@ After accepting a new feature or confirming that a bug was found, an Issue may b
 People *love* thorough bug reports. 
 
 ## Use a Consistent Coding Style
-I'm again borrowing these from [Facebook's Guidelines](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
+It is recommended to follow the [KOBman Checklist](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/KOBman%20Script%20Review%20Checklist.md) before submitting any pull requests.
 
-* 2 spaces for indentation rather than tabs
 
 ## Any contributions you make will be under the Apache License 2.0 Software License
 In short, when you submit code changes, your submissions are understood to be under the same [Apache License 2.0](https://github.com/hyperledgerkochi/KOBman/blob/master/LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
