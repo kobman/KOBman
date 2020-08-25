@@ -5,5 +5,7 @@ Please tick one according to the issue you are facing with:
 - [ ] Issue facing while adding a new environment or new file.
 - [ ] Other issues: please provide the issue in the comment box
 
-Please explain the Issue / Feature Request here:
-Please provide the necessary screenshots or documents regarding the issue:
+### Please explain the Issue / Feature Request here:
+
+
+### Please provide the necessary screenshots or documents regarding the issue:
