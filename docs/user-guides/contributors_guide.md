@@ -52,13 +52,11 @@ People *love* thorough bug reports.
 
 ## Processes expected to follow by each contributors:
 
-[Process for pull request](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-raise-a-pull-request.md)
-[Process for issues](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-raise-an-issue.md)
+- [Process for pull request](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-raise-a-pull-request.md)
+
+- [Process for issues](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-raise-an-issue.md)
 
 
-[Make a pull r, but make sure to initiate discussion on Whatsapp Group followed by a Github Issue as described above. The PR template is to be filled in before submission, ensuring that it is linked back to the Github Issue number by replacing #XXX with the appropriate Issue reference.
-
-Each PR should also be accompanied by a passing test(s) proving it's validity (where feasible).
 
 ## Use a Consistent Coding Style
 It is recommended to follow the [KOBman Checklist](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/KOBman%20Script%20Review%20Checklist.md) before submitting any pull requests.
