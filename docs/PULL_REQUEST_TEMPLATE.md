@@ -7,6 +7,8 @@
 - [ ] a Github [Issue](https://github.com/hyperledgerkochi/KOBman/issues) was opened for this feature / bug.
 - [ ] test coverage was added .
 
+____________________________________________________________________________________
+
 **This addresses Issue** #XXX-Link-to-Approved-Issue-XXX
 
 
