@@ -97,6 +97,33 @@ function __kobman_create_fork
     return 0
   fi
 }
+
+function __kobman_download_envs_from_repo
+{
+  # __kobman_echo_white "Downloading environments from external repos"
+  local namespace=$1
+  local repo_name=$2
+  local environment_files namespace repo_name zip_stage_folder remote_zip_url
+  zip_stage_folder=$HOME/zip_stage_folder
+  mkdir -p $zip_stage_folder
+  remote_zip_url="https://github.com/$namespace/$repo_name/archive/master.zip"
+  __kobman_secure_curl "$remote_zip_url" >> $HOME/$repo_name.zip
+  unzip -q $HOME/$repo_name.zip -d $zip_stage_folder
+  environment_files=$(find $zip_stage_folder/$repo_name-master -type f -name "kobman-*.sh")
+  if [[ -z ${environment_files[@]} ]]; then
+     rm $HOME/$repo_name.zip
+    [[ -d $zip_stage_folder ]] && rm -rf $zip_stage_folder
+    unset environment_files namespace repo_name zip_stage_folder remote_zip_url
+    return 1
+  fi
+  for j in ${environment_files[@]}; do
+    mv $j $KOBMAN_DIR/envs/
+  done
+  rm $HOME/$repo_name.zip
+  [[ -d $zip_stage_folder ]] && rm -rf $zip_stage_folder
+  unset environment_files namespace repo_name zip_stage_folder remote_zip_url
+  
+}
 function __kobman_validate_environment
 {
 	local environment_name=$1
