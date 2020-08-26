@@ -13,10 +13,17 @@ if [[ $environment == "all" && -z $version ]]; then
   __kobman_echo_white "This operation would remove all the environments and its files"
   __kobman_interactive_uninstall || return 1
   __kobman_echo_white "Removing files..."
+  __kobman_secure_curl "https://raw.githubusercontent.com/$KOBMAN_NAMESPACE/KOBman/master/dist/environments" >> $HOME/env_tmp.txt
+  sed -i 's/,/ /g' $HOME/env_tmp.txt
+  local environment=$(cat $HOME/env_tmp.txt)
+  for i in $environment; do
+    if [[ -d $KOBMAN_DIR/envs/kobman-$i ]]; then
+      __kobman_uninstall_$i "$i"
+    fi
+  done
+  [ -f $HOME/env_tmp.txt ] && rm $HOME/env_tmp.txt
   find $KOBMAN_DIR/envs -maxdepth 1 -mindepth 1 -type d -exec rm -rf '{}' \;
-  if [[ -n $KOBMAN_ENV_ROOT ]]; then
-    rm -rf $KOBMAN_ENV_ROOT
-  fi
+  
   __kobman_echo_green "Files removed successfully."
 # Condition where no current file is present and the user executes uninstall without version parameter
 elif [[ ! -f $KOBMAN_DIR/envs/kobman-$environment/current && -z $version ]]; then
