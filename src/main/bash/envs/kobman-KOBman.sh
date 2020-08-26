@@ -11,18 +11,12 @@ function __kobman_install_KOBman
 	
 	if [[ ! -d $KOBMAN_ENV_ROOT ]]; then
 		__kobman_create_fork "${environment_name}" || return 1
- 		__kobman_echo_white "Creating Dev environment for ${environment_name} under $KOBMAN_ENV_ROOT/$environment_name"
- 		__kobman_echo_white "from https://github.com/${KOBMAN_USER_NAMESPACE}/${environment_name}"
- 		__kobman_echo_white "version :${version_id} "
-		__kobman_create_dev_environment "$environment_name" || return 1
+ 		__kobman_create_dev_environment "$environment_name" "$version_id" || return 1
 		__kobman_echo_violet "Dev environment for ${environment_name} created successfully"
 	else
  		__kobman_echo_white "Removing existing version "
 		rm -rf $KOBMAN_ENV_ROOT
- 		__kobman_echo_white "Creating Dev environment for ${environment_name}under $KOBMAN_ENV_ROOT/$environment_name"
- 		__kobman_echo_white "from https://github.com/${KOBMAN_USER_NAMESPACE}/${environment_name}"
- 		__kobman_echo_white "version :${version_id} "
-		__kobman_create_dev_environment  "$environment_name" || return 1
+		__kobman_create_dev_environment  "$environment_name" "$version_id" || return 1
 		__kobman_echo_violet "Dev environment for ${environment_name} created successfully"
 	fi
 
@@ -34,6 +28,10 @@ function __kobman_create_dev_environment
 {
 	
 	local environment_name=$1
+	local version_id=$2
+	__kobman_echo_white "Creating Dev environment for ${environment_name} under $KOBMAN_ENV_ROOT/$environment_name"
+	__kobman_echo_white "from https://github.com/${KOBMAN_USER_NAMESPACE}/${environment_name}"
+	__kobman_echo_white "version :${version_id} "
 	mkdir -p $KOBMAN_ENV_ROOT
 	git clone -q https://github.com/$KOBMAN_USER_NAMESPACE/${environment_name} $KOBMAN_ENV_ROOT/$environment_name
 	if [[ ! -d $KOBMAN_ENV_ROOT || ! -d $KOBMAN_ENV_ROOT/$environment_name ]]; then
@@ -62,4 +60,5 @@ function __kobman_uninstall_KOBman
 	else
 		rm -rf $KOBMAN_ENV_ROOT
 	fi
+	unset KOBMAN_ENV_ROOT
 }
