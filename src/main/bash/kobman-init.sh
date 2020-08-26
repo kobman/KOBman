@@ -2,6 +2,9 @@
 
 function __kobman_set_user_configs
 {
+	if [[ -f $KOBMAN_DIR/etc/user-config.cfg ]]; then
+		source $KOBMAN_DIR/etc/user-config.cfg
+	fi
 # The functions sets all the user configs specified in the user-config.cfg file
 	if [[ ! -f $HOME/.kobman/etc/user-config.cfg ]]; then
 		return 1
