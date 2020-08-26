@@ -97,6 +97,7 @@ function __kobman_create_fork
     return 0
   fi
 }
+
 function __kobman_download_envs_from_repo
 {
   # __kobman_echo_white "Downloading environments from external repos"

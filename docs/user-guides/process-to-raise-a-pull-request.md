@@ -41,9 +41,14 @@ A code reviewer is recommeded to follow the listed steps , before providing LGTM
 
 **step 5:** Finally if the code passes the checklist , give a LGTM approval 
 
+____________________________
 
 ### other recommended steps:
 **step :** The title of the pull request should match the [issue ](https://github.com/hyperledgerkochi/KOBman/issues) raised related to the same.
+
+**step :** The pull request template is to be filled in before submission, ensuring that it is linked back to the Github Issue number by replacing #XXX with the appropriate Issue reference.
+
+**step :** Each pull request should also be accompanied by a passing test(s) proving it's validity (where feasible).
 
 
 

@@ -8,14 +8,8 @@ Before raising an issue the contributor should follow the listed steps:
 * Each issue should be tracked down and closed by the assignee .
 * Recommended to mark checklist of the issue template before submitting [ refer snapshot below ] 
 
-#### Snapshot
+
+### Issue Template Snapshot
 _____________________________________________
 
-![image](https://user-images.githubusercontent.com/33585301/90213135-9d6a7a00-de12-11ea-94b7-dd5e03c52fd2.png)
-
-_____________________________________________
-
-
-![image](https://user-images.githubusercontent.com/33585301/90213160-ae1af000-de12-11ea-95a6-3cf2d8a8fd53.png)
-
-_____________________________________________
+![image](https://user-images.githubusercontent.com/33585301/91196051-4e2c1f80-e717-11ea-95c8-a0ead4636e2a.png)
