@@ -3,7 +3,6 @@ We love your input! We want to make contributing to this project as easy and tra
 
 - Reporting a bug
 - Discussing the current state of the code
-- Submitting a fix
 - Proposing new features
 - Becoming a maintainer
 
@@ -13,7 +12,9 @@ We use github to host code, to track issues and feature requests, as well as acc
 ## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
 
-1. Fork the repo and create your branch from `master`.
+
+
+1. [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) and create your branch from `master`.
 2. If you've added code that should be tested, add tests.
 3. Ensure the test suite passes.
 4. Make sure your code lints.
@@ -59,8 +60,7 @@ People *love* thorough bug reports.
 
 
 ## Use a Consistent Coding Style
-It is recommended to follow the [KOBman Checklist](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/KOBman%20Script%20Review%20Checklist.md) before submitting any pull requests.
-
+You must follow the coding standard described in the [KOBman review Checklist](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/KOBman%20Script%20Review%20Checklist.md).
 
 ## Any contributions you make will be under the Apache License 2.0 Software License
 In short, when you submit code changes, your submissions are understood to be under the same [Apache License 2.0](https://github.com/hyperledgerkochi/KOBman/blob/master/LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
