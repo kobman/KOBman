@@ -39,7 +39,7 @@ function __test_kob_validate
 {
     __kobman_echo_no_colour "Validating $environment dev environment"
     local return_from_validate  
-    return_from_validate=$(__kobman_validate_$environment "$environment" "$version")
+    return_from_validate=$(__kobman_validate_$environment "$environment")
     if [[ $return_from_validate == "1" ]]; then
         test_status="failed"
     fi
