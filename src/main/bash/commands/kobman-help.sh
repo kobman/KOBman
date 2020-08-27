@@ -52,6 +52,7 @@ help          : $ kob help
 		Displays the KOBman manual
 
 remove 	      : $ kob rm
-		Removes KOBman utility and installed environments from the local system
+		Removes KOBman utility and installed environments 
+		from the local system
 EOF
 }
