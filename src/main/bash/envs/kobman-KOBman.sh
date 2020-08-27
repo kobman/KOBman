@@ -61,4 +61,39 @@ function __kobman_uninstall_KOBman
 		rm -rf $KOBMAN_ENV_ROOT
 	fi
 	unset KOBMAN_ENV_ROOT
+
 }
+
+function __kobman_validate_KOBman
+{
+	local environment=$1
+	if [[ ! -d $KOBMAN_ENV_ROOT/$environment ]]; then
+		__kobman_echo_no_colour "Could not find $KOBMAN_ENV_ROOT/$environment"
+		return 1
+	fi
+
+	[[ ! -d $KOBMAN_ENV_ROOT/dependency ]] && __kobman_echo_no_colour "Could not find $KOBMAN_ENV_ROOT/dependency" && return 1
+
+	
+
+}
+
+# function __kobman_update_KOBman
+# {
+# 	##TODO:- add the code for updating KOBman dev
+# }
+
+# function __kobman_upgrade_KOBman
+# {
+# 	##TODO:- add the code for upgradation 
+# }
+
+# function __kobman_start_KOBman
+# {
+# 	##Not Applicable
+# }
+
+# function __kobman_stop_KOBman
+# {
+# 	##Not Applicable
+# }
