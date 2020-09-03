@@ -44,4 +44,4 @@ git commit -m "Released the version $kob_rel_version"
 git push origin -f $dist_branch
 
 #checkout back to master
-git checkout issue_#183
+git checkout master
