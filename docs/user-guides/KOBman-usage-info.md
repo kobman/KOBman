@@ -7,13 +7,24 @@
 	-  `install` - Install KOB environment on the host with X.Y.Z version number format.
 	-  `--environment/-env` - Parameter to indicate the environment that is to be installed.
 	-  `[env_name]` - Name of the [environment](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/environments) to be installed.
+	-  `{version}` - The environment's version that has to be installed
 	
 - **Examples** :
 
 	- KOBman dev environment installation
 
 			$ kob install -env KOBman –V 0.0.1
-	 	**Output** :
+	 	       Please run the below command by substituing <namespace> with your GitHub id
+
+                       $ export KOBMAN_USER_NAMESPACE=<namespace>
+
+                       Eg: export KOBMAN_USER_NAMESPACE=abc123
+
+                       Please run the install command after exporting your Github id
+
+		
+		
+		**Successful Output** :
 	 	*Dev environment for KOBman created successfully*
 
 ## 2. <ins> Uninstall Command <ins> ##
@@ -25,7 +36,7 @@
 - **Command Arguments** :
 	- `uninstall` - Uninstall KOB environment on the host.
 	- `--environment/-env` - Type of KOB environment to be un-installed.
-	- `[env_name]` - Name of the environment. 
+	- `[env_name]` - Name of the [environment](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/environments) to be uninstalled. 
 	- `{version}` - The version for which files has to be removed.
 
 - **Examples** :
