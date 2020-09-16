@@ -8,10 +8,11 @@
 	-  `--environment/-env` - Parameter to indicate the environment that is to be installed.
 	-  `[env_name]` - Name of the [environment](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/environments) to be installed.
 	-  `{version}` - The environment's version that has to be installed
+	-   `KOBMAN_USER_NAMESPACE` - need to specify your github namespace
 	
 - **Examples** :
 
-	- KOBman dev environment installation
+	- KOBman dev environment installation for the first time
 
             $ kob install -env KOBman –V 0.0.1
 
