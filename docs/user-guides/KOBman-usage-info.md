@@ -13,17 +13,17 @@
 
 	- KOBman dev environment installation
 
-			$ kob install -env KOBman –V 0.0.1
-	 	       Please run the below command by substituing <namespace> with your GitHub id
+            $ kob install -env KOBman –V 0.0.1
 
-                       $ export KOBMAN_USER_NAMESPACE=<namespace>
+            Please run the below command by substituing <namespace> with your GitHub id
 
-                       Eg: export KOBMAN_USER_NAMESPACE=abc123
+            $ export KOBMAN_USER_NAMESPACE=<namespace>
 
-                       Please run the install command after exporting your Github id
+            Eg: export KOBMAN_USER_NAMESPACE=abc123
 
-		
-		
+            Please run the install command after exporting your Github id
+
+				
 		**Successful Output** :
 	 	*Dev environment for KOBman created successfully*
 
