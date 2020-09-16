@@ -159,9 +159,25 @@
 		$ kob upgrade
 	**Output** : </br>
 	Upgraded successfully
-        Current version:0.0.2
+	
+        Current version:{version tag
 
 		
+## 8. <ins> Update Command <ins> ##
+	
+	$ kob update
+	
+- **Command Argument**
+	
+	- `update` - will perform a update of KOBman utilitie's available environments installed in the local system .
+	
+- **Example**
+		
+		$ kob upgrade
+	**Output** : </br>
+	Upgraded successfully
+	
+        Current version:{version tag}
 		
 
 
