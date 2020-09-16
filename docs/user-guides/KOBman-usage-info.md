@@ -7,7 +7,7 @@
 	-  `install` - Install KOB environment on the host with X.Y.Z version number format.
 	-  `--environment/-env` - Parameter to indicate the environment that is to be installed.
 	-  `[env_name]` - Name of the [environment](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/environments) to be installed.
-	-  `{version}` - The environment's version that has to be installed
+	-  `{version}` - The environment's [version](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/list.txt) that has to be installed
 	-   `KOBMAN_USER_NAMESPACE` - need to specify your github namespace
 	
 - **Examples** :
@@ -146,6 +146,20 @@
 	
 	*KOBman 0.0.1* </br>
 
+## 7. <ins> Upgrade Command <ins> ##
+	
+	$ kob upgrade
+	
+- **Command Argument**
+	
+	- `upgrade` - will perform a selfupgrade of KOBman utility installed in the local system .
+	
+- **Example**
+		
+		$ kob upgrade
+	**Output** : </br>
+	Upgraded successfully
+        Current version:0.0.2
 
 		
 		
