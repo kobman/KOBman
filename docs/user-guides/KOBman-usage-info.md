@@ -6,7 +6,7 @@
 
 	-  `install` - Install KOB environment on the host with X.Y.Z version number format.
 	-  `--environment/-env` - Parameter to indicate the environment that is to be installed.
-	-  `[env_name]` - Name of the environment to be installed.
+	-  `[env_name]` - Name of the [environment](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/environments) to be installed.
 	
 - **Examples** :
 
