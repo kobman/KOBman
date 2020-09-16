@@ -1,6 +1,6 @@
 # KOBman User-Guide 
 
-The KOB command-line interface (CLI) is a bash specific command shell that runs on top of a Ubuntu based operating system kernel. Using industry-standard tools and utilities, the CLI provides a powerful set of commands that you can use to set up and configure hyperledger specific projects. This page contains information about the KOB CLI.
+The KOB command-line interface (CLI) is a bash specific command shell that runs on top of a Ubuntu based operating system . Designed to integrate industry-standard tools and utilities, the CLI provides a powerful set of commands that you can use to set up and configure hyperledger specific projects. This page contains information about the KOB CLI.
 
 
  - [Getting Started Guide for KOBman CLI](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/getting-started-guide.md)
