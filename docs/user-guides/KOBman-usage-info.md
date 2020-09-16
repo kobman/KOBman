@@ -37,7 +37,7 @@
 - **Command Arguments** :
 	- `uninstall` - Uninstall KOB environment on the host.
 	- `--environment/-env` - Type of KOB environment to be un-installed.
-	- `[env_name]` - Name of the [environment](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/environments) to be uninstalled. 
+	- `[env_name]` - Name of the environment to be uninstalled. 
 	- `{version}` - The version for which files has to be removed.
 
 - **Examples** :
