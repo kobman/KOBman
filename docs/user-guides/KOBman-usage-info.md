@@ -10,7 +10,7 @@
 	-  `{version}` - The environment's [version](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/list.txt) that has to be installed
 	-   `KOBMAN_USER_NAMESPACE` - need to specify your github namespace
 	
-If the environment is being installed for the first time, you will be prompted to enter your GitHub id
+
 
 ![image](https://user-images.githubusercontent.com/33585301/93470974-5a6b5d00-f910-11ea-8304-b44770b335e7.png)
 
@@ -158,7 +158,7 @@ If the environment is being installed for the first time, you will be prompted t
 	**Output** : </br>
 	Upgraded successfully
 	
-        Current version:{version tag
+        Current version:{version tag}
 
 		
 ## 8. <ins> Update Command <ins> ##
@@ -171,7 +171,7 @@ If the environment is being installed for the first time, you will be prompted t
 	
 - **Example**
 		
-		$ kob upgrade
+		$ kob update
 	**Output** : </br>
 	Updated successfully
 	
