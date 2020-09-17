@@ -18,7 +18,7 @@
 	
 - **Examples** :
 
-	- KOBman dev environment installation for the first time
+	- KOBman dev environment installation 
 
             $ kob install -env KOBman –V 0.0.1
 
