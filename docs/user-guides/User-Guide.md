@@ -9,5 +9,4 @@ The KOB command-line interface (CLI) is a bash specific command shell that runs 
  - [Process to raise a issue](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-raise-an-issue.md)
  - [Process to add new environment](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-add-a-new-environment.md)
  
- 
- -
+
