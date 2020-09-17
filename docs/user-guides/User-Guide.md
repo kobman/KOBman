@@ -5,3 +5,9 @@ The KOB command-line interface (CLI) is a bash specific command shell that runs 
 
  - [Getting Started Guide for KOBman CLI](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/getting-started-guide.md)
  - [Reference on KOBman commands](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/KOBman-usage-info.md)
+ - [Process to raise a pull request](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-raise-a-pull-request.md)
+ - [Process to raise a issue](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-raise-an-issue.md)
+ - [Process to add new environment](https://github.com/hyperledgerkochi/KOBman/blob/master/docs/user-guides/process-to-add-a-new-environment.md)
+ 
+ 
+ -
