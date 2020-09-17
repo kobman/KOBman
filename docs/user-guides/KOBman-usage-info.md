@@ -175,9 +175,9 @@
 		
 		$ kob upgrade
 	**Output** : </br>
-	Upgraded successfully
+	Updated successfully
 	
-        Current version:{version tag}
+        
 		
 
 
