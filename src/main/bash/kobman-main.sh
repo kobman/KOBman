@@ -76,7 +76,8 @@ function kob {
 			if [[ -z $version && -f $KOBMAN_DIR/envs/kobman-$environment/current ]]; then
 				version=($(cat $KOBMAN_DIR/envs/kobman-$environment/current))
 			fi
-			[[ -z $version ]] && [[ -z $KOBMAN_DIR/envs/kobman-$environment/current ]] && __kobman_echo_red "Utility corrupted. Re-install KOBman and try again" && return 1
+			[[ -z $version ]] && [[ -d $KOBMAN_DIR/envs/kobman-$environment ]] && [[ ! -f $KOBMAN_DIR/envs/kobman-$environment/current ]] && __kobman_echo_red "Utility corrupted. Re-install KOBman and try again" && return 1
+			__kobman_check_parameter_present "$environment" "$version" || return 1
 			__kobman_validate_environment $environment || return 1
 			__kobman_check_if_version_exists $environment $version || return 1
 			__kob_$command $environment $version
