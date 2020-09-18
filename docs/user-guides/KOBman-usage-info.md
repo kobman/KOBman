@@ -6,14 +6,24 @@
 
 	-  `install` - Install KOB environment on the host with X.Y.Z version number format.
 	-  `--environment/-env` - Parameter to indicate the environment that is to be installed.
-	-  `[env_name]` - Name of the environment to be installed.
+	-  `[env_name]` - Name of the [environment](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/environments) to be installed.
+	-  `{version}` - The environment's [version](https://github.com/hyperledgerkochi/KOBman/blob/master/dist/list.txt) that has to be installed
+	-   `KOBMAN_USER_NAMESPACE` - need to specify your github namespace
+	
+If the environment is being installed for the first time, you will be prompted to enter your GitHub id
+
+![image](https://user-images.githubusercontent.com/33585301/93470974-5a6b5d00-f910-11ea-8304-b44770b335e7.png)
+
+
 	
 - **Examples** :
 
-	- KOBman dev environment installation
+	- KOBman dev environment installation 
 
-			$ kob install -env KOBman –V 0.0.1
-	 	**Output** :
+            $ kob install -env KOBman –V 0.0.1
+
+           		
+		**Successful Output** :
 	 	*Dev environment for KOBman created successfully*
 
 ## 2. <ins> Uninstall Command <ins> ##
@@ -25,7 +35,7 @@
 - **Command Arguments** :
 	- `uninstall` - Uninstall KOB environment on the host.
 	- `--environment/-env` - Type of KOB environment to be un-installed.
-	- `[env_name]` - Name of the environment. 
+	- `[env_name]` - Name of the environment to be uninstalled. 
 	- `{version}` - The version for which files has to be removed.
 
 - **Examples** :
@@ -134,8 +144,38 @@
 	
 	*KOBman 0.0.1* </br>
 
+## 7. <ins> Upgrade Command <ins> ##
+	
+	$ kob upgrade
+	
+- **Command Argument**
+	
+	- `upgrade` - will perform a selfupgrade of KOBman utility installed in the local system .
+	
+- **Example**
+		
+		$ kob upgrade
+	**Output** : </br>
+	Upgraded successfully
+	
+        Current version:{version tag}
 
 		
+## 8. <ins> Update Command <ins> ##
+	
+	$ kob update
+	
+- **Command Argument**
+	
+	- `update` - will perform a update of KOBman utilitie's available environments installed in the local system .
+	
+- **Example**
+		
+		$ kob update
+	**Output** : </br>
+	Updated successfully
+	
+        
 		
 
 
