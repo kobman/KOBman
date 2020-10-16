@@ -13,7 +13,7 @@ function __kob_update
 	check_value_for_repo_env_var || return 1
 	local env_repos namespace repo_name remote_list_url cached_list diff delta flag=0
 	cached_list=$KOBMAN_DIR/var/list.txt
-	sort -u $KOBMAN_DIR/var/list.txt  >> sorted_local_list.txt
+	sort -u $KOBMAN_DIR/var/list.txt  >> $HOME/sorted_local_list.txt
 	env_repos=$(echo $KOBMAN_ENV_REPOS | sed 's/,/ /g')
 	for i in ${env_repos[@]}; do
     	namespace=$(echo $i | cut -d "/" -f 1)
@@ -28,35 +28,35 @@ function __kob_update
     	fi
 
 		remote_list_url="https://raw.githubusercontent.com/$namespace/$repo_name/master/list.txt"
-		__kobman_secure_curl "$remote_list_url" >> remote_list.txt
-		remote_list=$(cat remote_list.txt)
+		__kobman_secure_curl "$remote_list_url" >> $HOME/remote_list.txt
+		remote_list=$(cat $HOME/remote_list.txt)
 		if [[ -z $remote_list ]]; then
 			__kobman_echo_red "Update failed"
 			__kobman_echo_red "Remote list corrupeted!!!!"
-			[[ -f remote_list.txt ]] && rm remote_list.txt
-			[[ -f sorted_local_list.txt ]] && rm sorted_local_list.txt
+			[[ -f $HOME/remote_list.txt ]] && rm $HOME/remote_list.txt
+			[[ -f $HOME/sorted_local_list.txt ]] && rm $HOME/sorted_local_list.txt
 			unset env_repos namespace repo_name remote_list_url cached_list diff delta  flag
 			return 1
 		fi
 		# cat $cached_list | sort -u >> sorted_local_list.txt
-		sort -u remote_list.txt >> sorted_remote_list.txt
-		diff=$(comm -13 sorted_local_list.txt sorted_remote_list.txt)
+		sort -u $HOME/remote_list.txt >> $HOME/sorted_remote_list.txt
+		diff=$(comm -13 $HOME/sorted_local_list.txt $HOME/sorted_remote_list.txt)
 		if [[ -n $diff ]]; then
 			flag=1
 			__kobman_echo_no_colour "" >> $cached_list
-			cat sorted_remote_list.txt >> $cached_list
+			cat $HOME/sorted_remote_list.txt >> $cached_list
 			__kobman_download_envs_from_repo $namespace $repo_name
 		else
-			flag=0
 			continue
 		fi	
-	done
-	check_for_changes $flag
-	[[ -f remote_list.txt ]] && rm remote_list.txt
-	[[ -f sorted_local_list.txt ]] && rm sorted_local_list.txt  
-	[[ -f sorted_remote_list.txt ]] && rm sorted_remote_list.txt 
+		[[ -f $HOME/remote_list.txt ]] && rm $HOME/remote_list.txt
+		[[ -f $HOME/sorted_remote_list.txt ]] && rm $HOME/sorted_remote_list.txt 
 
-	unset env_repos namespace repo_name remote_list_url cached_list diff delta  flag
+	done
+	[[ -f $HOME/sorted_local_list.txt ]] && rm $HOME/sorted_local_list.txt  
+	check_for_changes $flag
+	unset env_repos namespace repo_name remote_list_url cached_list diff delta flag
+
 	
 }
 ##check this again
