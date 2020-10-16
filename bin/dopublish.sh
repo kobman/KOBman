@@ -19,7 +19,7 @@ mkdir -p build/tmp
 
 # making of zip files
 
-zip -r $HOME/KOBman/build/tmp/kobman-latest.zip $HOME/KOBman/dist/list.txt $HOME/KOBman/src
+zip -r $HOME/KOBman/build/tmp/kobman-latest.zip dist/list.txt src
 
 #zip -r build/tmp/kobman-latest.zip $HOME/KOBman/src/
 cp $HOME/KOBman/build/tmp/kobman-latest.zip $HOME/KOBman/build/tmp/kobman-$kob_rel_version.zip

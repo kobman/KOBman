@@ -33,7 +33,8 @@ function __kob_update
 		if [[ -z $remote_list ]]; then
 			__kobman_echo_red "Update failed"
 			__kobman_echo_red "Remote list corrupeted!!!!"
-			rm remote_list.txt sorted_local_list.txt
+			[[ -f remote_list.txt ]] && rm remote_list.txt
+			[[ -f sorted_local_list.txt ]] && rm sorted_local_list.txt
 			unset env_repos namespace repo_name remote_list_url cached_list diff delta  flag
 			return 1
 		fi
@@ -51,7 +52,9 @@ function __kob_update
 		fi	
 	done
 	check_for_changes $flag
-	rm remote_list.txt sorted_local_list.txt sorted_remote_list.txt 
+	[[ -f remote_list.txt ]] && rm remote_list.txt
+	[[ -f sorted_local_list.txt ]] && rm sorted_local_list.txt  
+	[[ -f sorted_remote_list.txt ]] && rm sorted_remote_list.txt 
 
 	unset env_repos namespace repo_name remote_list_url cached_list diff delta  flag
 	
