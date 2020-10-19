@@ -10,18 +10,23 @@ function __kob_update
 	fi
 
 	[[ -f $KOBMAN_DIR/etc/user-config.cfg ]] && source "$KOBMAN_DIR/bin/kobman-init.sh"
+
 	check_value_for_repo_env_var || return 1
-	local env_repos namespace repo_name remote_list_url cached_list diff delta flag=0
+	
+	local env_repos namespace repo_name remote_list_url cached_list diff delta flag=0 
 	cached_list=$KOBMAN_DIR/var/list.txt
 	sort -u $KOBMAN_DIR/var/list.txt  >> $HOME/sorted_local_list.txt
 	env_repos=$(echo $KOBMAN_ENV_REPOS | sed 's/,/ /g')
+	
 	for i in ${env_repos[@]}; do
     	namespace=$(echo $i | cut -d "/" -f 1)
     	repo_name=$(echo $i | cut -d "/" -f 2)
+		
 		if [[ $namespace == $KOBMAN_NAMESPACE && $repo_name == "kobman_env_repo" ]]; then
 			continue
 		fi
     	
+		
 		if curl -s https://api.github.com/repos/$namespace/$repo_name | grep -q "Not Found"
     	then
       		continue
@@ -38,7 +43,7 @@ function __kob_update
 			unset env_repos namespace repo_name remote_list_url cached_list diff delta  flag
 			return 1
 		fi
-		# cat $cached_list | sort -u >> sorted_local_list.txt
+		
 		sort -u $HOME/remote_list.txt >> $HOME/sorted_remote_list.txt
 		diff=$(comm -13 $HOME/sorted_local_list.txt $HOME/sorted_remote_list.txt)
 		if [[ -n $diff ]]; then
@@ -47,13 +52,17 @@ function __kob_update
 			cat $HOME/sorted_remote_list.txt >> $cached_list
 			__kobman_download_envs_from_repo $namespace $repo_name
 		else
+			[[ -f $HOME/remote_list.txt ]] && rm $HOME/remote_list.txt
+			[[ -f $HOME/sorted_remote_list.txt ]] && rm $HOME/sorted_remote_list.txt 
 			continue
 		fi	
 		[[ -f $HOME/remote_list.txt ]] && rm $HOME/remote_list.txt
 		[[ -f $HOME/sorted_remote_list.txt ]] && rm $HOME/sorted_remote_list.txt 
 
 	done
+	
 	[[ -f $HOME/sorted_local_list.txt ]] && rm $HOME/sorted_local_list.txt  
+	
 	check_for_changes $flag
 	unset env_repos namespace repo_name remote_list_url cached_list diff delta flag
 
