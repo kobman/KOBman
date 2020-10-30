@@ -22,7 +22,7 @@ function __kob_update
     	namespace=$(echo $i | cut -d "/" -f 1)
     	repo_name=$(echo $i | cut -d "/" -f 2)
 		
-		if [[ $namespace == $KOBMAN_NAMESPACE && $repo_name == "kobman_env_repo" ]]; then
+		if [[ $namespace == $KOBMAN_NAMESPACE && $repo_name == "kobman-env-repo" ]]; then
 			continue
 		fi
     	
