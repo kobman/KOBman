@@ -22,7 +22,7 @@ function __kob_update
     	namespace=$(echo $i | cut -d "/" -f 1)
     	repo_name=$(echo $i | cut -d "/" -f 2)
 		
-		if [[ $namespace == $KOBMAN_NAMESPACE && $repo_name == "kobman_env_repo" ]]; then
+		if [[ $namespace == $KOBMAN_NAMESPACE && $repo_name == "kobman-env-repo" ]]; then
 			continue
 		fi
     	
@@ -49,7 +49,10 @@ function __kob_update
 		if [[ -n $diff ]]; then
 			flag=1
 			__kobman_echo_no_colour "" >> $cached_list
-			cat $HOME/sorted_remote_list.txt >> $cached_list
+			# cat $HOME/sorted_remote_list.txt >> $cached_list
+			for i in ${diff[@]}; do
+				echo $i >> $cached_list
+			done
 			__kobman_download_envs_from_repo $namespace $repo_name
 		else
 			[[ -f $HOME/remote_list.txt ]] && rm $HOME/remote_list.txt
