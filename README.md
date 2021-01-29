@@ -21,12 +21,6 @@ KOBMAN is a tool for managing parallel Versions of multiple KochiOrgBook project
 
 See documentation on the [KOBMAN! website](https://kobman.github.io).
 
-## System pre-requisite
-
-  - OS          : Ubuntu 18.04LTS
-  - Memory[RAM]): 4GB (min)
-  - Storage     : 30GB (min)
-
 
 ## Installation
 
