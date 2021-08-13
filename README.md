@@ -1,5 +1,3 @@
-# KOBman
-
 **KOBman** , is a command line utility inspired from sdkman !!
 KOBMan gives you a *kob* command on your shell , you can use it to automate the setup of various development environments required for KOB projects  
 
@@ -85,3 +83,4 @@ ____________________
 
 This project exists thanks to all the people who contribute.
 <a href="https://github.com/kobman/KOBman/graphs/contributors"><img src="https://i.stack.imgur.com/kk4j4.jpg" /></a>
+
